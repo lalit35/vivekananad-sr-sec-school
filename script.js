@@ -4,7 +4,7 @@ const captureButton = document.getElementById('captureButton');
 const cameraStream = document.getElementById('cameraStream');
 const photoCanvas = document.getElementById('photoCanvas');
 const capturedPhotoInput = document.getElementById('capturedPhoto');
-const photoPreview = document.getElementById('photoPreview');
+const successMessage = document.getElementById('successMessage');
 
 // Function to start the camera
 async function startCamera() {
@@ -29,15 +29,22 @@ function capturePhoto() {
 
     // Convert the canvas to a data URL and set it as the value of the hidden input
     const dataURL = photoCanvas.toDataURL('image/png');
-    capturedPhotoInput.value = dataURL;
-
-    // Display captured photo preview
-    photoPreview.src = dataURL;
-    photoPreview.style.display = 'block'; // Show the captured photo
+    capturedPhotoInput.value = dataURL; // Save the image URL in the hidden input
 
     // Hide video stream and capture button after photo is taken
     cameraStream.style.display = 'none';
     captureButton.style.display = 'none';
+
+    // Show the success message in the form
+    successMessage.style.display = 'block';
+
+    // Show an alert message
+    alert("Photo captured successfully!");
+
+    // Optionally hide the success message after 5 seconds
+    setTimeout(() => {
+        successMessage.style.display = 'none';
+    }, 5000); // Message disappears after 5 seconds
 }
 
 // Event listeners
