@@ -59,17 +59,8 @@
 
     <p class="note">You are about to pay ₹99 for your Competition Exam Registration. Please review your details below before proceeding.</p>
 
-    <!-- Personal Details -->
+    <!-- Email Field -->
     <div class="form-container">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" readonly>
-
-        <label for="lastName">Last Name:</label>
-        <input type="text" id="lastName" name="lastName" readonly>
-
-        <label for="mobileNumber">Mobile Number:</label>
-        <input type="tel" id="mobileNumber" name="mobileNumber" readonly>
-
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" readonly>
     </div>
@@ -77,7 +68,7 @@
     <p class="note">Click below to pay ₹99 for your Competition Exam Registration via UPI. A custom message will be shown during payment.</p>
 
     <!-- UPI Payment Button -->
-    <a href="upi://pay?pa=lalitkumar2907@fam&pn=Competition%20Registration&mc=123456&tid=1234567890&tr=12345&tn=Competition%20Exam%20Registration%20Fee&am=99&cu=INR" target="_blank">
+    <a id="paymentLink" href="javascript:void(0)" target="_blank">
         <button class="button">Pay ₹99 Now</button>
     </a>
 
@@ -88,12 +79,36 @@
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
 
-            // Extract parameters and populate the form fields
-            document.getElementById('firstName').value = urlParams.get('firstName') || '';
-            document.getElementById('lastName').value = urlParams.get('lastName') || '';
-            document.getElementById('mobileNumber').value = urlParams.get('mobileNumber') || '';
-            document.getElementById('email').value = urlParams.get('email') || '';
+            // Extract the email parameter
+            const email = urlParams.get('email') || '';
+
+            // Set the email field value
+            document.getElementById('email').value = email;
+
+            // Set the UPI payment URL dynamically after email validation
+            setUpPaymentLink(email);
         };
+
+        // Function to set up the payment link with UPI URL
+        function setUpPaymentLink(email) {
+            // Basic email validation (simple check)
+            if (isValidEmail(email)) {
+                const upiUrl = `upi://pay?pa=lalitkumar2907@fam&pn=Competition%20Registration&mc=123456&tid=1234567890&tr=12345&tn=Competition%20Exam%20Registration%20Fee&am=99&cu=INR`;
+
+                // Dynamically update the payment link
+                document.getElementById('paymentLink').setAttribute('href', upiUrl);
+            } else {
+                // If email is not valid, disable the button
+                alert('Invalid email address. Please ensure your email is correct.');
+                document.querySelector('.button').disabled = true;
+            }
+        }
+
+        // Simple email validation function
+        function isValidEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
     </script>
 
 </body>
