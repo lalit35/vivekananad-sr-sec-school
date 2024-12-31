@@ -87,9 +87,12 @@ function handleSubmit(event) {
             const mobileNumber = encodeURIComponent($('#mobileNumber').val());
             const email = encodeURIComponent($('#email').val());
 
+            // Construct the payment URL with query parameters
             const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?firstName=${firstName}&lastName=${lastName}&mobileNumber=${mobileNumber}&email=${email}`;
             console.log('Redirecting to:', paymentUrl);
-            window.location.href = paymentUrl; // Redirect to the payment page
+            
+            // Redirect to payment page
+            window.location.href = paymentUrl;
         },
         error: function(xhr, status, error) {
             console.error('Error in form submission:', error);
