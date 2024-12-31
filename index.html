@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <h1>Competition Exam Registration</h1>
-        <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbxggTve2vrah31f2J_IWvXH4g6wOD15AiGMrUW6b9aEgkKUFyqHuwgmnkJNRmzljC9Orw/exec" method="POST" enctype="multipart/form-data" target="_blank">
+        <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbwjTfH-bQfcjdmz52Txeb9Wlo7qoTt7c-ik8FUqU08yyP_JoWjlSQtzdFlYI-vmG1XxsQ/exec" method="POST" enctype="multipart/form-data" target="_blank">
             <!-- Camera Capture -->
             <label for="camera">Capture Photo:</label>
             <button type="button" id="cameraButton">Open Camera</button>
@@ -57,62 +57,6 @@
         </form>
     </div>
 
-    <script>
-        // JavaScript for camera functionality
-        document.getElementById('cameraButton').addEventListener('click', function() {
-            const video = document.getElementById('cameraStream');
-            const canvas = document.getElementById('photoCanvas');
-            const captureButton = document.getElementById('captureButton');
-
-            // Access the camera
-            navigator.mediaDevices.getUser Media({ video: true })
-                .then(function(stream) {
-                    video.srcObject = stream;
-                    video.style.display = 'block';
-                    captureButton.style.display = 'block';
-                })
-                .catch(function(err) {
-                    console.error("Error accessing camera: " + err);
-                });
-        });
-
-        document.getElementById('captureButton').addEventListener('click', function() {
-            const video = document.getElementById('cameraStream');
-            const canvas = document.getElementById('photoCanvas');
-            const capturedPhotoInput = document.getElementById('capturedPhoto');
-
-            // Set canvas dimensions
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
-
-            // Draw the video frame to the canvas
-            const context = canvas.getContext('2d');
-            context.drawImage(video, 0, 0);
-
-            // Convert the canvas to a data URL
-            const dataURL = canvas.toDataURL('image/png');
-
-            // Set the hidden input value to the data URL
-            capturedPhotoInput.value = dataURL;
-
-            // Stop the video stream
-            const stream = video.srcObject;
-            const tracks = stream.getTracks();
-            tracks.forEach(track => track.stop());
-
-            // Hide the video and capture button
-            video.style.display = 'none';
-            captureButton
-                        // Hide the video and capture button
-            video.style.display = 'none';
-            captureButton.style.display = 'none';
-        });
-
-        // Optional: Handle form submission
-        document.getElementById('registrationForm').addEventListener('submit', function(event) {
-            // You can add any additional validation or processing here if needed
-            alert("Form submitted successfully!");
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
