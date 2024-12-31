@@ -1,14 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Function to generate random registration number
-    function generateRegistrationNumber() {
-        const randomNumber = Math.floor(10000 + Math.random() * 90000); // Generates a random 5-digit number
-        return `VSS${randomNumber}`;
-    }
-
-    // Set the generated registration number to the input field
-    const registrationNumberField = document.getElementById('registrationNumber');
-    registrationNumberField.value = generateRegistrationNumber();  // Ensure this runs after DOM is ready
-
     // Handle the camera button and photo capture functionality
     const cameraButton = document.getElementById('cameraButton');
     const cameraStream = document.getElementById('cameraStream');
