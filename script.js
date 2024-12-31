@@ -96,6 +96,7 @@ function handleSubmit(event) {
         },
         error: function(xhr, status, error) {
             console.error('Error in form submission:', error);
+            console.log('Response:', xhr.responseText);  // Log the response text for more details
             alert('Error in form submission: ' + error);
         }
     });
