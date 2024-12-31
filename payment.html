@@ -3,12 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Competition Exam Registration</title>
+    <title>Payment</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 20px;
+        }
+
+        h1, h2 {
+            color: #4CAF50;
+        }
+
+        .form-container {
+            margin: 20px 0;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .form-container input {
+            width: 300px;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+        }
+
+        .note {
+            font-size: 16px;
+            color: #555;
         }
 
         .button {
@@ -18,6 +44,11 @@
             color: white;
             border: none;
             cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
@@ -25,6 +56,23 @@
 
     <h1>Competition Registration</h1>
     <h2>₹99 Payment</h2>
+
+    <p class="note">You are about to pay ₹99 for your Competition Exam Registration. Please review your details below before proceeding.</p>
+
+    <!-- Personal Details -->
+    <div class="form-container">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" readonly>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" readonly>
+
+        <label for="mobileNumber">Mobile Number:</label>
+        <input type="tel" id="mobileNumber" name="mobileNumber" readonly>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" readonly>
+    </div>
 
     <p class="note">Click below to pay ₹99 for your Competition Exam Registration via UPI. A custom message will be shown during payment.</p>
 
@@ -34,6 +82,19 @@
     </a>
 
     <p class="note">You will be redirected to your payment app (Google Pay, PhonePe, Paytm, etc.) to complete the payment.</p>
+
+    <script>
+        // Function to extract query parameters and pre-fill the payment form
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Extract parameters and populate the form fields
+            document.getElementById('firstName').value = urlParams.get('firstName') || '';
+            document.getElementById('lastName').value = urlParams.get('lastName') || '';
+            document.getElementById('mobileNumber').value = urlParams.get('mobileNumber') || '';
+            document.getElementById('email').value = urlParams.get('email') || '';
+        };
+    </script>
 
 </body>
 </html>
