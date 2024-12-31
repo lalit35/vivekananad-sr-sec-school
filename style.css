@@ -23,7 +23,8 @@ body {
 
 .school-name {
     flex-grow: 1; /* Allow the title to take available space */
-    text-align: center; /* Center the school name */
+    text-align: center;
+        /* Center the school name */
     font-size: 24px; /* Font size for the school name */
     color: #333; /* Dark gray color */
 }
@@ -111,3 +112,31 @@ video, canvas {
         padding: 20px; /* Adjust padding for smaller screens */
         margin: 20px; /* Reduce margin for smaller screens */
     }
+
+    .form-title {
+        font-size: 1.5em; /* Smaller form title on mobile */
+    }
+
+    .logo {
+        width: 60px; /* Smaller logo for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .school-name {
+        font-size: 20px; /* Smaller font size for very small screens */
+    }
+
+    h1 {
+        font-size: 1.5em; /* Further reduce heading size for very small screens */
+    }
+
+    input, select, button {
+        padding: 10px; /* Consistent padding for small screens */
+        font-size: 0.9em; /* Ensure readability */
+    }
+
+    .container {
+        margin: 10px; /* Reduce margin for very small screens */
+    }
+}
