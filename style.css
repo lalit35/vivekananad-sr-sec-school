@@ -1,7 +1,9 @@
 /* Global Styles */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
-    background: linear-gradient(to right, #e0eafc, #cfdef3); /* Gradient background */
+    background-image: url('YOUR_BACKGROUND_IMAGE_URL'); /* Add your background image URL here */
+    background-size: cover; /* Cover the entire background */
+    background-position: center; /* Center the background image */
     margin: 0;
     padding: 0;
 }
@@ -10,7 +12,7 @@ body {
 .container {
     max-width: 600px; /* Maximum width for the form */
     margin: 50px auto; /* Center the container */
-    background: white; /* White background for the form */
+    background: rgba(255, 255, 255, 0.9); /* White background for the form with slight transparency */
     padding: 30px; /* Increased padding for a spacious feel */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
     border-radius: 12px; /* More rounded corners */
@@ -40,6 +42,14 @@ body {
     font-size: 20px; /* Adjust font size for mobile */
     color: #333; /* Dark gray color */
     margin: 0; /* Remove default margin */
+}
+
+/* Form Title Styles */
+.form-title {
+    text-align: center; /* Center the form title */
+    color: #333; /* Dark gray color */
+    font-size: 1.8em; /* Font size for the form title */
+    margin: 20px 0; /* Space around the title */
 }
 
 /* Heading Styles */
@@ -101,7 +111,7 @@ video, canvas {
     margin: 10px 0; /* Space around video and canvas */
     max-width: 100%; /* Responsive width */
     border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* Responsive Design */
@@ -115,4 +125,26 @@ video, canvas {
         font-size: 2em; /* Smaller heading on mobile */
     }
 
-    .
+    .form-title {
+        font-size: 1.5em; /* Smaller form title on mobile */
+    }
+
+    .logo {
+        width: 60px; /* Smaller logo for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; /* Further reduce heading size for very small screens */
+    }
+
+    input, select, button {
+        padding: 10px; /* Consistent padding for small screens */
+        font-size: 0.9em; /* Ensure readability */
+    }
+
+    .container {
+        margin: 10px; /* Reduce margin for very small screens */
+    }
+}
