@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Set the generated registration number to the input field
     const registrationNumberField = document.getElementById('registrationNumber');
-    registrationNumberField.value = generateRegistrationNumber();
+    registrationNumberField.value = generateRegistrationNumber();  // Ensure this runs after DOM is ready
 
     // Handle the camera button and photo capture functionality
     const cameraButton = document.getElementById('cameraButton');
