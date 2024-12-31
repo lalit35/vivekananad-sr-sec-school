@@ -77,13 +77,18 @@
     <script src="script.js"></script>
 
     <script>
-        // Global variables for camera and canvas
+        // Initialize global variables for camera and canvas
         let cameraStream = document.getElementById('cameraStream');
         let photoCanvas = document.getElementById('photoCanvas');
         let captureButton = document.getElementById('captureButton');
         let cameraButton = document.getElementById('cameraButton');
         let successMessage = document.getElementById('successMessage');
         let capturedPhoto = document.getElementById('capturedPhoto');
+
+        // Initialize signature canvas
+        const signatureCanvas = document.getElementById('signatureCanvas');
+        const signatureCtx = signatureCanvas.getContext('2d');
+        let drawing = false;
 
         // Function to start the camera
         function startCamera() {
@@ -112,6 +117,32 @@
             let tracks = cameraStream.srcObject.getTracks();
             tracks.forEach(track => track.stop());
         }
+
+        // Handle the signature drawing
+        signatureCanvas.addEventListener('mousedown', function(event) {
+            drawing = true;
+            signatureCtx.beginPath();
+            signatureCtx.moveTo(event.offsetX, event.offsetY);
+        });
+
+        signatureCanvas.addEventListener('mousemove', function(event) {
+            if (drawing) {
+                signatureCtx.lineTo(event.offsetX, event.offsetY);
+                signatureCtx.stroke();
+            }
+        });
+
+        signatureCanvas.addEventListener('mouseup', function() {
+            drawing = false;
+            // Save the signature canvas as an image
+            document.getElementById('signatureImage').value = signatureCanvas.toDataURL('image/png');
+        });
+
+        // Clear signature canvas
+        document.getElementById('clearSignatureButton').addEventListener('click', function() {
+            signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+            document.getElementById('signatureImage').value = ''; // Clear hidden input
+        });
 
         // Handle the form submission
         function handleSubmit(event) {
