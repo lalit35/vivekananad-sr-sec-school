@@ -1,9 +1,7 @@
 /* Global Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
-    background-image: url('school.jpeg'); /* Add your background image URL here */
-    background-size: cover; /* Cover the entire background */
-    background-position: center; /* Center the background image */
+    font-family: 'Arial', sans-serif; /* Simple and clean font */
+    background-color: #f0f0f0; /* Light gray background */
     margin: 0;
     padding: 0;
 }
@@ -13,7 +11,9 @@ body {
     display: flex; /* Use flexbox for layout */
     justify-content: space-between; /* Space between title and logo */
     align-items: center; /* Center items vertically */
-    padding: 10px 20px; /* Padding around the header */
+    padding: 20px; /* Padding around the header */
+    background-color: #4CAF50; /* Green background for header */
+    color: white; /* White text color */
 }
 
 .logo {
@@ -25,22 +25,16 @@ body {
     flex-grow: 1; /* Allow the title to take available space */
     text-align: center; /* Center the school name */
     font-size: 24px; /* Font size for the school name */
-    color: #333; /* Dark gray color */
 }
 
 /* Container Styles */
 .container {
     max-width: 600px; /* Maximum width for the form */
     margin: 50px auto; /* Center the container */
-    background: rgba(255, 255, 255, 0.9); /* White background for the form with slight transparency */
-    padding: 30px; /* Increased padding for a spacious feel */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
-    border-radius: 12px; /* More rounded corners */
-    transition: transform 0.3s; /* Smooth transform on hover */
-}
-
-.container:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    background: white; /* White background for the form */
+    padding: 30px; /* Padding for the form */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    border-radius: 10px; /* Rounded corners */
 }
 
 /* Form Title Styles */
@@ -69,7 +63,7 @@ input, select, button {
     padding: 12px; /* Increased padding for comfort */
     margin: 10px 0; /* Space between elements */
     border: 1px solid #ccc; /* Light gray border */
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 5px; /* Rounded corners */
     width: 100%; /* Full width */
     font-size: 1em; /* Consistent font size */
     transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
@@ -101,8 +95,7 @@ video, canvas {
     display: block; /* Block elements */
     margin: 10px 0; /* Space around video and canvas */
     max-width: 100%; /* Responsive width */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border-radius: 5px; /* Rounded corners */
 }
 
 /* Responsive Design */
@@ -112,7 +105,7 @@ video, canvas {
         margin: 20px; /* Reduce margin for smaller screens */
     }
 
-        .form-title {
+    .form-title {
         font-size: 1.5em; /* Smaller form title on mobile */
     }
 
@@ -127,7 +120,8 @@ video, canvas {
     }
 
     h1 {
-        font-size: 1.5em; /* Further reduce heading size for very small screens */
+        font-size: 1.5em;
+            /* Further reduce heading size for very small screens */
     }
 
     input, select, button {
