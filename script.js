@@ -74,7 +74,7 @@ function handleSubmit(event) {
 
     // Use AJAX to submit the form data to Google Apps Script
     $.ajax({
-        url: 'https://script.google.com/macros/s/AKfycbyVHfurOEQNgzsMEPtJIwxkPkA1IascZDBCYMsj2APFegYomoGN_yXGfCuHVvUx1eemcA/exec', // Your Google Apps Script Web App URL
+        url: 'https://script.google.com/macros/s/AKfycbzy6jB16oi9L4JFY1rovMOKCw4YjZbyBr5nA7mXpek6aSvYbYyW5Xfr5AOModjY05Xi/exec', // Your Google Apps Script Web App URL
         method: 'POST',
         data: formData,
         contentType: false,
@@ -82,11 +82,11 @@ function handleSubmit(event) {
         success: function(response) {
             console.log('Form submitted successfully:', response);
 
-            // After successful submission, redirect to payment page with only the mobile number
-            const mobileNumber = encodeURIComponent($('#mobileNumber').val());
+            // After successful submission, redirect to payment page with only the email
+            const email = encodeURIComponent($('#email').val()); // Only the email will be sent to payment page
 
-            // Construct the payment URL with query parameters
-            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?mobileNumber=${mobileNumber}`;
+            // Construct the payment URL with query parameters (using only email)
+            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}`;
             console.log('Redirecting to:', paymentUrl);
             
             // Redirect to payment page
