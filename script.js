@@ -1,89 +1,103 @@
-// Function to handle the form submission and submit to Apps Script
-function handleSubmit(event) {
-    event.preventDefault(); // Prevent form from submitting normally
+// Initialize global variables for camera and canvas
+let cameraStream = document.getElementById('cameraStream');
+let photoCanvas = document.getElementById('photoCanvas');
+let captureButton = document.getElementById('captureButton');
+let cameraButton = document.getElementById('cameraButton');
+let successMessage = document.getElementById('successMessage');
+let capturedPhoto = document.getElementById('capturedPhoto');
 
-    // Get form data
-    const firstName = document.getElementById('firstName').value;
-    const lastName = document.getElementById('lastName').value;
-    const dob = document.getElementById('dob').value;
-    const age = document.getElementById('age').value;
-    const currentSchool = document.getElementById('currentSchool').value;
-    const className = document.getElementById('class').value;
-    const fatherName = document.getElementById('fatherName').value;
-    const mobileNumber = document.getElementById('mobileNumber').value;
-    const email = document.getElementById('email').value;
-    const photoUrl = document.getElementById('capturedPhoto').value;  // Assuming it's set by camera capture
-    const signatureImage = document.getElementById('signatureImage').value; // Assuming it's set by signature canvas
+// Initialize signature canvas
+const signatureCanvas = document.getElementById('signatureCanvas');
+const signatureCtx = signatureCanvas.getContext('2d');
+let drawing = false;
 
-    // Create FormData to submit the data (including photo and signature)
-    const formData = new FormData();
-    formData.append('firstName', firstName);
-    formData.append('lastName', lastName);
-    formData.append('dob', dob);
-    formData.append('age', age);
-    formData.append('currentSchool', currentSchool);
-    formData.append('class', className);
-    formData.append('fatherName', fatherName);
-    formData.append('mobileNumber', mobileNumber);
-    formData.append('email', email);
-    formData.append('photoUrl', photoUrl); // Image as base64
-    formData.append('signatureImage', signatureImage); // Image as base64
-
-    // Submit the form data using Fetch API to Apps Script URL
-    fetch('https://script.google.com/macros/s/AKfycbzAFv7jiSdEE-hpjWv0mYvS7Gajkmmzk4_wW8IPm-rxv2-En2xK9H7CxmIljE9Bl6CgiA/exec', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        console.log('Success:', data);
-        // On success, redirect to the payment page with the filled-in details
-        window.location.href = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?firstName=${encodeURIComponent(firstName)}&lastName=${encodeURIComponent(lastName)}&mobileNumber=${encodeURIComponent(mobileNumber)}&email=${encodeURIComponent(email)}`;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+// Function to start the camera
+function startCamera() {
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function(stream) {
+            cameraStream.style.display = "block";
+            cameraStream.srcObject = stream;
+            captureButton.style.display = "inline-block";
+            cameraButton.style.display = "none";
+        })
+        .catch(function(error) {
+            console.log("Camera access denied:", error);
+        });
 }
 
-// Capture photo using HTML5 camera
-const cameraButton = document.getElementById('cameraButton');
-const captureButton = document.getElementById('captureButton');
-const photoCanvas = document.getElementById('photoCanvas');
-const cameraStream = document.getElementById('cameraStream');
-
-// Open camera on click of the button
-cameraButton.addEventListener('click', () => {
-    navigator.mediaDevices.getUserMedia({ video: true })
-        .then(stream => {
-            cameraStream.srcObject = stream;
-            cameraStream.style.display = 'block';
-            captureButton.style.display = 'block';
-        })
-        .catch(error => {
-            console.log('Error accessing camera: ', error);
-        });
-});
-
-// Capture photo on button click
-captureButton.addEventListener('click', () => {
+// Function to capture the photo
+function capturePhoto() {
     const context = photoCanvas.getContext('2d');
     context.drawImage(cameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
-    const photoData = photoCanvas.toDataURL('image/png');
-    document.getElementById('capturedPhoto').value = photoData; // Set the captured photo data as a hidden field value
-    document.getElementById('successMessage').style.display = 'block';
+    const photoDataUrl = photoCanvas.toDataURL("image/png");
+    capturedPhoto.value = photoDataUrl; // Store the photo data in the hidden input
+    successMessage.style.display = "block"; // Show success message
+    cameraStream.style.display = "none"; // Hide the camera feed
+    captureButton.style.display = "none"; // Hide the capture button
+    // Optionally stop the camera after photo capture
+    let tracks = cameraStream.srcObject.getTracks();
+    tracks.forEach(track => track.stop());
+}
+
+// Function to handle the signature drawing on the canvas
+signatureCanvas.addEventListener('mousedown', function(event) {
+    drawing = true;
+    signatureCtx.beginPath();
+    signatureCtx.moveTo(event.offsetX, event.offsetY);
+});
+
+signatureCanvas.addEventListener('mousemove', function(event) {
+    if (drawing) {
+        signatureCtx.lineTo(event.offsetX, event.offsetY);
+        signatureCtx.stroke();
+    }
+});
+
+signatureCanvas.addEventListener('mouseup', function() {
+    drawing = false;
+    // Save the signature canvas as an image
+    document.getElementById('signatureImage').value = signatureCanvas.toDataURL('image/png');
 });
 
 // Clear signature canvas
-const clearSignatureButton = document.getElementById('clearSignatureButton');
-const signatureCanvas = document.getElementById('signatureCanvas');
-const signatureContext = signatureCanvas.getContext('2d');
-clearSignatureButton.addEventListener('click', () => {
-    signatureContext.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
-    document.getElementById('signatureImage').value = ''; // Reset hidden signature field
+document.getElementById('clearSignatureButton').addEventListener('click', function() {
+    signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
+    document.getElementById('signatureImage').value = ''; // Clear hidden input
 });
 
-// Function to save signature data to base64 (when form is submitted)
-signatureCanvas.addEventListener('mouseup', () => {
-    const signatureData = signatureCanvas.toDataURL('image/png');
-    document.getElementById('signatureImage').value = signatureData;
-});
+// Handle the form submission
+function handleSubmit(event) {
+    event.preventDefault(); // Prevent form from submitting normally
+
+    // Prepare form data to send
+    let formData = new FormData(document.getElementById('registrationForm'));
+
+    // Use AJAX to submit the form data to Google Apps Script
+    $.ajax({
+        url: 'https://script.google.com/macros/s/AKfycbzAFv7jiSdEE-hpjWv0mYvS7Gajkmmzk4_wW8IPm-rxv2-En2xK9H7CxmIljE9Bl6CgiA/exec', // Google Apps Script URL
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function(response) {
+            console.log('Form submitted successfully:', response);
+            // After successful submission, redirect to payment page
+            const firstName = encodeURIComponent($('#firstName').val());
+            const lastName = encodeURIComponent($('#lastName').val());
+            const mobileNumber = encodeURIComponent($('#mobileNumber').val());
+            const email = encodeURIComponent($('#email').val());
+
+            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?firstName=${firstName}&lastName=${lastName}&mobileNumber=${mobileNumber}&email=${email}`;
+            console.log('Redirecting to:', paymentUrl);
+            window.location.href = paymentUrl; // Redirect to the payment page
+        },
+        error: function(xhr, status, error) {
+            console.error('Error in form submission:', error);
+            alert('Error in form submission: ' + error);
+        }
+    });
+}
+
+// Event listeners for camera and capture
+cameraButton.addEventListener('click', startCamera);
+captureButton.addEventListener('click', capturePhoto);
