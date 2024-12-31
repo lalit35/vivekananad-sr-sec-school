@@ -15,7 +15,7 @@
     <div class="container">
         <h2 class="form-title">Competition Exam Registration</h2>
         <form id="registrationForm" onsubmit="return handleSubmit(event)" method="POST" enctype="multipart/form-data">
-
+            
             <!-- Camera Capture Section -->
             <label for="camera">Capture Photo:</label>
             <button type="button" id="cameraButton">Open Camera</button>
@@ -136,6 +136,7 @@
                 }
             });
         }
+
         // Event listeners for camera and capture
         cameraButton.addEventListener('click', startCamera);
         captureButton.addEventListener('click', capturePhoto);
