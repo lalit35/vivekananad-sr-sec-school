@@ -82,17 +82,14 @@ function handleSubmit(event) {
         success: function(response) {
             console.log('Form submitted successfully:', response);
 
-            // After successful submission, redirect to payment page
-            const firstName = encodeURIComponent($('#firstName').val());
-            const lastName = encodeURIComponent($('#lastName').val());
+            // After successful submission, redirect to payment page with only mobile number
             const mobileNumber = encodeURIComponent($('#mobileNumber').val());
-            const email = encodeURIComponent($('#email').val());
 
-            // Construct the payment URL with query parameters
-            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?firstName=${firstName}&lastName=${lastName}&mobileNumber=${mobileNumber}&email=${email}`;
+            // Construct the payment URL with only the mobile number as a query parameter
+            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?mobileNumber=${mobileNumber}`;
             console.log('Redirecting to:', paymentUrl);
             
-            // Redirect to payment page
+            // Redirect to the payment page with the mobile number as the query parameter
             window.location.href = paymentUrl;
         },
         error: function(xhr, status, error) {
@@ -106,3 +103,6 @@ function handleSubmit(event) {
 // Event listeners for camera and capture
 cameraButton.addEventListener('click', startCamera);
 captureButton.addEventListener('click', capturePhoto);
+
+// Form submission event listener
+document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
