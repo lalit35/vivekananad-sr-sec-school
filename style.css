@@ -21,6 +21,27 @@ body {
     transform: translateY(-5px); /* Lift effect on hover */
 }
 
+/* Header Styles */
+.header {
+    display: flex; /* Flexbox for layout */
+    justify-content: space-between; /* Space between logo and title */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 20px; /* Space below the header */
+}
+
+.logo {
+    width: 100px; /* Adjust the size of the logo */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.school-name {
+    text-align: center; /* Center the school name */
+    flex-grow: 1; /* Allow the title to take available space */
+    font-size: 24px; /* Adjust font size as needed */
+    color: #333; /* Dark gray color */
+    margin: 0; /* Remove default margin */
+}
+
 /* Heading Styles */
 h1 {
     text-align: center; /* Center the heading */
@@ -96,23 +117,4 @@ video, canvas {
 
     button {
         padding: 10px; /* Adjust button padding */
-        font-size: 1em; /* Ensure button text is readable */
-    }
-
-    input, select {
-        font-size: 0.9em; /* Slightly smaller font size for inputs */
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 1.5em; /* Further reduce heading size for very small screens */
-    }
-
-    input, select, button {
-        padding: 10px; /* Consistent padding for small screens */
-        font-size: 0.9em; /* Ensure readability */
-    }
-
-    .container {
-        margin: 10px; /* Reduce margin
+        font-size
