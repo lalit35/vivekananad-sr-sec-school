@@ -1,40 +1,47 @@
 /* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(to right, #f0f4f8, #d9e4f5);
+    background-image: url('path/to/your/background-image.jpg');
+    background-size: cover;
+    background-position: center;
     margin: 0;
+    padding: 0;
+    color: #fff;
+}
+
+/* Header Styles */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 20px;
 }
 
-.header {
-    text-align: center;
-    margin-bottom: 20px;
+.logo {
+    width: 80px; /* Adjust logo size */
+    height: auto;
 }
 
 .school-name {
     font-size: 2.5em;
-    color: #333;
-}
-
-.logo {
-    width: 100px;
-    height: auto;
+    text-align: center;
+    flex-grow: 1;
 }
 
 /* Container Styles */
 .container {
-    background: white;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
     border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     padding: 30px;
     max-width: 600px;
-    margin: 0 auto;
+    margin: 50px auto; /* Center the container */
 }
 
 /* Form Title */
 .form-title {
     text-align: center;
-    color: #4a4a4a;
+    font-size: 2em;
     margin-bottom: 20px;
 }
 
@@ -84,26 +91,18 @@ button:hover {
     transform: translateY(-2px);
 }
 
-/* Camera Capture Styles */
-#cameraButton {
-    background-color: #28a745;
-}
-
-#cameraButton:hover {
-    background-color: #218838;
-}
-
-/* Photo Preview */
-#photoPreview {
-    margin-top: 15px;
-    border: 2px dashed #ccc;
-    border-radius: 5px;
-    display: block;
-    max-width: 100%;
-}
-
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .school-name {
+        font-size: 2em;
+        margin: 10px 0;
+    }
+
     .container {
         padding: 20px;
     }
@@ -123,5 +122,19 @@ button:hover {
 
     button {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .school-name {
+        font-size: 1.5em;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    .form-title {
+        font-size: 1.5em;
     }
 }
