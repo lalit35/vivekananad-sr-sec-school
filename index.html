@@ -19,12 +19,14 @@
             <button type="button" id="cameraButton">Open Camera</button>
             <video id="cameraStream" autoplay style="display:none; width: 100%;"></video>
             <canvas id="photoCanvas" style="display:none;"></canvas>
-            <input type="hidden" id="capturedPhoto" name="photoUrl">
+            <input type="hidden" id="capturedPhoto" name="photoUrl"> <!-- Hidden field to store captured photo URL -->
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
 
-            <!-- Preview of Captured Photo -->
-            <img id="photoPreview" style="max-width: 100%; display: none;" alt="Captured Photo Preview"/>
-            
+            <!-- Success Message -->
+            <div id="successMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
+                Photo captured successfully!
+            </div>
+
             <!-- Student Details -->
             <label for="firstName">First Name:</label>
             <input type="text" name="firstName" id="firstName" required>
