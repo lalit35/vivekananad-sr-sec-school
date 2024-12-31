@@ -9,34 +9,33 @@
 <body>
     <div class="container">
         <h1>Competition Exam Registration</h1>
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLScEWbuQqcJTREDwh4RLUSdfJ1JqlH1f1lrjEB6waC2dCaTpbA/viewform?usp=header" method="POST" enctype="multipart/form-data" target="_blank">
-            
+        <form id="registrationForm" action="YOUR_WEB_APP_URL" method="POST" enctype="multipart/form-data" target="_blank">
             <!-- Camera Capture -->
             <label for="camera">Capture Photo:</label>
             <button type="button" id="cameraButton">Open Camera</button>
             <video id="cameraStream" autoplay style="display:none; width: 100%;"></video>
             <canvas id="photoCanvas" style="display:none;"></canvas>
-            <input type="file" id="capturedPhoto" name="entry.zzzzzz" accept="image/*" required>
+            <input type="hidden" id="capturedPhoto" name="photoUrl">
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
 
             <!-- Student Details -->
             <label for="firstName">First Name:</label>
-            <input type="text" name="entry.aaaaaa" id="firstName" required>
+            <input type="text" name="firstName" id="firstName" required>
 
             <label for="lastName">Last Name:</label>
-            <input type="text" name="entry.bbbbbb" id="lastName" required>
+            <input type="text" name="lastName" id="lastName" required>
 
             <label for="dob">Date of Birth:</label>
-            <input type="date" name="entry.cccccc" id="dob" required>
+            <input type="date" name="dob" id="dob" required>
 
             <label for="age">Age:</label>
-            <input type="number" name="entry.dddddd" id="age" required>
+            <input type="number" name="age" id="age" required>
 
             <label for="currentSchool">Current School:</label>
-            <input type="text" name="entry.eeeeee" id="currentSchool" required>
+            <input type="text" name="currentSchool" id="currentSchool" required>
 
             <label for="class">Class (8th to 12th):</label>
-            <select name="entry.ffffff" id="class" required>
+            <select name="class" id="class" required>
                 <option value="">Select Class</option>
                 <option value="8">8th</option>
                 <option value="9">9th</option>
@@ -46,18 +45,74 @@
             </select>
 
             <label for="fatherName">Father's Name:</label>
-            <input type="text" name="entry.gggggg" id="fatherName" required>
+            <input type="text" name="fatherName" id="fatherName" required>
 
             <label for="mobileNumber">Mobile Number:</label>
-            <input type="tel" name="entry.hhhhhh" id="mobileNumber" pattern="[0-9]{10}" required>
+            <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
 
             <label for="email">Email:</label>
-            <input type="email" name="entry.iiiiii" id="email" required>
+            <input type="email" name="email" id="email" required>
 
             <button type="submit">Submit</button>
         </form>
     </div>
 
-    <script src="script.js"></script>
+    <script>
+        // JavaScript for camera functionality
+        document.getElementById('cameraButton').addEventListener('click', function() {
+            const video = document.getElementById('cameraStream');
+            const canvas = document.getElementById('photoCanvas');
+            const captureButton = document.getElementById('captureButton');
+
+            // Access the camera
+            navigator.mediaDevices.getUser Media({ video: true })
+                .then(function(stream) {
+                    video.srcObject = stream;
+                    video.style.display = 'block';
+                    captureButton.style.display = 'block';
+                })
+                .catch(function(err) {
+                    console.error("Error accessing camera: " + err);
+                });
+        });
+
+        document.getElementById('captureButton').addEventListener('click', function() {
+            const video = document.getElementById('cameraStream');
+            const canvas = document.getElementById('photoCanvas');
+            const capturedPhotoInput = document.getElementById('capturedPhoto');
+
+            // Set canvas dimensions
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+
+            // Draw the video frame to the canvas
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0);
+
+            // Convert the canvas to a data URL
+            const dataURL = canvas.toDataURL('image/png');
+
+            // Set the hidden input value to the data URL
+            capturedPhotoInput.value = dataURL;
+
+            // Stop the video stream
+            const stream = video.srcObject;
+            const tracks = stream.getTracks();
+            tracks.forEach(track => track.stop());
+
+            // Hide the video and capture button
+            video.style.display = 'none';
+            captureButton
+                        // Hide the video and capture button
+            video.style.display = 'none';
+            captureButton.style.display = 'none';
+        });
+
+        // Optional: Handle form submission
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            // You can add any additional validation or processing here if needed
+            alert("Form submitted successfully!");
+        });
+    </script>
 </body>
 </html>
