@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Registration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Competition Exam Registration</h1>
+        <form action="https://docs.google.com/forms/d/e/FORM_ID/formResponse" method="POST" enctype="multipart/form-data" target="_blank">
+            
+            <!-- Upload Photo -->
+            <label for="photo">Upload Photo:</label>
+            <input type="file" id="photo" accept="image/*" name="entry.xxxxxx">
+
+            <!-- Camera Capture -->
+            <label for="camera">Capture Photo:</label>
+            <button type="button" id="cameraButton">Open Camera</button>
+            <video id="cameraStream" autoplay style="display:none; width: 100%;"></video>
+            <canvas id="photoCanvas" style="display:none;"></canvas>
+            <input type="hidden" id="capturedPhoto" name="entry.zzzzzz">
+            <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
+
+            <!-- Student Details -->
+            <label for="firstName">First Name:</label>
+            <input type="text" name="entry.aaaaaa" id="firstName" required>
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="entry.bbbbbb" id="lastName" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="entry.cccccc" id="dob" required>
+
+            <label for="age">Age:</label>
+            <input type="number" name="entry.dddddd" id="age" required>
+
+            <label for="currentSchool">Current School:</label>
+            <input type="text" name="entry.eeeeee" id="currentSchool" required>
+
+            <label for="class">Class (8th to 12th):</label>
+            <select name="entry.ffffff" id="class" required>
+                <option value="">Select Class</option>
+                <option value="8">8th</option>
+                <option value="9">9th</option>
+                <option value="10">10th</option>
+                <option value="11">11th</option>
+                <option value="12">12th</option>
+            </select>
+
+            <label for="fatherName">Father's Name:</label>
+            <input type="text" name="entry.gggggg" id="fatherName" required>
+
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="tel" name="entry.hhhhhh" id="mobileNumber" pattern="[0-9]{10}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="entry.iiiiii" id="email" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
