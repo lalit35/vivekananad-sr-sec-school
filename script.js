@@ -1,65 +1,69 @@
-// Get references to HTML elements
+// Get references to the DOM elements
+// Elements
 const cameraButton = document.getElementById('cameraButton');
 const captureButton = document.getElementById('captureButton');
 const cameraStream = document.getElementById('cameraStream');
+const captureButton = document.getElementById('captureButton');
 const photoCanvas = document.getElementById('photoCanvas');
-const photoPreview = document.getElementById('photoPreview');
 const capturedPhotoInput = document.getElementById('capturedPhoto');
 
-// Function to start the camera stream
+// Variables to store camera stream
+let videoStream = null;
+// Function to start the camera
 async function startCamera() {
     try {
-        console.log("Requesting camera access...");
-
-        // Get user media (camera)
-        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-
-        // Check if the stream is available
-        if (stream) {
-            console.log("Camera access granted!");
-
-            // Link stream to the video element
-            cameraStream.srcObject = stream;
-            cameraStream.style.display = 'block'; // Show the video stream
-            captureButton.style.display = 'block'; // Show the capture button
-        }
-    } catch (err) {
-        console.error("Error accessing camera: ", err);
-        alert("Could not access the camera. Please check permissions and try again.");
+        const stream = await navigator.mediaDevices.getUser Media({ video: true });
+        cameraStream.srcObject = stream;
+        cameraStream.style.display = 'block'; // Show the video stream
+        captureButton.style.display = 'block'; // Show the capture button
+    } catch (error) {
+        console.error('Error accessing the camera: ', error);
     }
+function startCamera() {
+    // Access the webcam
+    navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+            // Set the video stream to the video element
+            videoStream = stream;
+            cameraStream.srcObject = stream;
+            cameraStream.style.display = 'block'; // Show video stream
+            captureButton.style.display = 'block'; // Show capture button
+            cameraButton.style.display = 'none'; // Hide open camera button
+        })
+        .catch(error => {
+            console.error("Error accessing the camera: ", error);
+            alert("Camera access is required to capture a photo.");
+        });
 }
 
-// Function to capture photo
+// Function to capture the photo
+// Function to capture a photo
 function capturePhoto() {
     const context = photoCanvas.getContext('2d');
-    const width = cameraStream.videoWidth;
-    const height = cameraStream.videoHeight;
-    
-    // Set the canvas size to match the video stream size
-    photoCanvas.width = width;
-    photoCanvas.height = height;
-    
-    // Draw the current video frame on the canvas
-    context.drawImage(cameraStream, 0, 0, width, height);
-    
-    // Get the captured image data (as a base64 string)
+    photoCanvas.width = cameraStream.videoWidth; // Set canvas width
+    photoCanvas.height = cameraStream.videoHeight; // Set canvas height
+    context.drawImage(cameraStream, 0, 0); // Draw the video frame to the canvas
+
+    // Convert the canvas to a data URL and set it as the value of the hidden input
+    const dataURL = photoCanvas.toDataURL('image/png');
+    capturedPhotoInput.value = dataURL;
+    // Set canvas size equal to the video stream size
+    photoCanvas.width = cameraStream.videoWidth;
+    photoCanvas.height = cameraStream.videoHeight;
+    // Draw the current video frame to the canvas
+    context.drawImage(cameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
+    // Convert canvas image to a data URL (base64 encoded)
     const photoDataUrl = photoCanvas.toDataURL('image/png');
     
-    // Set the captured photo to the hidden input field
-    capturedPhotoInput.value = photoDataUrl;
-    
-    // Show the captured photo preview
-    photoPreview.src = photoDataUrl;
-    photoPreview.style.display = 'block';
-    
-    // Stop the video stream after capture
-    const stream = cameraStream.srcObject;
-    const tracks = stream.getTracks();
-    tracks.forEach(track => track.stop());
-    
-    // Hide the camera stream and capture button after photo capture
+    // Display captured photo and store it in the hidden input field
+    capturedPhotoInput.value = photoDataUrl; // Store the photo URL in the hidden field
+
+    // Optionally, you can hide the video stream after capturing
     cameraStream.style.display = 'none';
     captureButton.style.display = 'none';
+    // Optionally, you can display the captured photo elsewhere (like an <img> element)
+    // Example: displayCapturedPhoto.src = photoDataUrl; 
+    // Or show a preview in the form
 }
 
 // Event listeners
