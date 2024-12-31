@@ -13,8 +13,9 @@
     </div>
     <div class="container">
         <h2 class="form-title">Competition Exam Registration</h2>
-        <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbxZwfbNvCwoJg503Eg1sHKLql64O1Zfw7kmCawoI3Zj_BP_gJ3fFROk2F-0eFcZRlSzrw/exec" method="POST" enctype="multipart/form-data" target="_blank">
-            <!-- Camera Capture -->
+        <form id="registrationForm" action="https://script.google.com/macros/s/AKfycbxZwfbNvCwoJg503Eg1sHKLql64O1Zfw7kmCawoI3Zj_BP_gJ3fFROk2F-0eFcZRlSzrw/exec" method="POST" enctype="multipart/form-data">
+            
+            <!-- Camera Capture Section -->
             <label for="camera">Capture Photo:</label>
             <button type="button" id="cameraButton">Open Camera</button>
             <video id="cameraStream" autoplay style="display:none; width: 100%;"></video>
@@ -27,7 +28,7 @@
                 Photo captured successfully!
             </div>
 
-            <!-- Student Details -->
+            <!-- Student Details Section -->
             <label for="firstName">First Name:</label>
             <input type="text" name="firstName" id="firstName" required>
 
@@ -62,9 +63,16 @@
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required>
 
+            <!-- Signature Drawing Section (at the bottom) -->
+            <label for="signature">Draw Your Signature:</label>
+            <canvas id="signatureCanvas" width="400" height="200" style="border: 1px solid #000;"></canvas>
+            <button type="button" id="clearSignatureButton">Clear Signature</button>
+            <input type="hidden" id="signatureImage" name="signatureImage">
+
             <button type="submit">Submit</button>
         </form>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>
