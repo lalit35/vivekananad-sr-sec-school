@@ -9,14 +9,23 @@ const capturedPhotoInput = document.getElementById('capturedPhoto');
 // Function to start the camera stream
 async function startCamera() {
     try {
+        console.log("Requesting camera access...");
+
         // Get user media (camera)
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        cameraStream.srcObject = stream; // Link stream to the video element
-        cameraStream.style.display = 'block'; // Show the video stream
-        captureButton.style.display = 'block'; // Show the capture button
+
+        // Check if the stream is available
+        if (stream) {
+            console.log("Camera access granted!");
+
+            // Link stream to the video element
+            cameraStream.srcObject = stream;
+            cameraStream.style.display = 'block'; // Show the video stream
+            captureButton.style.display = 'block'; // Show the capture button
+        }
     } catch (err) {
-        console.error('Error accessing camera: ', err);
-        alert('Could not access the camera. Please allow camera access.');
+        console.error("Error accessing camera: ", err);
+        alert("Could not access the camera. Please check permissions and try again.");
     }
 }
 
