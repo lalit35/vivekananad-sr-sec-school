@@ -81,15 +81,42 @@ function handleSubmit(event) {
         processData: false,
         success: function(response) {
             console.log('Form submitted successfully:', response);
-            
-            // Show success message instead of redirecting
-            successMessage.innerHTML = "Your form has been submitted successfully!";
-            successMessage.style.display = "block"; // Show success message
+
+            // After successful submission, show the success message
+            successMessage.textContent = "Your form has been submitted successfully!";
+            successMessage.style.color = "green"; // Optional styling
+            successMessage.style.display = "block"; // Show the success message
+
+            // After a small delay, redirect to payment page with only the email
+            setTimeout(function() {
+                const email = encodeURIComponent($('#email').val()); // Get the email input
+
+                // Construct the payment URL with query parameters (using only email)
+                const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}`;
+                console.log('Redirecting to:', paymentUrl);
+
+                // Redirect to payment page without any messages
+                window.location.href = paymentUrl;
+            }, 2000); // Delay for 2 seconds before redirecting
         },
         error: function(xhr, status, error) {
             console.error('Error in form submission:', error);
             console.log('Response:', xhr.responseText);  // Log the response text for more details
-            alert('Error in form submission: ' + error);
+            
+            // Show an error message to the user
+            successMessage.textContent = "There was an error with the form submission. Please try again.";
+            successMessage.style.color = "red"; // Optional styling
+            successMessage.style.display = "block"; // Show the error message
+
+            // Still redirect to the payment page with email even in case of error
+            const email = encodeURIComponent($('#email').val()); // Get the email input
+            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}`;
+            console.log('Redirecting to:', paymentUrl);
+
+            // Redirect to payment page after a small delay
+            setTimeout(function() {
+                window.location.href = paymentUrl;
+            }, 2000); // Delay for 2 seconds before redirecting
         }
     });
 }
