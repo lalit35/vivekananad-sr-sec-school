@@ -81,16 +81,10 @@ function handleSubmit(event) {
         processData: false,
         success: function(response) {
             console.log('Form submitted successfully:', response);
-
-            // After successful submission, redirect to payment page with only the email
-            const email = encodeURIComponent($('#email').val()); // Get the email input
-
-            // Construct the payment URL with query parameters (using only email)
-            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}`;
-            console.log('Redirecting to:', paymentUrl);
             
-            // Redirect to payment page without any messages
-            window.location.href = paymentUrl;
+            // Show success message instead of redirecting
+            successMessage.innerHTML = "Your form has been submitted successfully!";
+            successMessage.style.display = "block"; // Show success message
         },
         error: function(xhr, status, error) {
             console.error('Error in form submission:', error);
