@@ -1,54 +1,118 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    background: linear-gradient(to right, #e0eafc, #cfdef3); /* Gradient background */
     margin: 0;
     padding: 0;
 }
 
+/* Container Styles */
 .container {
-    max-width: 600px;
-    margin: 50px auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    max-width: 600px; /* Maximum width for the form */
+    margin: 50px auto; /* Center the container */
+    background: white; /* White background for the form */
+    padding: 30px; /* Increased padding for a spacious feel */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+    border-radius: 12px; /* More rounded corners */
+    transition: transform 0.3s; /* Smooth transform on hover */
 }
 
+.container:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+/* Heading Styles */
 h1 {
-    text-align: center;
-    color: #333;
+    text-align: center; /* Center the heading */
+    color: #333; /* Dark gray color */
+    font-size: 2.5em; /* Larger font size */
+    margin-bottom: 20px; /* Space below the heading */
 }
 
+/* Form Styles */
 form {
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Flexbox for layout */
+    flex-direction: column; /* Stack elements vertically */
 }
 
+/* Label Styles */
 label {
-    margin: 10px 0 5px;
+    margin: 15px 0 5px; /* Space around labels */
+    font-weight: bold; /* Bold labels for emphasis */
+    color: #555; /* Slightly lighter gray */
 }
 
+/* Input, Select, and Button Styles */
 input, select, button {
-    padding: 10px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    width: 100%;
+    padding: 12px; /* Increased padding for comfort */
+    margin: 10px 0; /* Space between elements */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 8px; /* Rounded corners */
+    width: 100%; /* Full width */
+    font-size: 1em; /* Consistent font size */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
 }
 
+/* Input Focus Styles */
+input:focus, select:focus {
+    border-color: #4CAF50; /* Green border on focus */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Green shadow on focus */
+}
+
+/* Button Styles */
 button {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
+    font-weight: bold; /* Bold text */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
 }
 
+/* Video and Canvas Styles */
 video, canvas {
-    display: block;
-    margin: 10px 0;
-    max-width: 100%;
+    display: block; /* Block elements */
+    margin: 10px 0; /* Space around video and canvas */
+    max-width: 100%; /* Responsive width */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px; /* Adjust padding for smaller screens */
+        margin: 20px; /* Reduce margin for smaller screens */
+    }
+
+    h1 {
+        font-size: 2em; /* Smaller heading on mobile */
+    }
+
+    button {
+        padding: 10px; /* Adjust button padding */
+        font-size: 1em; /* Ensure button text is readable */
+    }
+
+    input, select {
+        font-size: 0.9em; /* Slightly smaller font size for inputs */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em; /* Further reduce heading size for very small screens */
+    }
+
+    input, select, button {
+        padding: 10px; /* Consistent padding for small screens */
+        font-size: 0.9em; /* Ensure readability */
+    }
+
+    .container {
+        margin: 10px; /* Reduce margin
