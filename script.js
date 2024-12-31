@@ -87,15 +87,17 @@ function handleSubmit(event) {
             successMessage.style.color = "green"; // Optional styling
             successMessage.style.display = "block"; // Show the success message
 
-            // After a small delay, redirect to payment page with only the email
+            // After a small delay, redirect to payment page with email, first name, and mobile number
             setTimeout(function() {
                 const email = encodeURIComponent($('#email').val()); // Get the email input
+                const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input
+                const mobileNumber = encodeURIComponent($('#mobile').val()); // Get the mobile number input
 
-                // Construct the payment URL with query parameters (using only email)
-                const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}`;
+                // Construct the payment URL with query parameters (email, first name, mobile)
+                const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
                 console.log('Redirecting to:', paymentUrl);
 
-                // Redirect to payment page without any messages
+                // Redirect to payment page with the added parameters
                 window.location.href = paymentUrl;
             }, 2000); // Delay for 2 seconds before redirecting
         },
@@ -108,12 +110,15 @@ function handleSubmit(event) {
             successMessage.style.color = "red"; // Optional styling
             successMessage.style.display = "block"; // Show the error message
 
-            // Still redirect to the payment page with email even in case of error
+            // Still redirect to the payment page with email, first name, and mobile number even in case of error
             const email = encodeURIComponent($('#email').val()); // Get the email input
-            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}`;
+            const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input
+            const mobileNumber = encodeURIComponent($('#mobile').val()); // Get the mobile number input
+
+            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
             console.log('Redirecting to:', paymentUrl);
 
-            // Redirect to payment page after a small delay
+            // Redirect to payment page with the added parameters after 2 seconds delay
             setTimeout(function() {
                 window.location.href = paymentUrl;
             }, 2000); // Delay for 2 seconds before redirecting
