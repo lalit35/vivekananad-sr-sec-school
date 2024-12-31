@@ -74,7 +74,7 @@ function handleSubmit(event) {
 
     // Use AJAX to submit the form data to Google Apps Script
     $.ajax({
-        url: 'https://script.google.com/macros/s/AKfycby2bCw90nFTy6ot9mOPw9k24tIdPmLhSQiFQH3QViKX3Oq6i0CxX1PmkaNU8hWGNATVSA/exec', // Your Google Apps Script URL
+        url: 'https://script.google.com/macros/s/AKfycbyVHfurOEQNgzsMEPtJIwxkPkA1IascZDBCYMsj2APFegYomoGN_yXGfCuHVvUx1eemcA/exec', // Your Google Apps Script Web App URL
         method: 'POST',
         data: formData,
         contentType: false,
@@ -82,14 +82,14 @@ function handleSubmit(event) {
         success: function(response) {
             console.log('Form submitted successfully:', response);
 
-            // After successful submission, redirect to payment page with only mobile number
+            // After successful submission, redirect to payment page with only the mobile number
             const mobileNumber = encodeURIComponent($('#mobileNumber').val());
 
-            // Construct the payment URL with only the mobile number as a query parameter
+            // Construct the payment URL with query parameters
             const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?mobileNumber=${mobileNumber}`;
             console.log('Redirecting to:', paymentUrl);
             
-            // Redirect to the payment page with the mobile number as the query parameter
+            // Redirect to payment page
             window.location.href = paymentUrl;
         },
         error: function(xhr, status, error) {
@@ -103,6 +103,3 @@ function handleSubmit(event) {
 // Event listeners for camera and capture
 cameraButton.addEventListener('click', startCamera);
 captureButton.addEventListener('click', capturePhoto);
-
-// Form submission event listener
-document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
