@@ -4,68 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competition Registration</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="header">
-        <img src="swami-vivekananda-png-thumbnail-1641912297.jpg" alt="Logo" class="logo">
         <h1 class="school-name">VIVEKANAND SR. SEC. SCHOOL</h1>
         <img src="swami-vivekananda-png-thumbnail-1641912297.jpg" alt="Logo" class="logo">
     </div>
-
     <div class="container">
         <h2 class="form-title">Competition Exam Registration</h2>
         <form id="registrationForm" action="https://script.google.com/macros/s/AKfycby2p4IetskTIxOaYrtQnmAhEHD5rbXm0L9dBs3ZLF4AT8wM1_y4qeTEueLOn5oPVrQJog/exec" method="POST" enctype="multipart/form-data" target="_blank">
-            <!-- Camera Capture Section -->
-            <div class="camera-section">
-                <label for="camera">Capture Photo:</label>
-                <button type="button" id="openCameraButton">Open Camera</button>
-                <video id="cameraStream" autoplay></video>
-                <canvas id="photoCanvas" style="display:none;"></canvas>
-                <input type="hidden" id="capturedPhoto" name="photoUrl">
-                <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
-                <img id="photoPreview" alt="Captured Photo Preview" style="display:none;" />
-            </div>
+            <!-- Camera Capture -->
+            <label for="camera">Capture Photo:</label>
+            <button type="button" id="cameraButton">Open Camera</button>
+            <video id="cameraStream" autoplay style="display:none; width: 100%;"></video>
+            <canvas id="photoCanvas" style="display:none;"></canvas>
+            <input type="hidden" id="capturedPhoto" name="photoUrl">
+            <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
 
-            <!-- Student Details Section -->
-            <div class="input-section">
-                <label for="firstName">First Name:</label>
-                <input type="text" name="firstName" id="firstName" required>
+            <!-- Preview of Captured Photo -->
+            <img id="photoPreview" style="max-width: 100%; display: none;" alt="Captured Photo Preview"/>
+            <!-- Student Details -->
+            <label for="firstName">First Name:</label>
+            <input type="text" name="firstName" id="firstName" required>
 
-                <label for="lastName">Last Name:</label>
-                <input type="text" name="lastName" id="lastName" required>
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="lastName" id="lastName" required>
 
-                <label for="dob">Date of Birth:</label>
-                <input type="date" name="dob" id="dob" required>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" name="dob" id="dob" required>
 
-                <label for="age">Age:</label>
-                <input type="number" name="age" id="age" required>
+            <label for="age">Age:</label>
+            <input type="number" name="age" id="age" required>
 
-                <label for="currentSchool">Current School:</label>
-                <input type="text" name="currentSchool" id="currentSchool" required>
+            <label for="currentSchool">Current School:</label>
+            <input type="text" name="currentSchool" id="currentSchool" required>
 
-                <label for="class">Class (8th to 12th):</label>
-                <select name="class" id="class" required>
-                    <option value="">Select Class</option>
-                    <option value="8">8th</option>
-                    <option value="9">9th</option>
-                    <option value="10">10th</option>
-                    <option value="11">11</option>
-                    <option value="12">12</option>
-                </select>
+            <label for="class">Class (8th to 12th):</label>
+            <select name="class" id="class" required>
+                <option value="">Select Class</option>
+                <option value="8">8th</option>
+                <option value="9">9th</option>
+                <option value="10">10th</option>
+                <option value="11">11th</option>
+                <option value="12">12th</option>
+            </select>
 
-                <label for="fatherName">Father's Name:</label>
-                <input type="text" name="fatherName" id="fatherName" required>
+            <label for="fatherName">Father's Name:</label>
+            <input type="text" name="fatherName" id="fatherName" required>
 
-                <label for="mobileNumber">Whatsapp Number:</label>
-                <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
+            <label for="mobileNumber">Whatsapp Number:</label>
+            <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
 
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email" required>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
 
-                <button type="submit">Submit</button>
-            </div>
+            <button type="submit">Submit</button>
         </form>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
