@@ -34,6 +34,7 @@ function capturePhoto() {
     // Hide video stream and capture button after photo is taken
     cameraStream.style.display = 'none';
     captureButton.style.display = 'none';
+    cameraButton.style.display = 'none'; // Hide camera button after capture
 
     // Show the success message in the form
     successMessage.style.display = 'block';
