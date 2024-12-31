@@ -23,8 +23,7 @@ body {
 
 .school-name {
     flex-grow: 1; /* Allow the title to take available space */
-    text-align: center;
-        /* Center the school name */
+    text-align: center; /* Center the school name */
     font-size: 24px; /* Font size for the school name */
     color: #333; /* Dark gray color */
 }
@@ -113,7 +112,7 @@ video, canvas {
         margin: 20px; /* Reduce margin for smaller screens */
     }
 
-    .form-title {
+        .form-title {
         font-size: 1.5em; /* Smaller form title on mobile */
     }
 
