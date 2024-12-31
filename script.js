@@ -22,6 +22,7 @@ function startCamera() {
         })
         .catch(function(error) {
             console.log("Camera access denied:", error);
+            alert("Camera access is required to capture your photo.");
         });
 }
 
@@ -72,6 +73,11 @@ function handleSubmit(event) {
     // Prepare form data to send
     let formData = new FormData(document.getElementById('registrationForm'));
 
+    // Debugging: Log form data to verify if it is correct
+    for (var pair of formData.entries()) {
+        console.log(pair[0] + ': ' + pair[1]);
+    }
+
     // Use AJAX to submit the form data to Google Apps Script
     $.ajax({
         url: 'https://script.google.com/macros/s/AKfycbzAFv7jiSdEE-hpjWv0mYvS7Gajkmmzk4_wW8IPm-rxv2-En2xK9H7CxmIljE9Bl6CgiA/exec', // Google Apps Script URL
@@ -81,6 +87,7 @@ function handleSubmit(event) {
         processData: false,
         success: function(response) {
             console.log('Form submitted successfully:', response);
+
             // After successful submission, redirect to payment page
             const firstName = encodeURIComponent($('#firstName').val());
             const lastName = encodeURIComponent($('#lastName').val());
@@ -90,7 +97,7 @@ function handleSubmit(event) {
             // Construct the payment URL with query parameters
             const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?firstName=${firstName}&lastName=${lastName}&mobileNumber=${mobileNumber}&email=${email}`;
             console.log('Redirecting to:', paymentUrl);
-            
+
             // Redirect to payment page
             window.location.href = paymentUrl;
         },
@@ -105,3 +112,6 @@ function handleSubmit(event) {
 // Event listeners for camera and capture
 cameraButton.addEventListener('click', startCamera);
 captureButton.addEventListener('click', capturePhoto);
+
+// Event listener for form submission
+document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
