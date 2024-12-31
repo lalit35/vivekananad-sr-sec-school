@@ -1,208 +1,142 @@
-/* General Styling for Body */
+/* Global Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f7f7f7;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font */
+    background-image: url('YOUR_BACKGROUND_IMAGE_URL'); /* Add your background image URL here */
+    background-image: url('school.jpeg'); /* Add your background image URL here */
+background-size: cover; /* Cover the entire background */
+background-position: center; /* Center the background image */
+margin: 0;
+padding: 0;
 }
 
-/* Header Section Styling */
+/* Header Styles */
 .header {
-    text-align: center;
-    margin-top: 20px;
+display: flex; /* Use flexbox for layout */
+justify-content: space-between; /* Space between title and logo */
+align-items: center; /* Center items vertically */
+padding: 10px 20px; /* Padding around the header */
 }
 
 .logo {
-    width: 70px;  /* Adjusted logo size */
-    height: auto;
-    margin: 0 10px;
-    transition: transform 0.3s ease;
-}
-
-.logo:hover {
-    transform: scale(1.1);  /* Smooth zoom effect on logo hover */
+width: 80px; /* Adjust the size of the logo */
+height: auto; /* Maintain aspect ratio */
 }
 
 .school-name {
-    font-size: 32px;
-    font-weight: bold;
-    color: #333;
-    margin: 10px 0;
+flex-grow: 1; /* Allow the title to take available space */
+text-align: center; /* Center the school name */
+font-size: 24px; /* Font size for the school name */
+color: #333; /* Dark gray color */
 }
 
-/* Form Container */
+/* Container Styles */
 .container {
-    background-color: #fff;
-    max-width: 600px;
-    width: 100%;
-    padding: 30px;
-    margin-top: 20px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    transition: transform 0.3s ease;
+max-width: 600px; /* Maximum width for the form */
+margin: 50px auto; /* Center the container */
+background: rgba(255, 255, 255, 0.9); /* White background for the form with slight transparency */
+padding: 30px; /* Increased padding for a spacious feel */
+box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Deeper shadow for depth */
+border-radius: 12px; /* More rounded corners */
+transition: transform 0.3s; /* Smooth transform on hover */
 }
 
 .container:hover {
-    transform: scale(1.02);  /* Slight zoom effect on hover for form */
+transform: translateY(-5px); /* Lift effect on hover */
 }
 
-/* Form Title */
+/* Form Title Styles */
 .form-title {
-    text-align: center;
-    font-size: 26px;
-    font-weight: 600;
-    color: #4CAF50;
-    margin-bottom: 20px;
+text-align: center; /* Center the form title */
+color: #333; /* Dark gray color */
+font-size: 1.8em; /* Font size for the form title */
+margin: 20px 0; /* Space around the title */
 }
 
-/* Labels and Inputs */
-.input-section label {
-    display: block;
-    margin: 12px 0 6px;
-    font-weight: bold;
-    color: #555;
+/* Form Styles */
+form {
+display: flex; /* Flexbox for layout */
+flex-direction: column; /* Stack elements vertically */
 }
 
-.input-section input,
-.input-section select,
-.input-section button {
-    width: 100%;
-    padding: 14px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 16px;
-    box-sizing: border-box;
-    transition: all 0.3s ease;
+/* Label Styles */
+label {
+margin: 15px 0 5px; /* Space around labels */
+font-weight: bold; /* Bold labels for emphasis */
+color: #555; /* Slightly lighter gray */
 }
 
-.input-section input:focus,
-.input-section select:focus {
-    border-color: #4CAF50;
-    box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+/* Input, Select, and Button Styles */
+input, select, button {
+padding: 12px; /* Increased padding for comfort */
+margin: 10px 0; /* Space between elements */
+border: 1px solid #ccc; /* Light gray border */
+border-radius: 8px; /* Rounded corners */
+width: 100%; /* Full width */
+font-size: 1em; /* Consistent font size */
+transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
 }
 
-/* Camera Section Styling */
-.camera-section {
-    background: #f1f1f1;
-    padding: 20px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    text-align: center;
+/* Input Focus Styles */
+input:focus, select:focus {
+border-color: #4CAF50; /* Green border on focus */
+box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Green shadow on focus */
 }
 
-#openCameraButton,
-#captureButton {
-    padding: 12px 30px;
-    font-size: 16px;
-    border-radius: 6px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    transition: background-color 0.3s ease;
+/* Button Styles */
+button {
+background-color: #4CAF50; /* Green background */
+color: white; /* White text */
+border: none; /* No border */
+cursor: pointer; /* Pointer cursor */
+font-weight: bold; /* Bold text */
+transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
 }
 
-#openCameraButton:hover,
-#captureButton:hover {
-    background-color: #45a049;
+button:hover {
+background-color: #45a049; /* Darker green on hover */
+transform: translateY(-2px); /* Lift effect on hover */
 }
 
-#cameraStream {
-    max-width: 100%;
-    margin-top: 15px;
-    border-radius: 8px;
-}
-
-#photoPreview {
-    display: none;
-    margin-top: 20px;
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-/* Submit Button Styling */
-.input-section button {
-    background-color: #4CAF50;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.input-section button:hover {
-    background-color: #45a049;
-}
-
-.input-section button:active {
-    background-color: #388e3c;
+/* Video and Canvas Styles */
+video, canvas {
+display: block; /* Block elements */
+margin: 10px 0; /* Space around video and canvas */
+max-width: 100%; /* Responsive width */
+border-radius: 8px; /* Rounded corners */
+box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .logo {
-        width: 60px;  /* Reduce logo size for smaller screens */
-    }
+.container {
+padding: 20px; /* Adjust padding for smaller screens */
+margin: 20px; /* Reduce margin for smaller screens */
+}
 
-    .school-name {
-        font-size: 26px;
-    }
+.form-title {
+font-size: 1.5em; /* Smaller form title on mobile */
+}
 
-    .container {
-        padding: 20px;
-        margin: 15px;
-    }
-
-    .form-title {
-        font-size: 22px;
-    }
-
-    .input-section input,
-    .input-section select,
-    .input-section button {
-        font-size: 14px;
-    }
-
-    #openCameraButton,
-    #captureButton {
-        width: 100%;
-        padding: 12px;
-    }
+.logo {
+width: 60px; /* Smaller logo for mobile */
+}
 }
 
 @media (max-width: 480px) {
-    .logo {
-        width: 50px;  /* Further reduce logo size on small devices */
-    }
+.school-name {
+font-size: 20px; /* Smaller font size for very small screens */
+}
 
-    .school-name {
-        font-size: 24px;
-    }
+h1 {
+font-size: 1.5em; /* Further reduce heading size for very small screens */
+}
 
-    .form-title {
-        font-size: 20px;
-    }
+input, select, button {
+padding: 10px; /* Consistent padding for small screens */
+font-size: 0.9em; /* Ensure readability */
+}
 
-    .input-section input,
-    .input-section select,
-    .input-section button {
-        font-size: 13px;
-    }
-
-    .input-section input[type="tel"] {
-        width: 100%; /* Make sure inputs are full-width on small devices */
-    }
-
-    .input-section input[type="number"] {
-        width: 100%; /* Ensure number inputs are also full width */
-    }
-
-    #openCameraButton,
-    #captureButton {
-        width: 100%;  /* Full width for camera buttons on small screens */
-    }
+.container {
+margin: 10px; /* Reduce margin for very small screens */
+}
 }
