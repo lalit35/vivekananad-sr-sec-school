@@ -21,8 +21,9 @@ body {
 }
 
 .logo {
-    width: 100px;
-    margin: 10px;
+    width: 80px;  /* Adjusted size for the logo */
+    height: auto;
+    margin: 5px;  /* Reduced margin */
 }
 
 .school-name {
@@ -74,12 +75,38 @@ body {
 
 .camera-section {
     margin-bottom: 20px;
+    text-align: center;  /* Center the buttons */
+}
+
+#openCameraButton, #captureButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#openCameraButton:hover, #captureButton:hover {
+    background-color: #45a049;
+}
+
+#cameraStream {
+    max-width: 100%; /* Ensure video fits within the container */
+    height: auto;
+    margin-top: 15px;
 }
 
 #photoPreview {
     margin-top: 10px;
     border: 2px solid #ddd;
     border-radius: 8px;
+    max-width: 100%; /* Ensure the photo preview is responsive */
+    height: auto;
+    display: none;
 }
 
 /* Responsive Design */
@@ -87,5 +114,19 @@ body {
     .container {
         padding: 10px;
         margin: 10px;
+    }
+
+    .logo {
+        width: 60px;  /* Further reduced size of logo on small screens */
+    }
+
+    .form-title {
+        font-size: 18px;  /* Adjusted form title size */
+    }
+
+    .input-section input,
+    .input-section select,
+    .input-section button {
+        font-size: 14px;  /* Slightly smaller input and button text */
     }
 }
