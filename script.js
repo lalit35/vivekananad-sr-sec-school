@@ -66,7 +66,6 @@ document.getElementById('clearSignatureButton').addEventListener('click', functi
     document.getElementById('signatureImage').value = ''; // Clear hidden input
 });
 
-// Handle the form submission
 function handleSubmit(event) {
     event.preventDefault(); // Prevent form from submitting normally
 
@@ -85,6 +84,9 @@ function handleSubmit(event) {
         data: formData,
         contentType: false,
         processData: false,
+        beforeSend: function() {
+            console.log("Sending request...");
+        },
         success: function(response) {
             console.log('Form submitted successfully:', response);
 
