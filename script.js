@@ -9,7 +9,10 @@ const successMessage = document.getElementById('successMessage');
 // Function to start the camera
 async function startCamera() {
     try {
+        // Request access to the camera
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+
+        // Attach the camera stream to the video element
         cameraStream.srcObject = stream;
         cameraStream.style.display = 'block'; // Show the video stream
         captureButton.style.display = 'block'; // Show the capture button
@@ -23,20 +26,24 @@ async function startCamera() {
 // Function to capture the photo
 function capturePhoto() {
     const context = photoCanvas.getContext('2d');
-    photoCanvas.width = cameraStream.videoWidth; // Set canvas width
-    photoCanvas.height = cameraStream.videoHeight; // Set canvas height
-    context.drawImage(cameraStream, 0, 0); // Draw the video frame to the canvas
+    
+    // Set the canvas size to match the video stream
+    photoCanvas.width = cameraStream.videoWidth;
+    photoCanvas.height = cameraStream.videoHeight;
+    
+    // Draw the current video frame onto the canvas
+    context.drawImage(cameraStream, 0, 0);
 
-    // Convert the canvas to a data URL and set it as the value of the hidden input
+    // Convert the canvas content to a data URL and store it in the hidden input
     const dataURL = photoCanvas.toDataURL('image/png');
     capturedPhotoInput.value = dataURL; // Save the image URL in the hidden input
 
-    // Hide video stream and capture button after photo is taken
+    // Hide the video stream and capture button after capturing the photo
     cameraStream.style.display = 'none';
     captureButton.style.display = 'none';
-    cameraButton.style.display = 'none'; // Hide camera button after capture
+    cameraButton.style.display = 'none'; // Hide the open camera button
 
-    // Show the success message in the form
+    // Show success message in the form
     successMessage.style.display = 'block';
 
     // Show an alert message
@@ -48,6 +55,6 @@ function capturePhoto() {
     }, 5000); // Message disappears after 5 seconds
 }
 
-// Event listeners
+// Event listeners for buttons
 cameraButton.addEventListener('click', startCamera);
 captureButton.addEventListener('click', capturePhoto);
