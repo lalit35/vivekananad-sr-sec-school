@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competition Registration</title>
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* Inline CSS for demonstration purposes */
         body {
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
@@ -94,10 +92,10 @@
                 <option value="12">12th</option>
             </select>
 
-                        <label for="fatherName">Father's Name:</label>
+            <label for="fatherName">Father's Name:</label>
             <input type="text" name="fatherName" id="fatherName" required>
 
-            <label for="mobileNumber">Whatsapp Number:</label>
+                        <label for="mobileNumber">Whatsapp Number:</label>
             <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
 
             <label for="email">Email:</label>
@@ -117,10 +115,15 @@
         const captureButton = document.getElementById('captureButton');
 
         cameraButton.addEventListener('click', async () => {
-            const stream = await navigator.mediaDevices.getUser Media({ video: true });
-            cameraStream.srcObject = stream;
-            cameraStream.style.display = 'block';
-            captureButton.style.display = 'block';
+            try {
+                const stream = await navigator.mediaDevices.getUser Media({ video: true });
+                cameraStream.srcObject = stream;
+                cameraStream.style.display = 'block';
+                captureButton.style.display = 'block';
+            } catch (error) {
+                console.error("Error accessing the camera: ", error);
+                alert("Could not access the camera. Please check permissions.");
+            }
         });
 
         captureButton.addEventListener('click', () => {
@@ -151,4 +154,63 @@
         document.getElementById('registrationNumber').innerText = `Registration Number: ${generateRegistrationNumber()}`;
     </script>
 </body>
-</html>v
+</html>            <label for="mobileNumber">Whatsapp Number:</label>
+            <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript to handle camera and photo capture
+        const cameraButton = document.getElementById('cameraButton');
+        const cameraStream = document.getElementById('cameraStream');
+        const photoCanvas = document.getElementById('photoCanvas');
+        const capturedPhotoInput = document.getElementById('capturedPhoto');
+        const photoPreview = document.getElementById('photoPreview');
+        const captureButton = document.getElementById('captureButton');
+
+        cameraButton.addEventListener('click', async () => {
+            try {
+                const stream = await navigator.mediaDevices.getUser Media({ video: true });
+                cameraStream.srcObject = stream;
+                cameraStream.style.display = 'block';
+                captureButton.style.display = 'block';
+            } catch (error) {
+                console.error("Error accessing the camera: ", error);
+                alert("Could not access the camera. Please check permissions.");
+            }
+        });
+
+        captureButton.addEventListener('click', () => {
+            const context = photoCanvas.getContext('2d');
+            photoCanvas.width = cameraStream.videoWidth;
+            photoCanvas.height = cameraStream.videoHeight;
+            context.drawImage(cameraStream, 0, 0);
+            const photoDataUrl = photoCanvas.toDataURL('image/png');
+            photoPreview.src = photoDataUrl;
+            photoPreview.style.display = 'block';
+            capturedPhotoInput.value = photoDataUrl;
+
+            // Stop the camera stream
+            const stream = cameraStream.srcObject;
+            const tracks = stream.getTracks();
+            tracks.forEach(track => track.stop());
+            cameraStream.style.display = 'none';
+            captureButton.style.display = 'none';
+        });
+
+        // Function to generate a random registration number
+        function generateRegistrationNumber() {
+            const randomNumber = Math.floor(10000 + Math.random() * 90000); // Generates a 5-digit number
+            return `VSS${randomNumber}`;
+        }
+
+        // Display the registration number on page load
+        document.getElementById('registrationNumber').innerText = `Registration Number: ${generateRegistrationNumber()}`;
+    </script>
+</body>
+</html>
