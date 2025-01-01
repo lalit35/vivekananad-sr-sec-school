@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <style>
+        /* Add styles here */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -59,6 +60,27 @@
             color: green;
         }
 
+        /* Loading spinner styles */
+        .loading {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
     </style>
 </head>
 <body>
@@ -66,27 +88,36 @@
     <h1>Competition Registration</h1>
     <h2>₹99 Payment</h2>
 
-    <p class="note">Please review your Email Id below before proceeding.</p>
+    <p class="note">Please review your details before proceeding.</p>
 
-    <!-- Email Field -->
+    <!-- Email Field (already autofilled) -->
     <div class="form-container">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" readonly>
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" readonly>
+
+        <label for="mobileNumber">Whatsapp Number:</label>
+        <input type="tel" id="mobileNumber" name="mobileNumber" readonly>
     </div>
 
     <p class="note">Click below to pay fees for your Competition Exam Registration via UPI.</p>
 
     <!-- UPI Payment Button -->
     <a id="paymentLink" href="javascript:void(0)" target="_blank">
-        <button class="button">Pay ₹99 Now</button>
+        <button class="button" id="payButton" onclick="startPaymentProcess()">Pay ₹99 Now</button>
     </a>
+
+    <!-- Loading Spinner -->
+    <div class="loading" id="loadingSpinner">
+        <div class="spinner"></div>
+        <p>Please wait, redirecting to payment...</p>
+    </div>
 
     <p class="note">You will be redirected to your payment app (Google Pay, PhonePe, Paytm, etc.) to complete the payment.</p>
 
     <h3>Upload Payment Screenshot</h3>
     <p class="note">Please upload a screenshot of your payment confirmation:</p>
 
-    <form id="paymentForm">
+    <form id="paymentForm" style="display:none;">
         <label for="paymentScreenshot">Upload Payment Screenshot:</label>
         <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required><br>
         <button type="submit" class="button">Submit Screenshot</button>
@@ -98,54 +129,40 @@
         // Function to extract query parameters and pre-fill the payment form
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
-            const email = urlParams.get('email') || '';
-            document.getElementById('email').value = email;
-            setUpPaymentLink(email);
+            const firstName = urlParams.get('firstName') || '';
+            const mobileNumber = urlParams.get('mobileNumber') || '';
+            document.getElementById('firstName').value = firstName;
+            document.getElementById('mobileNumber').value = mobileNumber;
+            setUpPaymentLink(firstName, mobileNumber);
         };
 
         // Function to set up the payment link with UPI URL
-        function setUpPaymentLink(email) {
-            if (isValidEmail(email)) {
-                const upiUrl = `upi://pay?pa=lalitkumar2907@fam&am=99&cu=INR`;
-                document.getElementById('paymentLink').setAttribute('href', upiUrl);
-            } else {
-                alert('Invalid email address.');
-                document.querySelector('.button').disabled = true;
-            }
+        function setUpPaymentLink(firstName, mobileNumber) {
+            // You can customize the payment URL based on the first name and mobile number, if needed
+            const upiUrl = `upi://pay?pa=lalitkumar2907@fam&am=99&cu=INR`;
+            document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
 
-        // Simple email validation function
-        function isValidEmail(email) {
-            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            return regex.test(email);
-        }
+        // Start the payment process
+        function startPaymentProcess() {
+            // Show loading spinner and hide the payment button
+            document.getElementById('payButton').style.display = 'none';
+            document.getElementById('loadingSpinner').style.display = 'block';
 
-        // Function to verify if the name 'Lalit Kumar' exists in any form within the uploaded screenshot text
-        function verifyNameInImage(base64Data) {
-            // This is a simplified check. You can replace it with any algorithm you like.
-            // You can extract the text from the image (for now, we'll skip OCR and assume it's text already).
-            const pattern = /lalit\s*kumar/i; // Regular expression to match "lalit kumar" in any order/case
-            const extractedText = getTextFromImage(base64Data); // This is a mock function to simulate text extraction
+            // Simulate the payment process (15 seconds)
+            setTimeout(function() {
+                // Hide the loading spinner
+                document.getElementById('loadingSpinner').style.display = 'none';
 
-            // Check if the extracted text matches "Lalit Kumar" (case-insensitive)
-            if (pattern.test(extractedText)) {
-                return true; // Name verified
-            }
-            return false; // Name not found
-        }
-
-        // Simulate getting text from the image (mock function, replace with OCR logic if needed)
-        function getTextFromImage(base64Data) {
-            // For demonstration, we just simulate successful text extraction.
-            // In a real app, you would use OCR here to extract text from the image.
-            return "Lalit Kumar";  // Simulated text extraction from the image
+                // Show the upload form
+                document.getElementById('paymentForm').style.display = 'block';
+            }, 15000);  // 15 seconds
         }
 
         // Handle payment screenshot upload and verification
         document.getElementById('paymentForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
-            var email = document.getElementById('email').value;
             var fileInput = document.getElementById('paymentScreenshot');
 
             if (fileInput.files && fileInput.files[0]) {
@@ -153,16 +170,14 @@
                 reader.onload = function(event) {
                     var base64Data = event.target.result;
 
-                    // Perform the simplified name verification
+                    // Simulate verifying the name in the screenshot
                     if (verifyNameInImage(base64Data)) {
-                        // If name is verified, proceed with uploading
                         document.getElementById('verificationStatus').innerText = "Verification Successful: 'Lalit Kumar' Found!";
                         document.getElementById('verificationStatus').classList.add('success');
 
-                        // Upload the screenshot to Google Apps Script
-                        uploadScreenshotToServer(base64Data, email);
+                        // Proceed to upload the screenshot
+                        uploadScreenshotToServer(base64Data);
                     } else {
-                        // If name is not verified, show an error
                         document.getElementById('verificationStatus').innerText = "Verification Failed: 'Lalit Kumar' Not Found";
                         document.getElementById('verificationStatus').classList.add('error');
                     }
@@ -171,10 +186,23 @@
             }
         });
 
-        // Function to upload screenshot to Google Apps Script
-        function uploadScreenshotToServer(base64Data, email) {
+        // Function to verify name in the image (simulated)
+        function verifyNameInImage(base64Data) {
+            // Mocked verification (this should be replaced with real OCR logic)
+            const pattern = /lalit\s*kumar/i;
+            const extractedText = getTextFromImage(base64Data); // Simulated function
+            return pattern.test(extractedText);
+        }
+
+        // Simulated text extraction (mock OCR function)
+        function getTextFromImage(base64Data) {
+            // For demonstration, assuming successful OCR
+            return "Lalit Kumar"; // Simulated text extraction from the image
+        }
+
+        // Function to upload the screenshot to the server
+        function uploadScreenshotToServer(base64Data) {
             var formData = new FormData();
-            formData.append("email", email);
             formData.append("paymentScreenshot", base64Data);
 
             fetch("https://script.google.com/macros/s/AKfycbwNf0naWZQfPyz7MFpIu54Be1-btOiw_Wqf61esKNNE-Tymllv39WFNnUMCcdSRYcTBjA/exec", {
