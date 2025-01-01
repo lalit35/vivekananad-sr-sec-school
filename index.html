@@ -16,7 +16,8 @@
     <div class="container">
         <h2 class="form-title">Competition Exam Registration</h2>
         
-        <form id="registrationForm" onsubmit="return handleSubmit(event)" method="POST" enctype="multipart/form-data">
+        <!-- Form Start -->
+        <form id="registrationForm" method="POST" enctype="multipart/form-data">
             
             <!-- Camera Capture Section -->
             <label for="camera">Capture Photo:</label>
@@ -72,7 +73,7 @@
             <button type="button" id="clearSignatureButton">Clear Signature</button>
             <input type="hidden" id="signatureImage" name="signatureImage">
 
-            <button type="submit">Submit</button>
+            <button type="submit" id="submitButton">Submit</button>
         </form>
     </div>
 
