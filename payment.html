@@ -98,8 +98,8 @@
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" readonly>
 
-        <label for="mobileNumber">Mobile Number:</label>
-        <input type="tel" id="mobileNumber" name="mobileNumber" readonly>
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" readonly>
     </div>
 
     <p class="note">Click below to pay fees for your Competition Exam Registration via UPI.</p>
@@ -134,19 +134,19 @@
             const urlParams = new URLSearchParams(window.location.search);
             const email = urlParams.get('email') || '';
             const firstName = urlParams.get('firstName') || '';
-            const mobileNumber = urlParams.get('mobile') || '';
+            const mobile = urlParams.get('mobile') || '';
             
             // Pre-fill fields
             document.getElementById('email').value = email;
             document.getElementById('firstName').value = firstName;
-            document.getElementById('mobile').value = mobileNumber;
+            document.getElementById('mobile').value = mobile;
 
             // Set up payment link
-            setUpPaymentLink(email, firstName, mobileNumber);
+            setUpPaymentLink(email, firstName, mobile);
         };
 
         // Function to set up the payment link with UPI URL
-        function setUpPaymentLink(email, firstName, mobileNumber) {
+        function setUpPaymentLink(email, firstName, mobile) {
             // You can customize the payment URL based on the first name and mobile number, if needed
             const upiUrl = `upi://pay?pa=lalitkumar2907@fam&am=99&cu=INR`;
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
