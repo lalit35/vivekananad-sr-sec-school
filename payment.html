@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Payment</title>
     <style>
-        /* Add styles here */
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -52,14 +51,6 @@
             background-color: #45a049;
         }
 
-        .error {
-            color: red;
-        }
-
-        .success {
-            color: green;
-        }
-
         /* Loading spinner styles */
         .loading {
             display: none;
@@ -96,7 +87,7 @@
         <input type="text" id="firstName" name="firstName" readonly>
 
         <label for="mobile">Mobile Number:</label>
-        <input type="tel" id="mobile" name="mobile Number" readonly>
+        <input type="tel" id="mobile" name="mobile" readonly>
 
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" readonly>
@@ -136,8 +127,7 @@
 
         // Function to set up the payment link with UPI URL
         function setUpPaymentLink(email, firstName, mobile) {
-            // You can customize the payment URL based on the first name and mobile number, if needed
-            const upiUrl = `upi://pay?pa=lalitkumar2907@fam&am=99&cu=INR`;
+            const upiUrl = `upi://pay?pa=lalitkumar2907@fam&am=99&cu=INR&tid=${firstName}&mno=${mobile}&email=${email}`;
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
 
@@ -147,15 +137,17 @@
             document.getElementById('payButton').style.display = 'none';
             document.getElementById('loadingSpinner').style.display = 'block';
 
-            // Simulate the payment process (15 seconds)
+            // Simulate the payment process (1 second)
             setTimeout(function() {
                 // Hide the loading spinner
                 document.getElementById('loadingSpinner').style.display = 'none';
 
-                // Here, you can handle what to do after the "payment" completes
-                // Since the "Upload Screenshot" feature is removed, no need to show any form
-                alert("Payment process completed successfully!");
-            }, 15000);  // 15 seconds
+                // Redirect to the payment confirmation page with query parameters
+                const firstName = document.getElementById('firstName').value;
+                const mobile = document.getElementById('mobile').value;
+                const email = document.getElementById('email').value;
+                window.location.href = `payment_confirmation.html?firstName=${firstName}&mobile=${mobile}&email=${email}`;
+            }, 15000);  // 15 second
         }
     </script>
 
