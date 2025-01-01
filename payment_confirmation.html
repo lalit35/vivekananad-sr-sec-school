@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Confirmation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #4CAF50;
+        }
+
+        .form-container {
+            margin: 20px 0;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .form-container input {
+            width: 300px;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+        }
+
+        .note {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Payment Confirmation</h1>
+    <h2>₹99 Payment</h2>
+
+    <p class="note">Please review your details and upload the screenshot of your payment confirmation below.</p>
+
+    <!-- Display user details -->
+    <div class="form-container">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" readonly>
+
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" readonly>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" readonly>
+    </div>
+
+    <p class="note">Please upload your payment confirmation screenshot.</p>
+
+    <!-- Payment Screenshot Upload -->
+    <div class="form-container">
+        <label for="paymentScreenshot">Upload Payment Screenshot:</label>
+        <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required>
+    </div>
+
+    <button class="button" onclick="submitScreenshot()">Submit Screenshot</button>
+
+    <p id="statusMessage" class="note"></p>
+
+    <script>
+        // Extract query parameters and pre-fill fields
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const firstName = urlParams.get('firstName') || '';
+            const mobile = urlParams.get('mobile') || '';
+            const email = urlParams.get('email') || '';
+            
+            document.getElementById('firstName').value = firstName;
+            document.getElementById('mobile').value = mobile;
+            document.getElementById('email').value = email;
+        };
+
+        // Function to handle the screenshot submission
+        function submitScreenshot() {
+            const screenshot = document.getElementById('paymentScreenshot').files[0];
+            if (screenshot) {
+                document.getElementById('statusMessage').textContent = 'Screenshot uploaded successfully! Our team will verify it shortly.';
+            } else {
+                document.getElementById('statusMessage').textContent = 'Please upload a valid screenshot.';
+            }
+        }
+    </script>
+
+</body>
+</html>
