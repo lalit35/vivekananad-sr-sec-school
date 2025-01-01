@@ -93,7 +93,16 @@ signatureCanvas.addEventListener('touchcancel', stopDrawing);
 function handleSubmit(event) {
     event.preventDefault(); // Prevent form from submitting normally
 
-    // Prepare form data to send
+    // Capture the payment screenshot from user (this could be from a file input or canvas, depending on your form)
+    var paymentScreenshotInput = document.getElementById('paymentScreenshot');
+    var paymentScreenshot = paymentScreenshotInput.value;  // Base64 data of the payment screenshot
+
+    // If payment screenshot is available, assign it to the hidden input
+    if (paymentScreenshot) {
+        paymentScreenshotInput.value = paymentScreenshot;
+    }
+
+    // Prepare form data to send (this will include the photo, signature, and payment screenshot)
     let formData = new FormData(document.getElementById('registrationForm'));
 
     // Use AJAX to submit the form data to Google Apps Script
