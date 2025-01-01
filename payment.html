@@ -93,7 +93,7 @@
         function setUpPaymentLink(email) {
             // Basic email validation (simple check)
             if (isValidEmail(email)) {
-                const upiUrl = `upi://pay?pa=lalitkumar2907@fam&pn=Competition%20Registration&mc=123456&tid=1234567890&tr=12345&tn=Competition%20Exam%20Registration%20Fee%20for%20${encodeURIComponent(email)}&am=99&cu=INR`;
+                const upiUrl = `upi://pay?pa=lalitkumar2907@fam&am=99&cu=INR`;
 
                 // Dynamically update the payment link
                 document.getElementById('paymentLink').setAttribute('href', upiUrl);
