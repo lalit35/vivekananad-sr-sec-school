@@ -50,6 +50,15 @@
         .button:hover {
             background-color: #45a049;
         }
+
+        .error {
+            color: red;
+        }
+
+        .success {
+            color: green;
+        }
+
     </style>
 </head>
 <body>
@@ -82,6 +91,8 @@
         <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required><br>
         <button type="submit" class="button">Submit Screenshot</button>
     </form>
+
+    <p id="verificationStatus" class="note"></p>
 
     <script>
         // Function to extract query parameters and pre-fill the payment form
@@ -119,7 +130,7 @@
             return regex.test(email);
         }
 
-        // Handle payment screenshot upload
+        // Handle payment screenshot upload and verification
         document.getElementById('paymentForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -131,7 +142,7 @@
                 reader.onload = function(event) {
                     var base64Data = event.target.result;
 
-                    // Send the email and screenshot data to the Apps Script
+                    // Send the email and screenshot data to the Apps Script for OCR processing
                     var formData = new FormData();
                     formData.append("email", email);
                     formData.append("paymentScreenshot", base64Data);
@@ -142,9 +153,17 @@
                     })
                     .then(response => response.text())
                     .then(data => {
-                        alert("Payment Screenshot Submitted Successfully.");
+                        document.getElementById('verificationStatus').innerText = data;
+                        if (data.includes("Verification Successful")) {
+                            document.getElementById('verificationStatus').classList.add("success");
+                        } else {
+                            document.getElementById('verificationStatus').classList.add("error");
+                        }
                     })
-                    .catch(error => console.error('Error uploading screenshot:', error));
+                    .catch(error => {
+                        document.getElementById('verificationStatus').innerText = "Error uploading screenshot.";
+                        document.getElementById('verificationStatus').classList.add("error");
+                    });
                 };
                 reader.readAsDataURL(fileInput.files[0]);
             }
