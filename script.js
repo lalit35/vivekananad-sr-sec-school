@@ -106,28 +106,22 @@ function handleSubmit(event) {
 
     // Use AJAX to submit the form data to Google Apps Script
     $.ajax({
-        url: 'https://script.google.com/macros/s/AKfycbx6IZ_uyMYkCKYOEAQgx2GNcXEkkGOCwRw3HTIZTFCCO9juNI09yTtqcnaqeIE2U2ZsPQ/exec', // Your updated Google Apps Script URL
+        url: 'https://script.google.com/macros/s/AKfycbxSPhhGqcNUBtowbiYOOD4kpF_J3bO_mX1J1WWpJ40QjQWHvhE-8-ql3ChTKG2Ey6bNUQ/exec', // Your updated Google Apps Script URL
         method: 'POST',
         data: formData,
-        contentType: false, // Important: Don't set contentType, let FormData handle it
-        processData: false, // Important: Don't let jQuery try to process the data
+        contentType: false,  // Don't send any content-type header (for FormData)
+        processData: false,  // Don't process the data, keep it as FormData
         success: function(response) {
             console.log('Form submitted successfully:', response);
 
-            // After successful submission, show the success message
-            successMessage.textContent = "Your form has been submitted successfully!";
-            successMessage.style.color = "green"; // Optional styling
-            successMessage.style.display = "block"; // Show the success message
-
-            // Redirect to payment page after 2 seconds
-            setTimeout(function() {
-                const email = encodeURIComponent($('#email').val());
-                const firstName = encodeURIComponent($('#firstName').val());
-                const mobileNumber = encodeURIComponent($('#mobileNumber').val());
-
-                const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
-                window.location.href = paymentUrl;
-            }, 2000); // 2 seconds delay
+            // Parse the response to check if redirect URL is present
+            var responseData = JSON.parse(response);
+            if (responseData.redirectUrl) {
+                // Redirect after form submission
+                window.location.href = responseData.redirectUrl;
+            } else {
+                alert("Error: Missing redirect URL");
+            }
         },
         error: function(xhr, status, error) {
             console.error('Error in form submission:', error);
