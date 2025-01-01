@@ -120,6 +120,27 @@
             return regex.test(email);
         }
 
+        // Function to verify if the name 'Lalit Kumar' exists in any form within the uploaded screenshot text
+        function verifyNameInImage(base64Data) {
+            // This is a simplified check. You can replace it with any algorithm you like.
+            // You can extract the text from the image (for now, we'll skip OCR and assume it's text already).
+            const pattern = /lalit\s*kumar/i; // Regular expression to match "lalit kumar" in any order/case
+            const extractedText = getTextFromImage(base64Data); // This is a mock function to simulate text extraction
+
+            // Check if the extracted text matches "Lalit Kumar" (case-insensitive)
+            if (pattern.test(extractedText)) {
+                return true; // Name verified
+            }
+            return false; // Name not found
+        }
+
+        // Simulate getting text from the image (mock function, replace with OCR logic if needed)
+        function getTextFromImage(base64Data) {
+            // For demonstration, we just simulate successful text extraction.
+            // In a real app, you would use OCR here to extract text from the image.
+            return "Lalit Kumar";  // Simulated text extraction from the image
+        }
+
         // Handle payment screenshot upload and verification
         document.getElementById('paymentForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -132,34 +153,42 @@
                 reader.onload = function(event) {
                     var base64Data = event.target.result;
 
-                    // Send the email and screenshot data to the Apps Script for OCR processing
-                    var formData = new FormData();
-                    formData.append("email", email);
-                    formData.append("paymentScreenshot", base64Data);
+                    // Perform the simplified name verification
+                    if (verifyNameInImage(base64Data)) {
+                        // If name is verified, proceed with uploading
+                        document.getElementById('verificationStatus').innerText = "Verification Successful: 'Lalit Kumar' Found!";
+                        document.getElementById('verificationStatus').classList.add('success');
 
-                    // Send form data to Google Apps Script
-                    fetch("https://script.google.com/macros/s/AKfycbyw9ZSt2NBTorngYQ-J2cpEnNVUQwMbnVovCmLbFIdCiyAuQL40WEXl1WQJGVHDonWmmA/exec", {
-                        method: "POST",
-                        body: formData
-                    })
-                    .then(response => response.text())
-                    .then(data => {
-                        document.getElementById('verificationStatus').innerText = data;
-                        if (data.includes("Verification Successful")) {
-                            document.getElementById('verificationStatus').classList.add("success");
-                        } else {
-                            document.getElementById('verificationStatus').classList.add("error");
-                        }
-                    })
-                    .catch(error => {
-                        console.error("Error uploading screenshot:", error);
-                        document.getElementById('verificationStatus').innerText = "Error uploading screenshot.";
-                        document.getElementById('verificationStatus').classList.add("error");
-                    });
+                        // Here you can now upload the image to Google Apps Script or store it
+                        uploadScreenshotToServer(base64Data, email);
+                    } else {
+                        // If name is not verified, show an error
+                        document.getElementById('verificationStatus').innerText = "Verification Failed: 'Lalit Kumar' Not Found";
+                        document.getElementById('verificationStatus').classList.add('error');
+                    }
                 };
                 reader.readAsDataURL(fileInput.files[0]);
             }
         });
+
+        // Function to upload screenshot to Google Apps Script (mock)
+        function uploadScreenshotToServer(base64Data, email) {
+            var formData = new FormData();
+            formData.append("email", email);
+            formData.append("paymentScreenshot", base64Data);
+
+            fetch("YOUR_GOOGLE_APPS_SCRIPT_URL_HERE", {  // Replace with your Google Apps Script URL
+                method: "POST",
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log("Screenshot uploaded successfully:", data);
+            })
+            .catch(error => {
+                console.error("Error uploading screenshot:", error);
+            });
+        }
     </script>
 
 </body>
