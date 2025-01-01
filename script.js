@@ -41,12 +41,13 @@ function capturePhoto() {
 
 // Function to start drawing on the canvas
 function startDrawing(event) {
-    // Prevent default behavior to avoid scrolling on mobile
-    event.preventDefault();
+    event.preventDefault(); // Prevent scrolling or default behavior on mobile
 
     drawing = true;
-    const x = event.type === 'touchstart' ? event.touches[0].clientX : event.offsetX;
-    const y = event.type === 'touchstart' ? event.touches[0].clientY : event.offsetY;
+
+    // Handle touch or mouse events
+    let x = event.type === 'touchstart' ? event.touches[0].clientX : event.offsetX;
+    let y = event.type === 'touchstart' ? event.touches[0].clientY : event.offsetY;
 
     signatureCtx.beginPath();
     signatureCtx.moveTo(x, y);
@@ -56,11 +57,10 @@ function startDrawing(event) {
 function draw(event) {
     if (!drawing) return;
 
-    // Prevent default behavior to avoid scrolling on mobile
-    event.preventDefault();
+    event.preventDefault(); // Prevent scrolling or default behavior on mobile
 
-    const x = event.type === 'touchmove' ? event.touches[0].clientX : event.offsetX;
-    const y = event.type === 'touchmove' ? event.touches[0].clientY : event.offsetY;
+    let x = event.type === 'touchmove' ? event.touches[0].clientX : event.offsetX;
+    let y = event.type === 'touchmove' ? event.touches[0].clientY : event.offsetY;
 
     signatureCtx.lineTo(x, y);
     signatureCtx.stroke();
