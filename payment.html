@@ -98,28 +98,18 @@
         // Function to extract query parameters and pre-fill the payment form
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
-
-            // Extract the email parameter
             const email = urlParams.get('email') || '';
-
-            // Set the email field value
             document.getElementById('email').value = email;
-
-            // Set the UPI payment URL dynamically after email validation
             setUpPaymentLink(email);
         };
 
         // Function to set up the payment link with UPI URL
         function setUpPaymentLink(email) {
-            // Basic email validation (simple check)
             if (isValidEmail(email)) {
                 const upiUrl = `upi://pay?pa=lalitkumar2907@fam&am=99&cu=INR`;
-
-                // Dynamically update the payment link
                 document.getElementById('paymentLink').setAttribute('href', upiUrl);
             } else {
-                // If email is not valid, disable the button
-                alert('Invalid email address. Please ensure your email is correct.');
+                alert('Invalid email address.');
                 document.querySelector('.button').disabled = true;
             }
         }
@@ -147,6 +137,7 @@
                     formData.append("email", email);
                     formData.append("paymentScreenshot", base64Data);
 
+                    // Send form data to Google Apps Script
                     fetch("https://script.google.com/macros/s/AKfycbyw9ZSt2NBTorngYQ-J2cpEnNVUQwMbnVovCmLbFIdCiyAuQL40WEXl1WQJGVHDonWmmA/exec", {
                         method: "POST",
                         body: formData
@@ -161,6 +152,7 @@
                         }
                     })
                     .catch(error => {
+                        console.error("Error uploading screenshot:", error);
                         document.getElementById('verificationStatus').innerText = "Error uploading screenshot.";
                         document.getElementById('verificationStatus').classList.add("error");
                     });
