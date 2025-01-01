@@ -163,4 +163,6 @@ cameraButton.addEventListener('click', startCamera);
 captureButton.addEventListener('click', capturePhoto);
 
 // Form submit event listener
-document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
+});
