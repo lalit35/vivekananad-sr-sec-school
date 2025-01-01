@@ -109,8 +109,8 @@ function handleSubmit(event) {
         url: 'https://script.google.com/macros/s/AKfycbyGQg3woM61BlLhzCqOJG99M2d8Wy8-Ho3AZp8UrSQ7cHYWn-7dj7mKj2ajc2hKErrQ1g/exec', // Your updated Google Apps Script URL
         method: 'POST',
         data: formData,
-        contentType: false,
-        processData: false,
+        contentType: false, // Important: Don't set contentType, let FormData handle it
+        processData: false, // Important: Don't let jQuery try to process the data
         success: function(response) {
             console.log('Form submitted successfully:', response);
 
