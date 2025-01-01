@@ -76,10 +76,10 @@
     <!-- Payment Screenshot Upload -->
     <div class="form-container">
         <label for="paymentScreenshot">Upload Payment Screenshot:</label>
-        <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required>
+        <input type="file" id="paymentScreenshot" name="paymentScreenshotUrl" accept="image/*" required>
     </div>
 
-    <button class="button" onclick="submitScreenshot()">Submit Screenshot</button>
+    <button class="button" type="button" onclick="submitForm()">Submit Screenshot</button>
 
     <p id="statusMessage" class="note"></p>
 
@@ -96,14 +96,29 @@
             document.getElementById('email').value = email;
         };
 
-        // Function to handle the screenshot submission
-        function submitScreenshot() {
+        // Function to handle the form submission and upload the screenshot
+        function submitForm() {
             const screenshot = document.getElementById('paymentScreenshot').files[0];
-            if (screenshot) {
-                document.getElementById('statusMessage').textContent = 'Screenshot uploaded successfully! Our team will verify it shortly.';
-            } else {
-                document.getElementById('statusMessage').textContent = 'Please upload a valid screenshot.';
-            }
+            const formData = new FormData();
+            formData.append('firstName', document.getElementById('firstName').value);
+            formData.append('mobile', document.getElementById('mobile').value);
+            formData.append('email', document.getElementById('email').value);
+            formData.append('paymentScreenshotUrl', screenshot);
+
+            // Send the form data to the Google Apps Script endpoint
+            fetch("https://script.google.com/macros/s/AKfycbyHmYaRHVYEHoZZUrnepEkJYxdRXdAWhi_VwBXrDvUySL1TDUrBP65g0zRqC4HJizav7Q/exec", {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(data => {
+                // If successful, show the success message and redirect
+                document.getElementById('statusMessage').textContent = 'Screenshot uploaded successfully! Redirecting to Thank You page...';
+                window.location.href = "https://lalit35.github.io/vivekananad-sr-sec-school/thanks.html?name=" + encodeURIComponent(document.getElementById('firstName').value);
+            })
+            .catch(error => {
+                document.getElementById('statusMessage').textContent = 'There was an error uploading the screenshot. Please try again.';
+            });
         }
     </script>
 
