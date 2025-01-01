@@ -107,7 +107,7 @@ function handleSubmit(event) {
 
             // Use AJAX to submit the form data to Google Apps Script
             $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbxsSYpz4knvm3UzOfq3AJI1Wnm66bmKqANRIRDJJBrhrw8oKD2z8SUs54rtKgSLIQxz0w/exec', // Updated Google Apps Script Web App URL
+                url: 'https://script.google.com/macros/s/AKfycbwNf0naWZQfPyz7MFpIu54Be1-btOiw_Wqf61esKNNE-Tymllv39WFNnUMCcdSRYcTBjA/exec', // Updated Google Apps Script Web App URL
                 method: 'POST',
                 data: formData,
                 contentType: false,
