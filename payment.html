@@ -90,12 +90,15 @@
 
     <p class="note">Please review your details before proceeding.</p>
 
-    <!-- Email Field (already autofilled) -->
+    <!-- Email Field (autofilled) -->
     <div class="form-container">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" readonly>
+
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" readonly>
 
-        <label for="mobileNumber">Whatsapp Number:</label>
+        <label for="mobileNumber">Mobile Number:</label>
         <input type="tel" id="mobileNumber" name="mobileNumber" readonly>
     </div>
 
@@ -129,15 +132,21 @@
         // Function to extract query parameters and pre-fill the payment form
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
+            const email = urlParams.get('email') || '';
             const firstName = urlParams.get('firstName') || '';
-            const mobileNumber = urlParams.get('mobileNumber') || '';
+            const mobileNumber = urlParams.get('mobile') || '';
+            
+            // Pre-fill fields
+            document.getElementById('email').value = email;
             document.getElementById('firstName').value = firstName;
-            document.getElementById('mobileNumber').value = mobileNumber;
-            setUpPaymentLink(firstName, mobileNumber);
+            document.getElementById('mobile').value = mobileNumber;
+
+            // Set up payment link
+            setUpPaymentLink(email, firstName, mobileNumber);
         };
 
         // Function to set up the payment link with UPI URL
-        function setUpPaymentLink(firstName, mobileNumber) {
+        function setUpPaymentLink(email, firstName, mobileNumber) {
             // You can customize the payment URL based on the first name and mobile number, if needed
             const upiUrl = `upi://pay?pa=lalitkumar2907@fam&am=99&cu=INR`;
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
