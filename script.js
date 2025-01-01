@@ -6,7 +6,7 @@ let cameraButton = document.getElementById('cameraButton');
 let successMessage = document.getElementById('successMessage');
 let capturedPhoto = document.getElementById('capturedPhoto');
 
-// Initialize signature canvas
+// Initialize signature canvas and context
 const signatureCanvas = document.getElementById('signatureCanvas');
 const signatureCtx = signatureCanvas.getContext('2d');
 let drawing = false;
@@ -39,31 +39,55 @@ function capturePhoto() {
     tracks.forEach(track => track.stop());
 }
 
-// Function to handle the signature drawing on the canvas
-signatureCanvas.addEventListener('mousedown', function(event) {
+// Function to start drawing on the canvas
+function startDrawing(event) {
+    // Prevent default behavior to avoid scrolling on mobile
+    event.preventDefault();
+
     drawing = true;
+    const x = event.type === 'touchstart' ? event.touches[0].clientX : event.offsetX;
+    const y = event.type === 'touchstart' ? event.touches[0].clientY : event.offsetY;
+
     signatureCtx.beginPath();
-    signatureCtx.moveTo(event.offsetX, event.offsetY);
-});
+    signatureCtx.moveTo(x, y);
+}
 
-signatureCanvas.addEventListener('mousemove', function(event) {
-    if (drawing) {
-        signatureCtx.lineTo(event.offsetX, event.offsetY);
-        signatureCtx.stroke();
-    }
-});
+// Function to continue drawing on the canvas
+function draw(event) {
+    if (!drawing) return;
 
-signatureCanvas.addEventListener('mouseup', function() {
+    // Prevent default behavior to avoid scrolling on mobile
+    event.preventDefault();
+
+    const x = event.type === 'touchmove' ? event.touches[0].clientX : event.offsetX;
+    const y = event.type === 'touchmove' ? event.touches[0].clientY : event.offsetY;
+
+    signatureCtx.lineTo(x, y);
+    signatureCtx.stroke();
+}
+
+// Function to stop drawing on the canvas
+function stopDrawing() {
     drawing = false;
-    // Save the signature canvas as an image
+    // Save the signature image in hidden input
     document.getElementById('signatureImage').value = signatureCanvas.toDataURL('image/png');
-});
+}
 
 // Clear signature canvas
 document.getElementById('clearSignatureButton').addEventListener('click', function() {
     signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
     document.getElementById('signatureImage').value = ''; // Clear hidden input
 });
+
+// Event listeners for mouse and touch events
+signatureCanvas.addEventListener('mousedown', startDrawing);
+signatureCanvas.addEventListener('mousemove', draw);
+signatureCanvas.addEventListener('mouseup', stopDrawing);
+
+signatureCanvas.addEventListener('touchstart', startDrawing);
+signatureCanvas.addEventListener('touchmove', draw);
+signatureCanvas.addEventListener('touchend', stopDrawing);
+signatureCanvas.addEventListener('touchcancel', stopDrawing);
 
 // Handle the form submission
 function handleSubmit(event) {
@@ -91,7 +115,7 @@ function handleSubmit(event) {
             setTimeout(function() {
                 const email = encodeURIComponent($('#email').val()); // Get the email input
                 const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input
-                const mobileNumber = encodeURIComponent($('#mobile').val()); // Get the mobile number input
+                const mobileNumber = encodeURIComponent($('#mobileNumber').val()); // Get the mobile number input
 
                 // Construct the payment URL with query parameters (email, first name, mobile)
                 const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
@@ -113,7 +137,7 @@ function handleSubmit(event) {
             // Still redirect to the payment page with email, first name, and mobile number even in case of error
             const email = encodeURIComponent($('#email').val()); // Get the email input
             const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input
-            const mobileNumber = encodeURIComponent($('#mobile').val()); // Get the mobile number input
+            const mobileNumber = encodeURIComponent($('#mobileNumber').val()); // Get the mobile number input
 
             const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
             console.log('Redirecting to:', paymentUrl);
