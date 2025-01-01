@@ -177,16 +177,20 @@
             formData.append("email", email);
             formData.append("paymentScreenshot", base64Data);
 
-            fetch("YOUR_GOOGLE_APPS_SCRIPT_URL_HERE", {  // Replace with your Google Apps Script URL
+            fetch("https://script.google.com/macros/s/AKfycbyw9ZSt2NBTorngYQ-J2cpEnNVUQwMbnVovCmLbFIdCiyAuQL40WEXl1WQJGVHDonWmmA/exec", {  // Your Google Apps Script URL
                 method: "POST",
                 body: formData
             })
             .then(response => response.text())
             .then(data => {
                 console.log("Screenshot uploaded successfully:", data);
+                document.getElementById('verificationStatus').innerText = "Screenshot uploaded successfully!";
+                document.getElementById('verificationStatus').classList.add('success');
             })
             .catch(error => {
                 console.error("Error uploading screenshot:", error);
+                document.getElementById('verificationStatus').innerText = "There was an error uploading the screenshot. Please try again.";
+                document.getElementById('verificationStatus').classList.add('error');
             });
         }
     </script>
