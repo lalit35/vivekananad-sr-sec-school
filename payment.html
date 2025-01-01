@@ -74,6 +74,15 @@
 
     <p class="note">You will be redirected to your payment app (Google Pay, PhonePe, Paytm, etc.) to complete the payment.</p>
 
+    <h3>Upload Payment Screenshot</h3>
+    <p class="note">Please upload a screenshot of your payment confirmation:</p>
+
+    <form id="paymentForm">
+        <label for="paymentScreenshot">Upload Payment Screenshot:</label>
+        <input type="file" id="paymentScreenshot" name="paymentScreenshot" accept="image/*" required><br>
+        <button type="submit" class="button">Submit Screenshot</button>
+    </form>
+
     <script>
         // Function to extract query parameters and pre-fill the payment form
         window.onload = function() {
@@ -109,6 +118,37 @@
             const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return regex.test(email);
         }
+
+        // Handle payment screenshot upload
+        document.getElementById('paymentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var email = document.getElementById('email').value;
+            var fileInput = document.getElementById('paymentScreenshot');
+
+            if (fileInput.files && fileInput.files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var base64Data = event.target.result;
+
+                    // Send the email and screenshot data to the Apps Script
+                    var formData = new FormData();
+                    formData.append("email", email);
+                    formData.append("paymentScreenshot", base64Data);
+
+                    fetch("https://script.google.com/macros/s/AKfycbyw9ZSt2NBTorngYQ-J2cpEnNVUQwMbnVovCmLbFIdCiyAuQL40WEXl1WQJGVHDonWmmA/exec", {
+                        method: "POST",
+                        body: formData
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        alert("Payment Screenshot Submitted Successfully.");
+                    })
+                    .catch(error => console.error('Error uploading screenshot:', error));
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            }
+        });
     </script>
 
 </body>
