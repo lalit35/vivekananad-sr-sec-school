@@ -159,7 +159,7 @@
                         document.getElementById('verificationStatus').innerText = "Verification Successful: 'Lalit Kumar' Found!";
                         document.getElementById('verificationStatus').classList.add('success');
 
-                        // Here you can now upload the image to Google Apps Script or store it
+                        // Upload the screenshot to Google Apps Script
                         uploadScreenshotToServer(base64Data, email);
                     } else {
                         // If name is not verified, show an error
@@ -171,13 +171,13 @@
             }
         });
 
-        // Function to upload screenshot to Google Apps Script (mock)
+        // Function to upload screenshot to Google Apps Script
         function uploadScreenshotToServer(base64Data, email) {
             var formData = new FormData();
             formData.append("email", email);
             formData.append("paymentScreenshot", base64Data);
 
-            fetch("https://script.google.com/macros/s/AKfycbyw9ZSt2NBTorngYQ-J2cpEnNVUQwMbnVovCmLbFIdCiyAuQL40WEXl1WQJGVHDonWmmA/exec", {  // Your Google Apps Script URL
+            fetch("https://script.google.com/macros/s/AKfycbyz1eN5rXplWXhbKk7AXJrANQQkV9BsGtD-XwjVRzZMR3n2F1G_hRtwyfhrpcKYc13hRA/exec", {
                 method: "POST",
                 body: formData
             })
