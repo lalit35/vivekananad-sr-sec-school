@@ -73,7 +73,7 @@
 
     <p class="note">Please upload your payment confirmation screenshot (any file type accepted).</p>
 
-    <!-- Payment Screenshot Upload (Accepting any file type) -->
+    <!-- Payment Screenshot Upload -->
     <div class="form-container">
         <label for="paymentScreenshot">Upload Payment Screenshot:</label>
         <input type="file" id="paymentScreenshot" name="paymentScreenshotUrl" accept="*/*" required>
@@ -125,18 +125,22 @@
                 formData.append('paymentScreenshotUrl', base64Data);
 
                 // Send data to the Google Apps Script endpoint
-                fetch("https://script.google.com/macros/s/AKfycbwndBNblTrktXI_ZGTWWvVMnO4fe51LhSxE-jFY08ToZ1d9Qz5D6uAoWkslw8tGr9rnmA/exec", {
+                fetch("https://script.google.com/macros/s/AKfycbxTm622I9ZOT0MyuaSGvqGPamwCNCwPFStujNSZqoccgD7jUA-LA0iI_d_gyyXPtmWzMQ/exec", {
                     method: 'POST',
                     body: formData
                 })
-                .then(response => response.text())
+                .then(response => response.json()) // Parse the JSON response
                 .then(data => {
-                    // Handle successful form submission
-                    console.log('Response:', data);
-                    document.getElementById('statusMessage').textContent = 'File uploaded successfully! Redirecting to Thank You page...';
-
-                    // Redirect to the Thank You page with the first name as a query parameter
-                    window.location.href = "https://lalit35.github.io/vivekananad-sr-sec-school/thanks.html?name=" + encodeURIComponent(firstName);
+                    if (data.status === "success") {
+                        // Handle successful form submission and redirect
+                        document.getElementById('statusMessage').textContent = 'File uploaded successfully! Redirecting...';
+                        
+                        // Redirect to the URL provided in the response
+                        window.location.href = data.redirectUrl;
+                    } else {
+                        // Handle error in the response
+                        document.getElementById('statusMessage').textContent = 'Error: ' + data.message;
+                    }
                 })
                 .catch(error => {
                     // Handle error in the form submission
