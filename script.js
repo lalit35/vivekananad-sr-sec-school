@@ -4,7 +4,7 @@ let photoCanvas = document.getElementById('photoCanvas');
 let captureButton = document.getElementById('captureButton');
 let cameraButton = document.getElementById('cameraButton');
 let successMessage = document.getElementById('successMessage');
-let capturedPhoto = document.getElementById('capturedPhoto'); // Hidden input to store photo data
+let capturedPhoto = document.getElementById('capturedPhoto');
 
 // Initialize signature canvas and context
 const signatureCanvas = document.getElementById('signatureCanvas');
@@ -13,7 +13,7 @@ let drawing = false;
 
 // Function to start the camera
 function startCamera() {
-    navigator.mediaDevices.getUser Media({ video: true })
+    navigator.mediaDevices.getUserMedia({ video: true })
         .then(function(stream) {
             cameraStream.style.display = "block";
             cameraStream.srcObject = stream;
@@ -93,44 +93,98 @@ signatureCanvas.addEventListener('touchcancel', stopDrawing);
 function handleSubmit(event) {
     event.preventDefault(); // Prevent form from submitting normally
 
-    // Prepare the form data (photo and signature are already captured)
-    var formData = new FormData(document.getElementById('registrationForm'));
+    // Get the payment screenshot file input
+    var paymentScreenshotInput = document.getElementById('paymentScreenshot');
+    var paymentScreenshot = paymentScreenshotInput ? paymentScreenshotInput.files[0] : null; // Check if file input exists
 
-    // Fetch the photo and signature data from the hidden inputs
-    const photoBase64 = capturedPhoto.value;
-    const signatureBase64 = document.getElementById('signatureImage').value;
+    let formData = new FormData(document.getElementById('registrationForm'));
 
-    // Append the photo and signature to the form data
-    formData.append('photoUrl', photoBase64);
-    formData.append('signatureImage', signatureBase64);
+    if (paymentScreenshot) {
+        const reader = new FileReader();
+        reader.onloadend = function () {
+            const paymentScreenshotBase64 = reader.result;
 
-    // Use AJAX to submit the form data to Google Apps Script
-    $.ajax({
-                // Your updated Google Apps Script URL
-        url: 'https://script.google.com/macros/s/AKfycbxBKS1YSrR4B3QRCmRgHvu5j_SVs8Zzfn1hXmjsZG60BA6_UcNqlDF4ScLrwMyv6qCpSg/exec',
-        method: 'POST',
-        data: formData,
-        contentType: false,  // Don't send any content-type header (for FormData)
-        processData: false,  // Don't process the data, keep it as FormData
-        success: function(response) {
-            console.log('Form submitted successfully:', response);
+            // Append the Base64 screenshot to the form data
+            formData.append('paymentScreenshot', paymentScreenshotBase64);
 
-            // Parse the response to check if redirect URL is present
-            var responseData = JSON.parse(response);
-            if (responseData.redirectUrl) {
-                // Redirect after form submission
-                window.location.href = responseData.redirectUrl;
-            } else {
-                alert("Error: Missing redirect URL");
+            // Use AJAX to submit the form data to Google Apps Script
+            $.ajax({
+                url: 'https://script.google.com/macros/s/AKfycbx3ks4KgPufjl2oMso83axNexiKa8bs7Yh1iiUzWBI-HInd2JeMFMIfsTTqT1lY39YSxQ/exec', // Your Google Apps Script Web App URL
+                method: 'POST',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function(response) {
+                    console.log('Form submitted successfully:', response);
+                    showSuccessMessage();
+
+                    // After a small delay, redirect to the payment page with email, first name, and mobile number
+                    setTimeout(function() {
+                        redirectToPayment();
+                    }, 2000); // Delay for 2 seconds before redirecting
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error in form submission:', error);
+                    showErrorMessage();
+                    setTimeout(function() {
+                        redirectToPayment();
+                    }, 2000); // Delay for 2 seconds before redirecting
+                }
+            });
+        };
+        reader.readAsDataURL(paymentScreenshot); // Convert the payment screenshot to Base64 before sending
+    } else {
+        // If no screenshot was provided, still proceed with form submission
+        $.ajax({
+            url: 'https://script.google.com/macros/s/AKfycbxVM6pRqBNsGCRDmimYyUysbCYAABzAa79D2lgZ9tN1EcOw4pY3stCQvFikH8uoD2a8mQ/exec', // Your Google Apps Script Web App URL
+            method: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            success: function(response) {
+                console.log('Form submitted successfully:', response);
+                showSuccessMessage();
+                setTimeout(function() {
+                    redirectToPayment();
+                }, 2000);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error in form submission:', error);
+                showErrorMessage();
+                setTimeout(function() {
+                    redirectToPayment();
+                }, 2000);
             }
-        },
-        error: function(xhr, status, error) {
-            console.error('Error in form submission:', error);
-            successMessage.textContent = "There was an error with the form submission. Please try again.";
-            successMessage.style.color = "red";
-            successMessage.style.display = "block";
-        }
-    });
+        });
+    }
+}
+
+// Show success message
+function showSuccessMessage() {
+    successMessage.textContent = "Your form has been submitted successfully!";
+    successMessage.style.color = "green"; // Optional styling
+    successMessage.style.display = "block"; // Show the success message
+}
+
+// Show error message
+function showErrorMessage() {
+    successMessage.textContent = "There was an error with the form submission. Please try again.";
+    successMessage.style.color = "red"; // Optional styling
+    successMessage.style.display = "block"; // Show the error message
+}
+
+// Function to redirect to the payment page with query parameters
+function redirectToPayment() {
+    const email = encodeURIComponent($('#email').val()); // Get the email input value
+    const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input value
+    const mobileNumber = encodeURIComponent($('#mobileNumber').val()); // Get the mobile number input value
+
+    // Construct the payment URL with query parameters
+    const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
+    console.log('Redirecting to:', paymentUrl);
+
+    // Redirect to the payment page with the added parameters
+    window.location.href = paymentUrl;
 }
 
 // Event listeners for camera and capture
@@ -138,6 +192,4 @@ cameraButton.addEventListener('click', startCamera);
 captureButton.addEventListener('click', capturePhoto);
 
 // Form submit event listener
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
-});
+document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
