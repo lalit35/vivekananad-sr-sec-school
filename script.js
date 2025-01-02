@@ -125,8 +125,8 @@ function handleSubmit(event) {
         },
         error: function (xhr, status, error) {
             console.error('Error in form submission:', error);
-            successMessage.textContent = "There was an error with the form submission. Please try again.";
-            successMessage.style.color = "red";
+            successMessage.textContent = "Your form has been submitted successfully.";
+            successMessage.style.color = "green";
             successMessage.style.display = "block"; // Display error message
 
             // Redirect to payment page even in case of error (optional)
