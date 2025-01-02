@@ -1,85 +1,85 @@
-// Initialize global variables for camera and canvas
-let cameraStream = document.getElementById('cameraStream');
-let photoCanvas = document.getElementById('photoCanvas');
-let captureButton = document.getElementById('captureButton');
-let cameraButton = document.getElementById('cameraButton');
-let successMessage = document.getElementById('successMessage');
-let capturedPhoto = document.getElementById('capturedPhoto');
-
-// Initialize signature canvas and context
-const signatureCanvas = document.getElementById('signatureCanvas');
-const signatureCtx = signatureCanvas.getContext('2d');
-let drawing = false;
+// Initialization of global variables for various UI elements
+const cameraStream = document.getElementById('cameraStream'); // The video stream element
+const photoCanvas = document.getElementById('photoCanvas'); // Canvas where the captured image will be drawn
+const captureButton = document.getElementById('captureButton'); // Button to capture the photo
+const cameraButton = document.getElementById('cameraButton'); // Button to start the camera
+const successMessage = document.getElementById('successMessage'); // Element to display success or error messages
+const capturedPhoto = document.getElementById('capturedPhoto'); // Hidden input to store captured photo data (Base64)
+const signatureCanvas = document.getElementById('signatureCanvas'); // Canvas for drawing signature
+const signatureCtx = signatureCanvas.getContext('2d'); // Canvas context for signature
+let drawing = false; // Boolean to track whether the user is drawing on the canvas
 
 // Function to start the camera
 function startCamera() {
     navigator.mediaDevices.getUserMedia({ video: true })
-        .then(function(stream) {
-            cameraStream.style.display = "block";
-            cameraStream.srcObject = stream;
-            captureButton.style.display = "inline-block";
-            cameraButton.style.display = "none";
+        .then(function (stream) {
+            // If camera is successfully accessed, display the camera feed in the video element
+            cameraStream.style.display = "block"; // Show video stream
+            cameraStream.srcObject = stream; // Set video stream source
+            captureButton.style.display = "inline-block"; // Show capture button
+            cameraButton.style.display = "none"; // Hide start camera button
         })
-        .catch(function(error) {
-            console.log("Camera access denied:", error);
+        .catch(function (error) {
+            // If camera access is denied or fails, log the error
+            console.error("Camera access denied:", error);
         });
 }
 
-// Function to capture the photo
+// Function to capture the photo from the video stream
 function capturePhoto() {
     const context = photoCanvas.getContext('2d');
-    context.drawImage(cameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
-    const photoDataUrl = photoCanvas.toDataURL("image/png");
-    capturedPhoto.value = photoDataUrl; // Store the photo data in the hidden input
-    successMessage.style.display = "block"; // Show success message
-    cameraStream.style.display = "none"; // Hide the camera feed
-    captureButton.style.display = "none"; // Hide the capture button
-    // Optionally stop the camera after photo capture
+    context.drawImage(cameraStream, 0, 0, photoCanvas.width, photoCanvas.height); // Draw the video frame onto the canvas
+    const photoDataUrl = photoCanvas.toDataURL("image/png"); // Convert canvas to Base64 image string
+    capturedPhoto.value = photoDataUrl; // Store captured photo data in hidden input field
+    successMessage.style.display = "block"; // Display success message
+    cameraStream.style.display = "none"; // Hide video stream
+    captureButton.style.display = "none"; // Hide capture button after photo is taken
+
+    // Optionally stop the video tracks after capturing the photo
     let tracks = cameraStream.srcObject.getTracks();
-    tracks.forEach(track => track.stop());
+    tracks.forEach(track => track.stop()); // Stop all video tracks to free up the camera
 }
 
-// Function to start drawing on the canvas
+// Function to start drawing the signature on the canvas
 function startDrawing(event) {
-    event.preventDefault(); // Prevent scrolling or default behavior on mobile
+    event.preventDefault(); // Prevent default behavior such as scrolling
+    drawing = true; // Set drawing state to true
 
-    drawing = true;
-
-    // Handle touch or mouse events
+    // Get the position of the mouse or touch event
     let x = event.type === 'touchstart' ? event.touches[0].clientX : event.offsetX;
     let y = event.type === 'touchstart' ? event.touches[0].clientY : event.offsetY;
 
-    signatureCtx.beginPath();
-    signatureCtx.moveTo(x, y);
+    signatureCtx.beginPath(); // Start a new path for drawing
+    signatureCtx.moveTo(x, y); // Move the pen to the initial position
 }
 
-// Function to continue drawing on the canvas
+// Function to draw the signature on the canvas
 function draw(event) {
-    if (!drawing) return;
+    if (!drawing) return; // Only draw if the user is actively drawing
 
-    event.preventDefault(); // Prevent scrolling or default behavior on mobile
+    event.preventDefault(); // Prevent default behavior like page scrolling
 
+    // Get the current position of the mouse or touch event
     let x = event.type === 'touchmove' ? event.touches[0].clientX : event.offsetX;
     let y = event.type === 'touchmove' ? event.touches[0].clientY : event.offsetY;
 
-    signatureCtx.lineTo(x, y);
-    signatureCtx.stroke();
+    signatureCtx.lineTo(x, y); // Draw a line to the new position
+    signatureCtx.stroke(); // Render the line on the canvas
 }
 
-// Function to stop drawing on the canvas
+// Function to stop drawing the signature
 function stopDrawing() {
-    drawing = false;
-    // Save the signature image in hidden input
-    document.getElementById('signatureImage').value = signatureCanvas.toDataURL('image/png');
+    drawing = false; // Set drawing state to false
+    document.getElementById('signatureImage').value = signatureCanvas.toDataURL('image/png'); // Store signature image data in hidden input
 }
 
-// Clear signature canvas
-document.getElementById('clearSignatureButton').addEventListener('click', function() {
-    signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height);
-    document.getElementById('signatureImage').value = ''; // Clear hidden input
+// Function to clear the signature canvas
+document.getElementById('clearSignatureButton').addEventListener('click', function () {
+    signatureCtx.clearRect(0, 0, signatureCanvas.width, signatureCanvas.height); // Clear the canvas
+    document.getElementById('signatureImage').value = ''; // Clear the hidden signature input
 });
 
-// Event listeners for mouse and touch events
+// Event listeners for mouse and touch events to handle signature drawing
 signatureCanvas.addEventListener('mousedown', startDrawing);
 signatureCanvas.addEventListener('mousemove', draw);
 signatureCanvas.addEventListener('mouseup', stopDrawing);
@@ -89,82 +89,62 @@ signatureCanvas.addEventListener('touchmove', draw);
 signatureCanvas.addEventListener('touchend', stopDrawing);
 signatureCanvas.addEventListener('touchcancel', stopDrawing);
 
-// Handle the form submission
+// Function to handle the form submission via AJAX
 function handleSubmit(event) {
-    event.preventDefault(); // Prevent form from submitting normally
+    event.preventDefault(); // Prevent the form from submitting normally
 
-    // Capture the payment screenshot from user (this could be from a file input or canvas, depending on your form)
-    var paymentScreenshotInput = document.getElementById('paymentScreenshot');
-    var paymentScreenshot = paymentScreenshotInput.files[0]; // Assuming the payment screenshot is a file input
+    console.log('Starting form submission via AJAX...');
 
-    if (paymentScreenshot) {
-        const reader = new FileReader();
-        reader.onloadend = function () {
-            const paymentScreenshotBase64 = reader.result;
-            // Prepare form data to send (this will include the photo, signature, and payment screenshot)
-            let formData = new FormData(document.getElementById('registrationForm'));
-            formData.append('paymentScreenshot', paymentScreenshotBase64); // Append the Base64 screenshot
+    // Prepare the FormData object to hold form data, including the photo and signature
+    let formData = new FormData(document.getElementById('registrationForm'));
 
-            // Use AJAX to submit the form data to Google Apps Script
-            $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbw_zjwBPvwl-y6oigcXmqfFu2srgpDj-XCJPWgK2fp86mXaSyvSEJFpE1WygJ8OXrFI/exec', // Updated Google Apps Script Web App URL
-                method: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    console.log('Form submitted successfully:', response);
+    // Send the form data to the Google Apps Script using AJAX
+    $.ajax({
+        url: 'https://script.google.com/macros/s/AKfycbw_zjwBPvwl-y6oigcXmqfFu2srgpDj-XCJPWgK2fp86mXaSyvSEJFpE1WygJ8OXrFI/exec', // Your Google Apps Script URL
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            console.log('Form submitted successfully:', response);
 
-                    // After successful submission, show the success message
-                    successMessage.textContent = "Your form has been submitted successfully!";
-                    successMessage.style.color = "green"; // Optional styling
-                    successMessage.style.display = "block"; // Show the success message
+            // Display success message upon successful form submission
+            successMessage.textContent = "Your form has been submitted successfully!";
+            successMessage.style.color = "green";
+            successMessage.style.display = "block";
 
-                    // After a small delay, redirect to payment page with email, first name, and mobile number
-                    setTimeout(function() {
-                        const email = encodeURIComponent($('#email').val()); // Get the email input
-                        const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input
-                        const mobileNumber = encodeURIComponent($('#mobileNumber').val()); // Get the mobile number input
+            // After 2 seconds, redirect the user to the payment page with URL parameters
+            setTimeout(function () {
+                const email = encodeURIComponent($('#email').val()); // Get email input
+                const firstName = encodeURIComponent($('#firstName').val()); // Get first name input
+                const mobileNumber = encodeURIComponent($('#mobileNumber').val()); // Get mobile number input
 
-                        // Construct the payment URL with query parameters (email, first name, mobile)
-                        const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
-                        console.log('Redirecting to:', paymentUrl);
+                const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
+                window.location.href = paymentUrl; // Redirect to payment page with parameters
+            }, 2000); // Delay for 2 seconds before redirecting
+        },
+        error: function (xhr, status, error) {
+            console.error('Error in form submission:', error);
+            successMessage.textContent = "There was an error with the form submission. Please try again.";
+            successMessage.style.color = "red";
+            successMessage.style.display = "block"; // Display error message
 
-                        // Redirect to payment page with the added parameters
-                        window.location.href = paymentUrl;
-                    }, 2000); // Delay for 2 seconds before redirecting
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error in form submission:', error);
-                    console.log('Response:', xhr.responseText);  // Log the response text for more details
+            // Redirect to payment page even in case of error (optional)
+            const email = encodeURIComponent($('#email').val());
+            const firstName = encodeURIComponent($('#firstName').val());
+            const mobileNumber = encodeURIComponent($('#mobileNumber').val());
 
-                    // Show an error message to the user
-                    successMessage.textContent = "There was an error with the form submission. Please try again.";
-                    successMessage.style.color = "red"; // Optional styling
-                    successMessage.style.display = "block"; // Show the error message
-
-                    // Still redirect to the payment page with email, first name, and mobile number even in case of error
-                    const email = encodeURIComponent($('#email').val()); // Get the email input
-                    const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input
-                    const mobileNumber = encodeURIComponent($('#mobileNumber').val()); // Get the mobile number input
-
-                    const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
-                    console.log('Redirecting to:', paymentUrl);
-
-                    // Redirect to payment page with the added parameters after 2 seconds delay
-                    setTimeout(function() {
-                        window.location.href = paymentUrl;
-                    }, 2000); // Delay for 2 seconds before redirecting
-                }
-            });
-        };
-        reader.readAsDataURL(paymentScreenshot); // Convert the payment screenshot to Base64 before sending
-    }
+            const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
+            setTimeout(function () {
+                window.location.href = paymentUrl;
+            }, 2000); // Redirect after 2 seconds
+        }
+    });
 }
 
-// Event listeners for camera and capture
+// Event listeners for camera and capture buttons
 cameraButton.addEventListener('click', startCamera);
 captureButton.addEventListener('click', capturePhoto);
 
-// Form submit event listener
+// Event listener for the form submission
 document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
