@@ -1,24 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta name="description" content="Webpage description goes here" />
-  <meta charset="utf-8">
-  <title>Change_me</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="author" content="">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You for Registering</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #4CAF50;
+        }
+
+        .message {
+            font-size: 18px;
+            color: #555;
+            margin: 20px 0;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
-
 <body>
-  
-<div class="container">
-  
-</div>
 
-<script>
-</script>
+    <h1>Thank You for Registering!</h1>
+
+    <p class="message" id="thankYouMessage"></p>
+
+    <p class="message">We are thrilled to have you as a participant in our competition. Get ready for an exciting experience!</p>
+
+    <button class="button" onclick="window.location.href='https://lalit35.github.io/vivekananad-sr-sec-school/'">Go to Homepage</button>
+
+    <script>
+        // Extract the firstName query parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const firstName = urlParams.get('name') || 'Participant';
+
+        // Display a personalized welcome message
+        document.getElementById('thankYouMessage').textContent = `Welcome, ${firstName}! Your registration for the competition has been successfully received. We will contact you shortly via email for further details.`;
+
+    </script>
 
 </body>
 </html>
