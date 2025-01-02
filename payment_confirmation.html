@@ -125,7 +125,7 @@
                 formData.append('paymentScreenshotUrl', base64Data);
 
                 // Send data to the Google Apps Script endpoint
-                fetch("https://script.google.com/macros/s/AKfycbxTm622I9ZOT0MyuaSGvqGPamwCNCwPFStujNSZqoccgD7jUA-LA0iI_d_gyyXPtmWzMQ/exec", {
+                fetch("https://script.google.com/macros/s/AKfycbwo59DdaHdn-95UpVbHQB1OT4tJBL1Ctqq3Lu36DrTY7bZi8GZMmSBC2lU2p3flYVSvPw/exec", {
                     method: 'POST',
                     body: formData
                 })
@@ -138,14 +138,14 @@
                         // Redirect to the URL provided in the response
                         window.location.href = data.redirectUrl;
                     } else {
-                        // Handle error in the response
-                        document.getElementById('statusMessage').textContent = 'Error: ' + data.message;
+                        // Handle failure response
+                        document.getElementById('statusMessage').textContent = 'Error uploading file. Please try again.';
                     }
                 })
                 .catch(error => {
-                    // Handle error in the form submission
-                    console.error('Error:', error);
-                    document.getElementById('statusMessage').textContent = 'There was an error uploading the file. Please try again.';
+                    // Handle network or other errors
+                    document.getElementById('statusMessage').textContent = 'There was an error. Please try again.';
+                    console.error(error);
                 });
             };
 
