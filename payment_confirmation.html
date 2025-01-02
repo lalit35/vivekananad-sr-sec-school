@@ -71,9 +71,9 @@
         <input type="email" id="email" name="email" readonly>
     </div>
 
-    <p class="note">Please upload your payment confirmation screenshot.</p>
+    <p class="note">Please upload your payment confirmation screenshot (any file type accepted).</p>
 
-    <!-- Payment Screenshot Upload -->
+    <!-- Payment Screenshot Upload (Accepting any file type) -->
     <div class="form-container">
         <label for="paymentScreenshot">Upload Payment Screenshot:</label>
         <input type="file" id="paymentScreenshot" name="paymentScreenshotUrl" accept="*/*" required>
@@ -99,36 +99,49 @@
         // Function to handle the form submission and upload the screenshot
         function submitForm() {
             const screenshot = document.getElementById('paymentScreenshot').files[0];
+            const firstName = document.getElementById('firstName').value;
+            const mobile = document.getElementById('mobile').value;
+            const email = document.getElementById('email').value;
+
+            // Check if a file has been selected for upload
             if (!screenshot) {
                 document.getElementById('statusMessage').textContent = 'Please select a file to upload.';
                 return;
             }
 
-            // Read the file as Base64
+            // Display loading message
+            document.getElementById('statusMessage').textContent = 'Uploading file...';
+
             const reader = new FileReader();
             reader.onloadend = function () {
-                const base64Data = reader.result.split(',')[1]; // Remove the data URL part
+                // Extract the Base64 encoded file data (remove the 'data:image/*;base64,' part)
+                const base64Data = reader.result.split(',')[1];
 
-                // Prepare form data to send to Google Apps Script
+                // Prepare the FormData object to send data to the backend
                 const formData = new FormData();
-                formData.append('firstName', document.getElementById('firstName').value);
-                formData.append('mobile', document.getElementById('mobile').value);
-                formData.append('email', document.getElementById('email').value);
-                formData.append('paymentScreenshotUrl', base64Data); // Send Base64 encoded data
+                formData.append('firstName', firstName);
+                formData.append('mobile', mobile);
+                formData.append('email', email);
+                formData.append('paymentScreenshotUrl', base64Data);
 
-                // Send the form data to the Google Apps Script endpoint
+                // Send data to the Google Apps Script endpoint
                 fetch("https://script.google.com/macros/s/AKfycbxp2EWsG-dAketulVqUPTLMlKCqsgQKCQ74WGcduQ6YFOB_3Q1wx3AAVTDsaJz1zznG3A/exec", {
                     method: 'POST',
                     body: formData
                 })
                 .then(response => response.text())
                 .then(data => {
-                    // If successful, show the success message and redirect
-                    document.getElementById('statusMessage').textContent = 'Screenshot uploaded successfully! Redirecting to Thank You page...';
-                    window.location.href = "https://lalit35.github.io/vivekananad-sr-sec-school/thanks.html?name=" + encodeURIComponent(document.getElementById('firstName').value);
+                    // Handle successful form submission
+                    console.log('Response:', data);
+                    document.getElementById('statusMessage').textContent = 'File uploaded successfully! Redirecting to Thank You page...';
+
+                    // Redirect to the Thank You page with the first name as a query parameter
+                    window.location.href = "https://lalit35.github.io/vivekananad-sr-sec-school/thanks.html?name=" + encodeURIComponent(firstName);
                 })
                 .catch(error => {
-                    document.getElementById('statusMessage').textContent = 'There was an error uploading the screenshot. Please try again.';
+                    // Handle error in the form submission
+                    console.error('Error:', error);
+                    document.getElementById('statusMessage').textContent = 'There was an error uploading the file. Please try again.';
                 });
             };
 
