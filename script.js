@@ -93,98 +93,73 @@ signatureCanvas.addEventListener('touchcancel', stopDrawing);
 function handleSubmit(event) {
     event.preventDefault(); // Prevent form from submitting normally
 
-    // Get the payment screenshot file input
+    // Capture the payment screenshot from user (this could be from a file input or canvas, depending on your form)
     var paymentScreenshotInput = document.getElementById('paymentScreenshot');
-    var paymentScreenshot = paymentScreenshotInput ? paymentScreenshotInput.files[0] : null; // Check if file input exists
-
-    let formData = new FormData(document.getElementById('registrationForm'));
+    var paymentScreenshot = paymentScreenshotInput.files[0]; // Assuming the payment screenshot is a file input
 
     if (paymentScreenshot) {
         const reader = new FileReader();
         reader.onloadend = function () {
             const paymentScreenshotBase64 = reader.result;
-
-            // Append the Base64 screenshot to the form data
-            formData.append('paymentScreenshot', paymentScreenshotBase64);
+            // Prepare form data to send (this will include the photo, signature, and payment screenshot)
+            let formData = new FormData(document.getElementById('registrationForm'));
+            formData.append('paymentScreenshot', paymentScreenshotBase64); // Append the Base64 screenshot
 
             // Use AJAX to submit the form data to Google Apps Script
             $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbxVM6pRqBNsGCRDmimYyUysbCYAABzAa79D2lgZ9tN1EcOw4pY3stCQvFikH8uoD2a8mQ/exec', // Your Google Apps Script Web App URL
+                url: 'https://script.google.com/macros/s/AKfycbw_zjwBPvwl-y6oigcXmqfFu2srgpDj-XCJPWgK2fp86mXaSyvSEJFpE1WygJ8OXrFI/exec', // Updated Google Apps Script Web App URL
                 method: 'POST',
                 data: formData,
                 contentType: false,
                 processData: false,
                 success: function(response) {
                     console.log('Form submitted successfully:', response);
-                    showSuccessMessage();
 
-                    // After a small delay, redirect to the payment page with email, first name, and mobile number
+                    // After successful submission, show the success message
+                    successMessage.textContent = "Your form has been submitted successfully!";
+                    successMessage.style.color = "green"; // Optional styling
+                    successMessage.style.display = "block"; // Show the success message
+
+                    // After a small delay, redirect to payment page with email, first name, and mobile number
                     setTimeout(function() {
-                        redirectToPayment();
+                        const email = encodeURIComponent($('#email').val()); // Get the email input
+                        const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input
+                        const mobileNumber = encodeURIComponent($('#mobileNumber').val()); // Get the mobile number input
+
+                        // Construct the payment URL with query parameters (email, first name, mobile)
+                        const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
+                        console.log('Redirecting to:', paymentUrl);
+
+                        // Redirect to payment page with the added parameters
+                        window.location.href = paymentUrl;
                     }, 2000); // Delay for 2 seconds before redirecting
                 },
                 error: function(xhr, status, error) {
                     console.error('Error in form submission:', error);
-                    showErrorMessage();
+                    console.log('Response:', xhr.responseText);  // Log the response text for more details
+
+                    // Show an error message to the user
+                    successMessage.textContent = "There was an error with the form submission. Please try again.";
+                    successMessage.style.color = "red"; // Optional styling
+                    successMessage.style.display = "block"; // Show the error message
+
+                    // Still redirect to the payment page with email, first name, and mobile number even in case of error
+                    const email = encodeURIComponent($('#email').val()); // Get the email input
+                    const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input
+                    const mobileNumber = encodeURIComponent($('#mobileNumber').val()); // Get the mobile number input
+
+                    const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
+                    console.log('Redirecting to:', paymentUrl);
+
+                    // Redirect to payment page with the added parameters after 2 seconds delay
                     setTimeout(function() {
-                        redirectToPayment();
+                        window.location.href = paymentUrl;
                     }, 2000); // Delay for 2 seconds before redirecting
                 }
             });
         };
         reader.readAsDataURL(paymentScreenshot); // Convert the payment screenshot to Base64 before sending
-    } else {
-        // If no screenshot was provided, still proceed with form submission
-        $.ajax({
-            url: 'https://script.google.com/macros/s/AKfycbxVM6pRqBNsGCRDmimYyUysbCYAABzAa79D2lgZ9tN1EcOw4pY3stCQvFikH8uoD2a8mQ/exec', // Your Google Apps Script Web App URL
-            method: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(response) {
-                console.log('Form submitted successfully:', response);
-                showSuccessMessage();
-                setTimeout(function() {
-                    redirectToPayment();
-                }, 2000);
-            },
-            error: function(xhr, status, error) {
-                console.error('Error in form submission:', error);
-                showErrorMessage();
-                setTimeout(function() {
-                    redirectToPayment();
-                }, 2000);
-            }
-        });
     }
-}
-
-// Show success message
-function showSuccessMessage() {
-    successMessage.textContent = "Your form has been submitted successfully!";
-    successMessage.style.color = "green"; // Optional styling
-    successMessage.style.display = "block"; // Show the success message
-}
-
-// Show error message
-function showErrorMessage() {
-    successMessage.textContent = "There was an error with the form submission. Please try again.";
-    successMessage.style.color = "red"; // Optional styling
-    successMessage.style.display = "block"; // Show the error message
-}
-
-// Function to redirect to the payment page with query parameters
-function redirectToPayment() {
-    const email = encodeURIComponent($('#email').val()); // Get the email input value
-    const firstName = encodeURIComponent($('#firstName').val()); // Get the first name input value
-    const mobileNumber = encodeURIComponent($('#mobileNumber').val()); // Get the mobile number input value
-
-    // Construct the payment URL with query parameters
-    const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
-    console.log('Redirecting to:', paymentUrl);
-
-    // Redirect to the payment page with the added parameters
-    window.location.href = paymentUrl;
 }
 
 // Event listeners for camera and capture
