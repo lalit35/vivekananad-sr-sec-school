@@ -13,7 +13,7 @@ let drawing = false;
 
 // Function to start the camera
 function startCamera() {
-    navigator.mediaDevices.getUserMedia({ video: true })
+    navigator.mediaDevices.getUser Media({ video: true })
         .then(function(stream) {
             cameraStream.style.display = "block";
             cameraStream.srcObject = stream;
@@ -106,7 +106,8 @@ function handleSubmit(event) {
 
     // Use AJAX to submit the form data to Google Apps Script
     $.ajax({
-        url: 'https://script.google.com/macros/s/AKfycbyw9ZSt2NBTorngYQ-J2cpEnNVUQwMbnVovCmLbFIdCiyAuQL40WEXl1WQJGVHDonWmmA/exec', // Your updated Google Apps Script URL
+                // Your updated Google Apps Script URL
+        url: 'https://script.google.com/macros/s/AKfycbxBKS1YSrR4B3QRCmRgHvu5j_SVs8Zzfn1hXmjsZG60BA6_UcNqlDF4ScLrwMyv6qCpSg/exec',
         method: 'POST',
         data: formData,
         contentType: false,  // Don't send any content-type header (for FormData)
