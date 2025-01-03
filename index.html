@@ -48,19 +48,28 @@
             <label for="currentSchool">Current School:</label>
             <input type="text" name="currentSchool" id="currentSchool" required>
 
-            <label for="class">Class (8th to 12th):</label>
+            <label for="class">Class (5th to 11th):</label>
             <select name="class" id="class" required>
                 <option value="">Select Class</option>
+                <option value="5">5th</option>
+                <option value="6">6th</option>
+                <option value="7">7th</option>
                 <option value="8">8th</option>
                 <option value="9">9th</option>
                 <option value="10">10th</option>
                 <option value="11">11th</option>
-                <option value="12">12th</option>
             </select>
 
-            <label for="fatherName">Father's Name:</label>
-            <input type="text" name="fatherName" id="fatherName" required>
+            <!-- Parent Information Section -->
+            <div class="parent-names">
+                <label for="fatherName">Father's Name:</label>
+                <input type="text" name="fatherName" id="fatherName" required>
 
+                <label for="motherName">Mother's Name:</label>
+                <input type="text" name="motherName" id="motherName" required>
+            </div>
+
+            <!-- Contact Information -->
             <label for="mobileNumber">Whatsapp Number:</label>
             <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
 
@@ -73,12 +82,12 @@
             <button type="button" id="clearSignatureButton">Clear Signature</button>
             <input type="hidden" id="signatureImage" name="signatureImage">
 
+            <!-- Submit Button -->
             <button type="submit" id="submitButton">Submit</button>
         </form>
     </div>
 
     <!-- JavaScript Integration -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         // Initialization of global variables for various UI elements
         const cameraStream = document.getElementById('cameraStream'); // The video stream element
