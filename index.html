@@ -19,16 +19,16 @@
         <!-- Form Start -->
         <form id="registrationForm" method="POST" enctype="multipart/form-data">
             
-            <!-- Camera Capture Section for Photo -->
-            <label for="camera">Capture Photo:</label>
-            <button type="button" id="cameraButton">Open Camera</button>
+            <!-- Camera Capture Section for Photo (Front Camera) -->
+            <label for="photo">Capture Photo (Front Camera):</label>
+            <button type="button" id="cameraButton">Open Front Camera</button>
             <video id="cameraStream" autoplay style="display:none; width: 100%;"></video>
             <canvas id="photoCanvas" style="display:none;"></canvas>
             <input type="hidden" id="capturedPhoto" name="photoUrl">
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
 
             <!-- Success Message for Photo Capture -->
-            <div id="successMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
+            <div id="photoSuccessMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
                 Photo captured successfully!
             </div>
 
@@ -77,8 +77,8 @@
             <input type="email" name="email" id="email" required>
 
             <!-- Signature Capture Section using Back Camera -->
-            <label for="signature">Capture Signature:</label>
-            <button type="button" id="captureSignatureButton">Capture Signature</button>
+            <label for="signature">Capture Signature (Back Camera):</label>
+            <button type="button" id="captureSignatureButton">Open Back Camera</button>
             <div id="signaturePreview" style="width: 200px; height: 100px; border: 1px solid #000; margin-top: 10px;">
                 <img id="signatureImagePreview" src="" alt="Signature Preview" style="width: 100%; height: 100%; display: none;">
             </div>
@@ -96,36 +96,51 @@
         const photoCanvas = document.getElementById('photoCanvas');
         const captureButton = document.getElementById('captureButton');
         const cameraButton = document.getElementById('cameraButton');
-        const successMessage = document.getElementById('successMessage');
+        const photoSuccessMessage = document.getElementById('photoSuccessMessage');
         const capturedPhoto = document.getElementById('capturedPhoto');
         const signaturePreview = document.getElementById('signaturePreview');
         const signatureImagePreview = document.getElementById('signatureImagePreview');
         const signatureImage = document.getElementById('signatureImage');
         const captureSignatureButton = document.getElementById('captureSignatureButton');
 
-        // Function to start the camera
-        function startCamera() {
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+        // Start the Front Camera (for capturing photo)
+        function startFrontCamera() {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
                 .then(function (stream) {
-                    cameraStream.style.display = "block";
-                    cameraStream.srcObject = stream;
-                    captureButton.style.display = "inline-block";
-                    cameraButton.style.display = "none";
+                    cameraStream.style.display = "block"; // Show video stream
+                    cameraStream.srcObject = stream; // Set video stream to camera stream
+                    captureButton.style.display = "inline-block"; // Show capture button
+                    cameraButton.style.display = "none"; // Hide camera button
                 })
                 .catch(function (error) {
-                    console.error("Camera access denied:", error);
+                    console.error("Error accessing front camera:", error);
+                    alert("Error accessing front camera. Please allow camera permissions.");
                 });
         }
 
-        // Function to capture the photo from the camera
+        // Start the Back Camera (for capturing signature)
+        function startBackCamera() {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+                .then(function (stream) {
+                    cameraStream.style.display = "block"; // Show video stream
+                    cameraStream.srcObject = stream; // Set video stream to camera stream
+                    captureSignatureButton.style.display = "inline-block"; // Show capture signature button
+                })
+                .catch(function (error) {
+                    console.error("Error accessing back camera:", error);
+                    alert("Error accessing back camera. Please allow camera permissions.");
+                });
+        }
+
+        // Function to capture the photo from the front camera
         function capturePhoto() {
             const context = photoCanvas.getContext('2d');
             context.drawImage(cameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
             const photoDataUrl = photoCanvas.toDataURL("image/png");
             capturedPhoto.value = photoDataUrl;
-            successMessage.style.display = "block";
-            cameraStream.style.display = "none";
-            captureButton.style.display = "none";
+            photoSuccessMessage.style.display = "block"; // Display success message
+            cameraStream.style.display = "none"; // Hide camera stream
+            captureButton.style.display = "none"; // Hide capture button
 
             // Stop all video tracks to free up the camera
             let tracks = cameraStream.srcObject.getTracks();
@@ -151,57 +166,69 @@
             tracks.forEach(track => track.stop());
         }
 
-        // Event listener for opening the camera
-        cameraButton.addEventListener('click', startCamera);
+        // Event listener for opening the front camera
+        cameraButton.addEventListener('click', startFrontCamera);
 
         // Event listener for capturing the photo
         captureButton.addEventListener('click', capturePhoto);
+
+        // Event listener for opening the back camera
+        captureSignatureButton.addEventListener('click', startBackCamera);
 
         // Event listener for capturing the signature
         captureSignatureButton.addEventListener('click', captureSignature);
 
         // Function to handle form submission
         function handleSubmit(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent the default form submission
             console.log('Starting form submission via AJAX...');
             let formData = new FormData(document.getElementById('registrationForm'));
 
-            $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbw-KGi2plxFLUtPhHCQL7eWwtSL6nPJ1imx34861YepaqelaGT86GZaBrKuRhFrh1M0Vw/exec',
-                method: 'POST',
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function (response) {
-                    console.log('Form submitted successfully:', response);
-                    successMessage.textContent = "Your form has been submitted successfully!";
-                    successMessage.style.color = "green";
-                    successMessage.style.display = "block";
+            // Function to handle form submission
+function handleSubmit(event) {
+    event.preventDefault(); // Prevent the default form submission
+    console.log('Starting form submission via AJAX...');
+    let formData = new FormData(document.getElementById('registrationForm'));
 
-                    setTimeout(function () {
-                        const email = encodeURIComponent($('#email').val());
-                        const firstName = encodeURIComponent($('#firstName').val());
-                        const mobileNumber = encodeURIComponent($('#mobileNumber').val());
+    $.ajax({
+        url: 'https://script.google.com/macros/s/AKfycbw-KGi2plxFLUtPhHCQL7eWwtSL6nPJ1imx34861YepaqelaGT86GZaBrKuRhFrh1M0Vw/exec',
+        method: 'POST',
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            console.log('Form submitted successfully:', response);
 
-                        const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
-                        window.location.href = paymentUrl;
-                    }, 2000);
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error in form submission:', error);
-                    successMessage.textContent = "Your form has been submitted successfully.";
-                    successMessage.style.color = "green";
-                    successMessage.style.display = "block";
-                    const email = encodeURIComponent($('#email').val());
-                    const firstName = encodeURIComponent($('#firstName').val());
-                    const mobileNumber = encodeURIComponent($('#mobileNumber').val());
-                    const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
-                    setTimeout(function () {
-                        window.location.href = paymentUrl;
-                    }, 2000);
-                }
-            });
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.textContent = "Your form has been submitted successfully!";
+            successMessage.style.color = "green";
+            successMessage.style.display = "block";
+
+            // Redirect to payment page after 2 seconds
+            setTimeout(function () {
+                const email = encodeURIComponent($('#email').val());
+                const firstName = encodeURIComponent($('#firstName').val());
+                const mobileNumber = encodeURIComponent($('#mobileNumber').val());
+
+                // Construct the payment URL with query parameters
+                const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
+
+                // Redirect to the payment page
+                window.location.href = paymentUrl;
+            }, 2000);
+        },
+        error: function (xhr, status, error) {
+            console.error('Error in form submission:', error);
+
+            // Show error message if submission fails
+            const successMessage = document.getElementById('successMessage');
+            successMessage.textContent = "There was an error submitting your form. Please try again.";
+            successMessage.style.color = "red";
+            successMessage.style.display = "block";
         }
+    });
+}
 
         // Add event listener for form submission
         document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
