@@ -19,65 +19,21 @@
         <!-- Form Start -->
         <form id="registrationForm" method="POST" enctype="multipart/form-data">
             
-            <!-- Camera Capture Section for Photo -->
-            <label for="camera">Capture Photo:</label>
-            <button type="button" id="cameraButton">Open Camera</button>
+            <!-- Photo Capture Section from Front Camera -->
+            <label for="camera">Capture Photo (Front Camera):</label>
+            <button type="button" id="cameraButton">Open Front Camera</button>
             <video id="cameraStream" autoplay style="display:none; width: 100%;"></video>
             <canvas id="photoCanvas" style="display:none;"></canvas>
             <input type="hidden" id="capturedPhoto" name="photoUrl">
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
 
             <!-- Success Message for Photo Capture -->
-            <div id="successMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
+            <div id="photoSuccessMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
                 Photo captured successfully!
             </div>
 
-            <!-- Student Details Section -->
-            <label for="firstName">First Name:</label>
-            <input type="text" name="firstName" id="firstName" required>
-
-            <label for="lastName">Last Name:</label>
-            <input type="text" name="lastName" id="lastName" required>
-
-            <label for="dob">Date of Birth:</label>
-            <input type="date" name="dob" id="dob" required>
-
-            <label for="age">Age:</label>
-            <input type="number" name="age" id="age" required>
-
-            <label for="currentSchool">Current School:</label>
-            <input type="text" name="currentSchool" id="currentSchool" required>
-
-            <label for="class">Class (5th to 11th):</label>
-            <select name="class" id="class" required>
-                <option value="">Select Class</option>
-                <option value="5">5th</option>
-                <option value="6">6th</option>
-                <option value="7">7th</option>
-                <option value="8">8th</option>
-                <option value="9">9th</option>
-                <option value="10">10th</option>
-                <option value="11">11th</option>
-            </select>
-
-            <!-- Parent Information Section -->
-            <div class="parent-names">
-                <label for="fatherName">Father's Name:</label>
-                <input type="text" name="fatherName" id="fatherName" required>
-
-                <label for="motherName">Mother's Name:</label>
-                <input type="text" name="motherName" id="motherName" required>
-            </div>
-
-            <!-- Contact Information -->
-            <label for="mobileNumber">Whatsapp Number:</label>
-            <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
-
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
-
-            <!-- Signature Capture Section using Back Camera -->
-            <label for="signature">Capture Signature:</label>
+            <!-- Signature Capture Section from Back Camera -->
+            <label for="signature">Capture Signature (Back Camera):</label>
             <button type="button" id="captureSignatureButton">Capture Signature</button>
             <div id="signaturePreview" style="width: 200px; height: 100px; border: 1px solid #000; margin-top: 10px;">
                 <img id="signatureImagePreview" src="" alt="Signature Preview" style="width: 100%; height: 100%; display: none;">
@@ -91,81 +47,89 @@
 
     <!-- JavaScript Integration -->
     <script>
-        // Camera and Video Stream Elements
+        // Initialization of global variables
         const cameraStream = document.getElementById('cameraStream');
         const photoCanvas = document.getElementById('photoCanvas');
         const captureButton = document.getElementById('captureButton');
         const cameraButton = document.getElementById('cameraButton');
-        const successMessage = document.getElementById('successMessage');
+        const photoSuccessMessage = document.getElementById('photoSuccessMessage');
         const capturedPhoto = document.getElementById('capturedPhoto');
         const signaturePreview = document.getElementById('signaturePreview');
         const signatureImagePreview = document.getElementById('signatureImagePreview');
         const signatureImage = document.getElementById('signatureImage');
         const captureSignatureButton = document.getElementById('captureSignatureButton');
 
-        // Function to start the camera
-        function startCamera() {
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
+        // Function to start the front camera (for photo)
+        function startFrontCamera() {
+            navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
                 .then(function (stream) {
-                    cameraStream.style.display = "block";
-                    cameraStream.srcObject = stream;
-                    captureButton.style.display = "inline-block";
-                    cameraButton.style.display = "none";
+                    cameraStream.style.display = "block"; // Show video stream
+                    cameraStream.srcObject = stream; // Set video stream to camera stream
+                    captureButton.style.display = "inline-block"; // Show capture button
+                    cameraButton.style.display = "none"; // Hide camera button
                 })
                 .catch(function (error) {
-                    console.error("Camera access denied:", error);
+                    console.error("Error accessing front camera:", error);
                 });
         }
 
-        // Function to capture the photo from the camera
+        // Function to capture photo from the front camera
         function capturePhoto() {
             const context = photoCanvas.getContext('2d');
             context.drawImage(cameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
             const photoDataUrl = photoCanvas.toDataURL("image/png");
             capturedPhoto.value = photoDataUrl;
-            successMessage.style.display = "block";
-            cameraStream.style.display = "none";
-            captureButton.style.display = "none";
+            photoSuccessMessage.style.display = "block"; // Display success message
+            cameraStream.style.display = "none"; // Hide camera stream
+            captureButton.style.display = "none"; // Hide capture button
 
-            // Stop all video tracks to free up the camera
+            // Stop all video tracks after capturing the photo
             let tracks = cameraStream.srcObject.getTracks();
             tracks.forEach(track => track.stop());
         }
 
-        // Capture the signature image from the back camera and show it in the preview
+        // Function to capture the signature using the back camera
         function captureSignature() {
+            // Create a temporary canvas for capturing signature from the back camera
             const signatureCanvas = document.createElement('canvas');
             const signatureContext = signatureCanvas.getContext('2d');
             signatureCanvas.width = 400;
             signatureCanvas.height = 200;
             
+            // Draw the image from the back camera onto the signature canvas
             signatureContext.drawImage(cameraStream, 0, 0, signatureCanvas.width, signatureCanvas.height);
             const signatureDataUrl = signatureCanvas.toDataURL("image/png");
+
+            // Set the captured signature image to the hidden input field
             signatureImage.value = signatureDataUrl;
+
+            // Display the signature preview in the small rectangle
             signatureImagePreview.src = signatureDataUrl;
             signatureImagePreview.style.display = "block";
             signaturePreview.style.display = "block";
 
-            // Stop the video stream after capturing the signature
+            // Stop the back camera after capturing the signature
             let tracks = cameraStream.srcObject.getTracks();
             tracks.forEach(track => track.stop());
         }
 
-        // Event listener for opening the camera
-        cameraButton.addEventListener('click', startCamera);
+        // Event listener to open the front camera
+        cameraButton.addEventListener('click', startFrontCamera);
 
-        // Event listener for capturing the photo
+        // Event listener to capture the photo from the front camera
         captureButton.addEventListener('click', capturePhoto);
 
-        // Event listener for capturing the signature
+        // Event listener to capture the signature using the back camera
         captureSignatureButton.addEventListener('click', captureSignature);
 
         // Function to handle form submission
         function handleSubmit(event) {
-            event.preventDefault();
+            event.preventDefault(); // Prevent default form submission
+
             console.log('Starting form submission via AJAX...');
             let formData = new FormData(document.getElementById('registrationForm'));
 
+            // Send the form data via AJAX
             $.ajax({
                 url: 'https://script.google.com/macros/s/AKfycbw-KGi2plxFLUtPhHCQL7eWwtSL6nPJ1imx34861YepaqelaGT86GZaBrKuRhFrh1M0Vw/exec',
                 method: 'POST',
@@ -174,17 +138,9 @@
                 processData: false,
                 success: function (response) {
                     console.log('Form submitted successfully:', response);
-                    successMessage.textContent = "Your form has been submitted successfully!";
-                    successMessage.style.color = "green";
-                    successMessage.style.display = "block";
-
-                    setTimeout(function () {
-                        const email = encodeURIComponent($('#email').val());
-                        const firstName = encodeURIComponent($('#firstName').val());
-                        const mobileNumber = encodeURIComponent($('#mobileNumber').val());
-
-                        const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
-                        window.location.href = paymentUrl;
+                    alert("Form submitted successfully!");
+                    window.location.href = "https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`"; // Redirect after form submission
+        
                     }, 2000);
                 },
                 error: function (xhr, status, error) {
