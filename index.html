@@ -206,6 +206,11 @@
             captureSignatureButton.style.display = "none";
         }
 
+        // Attach click event to "Capture Photo Now" button
+        $('#cameraButton').on('click', function() {
+            startFrontCamera();
+        });
+
         // Form submit event with AJAX and automatic redirection on success or error
         $('#registrationForm').on('submit', function(event) {
             event.preventDefault(); // Prevent default form submission
