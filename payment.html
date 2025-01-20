@@ -93,21 +93,15 @@
         <input type="email" id="email" name="email" readonly>
     </div>
 
-    <!-- Coupon Section -->
-    <div class="form-container">
-        <label for="coupon">Coupon Code:</label>
-        <input type="text" id="coupon" name="coupon">
-        <button class="button" onclick="applyCoupon()">Apply Coupon</button>
-    </div>
-
+  
     <!-- Display the price -->
-    <h3>Amount: ₹<span id="amount">200</span></h3>
+    <h3>Amount: ₹<span id="amount">49</span></h3>
 
     <p class="note">Click below to pay fees for your Competition Exam Registration via UPI.</p>
 
     <!-- UPI Payment Button -->
     <a id="paymentLink" href="javascript:void(0)" target="_blank">
-        <button class="button" id="payButton" onclick="startPaymentProcess()">Pay ₹200 Now</button>
+        <button class="button" id="payButton" onclick="startPaymentProcess()">Pay ₹49 Now</button>
     </a>
 
     <!-- Loading Spinner -->
@@ -119,7 +113,7 @@
     <p class="note">You will be redirected to your payment app (Google Pay, PhonePe, Paytm, etc.) to complete the payment.</p>
 
     <script>
-        const originalAmount = 200;
+        const originalAmount = 49;
         let finalAmount = originalAmount;
 
         // Function to extract query parameters and pre-fill the payment form
@@ -140,7 +134,7 @@
 
         // Function to set up the payment link with UPI URL
         function setUpPaymentLink(email, firstName, mobile) {
-            const upiUrl = `upi://pay?pa=lalitkumar2907@fam&am=${finalAmount}&cu=INR&tid=${firstName}&mno=${mobile}&email=${email}`;
+            const upiUrl = `upi://pay?pa=9416848776@ibl&am=${finalAmount}&cu=INR&tid=${firstName}&mno=${mobile}&email=${email}`;
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
 
@@ -150,11 +144,11 @@
 
             // Coupon code validation
             if (couponCode === 'VSS50' || couponCode.split('').sort().join('') === '50SSV') {
-                finalAmount = 79; // Apply discount
+                finalAmount = 49; // Apply discount
                 document.getElementById('amount').textContent = finalAmount;  // Update displayed amount
                 document.getElementById('payButton').textContent = `Pay ₹${finalAmount} Now`; // Update button text
                 setUpPaymentLink(document.getElementById('email').value, document.getElementById('firstName').value, document.getElementById('mobile').value); // Update UPI link
-                alert('Coupon applied successfully! You pay ₹79.');
+                alert('Coupon applied successfully! You pay ₹49.');
             } else {
                 alert('Invalid coupon code.');
             }
