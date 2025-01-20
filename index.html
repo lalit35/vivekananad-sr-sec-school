@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,15 +8,15 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <style>
-        /* Simple loading spinner */
+        /* Style for loading spinner */
         #loadingSpinner {
+            display: none;
             position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            display: none; /* Initially hidden */
-            border: 4px solid #f3f3f3; /* Light grey background */
-            border-top: 4px solid #3498db; /* Blue spinner */
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -24,12 +24,15 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
     </style>
 </head>
 <body>
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner"></div>
+
     <div class="header">
         <h1 class="school-name">VIVEKANAND SR. SEC. SCHOOL</h1>
         <img src="swami-vivekananda-png-thumbnail-1641912297.jpg" alt="Logo" class="logo">
@@ -103,7 +106,7 @@
 
             <!-- Signature Capture Section using Back Camera -->
             <h3>Capture Signature :</h3>
-            <button type="button" id="captureSignatureButton">Capture Signature </button>
+            <button type="button" id="captureSignatureButton">Capture Signature</button>
             <video id="backCameraStream" autoplay style="display:none; width: 100%;"></video>
             <div id="signaturePreview" style="width: 200px; height: 100px; border: 1px solid #000; margin-top: 10px;">
                 <img id="signatureImagePreview" src="" alt="Signature Preview" style="width: 100%; height: 100%; display: none;">
@@ -113,9 +116,6 @@
             <!-- Submit Button -->
             <button type="submit" id="submitButton">Submit</button>
         </form>
-
-        <!-- Loading Spinner -->
-        <div id="loadingSpinner"></div>
     </div>
 
     <!-- JavaScript Integration -->
@@ -145,7 +145,7 @@
                 })
                 .catch(function (error) {
                     console.error("Error accessing front camera:", error);
-                    alert("Error accessing front camera. Please allow camera permissions.");
+                    alert("Error accessing front camera. Please check if camera permissions are enabled.");
                 });
         }
 
@@ -159,7 +159,7 @@
                 })
                 .catch(function (error) {
                     console.error("Error accessing back camera:", error);
-                    alert("Error accessing back camera. Please allow camera permissions.");
+                    alert("Error accessing back camera. Please check if camera permissions are enabled.");
                 });
         }
 
@@ -184,7 +184,7 @@
             const signatureContext = signatureCanvas.getContext('2d');
             signatureCanvas.width = 400;
             signatureCanvas.height = 200;
-            
+
             // Draw the current frame from the back camera onto the canvas
             signatureContext.drawImage(backCameraStream, 0, 0, signatureCanvas.width, signatureCanvas.height);
             const signatureDataUrl = signatureCanvas.toDataURL("image/png");
@@ -206,48 +206,41 @@
             captureSignatureButton.style.display = "none";
         }
 
-        // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault(); // Prevent the default form submission
+        // Form submit event with AJAX and automatic redirection on success or error
+        $('#registrationForm').on('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
 
-            // Show the loading spinner when the form is being submitted
+            // Show loading spinner
             loadingSpinner.style.display = "block";
 
-            let formData = new FormData(document.getElementById('registrationForm'));
+            const formData = new FormData(this); // Get form data
 
+            // AJAX request to Google Apps Script
             $.ajax({
                 url: 'https://script.google.com/macros/s/AKfycbw-KGi2plxFLUtPhHCQL7eWwtSL6nPJ1imx34861YepaqelaGT86GZaBrKuRhFrh1M0Vw/exec',
                 method: 'POST',
                 data: formData,
                 contentType: false,
                 processData: false,
-                success: function (response) {
+                success: function(response) {
                     console.log('Form submitted successfully:', response);
-
-                    // Hide the loading spinner
                     loadingSpinner.style.display = "none";
-
-                    // Redirect to payment page
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error in form submission:', error);
+                    loadingSpinner.style.display = "none";
+                },
+                complete: function() {
+                    // Redirect to the payment page regardless of success or failure
                     const email = encodeURIComponent($('#email').val());
                     const firstName = encodeURIComponent($('#firstName').val());
                     const mobileNumber = encodeURIComponent($('#mobileNumber').val());
-
                     const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
-                    window.location.href = paymentUrl;
-                },
-                error: function (xhr, status, error) {
-                    console.error('Error in form submission:', error);
 
-                    // Hide the loading spinner
-                    loadingSpinner.style.display = "none";
-
-                    alert("There was an error submitting your form. Please try again.");
+                    window.location.href = paymentUrl; // Redirect to payment page
                 }
             });
-        }
-
-        // Add event listener for form submission
-        document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
+        });
     </script>
 </body>
 </html>
