@@ -6,7 +6,7 @@
     <title>Competition Registration</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
+
     <style>
         /* General Body and Layout */
         body {
@@ -136,7 +136,6 @@
             margin-top: 20px;
             display: none;
         }
-
     </style>
 </head>
 <body>
@@ -153,7 +152,6 @@
         
         <!-- Form Start -->
         <form id="registrationForm" method="POST" enctype="multipart/form-data">
-            
             <!-- Camera Capture Section for Photo (Front Camera) -->
             <label for="photo">Capture Photo :</label>
             <button type="button" id="cameraButton">Capture Photo Now</button>
@@ -250,35 +248,34 @@
             photoCanvas.height = frontCameraStream.videoHeight;
 
             context.drawImage(frontCameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
-            const photoDataUrl = photoCanvas.toDataURL("image/png");
-            capturedPhoto.value = photoDataUrl;
-            photoSuccessMessage.style.display = "block"; // Show success message
+            const photoDataUrl = photoCanvas.toDataURL("image/jpeg"); // Convert canvas to base64 image
+            capturedPhoto.value = photoDataUrl; // Save the photo URL in hidden input
+
+            // Display success message
+            photoSuccessMessage.style.display = "block";
         }
 
-        // Event listener to capture photo
+        // Event Listeners
+        cameraButton.addEventListener('click', startFrontCamera);
         captureButton.addEventListener('click', capturePhoto);
 
-        // Event listener to start the camera
-        cameraButton.addEventListener('click', startFrontCamera);
-
-        // Form Submission with AJAX
-        $('#registrationForm').on('submit', function(event) {
+        // Handle form submission
+        $('#registrationForm').on('submit', function (event) {
             event.preventDefault(); // Prevent default form submission
 
             // Show loading spinner
             loadingSpinner.style.display = "block";
 
-            // Form Data
-            const formData = new FormData(this);
+            const formData = new FormData(this); // Get form data
 
             // Log form data for debugging
             for (let [key, value] of formData.entries()) {
                 console.log(key + ": " + value);
             }
 
-            // Send form data to Google Apps Script
+            // AJAX request to send form data to Google Apps Script
             $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbyIN2807XPbCH2ZOszdt44WNAwxJDUISTkgrwxM7yyV6WzMQZnU7KjmdfKl5dNbDqRssg/exec', // Replace with your Apps Script URL
+                url: 'https://script.google.com/macros/s/AKfycbwNz3JaXCvIoMQiMRikyu05aZNYudRN4LWVaAwIEDd-p6bjJAmF6zA53eBiUq8uok3vXA/exec', // Replace with your actual Apps Script Web App URL
                 method: 'POST',
                 data: formData,
                 contentType: false,
@@ -286,7 +283,7 @@
                 success: function(response) {
                     console.log('Form submitted successfully:', response);
                     loadingSpinner.style.display = "none"; // Hide spinner
-                    $('#successMessage').show(); // Show success message
+                    alert('Form submitted successfully!');
                 },
                 error: function(xhr, status, error) {
                     console.error('Error in form submission:', error);
@@ -294,7 +291,7 @@
                     alert('Form submission failed. Please try again.');
                 },
                 complete: function() {
-                    // Redirect to the payment page (example)
+                    // Redirect to payment page
                     const email = encodeURIComponent($('#email').val());
                     const firstName = encodeURIComponent($('#firstName').val());
                     const mobileNumber = encodeURIComponent($('#mobileNumber').val());
