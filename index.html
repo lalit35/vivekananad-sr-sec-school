@@ -184,7 +184,7 @@
             const signatureContext = signatureCanvas.getContext('2d');
             signatureCanvas.width = 400;
             signatureCanvas.height = 200;
-
+            
             // Draw the current frame from the back camera onto the canvas
             signatureContext.drawImage(backCameraStream, 0, 0, signatureCanvas.width, signatureCanvas.height);
             const signatureDataUrl = signatureCanvas.toDataURL("image/png");
