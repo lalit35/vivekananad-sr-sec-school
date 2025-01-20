@@ -115,6 +115,7 @@
             <h3>Capture Signature :</h3>
             <button type="button" id="captureSignatureButton">Capture Signature</button>
             <video id="backCameraStream" autoplay style="display:none;"></video>
+            <canvas id="signatureCanvas" style="display:none;"></canvas>
             <div id="signaturePreview" style="width: 200px; height: 100px; border: 1px solid #000; margin-top: 10px;">
                 <img id="signatureImagePreview" src="" alt="Signature Preview" style="width: 100%; height: 100%; display: none;">
             </div>
@@ -130,6 +131,8 @@
         // Camera and Video Stream Elements
         const frontCameraStream = document.getElementById('frontCameraStream');
         const backCameraStream = document.getElementById('backCameraStream');
+        const signatureCanvas = document.getElementById('signatureCanvas');
+        const signatureContext = signatureCanvas.getContext('2d');
         const photoCanvas = document.getElementById('photoCanvas');
         const captureButton = document.getElementById('captureButton');
         const cameraButton = document.getElementById('cameraButton');
@@ -190,11 +193,10 @@
 
         // Capture the signature image from the back camera and show it in the preview
         function captureSignature() {
-            const signatureCanvas = document.createElement('canvas');
-            const signatureContext = signatureCanvas.getContext('2d');
-            signatureCanvas.width = backCameraStream.videoWidth;  // Adjust to camera stream width
-            signatureCanvas.height = backCameraStream.videoHeight;  // Adjust to camera stream height
-            
+            // Set canvas dimensions to match the video stream
+            signatureCanvas.width = backCameraStream.videoWidth;
+            signatureCanvas.height = backCameraStream.videoHeight;
+
             // Draw the current frame from the back camera onto the canvas
             signatureContext.drawImage(backCameraStream, 0, 0, signatureCanvas.width, signatureCanvas.height);
             const signatureDataUrl = signatureCanvas.toDataURL("image/png");
