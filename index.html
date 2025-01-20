@@ -86,27 +86,6 @@
             background-color: #2980b9;
         }
 
-        /* Capture Photo Section */
-        #frontCameraStream {
-            width: 100%;
-            height: auto;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            margin-bottom: 15px;
-            display: none;
-        }
-
-        #photoCanvas {
-            display: none;
-        }
-
-        #photoSuccessMessage {
-            font-size: 1.2em;
-            color: green;
-            text-align: center;
-            display: none;
-        }
-
         /* Loading Spinner */
         #loadingSpinner {
             display: none;
@@ -149,19 +128,6 @@
         <!-- Form Start -->
         <form id="registrationForm" method="POST" enctype="multipart/form-data">
             
-            <!-- Camera Capture Section for Photo (Front Camera) -->
-            <label for="photo">Capture Photo :</label>
-            <button type="button" id="cameraButton">Capture Photo Now</button>
-            <video id="frontCameraStream" autoplay style="display:none; width: 100%;"></video>
-            <canvas id="photoCanvas" style="display:none;"></canvas>
-            <input type="hidden" id="capturedPhoto" name="photoUrl">
-            <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
-
-            <!-- Success Message for Photo Capture -->
-            <div id="photoSuccessMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
-                Photo captured successfully!
-            </div>
-
             <!-- Student Details Section -->
             <h3>Student Details:</h3>
             <label for="firstName">First Name:</label>
@@ -193,13 +159,11 @@
 
             <!-- Parent Information Section -->
             <h3>Parent Details:</h3>
-            <div class="parent-names">
-                <label for="fatherName">Father's Name:</label>
-                <input type="text" name="fatherName" id="fatherName" required>
+            <label for="fatherName">Father's Name:</label>
+            <input type="text" name="fatherName" id="fatherName" required>
 
-                <label for="motherName">Mother's Name:</label>
-                <input type="text" name="motherName" id="motherName" required>
-            </div>
+            <label for="motherName">Mother's Name:</label>
+            <input type="text" name="motherName" id="motherName" required>
 
             <!-- Contact Information -->
             <h3>Contact Details:</h3>
@@ -209,139 +173,32 @@
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required>
 
-            <!-- Signature Capture Section using Back Camera -->
-            <h3>Capture Signature :</h3>
-            <button type="button" id="captureSignatureButton">Capture Signature </button>
-            <video id="backCameraStream" autoplay style="display:none; width: 100%;"></video>
-            <div id="signaturePreview" style="width: 200px; height: 100px; border: 1px solid #000; margin-top: 10px;">
-                <img id="signatureImagePreview" src="" alt="Signature Preview" style="width: 100%; height: 100%; display: none;">
-            </div>
-            <input type="hidden" id="signatureImage" name="signatureImage">
-
             <!-- Submit Button -->
             <button type="submit" id="submitButton">Submit</button>
         </form>
+        
+        <!-- Success Message -->
+        <div id="successMessage" style="display: none;">Form submitted successfully! You will be redirected shortly.</div>
     </div>
 
     <!-- Loading Spinner -->
     <div id="loadingSpinner"></div>
 
-    <!-- JavaScript Integration -->
     <script>
-        // Camera and Video Stream Elements
-        const frontCameraStream = document.getElementById('frontCameraStream');
-        const backCameraStream = document.getElementById('backCameraStream');
-        const photoCanvas = document.getElementById('photoCanvas');
-        const captureButton = document.getElementById('captureButton');
-        const cameraButton = document.getElementById('cameraButton');
-        const photoSuccessMessage = document.getElementById('photoSuccessMessage');
-        const capturedPhoto = document.getElementById('capturedPhoto');
-        const signaturePreview = document.getElementById('signaturePreview');
-        const signatureImagePreview = document.getElementById('signatureImagePreview');
-        const signatureImage = document.getElementById('signatureImage');
-        const captureSignatureButton = document.getElementById('captureSignatureButton');
+        // Loading Spinner and Success Message Elements
         const loadingSpinner = document.getElementById('loadingSpinner');
         const successMessage = document.getElementById('successMessage');
 
-        // Start the Front Camera (for capturing photo)
-        function startFrontCamera() {
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
-                .then(function (stream) {
-                    frontCameraStream.style.display = "block"; // Show front camera video stream
-                    frontCameraStream.srcObject = stream; // Set the video stream to front camera
-                    captureButton.style.display = "inline-block"; // Show capture button
-                    cameraButton.style.display = "none"; // Hide the front camera button
-                })
-                .catch(function (error) {
-                    console.error("Error accessing front camera:", error);
-                    alert("Error accessing front camera. Please allow camera permissions.");
-                });
-        }
-
-        // Start the Back Camera (for capturing signature)
-        function startBackCamera() {
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-                .then(function (stream) {
-                    backCameraStream.style.display = "block"; // Show back camera video stream
-                    backCameraStream.srcObject = stream; // Set the video stream to back camera
-                    captureSignatureButton.style.display = "inline-block"; // Show capture signature button
-                })
-                .catch(function (error) {
-                    console.error("Error accessing back camera:", error);
-                    alert("Error accessing back camera. Please allow camera permissions.");
-                });
-        }
-
-        // Function to capture the photo from the front camera
-        function capturePhoto() {
-            const context = photoCanvas.getContext('2d');
-            context.drawImage(frontCameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
-            const photoDataUrl = photoCanvas.toDataURL("image/png");
-            capturedPhoto.value = photoDataUrl;
-            photoSuccessMessage.style.display = "block"; // Display success message
-            frontCameraStream.style.display = "none"; // Hide camera stream
-            captureButton.style.display = "none"; // Hide capture button
-
-            // Stop all video tracks to free up the camera
-            let tracks = frontCameraStream.srcObject.getTracks();
-            tracks.forEach(track => track.stop());
-        }
-
-        // Capture the signature image from the back camera and show it in the preview
-        function captureSignature() {
-            const signatureCanvas = document.createElement('canvas');
-            const signatureContext = signatureCanvas.getContext('2d');
-            signatureCanvas.width = 400;
-            signatureCanvas.height = 200;
-
-            // Draw the current frame from the back camera onto the canvas
-            signatureContext.drawImage(backCameraStream, 0, 0, signatureCanvas.width, signatureCanvas.height);
-            const signatureDataUrl = signatureCanvas.toDataURL("image/png");
-
-            // Set the signature data URL to the hidden input
-            signatureImage.value = signatureDataUrl;
-
-            // Show the captured signature image in the preview
-            signatureImagePreview.src = signatureDataUrl;
-            signatureImagePreview.style.display = "block";
-            signaturePreview.style.display = "block";
-
-            // Stop the back camera video stream after capturing the signature
-            let tracks = backCameraStream.srcObject.getTracks();
-            tracks.forEach(track => track.stop()); // Stop the camera stream
-
-            // Hide the back camera video element after capturing the signature
-            backCameraStream.style.display = "none";
-            captureSignatureButton.style.display = "none";
-        }
-
-        // Ensure the stream is also stopped when the page is unloaded or user navigates away
-        window.addEventListener('beforeunload', function() {
-            let tracks = backCameraStream.srcObject ? backCameraStream.srcObject.getTracks() : [];
-            tracks.forEach(track => track.stop());
-        });
-
-        // Event listener for opening the front camera
-        cameraButton.addEventListener('click', startFrontCamera);
-
-        // Event listener for capturing the photo
-        captureButton.addEventListener('click', capturePhoto);
-
-        // Event listener for opening the back camera
-        captureSignatureButton.addEventListener('click', startBackCamera);
-
-        // Event listener for capturing the signature
-        captureSignatureButton.addEventListener('click', captureSignature);
-
-        // Form submission
+        // Handle form submission
         function handleSubmit(event) {
             event.preventDefault(); // Prevent the default form submission
-            console.log('Starting form submission via AJAX...');
+
             let formData = new FormData(document.getElementById('registrationForm'));
 
             // Show the loading spinner
             loadingSpinner.style.display = "block";
 
+            // Submit the form via AJAX
             $.ajax({
                 url: 'https://script.google.com/macros/s/AKfycbyX7kx7XZNNWiv-XZ-IMi7UnG60PMxiNxfXzItIiEY9nWlEx5Lyz6MQhyhdgBkgyk4mLQ/exec',
                 method: 'POST',
@@ -349,17 +206,13 @@
                 contentType: false,
                 processData: false,
                 success: function (response) {
-                    console.log('Form submitted successfully:', response);
-
                     // Hide the loading spinner
                     loadingSpinner.style.display = "none";
 
                     // Show success message
-                    successMessage.textContent = "Your form has been submitted successfully!";
-                    successMessage.style.color = "green";
                     successMessage.style.display = "block";
 
-                    // Redirect to payment page after 3 seconds
+                    // Redirect after 3 seconds
                     setTimeout(function () {
                         const email = encodeURIComponent($('#email').val());
                         const firstName = encodeURIComponent($('#firstName').val());
@@ -370,15 +223,13 @@
 
                         // Redirect to the payment page
                         window.location.href = paymentUrl;
-                    }, 3000);
+                    }, 3000); // Delay the redirection by 3 seconds
                 },
                 error: function (xhr, status, error) {
-                    console.error('Error in form submission:', error);
-
                     // Hide the loading spinner
                     loadingSpinner.style.display = "none";
 
-                    // Show error message if submission fails
+                    // Show error message
                     successMessage.textContent = "There was an error submitting your form. Please try again.";
                     successMessage.style.color = "red";
                     successMessage.style.display = "block";
@@ -386,7 +237,7 @@
             });
         }
 
-        // Add event listener for form submission
+        // Attach the submit handler to the form
         document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
     </script>
 </body>
