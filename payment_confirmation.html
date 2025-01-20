@@ -50,6 +50,27 @@
         .button:hover {
             background-color: #45a049;
         }
+
+        /* Loading spinner styles */
+        .spinner {
+            display: none;
+            border: 4px solid #f3f3f3; /* Light grey */
+            border-top: 4px solid #4CAF50; /* Green */
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 2s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        #statusMessage {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -81,6 +102,9 @@
 
     <button class="button" type="button" onclick="submitForm()">Submit Screenshot</button>
 
+    <!-- Loading spinner -->
+    <div id="spinner" class="spinner"></div>
+
     <p id="statusMessage" class="note"></p>
 
     <script>
@@ -109,7 +133,8 @@
                 return;
             }
 
-            // Display loading message
+            // Show loading spinner
+            document.getElementById('spinner').style.display = 'inline-block';
             document.getElementById('statusMessage').textContent = 'Uploading file...';
 
             const reader = new FileReader();
@@ -132,20 +157,24 @@
                 .then(response => response.json()) // Parse the JSON response
                 .then(data => {
                     if (data.status === "success") {
-                        // Handle successful form submission and redirect
+                        // Handle successful form submission
                         document.getElementById('statusMessage').textContent = 'File uploaded successfully! Redirecting...';
                         
-                        // Redirect to the URL provided in the response
-                        window.location.href = data.redirectUrl;
+                        // Delay the redirect by 3 seconds to show the loading animation
+                        setTimeout(() => {
+                            window.location.href = data.redirectUrl;
+                        }, 3000); // 3 seconds delay
                     } else {
                         // Handle failure response
                         document.getElementById('statusMessage').textContent = 'Error uploading file. Please try again.';
+                        document.getElementById('spinner').style.display = 'none'; // Hide the spinner on error
                     }
                 })
                 .catch(error => {
                     // Handle network or other errors
                     document.getElementById('statusMessage').textContent = 'There was an error. Please try again.';
                     console.error(error);
+                    document.getElementById('spinner').style.display = 'none'; // Hide the spinner on error
                 });
             };
 
