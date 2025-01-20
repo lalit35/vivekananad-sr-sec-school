@@ -6,7 +6,7 @@
     <title>Competition Registration</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+    
     <style>
         /* Style for loading spinner */
         #loadingSpinner {
@@ -26,6 +26,15 @@
         @keyframes spin {
             0% { transform: translate(-50%, -50%) rotate(0deg); }
             100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+        }
+
+        canvas {
+            display: none;
         }
     </style>
 </head>
@@ -47,12 +56,10 @@
             <!-- Camera Capture Section for Photo (Front Camera) -->
             <label for="photo">Capture Photo :</label>
             <button type="button" id="cameraButton">Capture Photo Now</button>
-            <video id="frontCameraStream" autoplay style="display:none; width: 100%;"></video>
-            <canvas id="photoCanvas" style="display:none;"></canvas>
+            <video id="frontCameraStream" autoplay></video>
+            <canvas id="photoCanvas"></canvas>
             <input type="hidden" id="capturedPhoto" name="photoUrl">
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
-
-            <!-- Success Message for Photo Capture -->
             <div id="photoSuccessMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
                 Photo captured successfully!
             </div>
@@ -107,7 +114,7 @@
             <!-- Signature Capture Section using Back Camera -->
             <h3>Capture Signature :</h3>
             <button type="button" id="captureSignatureButton">Capture Signature</button>
-            <video id="backCameraStream" autoplay style="display:none; width: 100%;"></video>
+            <video id="backCameraStream" autoplay style="display:none;"></video>
             <div id="signaturePreview" style="width: 200px; height: 100px; border: 1px solid #000; margin-top: 10px;">
                 <img id="signatureImagePreview" src="" alt="Signature Preview" style="width: 100%; height: 100%; display: none;">
             </div>
@@ -212,6 +219,16 @@
         // Attach click event to "Capture Photo Now" button
         $('#cameraButton').on('click', function() {
             startFrontCamera();
+        });
+
+        // Attach click event to "Capture Signature" button
+        $('#captureSignatureButton').on('click', function() {
+            startBackCamera();
+        });
+
+        // Attach click event to "Capture Photo" button
+        $('#captureButton').on('click', function() {
+            capturePhoto();
         });
 
         // Form submit event with AJAX and automatic redirection on success or error
