@@ -138,21 +138,6 @@
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
 
-        // Function to apply coupon code
-        function applyCoupon() {
-            const couponCode = document.getElementById('coupon').value.trim().toUpperCase();
-
-            // Coupon code validation
-            if (couponCode === 'VSS50' || couponCode.split('').sort().join('') === '50SSV') {
-                finalAmount = 49; // Apply discount
-                document.getElementById('amount').textContent = finalAmount;  // Update displayed amount
-                document.getElementById('payButton').textContent = `Pay ₹${finalAmount} Now`; // Update button text
-                setUpPaymentLink(document.getElementById('email').value, document.getElementById('firstName').value, document.getElementById('mobile').value); // Update UPI link
-                alert('Coupon applied successfully! You pay ₹49.');
-            } else {
-                alert('Invalid coupon code.');
-            }
-        }
 
         // Start the payment process
         function startPaymentProcess() {
