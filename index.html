@@ -166,6 +166,9 @@
         // Function to capture the photo from the front camera
         function capturePhoto() {
             const context = photoCanvas.getContext('2d');
+            photoCanvas.width = frontCameraStream.videoWidth;  // Adjust to camera stream width
+            photoCanvas.height = frontCameraStream.videoHeight;  // Adjust to camera stream height
+
             context.drawImage(frontCameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
             const photoDataUrl = photoCanvas.toDataURL("image/png");
             capturedPhoto.value = photoDataUrl;
@@ -182,8 +185,8 @@
         function captureSignature() {
             const signatureCanvas = document.createElement('canvas');
             const signatureContext = signatureCanvas.getContext('2d');
-            signatureCanvas.width = 400;
-            signatureCanvas.height = 200;
+            signatureCanvas.width = backCameraStream.videoWidth;  // Adjust to camera stream width
+            signatureCanvas.height = backCameraStream.videoHeight;  // Adjust to camera stream height
             
             // Draw the current frame from the back camera onto the canvas
             signatureContext.drawImage(backCameraStream, 0, 0, signatureCanvas.width, signatureCanvas.height);
