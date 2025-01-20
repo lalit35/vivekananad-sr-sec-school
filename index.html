@@ -4,10 +4,111 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competition Registration</title>
+    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     
     <style>
-        /* Style for loading spinner */
+        /* General Body and Layout */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+
+        /* Header Styling */
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: #3498db;
+            color: white;
+        }
+
+        .header .school-name {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .header .logo {
+            width: 100px;
+            height: auto;
+            margin-top: 10px;
+        }
+
+        /* Container for Form */
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        /* Form Fields Styling */
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="tel"], input[type="email"], input[type="date"], input[type="number"] {
+            width: calc(100% - 20px);
+        }
+
+        /* Button Styles */
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        /* Capture Photo Section */
+        #frontCameraStream {
+            width: 100%;
+            height: auto;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: none;
+        }
+
+        #photoCanvas {
+            display: none;
+        }
+
+        #photoSuccessMessage {
+            font-size: 1.2em;
+            color: green;
+            text-align: center;
+            display: none;
+        }
+
+        /* Loading Spinner */
         #loadingSpinner {
             display: none;
             position: fixed;
@@ -27,14 +128,15 @@
             100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        video {
-            width: 100%;
-            height: auto;
-        }
-
-        canvas {
+        /* Form Success Message */
+        #successMessage {
+            color: green;
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 20px;
             display: none;
         }
+
     </style>
 </head>
 <body>
