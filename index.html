@@ -221,6 +221,9 @@
             <!-- Submit Button -->
             <button type="submit" id="submitButton">Submit</button>
         </form>
+
+        <!-- Success/Error Message -->
+        <div id="successMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;"></div>
     </div>
 
     <!-- Loading Spinner -->
@@ -239,116 +242,54 @@
         const signaturePreview = document.getElementById('signaturePreview');
         const signatureImagePreview = document.getElementById('signatureImagePreview');
         const signatureImage = document.getElementById('signatureImage');
-        const captureSignatureButton = document.getElementById('captureSignatureButton');
         const loadingSpinner = document.getElementById('loadingSpinner');
         const successMessage = document.getElementById('successMessage');
+        const submitButton = document.getElementById('submitButton');
+        const registrationForm = document.getElementById('registrationForm');
 
-        // Start the Front Camera (for capturing photo)
-        function startFrontCamera() {
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "user" } })
-                .then(function (stream) {
-                    frontCameraStream.style.display = "block"; // Show front camera video stream
-                    frontCameraStream.srcObject = stream; // Set the video stream to front camera
-                    captureButton.style.display = "inline-block"; // Show capture button
-                    cameraButton.style.display = "none"; // Hide the front camera button
-                })
-                .catch(function (error) {
-                    console.error("Error accessing front camera:", error);
-                    alert("Error accessing front camera. Please allow camera permissions.");
-                });
+        // Start front camera stream for capturing photo
+        async function startFrontCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
+                frontCameraStream.srcObject = stream;
+                frontCameraStream.style.display = 'block';
+                cameraButton.style.display = 'none';
+                captureButton.style.display = 'block';
+            } catch (error) {
+                alert('Error accessing front camera');
+            }
         }
 
-        // Start the Back Camera (for capturing signature)
-        function startBackCamera() {
-            navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-                .then(function (stream) {
-                    backCameraStream.style.display = "block"; // Show back camera video stream
-                    backCameraStream.srcObject = stream; // Set the video stream to back camera
-                    captureSignatureButton.style.display = "inline-block"; // Show capture signature button
-                })
-                .catch(function (error) {
-                    console.error("Error accessing back camera:", error);
-                    alert("Error accessing back camera. Please allow camera permissions.");
-                });
-        }
-
-        // Function to capture the photo from the front camera
-        function capturePhoto() {
+        // Capture photo from the front camera
+        captureButton.addEventListener('click', function () {
             const context = photoCanvas.getContext('2d');
             context.drawImage(frontCameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
-            const photoDataUrl = photoCanvas.toDataURL("image/png");
-            capturedPhoto.value = photoDataUrl;
-            photoSuccessMessage.style.display = "block"; // Display success message
-            frontCameraStream.style.display = "none"; // Hide camera stream
-            captureButton.style.display = "none"; // Hide capture button
-
-            // Stop all video tracks to free up the camera
-            let tracks = frontCameraStream.srcObject.getTracks();
-            tracks.forEach(track => track.stop());
-        }
-
-        // Capture the signature image from the back camera and show it in the preview
-        function captureSignature() {
-            const signatureCanvas = document.createElement('canvas');
-            const signatureContext = signatureCanvas.getContext('2d');
-            signatureCanvas.width = 400;
-            signatureCanvas.height = 200;
-
-            // Draw the current frame from the back camera onto the canvas
-            signatureContext.drawImage(backCameraStream, 0, 0, signatureCanvas.width, signatureCanvas.height);
-            const signatureDataUrl = signatureCanvas.toDataURL("image/png");
-
-            // Set the signature data URL to the hidden input
-            signatureImage.value = signatureDataUrl;
-
-            // Show the captured signature image in the preview
-            signatureImagePreview.src = signatureDataUrl;
-            signatureImagePreview.style.display = "block";
-            signaturePreview.style.display = "block";
-
-            // Stop the back camera video stream after capturing the signature
-            let tracks = backCameraStream.srcObject.getTracks();
-            tracks.forEach(track => track.stop()); // Stop the camera stream
-
-            // Hide the back camera video element after capturing the signature
-            backCameraStream.style.display = "none";
-            captureSignatureButton.style.display = "none";
-        }
-
-        // Ensure the stream is also stopped when the page is unloaded or user navigates away
-        window.addEventListener('beforeunload', function() {
-            let tracks = backCameraStream.srcObject ? backCameraStream.srcObject.getTracks() : [];
-            tracks.forEach(track => track.stop());
+            capturedPhoto.value = photoCanvas.toDataURL();
+            photoSuccessMessage.style.display = 'block';
+            frontCameraStream.style.display = 'none';
+            photoCanvas.style.display = 'none';
+            captureButton.style.display = 'none';
         });
 
-        // Event listener for opening the front camera
+        // Start the front camera when clicking the "Capture Photo Now" button
         cameraButton.addEventListener('click', startFrontCamera);
 
-        // Event listener for capturing the photo
-        captureButton.addEventListener('click', capturePhoto);
+        // Handle form submission (AJAX)
+        registrationForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            loadingSpinner.style.display = "block"; // Show loading spinner
 
-        // Event listener for opening the back camera
-        captureSignatureButton.addEventListener('click', startBackCamera);
+            // Construct form data
+            const formData = new FormData(registrationForm);
 
-        // Event listener for capturing the signature
-        captureSignatureButton.addEventListener('click', captureSignature);
-
-        // Form submission
-        function handleSubmit(event) {
-            event.preventDefault(); // Prevent the default form submission
-            console.log('Starting form submission via AJAX...');
-            let formData = new FormData(document.getElementById('registrationForm'));
-
-            // Show the loading spinner
-            loadingSpinner.style.display = "block";
-
+            // AJAX request to submit form
             $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbyeX0IEyKIi0mjPlbS2LQoI29XOhRJT2hdE0WdRCX6mD6OXNG2RD3qMvM5LWTOlX0-AFw/exec',
-                method: 'POST',
+                url: 'submit-form.php',  // Replace with your actual server-side script
+                type: 'POST',
                 data: formData,
-                contentType: false,
                 processData: false,
-                success: function (response) {
+                contentType: false,
+                success: function(response) {
                     console.log('Form submitted successfully:', response);
 
                     // Hide the loading spinner
@@ -372,7 +313,7 @@
                         window.location.href = paymentUrl;
                     }, 3000);
                 },
-                error: function (xhr, status, error) {
+                error: function(xhr, status, error) {
                     console.error('Error in form submission:', error);
 
                     // Hide the loading spinner
@@ -384,10 +325,7 @@
                     successMessage.style.display = "block";
                 }
             });
-        }
-
-        // Add event listener for form submission
-        document.getElementById('registrationForm').addEventListener('submit', handleSubmit);
+        });
     </script>
 </body>
 </html>
