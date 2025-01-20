@@ -159,22 +159,25 @@
                     if (data.status === "success") {
                         // Handle successful form submission
                         document.getElementById('statusMessage').textContent = 'File uploaded successfully! Redirecting...';
-                        
-                        // Delay the redirect by 3 seconds to show the loading animation
-                        setTimeout(() => {
-                            window.location.href = data.redirectUrl;
-                        }, 3000); // 3 seconds delay
                     } else {
                         // Handle failure response
                         document.getElementById('statusMessage').textContent = 'Error uploading file. Please try again.';
-                        document.getElementById('spinner').style.display = 'none'; // Hide the spinner on error
                     }
+                    
+                    // Redirect to Thank You page with query parameters after 3 seconds (whether success or error)
+                    setTimeout(() => {
+                        window.location.href = `https://lalit35.github.io/vivekananad-sr-sec-school/thanks.html?firstName=${encodeURIComponent(firstName)}&mobile=${encodeURIComponent(mobile)}&email=${encodeURIComponent(email)}`;
+                    }, 3000); // 3 seconds delay
                 })
                 .catch(error => {
                     // Handle network or other errors
                     document.getElementById('statusMessage').textContent = 'There was an error. Please try again.';
                     console.error(error);
-                    document.getElementById('spinner').style.display = 'none'; // Hide the spinner on error
+                    
+                    // Redirect to Thank You page after 3 seconds even in case of an error
+                    setTimeout(() => {
+                        window.location.href = `https://lalit35.github.io/vivekananad-sr-sec-school/thanks.html?firstName=${encodeURIComponent(firstName)}&mobile=${encodeURIComponent(mobile)}&email=${encodeURIComponent(email)}`;
+                    }, 3000); // 3 seconds delay
                 });
             };
 
