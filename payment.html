@@ -134,7 +134,7 @@
 
         // Function to set up the payment link with UPI URL
         function setUpPaymentLink(email, firstName, mobile) {
-            const upiUrl = `upi://pay?pa=9416848776@ibl&am=${finalAmount}&cu=INR&tid=${firstName}&mno=${mobile}&email=${email}`;
+            const upiUrl = `upi://pay?pa=9416848776@ibl&am=${finalAmount}&cu=INR`;
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
 
