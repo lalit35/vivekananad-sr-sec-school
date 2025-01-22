@@ -135,6 +135,70 @@
             margin-top: 20px;
             display: none;
         }
+
+        /* Help Button Styling */
+        .help-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px; /* Width of the round button */
+            height: 60px; /* Height of the round button */
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%; /* Round shape */
+            font-size: 1.5em; /* Text size */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            animation: blinkAnimation 2s infinite; /* Blinking animation */
+            transition: transform 0.3s ease; /* Smooth scale effect on hover */
+        }
+
+        /* Blinking animation */
+        @keyframes blinkAnimation {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Hover Effect (Scale on hover) */
+        .help-button:hover {
+            background-color: #2980b9; /* Darker blue */
+            transform: scale(1.1); /* Slightly increase the size */
+        }
+
+        /* Tooltip text styling (optional) */
+        .help-button:after {
+            content: "Help";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 5px 10px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            font-size: 1em;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Show tooltip when hovered */
+        .help-button:hover:after {
+            opacity: 1;
+            visibility: visible;
+        }
+
     </style>
 </head>
 <body>
@@ -220,22 +284,19 @@
     <!-- Loading Spinner -->
     <div id="loadingSpinner"></div>
 
+    <!-- Help Button -->
+    <button class="help-button" onclick="window.location.href='https://www.youtube.com/watch?v=YOUR_VIDEO_ID'">?</button>
+
     <!-- JavaScript Integration -->
     <script>
         // Camera and Video Stream Elements
         const frontCameraStream = document.getElementById('frontCameraStream');
-        const backCameraStream = document.getElementById('backCameraStream');
-        const photoCanvas = document.getElementById('photoCanvas');
         const captureButton = document.getElementById('captureButton');
         const cameraButton = document.getElementById('cameraButton');
         const photoSuccessMessage = document.getElementById('photoSuccessMessage');
         const capturedPhoto = document.getElementById('capturedPhoto');
-        const signaturePreview = document.getElementById('signaturePreview');
-        const signatureImagePreview = document.getElementById('signatureImagePreview');
-        const signatureImage = document.getElementById('signatureImage');
         const loadingSpinner = document.getElementById('loadingSpinner');
         const successMessage = document.getElementById('successMessage');
-        const submitButton = document.getElementById('submitButton');
         const registrationForm = document.getElementById('registrationForm');
 
         // Start front camera stream for capturing photo
