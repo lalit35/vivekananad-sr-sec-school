@@ -72,6 +72,17 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* QR Code Styling */
+        .qr-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+        }
+
     </style>
 </head>
 <body>
@@ -93,7 +104,6 @@
         <input type="email" id="email" name="email" readonly>
     </div>
 
-  
     <!-- Display the price -->
     <h3>Amount: ₹<span id="amount">49</span></h3>
 
@@ -111,6 +121,12 @@
     </div>
 
     <p class="note">You will be redirected to your payment app (Google Pay, PhonePe, Paytm, etc.) to complete the payment.</p>
+
+    <!-- QR Code Section -->
+    <div class="qr-container">
+        <p class="note">If you're unable to complete the payment through the button, you can scan the QR code below:</p>
+        <img src="YOUR_QR_CODE_IMAGE_URL" alt="UPI QR Code" class="qr-code">
+    </div>
 
     <script>
         const originalAmount = 49;
@@ -134,10 +150,12 @@
 
         // Function to set up the payment link with UPI URL
         function setUpPaymentLink(email, firstName, mobile) {
-            const upiUrl = `upi://pay?pa=9416848776@ibl&am=${finalAmount}&cu=INR`;
+            const finalAmount = 49;  // Fixed amount
+            const upiUrl = `upi://pay?pa=9416848776@ibl&am=${finalAmount}&cu=INR&email=${encodeURIComponent(email)}`;
+            
+            // Set the payment link
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
-
 
         // Start the payment process
         function startPaymentProcess() {
