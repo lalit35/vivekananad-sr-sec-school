@@ -104,17 +104,14 @@
         <input type="email" id="email" name="email" readonly>
     </div>
 
-    <!-- Display the price -->
     <h3>Amount: ₹<span id="amount">49</span></h3>
 
     <p class="note">Click below to pay fees for your Competition Exam Registration via UPI.</p>
 
-    <!-- UPI Payment Button -->
     <a id="paymentLink" href="javascript:void(0)" target="_blank">
         <button class="button" id="payButton" onclick="startPaymentProcess()">Pay ₹49 Now</button>
     </a>
 
-    <!-- Loading Spinner -->
     <div class="loading" id="loadingSpinner">
         <div class="spinner"></div>
         <p>Please wait, redirecting to payment...</p>
@@ -122,14 +119,12 @@
 
     <p class="note">You will be redirected to your payment app (Google Pay, PhonePe, Paytm, etc.) to complete the payment.</p>
 
-    <!-- QR Code Section -->
     <div class="qr-container">
         <p class="note">If you're unable to complete the payment through the button, you can scan the QR code below:</p>
         <img src="vss.png" alt="UPI QR Code" class="qr-code">
     </div>
 
     <script>
-        // Function to extract query parameters and pre-fill the payment form
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const firstName = urlParams.get('firstName') || '';
@@ -141,19 +136,32 @@
             document.getElementById('mobile').value = mobile;
             document.getElementById('email').value = email;
 
-            // Set up initial payment link with original amount
-            setUpPaymentLink(email, firstName, mobile);
+            // Set up initial payment link dynamically
+            setUpPaymentLink();
         };
 
-        // Function to set up the payment link with UPI URL
-        function setUpPaymentLink(email, firstName, mobile) {
-              upiUrl = `upi://pay?pa=vinodjoshi48776-1@okicici&am=49.00&tn=Competition%20Registration%20Fee`;
+        // Function to generate UPI URL dynamically using obfuscated UPI ID parts
+        function generateUPILink() {
+            // Split the UPI ID into parts and join them at runtime
+            const part1 = "vinod";
+            const part2 = "joshi48776";
+            const part3 = "-1@okicici";
+
+            const upiId = part1 + part2 + part3;  // Concatenate to form the full UPI ID
+
+            // Create the UPI URL
+            return `upi://pay?pa=${upiId}&am=49.00&tn=Competition%20Registration%20Fee`;
+        }
+
+        // Set up payment link dynamically
+        function setUpPaymentLink() {
+            const upiUrl = generateUPILink();  // Generate UPI URL
 
             // Set the payment link
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
 
-        // Start the payment process (simulate payment)
+        // Simulate the payment process (this is just for demonstration)
         function startPaymentProcess() {
             // Show loading spinner and hide the payment button
             document.getElementById('payButton').style.display = 'none';
