@@ -94,26 +94,39 @@
     <div id="qrCodeContainer">
         <p class="note">Scan this QR code using your UPI app:</p>
         <img src="vss.png" id="qrCodeImage" alt="UPI QR Code">
-        <p class="note">Alternatively, you can scan this code using your UPI app.</p>
+        <!-- Button to download the QR Code Image -->
+        <button id="downloadBtn">Download QR Code</button>
     </div>
 
     <!-- UPI Payment Link Button -->
-    <a href="#" id="__UPI_BUTTON__" onclick="showQRCode()">Pay ₹49 Now</a>
+    <a href="#" id="__UPI_BUTTON__" onclick="showQRCodeAndOpenUPI()">Pay ₹49 Now</a>
 
     <script>
-        function showQRCode() {
-            // Show the QR code container with image
+        function showQRCodeAndOpenUPI() {
+            // Show the QR code container with image immediately
             document.getElementById('qrCodeContainer').style.display = 'block';
 
-            // Wait for 5 seconds, then attempt to open the UPI app
+            // Try opening the UPI app (no payment link)
+            var intentLink = "intent://pay#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end;";
+
+            // Try to open the UPI app with the intent
+            window.location.href = intentLink;
+
+            // If the UPI app does not open, you can fall back to opening UPI URL
             setTimeout(function() {
-                // UPI Payment link
-                var upiLink = "upi://pay?pa=9416848776@ibl&pn=VINOD%20KUMAR&cu=INR&tn=Competition%20Registration%20Fee";
-                
-                // Attempt to redirect to the UPI app
-                window.location.href = upiLink;
-            }, 5000); // 5 seconds delay
+                var fallbackLink = "upi://";
+                window.location.href = fallbackLink;
+            }, 500);
         }
+
+        // Download QR code when the button is clicked
+        document.getElementById('downloadBtn').addEventListener('click', function () {
+            var qrImage = document.getElementById('qrCodeImage');
+            var link = document.createElement('a');
+            link.href = qrImage.src; // Use the source of the QR code image
+            link.download = 'vss.png'; // Set the download filename
+            link.click(); // Simulate a click to trigger the download
+        });
     </script>
 
 </body>
