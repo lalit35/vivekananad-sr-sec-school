@@ -60,14 +60,12 @@
             margin-top: 20px;
         }
 
-        #qrCode {
-            width: 200px;
-            height: 200px;
+        #qrCodeImage {
+            width: 200px; /* Adjust size as needed */
+            height: 200px; /* Adjust size as needed */
         }
 
     </style>
-    <!-- Include the qrcode.js library -->
-    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -92,11 +90,11 @@
 
     <p class="note">Scan the QR code below to pay via UPI.</p>
 
-    <!-- QR Code Container -->
+    <!-- QR Code Container (image) -->
     <div id="qrCodeContainer">
         <p class="note">Scan this QR code using your UPI app:</p>
-        <div id="qrCode"></div>
-        <p class="note">After scanning, proceed with payment.</p>
+        <img src="vss.png" id="qrCodeImage" alt="UPI QR Code">
+        <p class="note">Alternatively, you can scan this code using your UPI app.</p>
     </div>
 
     <!-- UPI Payment Link Button -->
@@ -104,18 +102,17 @@
 
     <script>
         function showQRCode() {
-            // Generate UPI payment link
-            var upiLink = "upi://pay?pa=9416848776@ibl&pn=VINOD%20KUMAR&cu=INR&tn=Competition%20Registration%20Fee";
-
-            // Show the QR code container
+            // Show the QR code container with image
             document.getElementById('qrCodeContainer').style.display = 'block';
 
-            // Generate the QR code for the payment link
-            QRCode.toCanvas(document.getElementById('qrCode'), upiLink, function (error) {
-                if (error) {
-                    console.error(error);
-                }
-            });
+            // Wait for 5 seconds, then attempt to open the UPI app
+            setTimeout(function() {
+                // UPI Payment link
+                var upiLink = "upi://pay?pa=9416848776@ibl&pn=VINOD%20KUMAR&cu=INR&tn=Competition%20Registration%20Fee";
+                
+                // Attempt to redirect to the UPI app
+                window.location.href = upiLink;
+            }, 5000); // 5 seconds delay
         }
     </script>
 
