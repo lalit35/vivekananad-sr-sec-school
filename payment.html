@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -51,6 +50,7 @@
             background-color: #45a049;
         }
 
+        /* Loading spinner styles */
         .loading {
             display: none;
             margin-top: 20px;
@@ -71,6 +71,7 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* QR Code Styling */
         .qr-container {
             margin-top: 30px;
             text-align: center;
@@ -79,17 +80,6 @@
         .qr-code {
             width: 200px;
             height: 200px;
-        }
-
-        .timer {
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-
-        #paidButton {
-            display: none;
-            background-color: #28a745;
         }
 
     </style>
@@ -101,6 +91,7 @@
 
     <p class="note">Please review your details before proceeding.</p>
 
+    <!-- Form: First Name, Mobile Number, Email (autofilled) -->
     <div class="form-container">
         <label for="firstName">First Name:</label>
         <input type="text" id="firstName" name="firstName" readonly>
@@ -112,22 +103,15 @@
         <input type="email" id="email" name="email" readonly>
     </div>
 
+    <!-- Display the price -->
     <h3>Amount: ₹<span id="amount">49</span></h3>
 
     <p class="note">Click below to pay fees for your Competition Exam Registration via UPI.</p>
 
-    <div class="qr-container">
-        <p class="note">If you're unable to complete the payment through the button, you can scan the QR code below:</p>
-        <img src="vss.png" alt="UPI QR Code" class="qr-code">
-    </div>
-
-    <div class="timer" id="timer">Time left: 02:00</div>
-
-    <!-- Pay Button -->
-    <button class="button" id="payButton" onclick="startPaymentProcess()">Pay ₹49 Now</button>
-
-    <!-- Paid Button (initially hidden) -->
-    <button class="button" id="paidButton" onclick="showPaidConfirmation()">Paid</button>
+    <!-- UPI Payment Button -->
+    <a id="paymentLink" href="javascript:void(0)" target="_blank">
+        <button class="button" id="payButton" onclick="startPaymentProcess()">Pay ₹49 Now</button>
+    </a>
 
     <!-- Loading Spinner -->
     <div class="loading" id="loadingSpinner">
@@ -137,60 +121,55 @@
 
     <p class="note">You will be redirected to your payment app (Google Pay, PhonePe, Paytm, etc.) to complete the payment.</p>
 
+    <!-- QR Code Section -->
+    <div class="qr-container">
+        <p class="note">If you're unable to complete the payment through the button, you can scan the QR code below:</p>
+        <img src="vss.png" alt="UPI QR Code" class="qr-code">
+    </div>
+
     <script>
+        // Function to extract query parameters and pre-fill the payment form
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
             const firstName = urlParams.get('firstName') || '';
             const mobile = urlParams.get('mobile') || '';
             const email = urlParams.get('email') || '';
             
+            // Pre-fill fields
             document.getElementById('firstName').value = firstName;
             document.getElementById('mobile').value = mobile;
             document.getElementById('email').value = email;
 
-            // Set up the timer countdown
-            startTimer(120);
+            // Set up initial payment link with original amount
+            setUpPaymentLink(email, firstName, mobile);
         };
 
-        // Timer countdown
-        function startTimer(duration) {
-            let timer = duration, minutes, seconds;
-            const timerDisplay = document.getElementById('timer');
-            
-            const interval = setInterval(function() {
-                minutes = Math.floor(timer / 60);
-                seconds = timer % 60;
-                minutes = minutes < 10 ? '0' + minutes : minutes;
-                seconds = seconds < 10 ? '0' + seconds : seconds;
-
-                timerDisplay.textContent = 'Time left: ' + minutes + ':' + seconds;
-
-                if (--timer < 0) {
-                    clearInterval(interval);
-                    alert('Your payment time has expired!');
-                }
-            }, 1000);
+        // Function to set up the payment link with UPI URL
+        function setUpPaymentLink(email, firstName, mobile) {
+            const upiUrl = upi://pay?pa=lalit0@fam&am=49;  // Construct UPI URL
+            // Set the payment link
+            document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
 
-        // Start the payment process
+        // Start the payment process (simulate payment)
         function startPaymentProcess() {
+            // Show loading spinner and hide the payment button
             document.getElementById('payButton').style.display = 'none';
             document.getElementById('loadingSpinner').style.display = 'block';
 
             // Simulate a short delay before redirecting (15 seconds)
             setTimeout(function() {
+                // Hide the loading spinner and redirect to a confirmation page
                 document.getElementById('loadingSpinner').style.display = 'none';
-                // Show "Paid" button after the payment process is initiated
-                document.getElementById('paidButton').style.display = 'block';
-            }, 15000);  // Simulate 15 seconds before confirming payment
-        }
 
-        // Simulate the action for clicking "Paid" button
-        function showPaidConfirmation() {
-            // You can add a real payment confirmation process here
-            alert('Payment Confirmed! Thank you for registering.');
-            // Optionally, redirect to a confirmation page
-            window.location.href = 'payment_confirmation.html';
+                // Collect data from the form
+                const firstName = document.getElementById('firstName').value;
+                const mobile = document.getElementById('mobile').value;
+                const email = document.getElementById('email').value;
+
+                // Redirect user to the payment confirmation page
+                window.location.href = payment_confirmation.html?firstName=${firstName}&mobile=${mobile}&email=${email};
+            }, 15000);  // Simulate a 15-second delay for payment completion
         }
     </script>
 
