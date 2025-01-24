@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payment</title>
+    <title>Competition Registration - ₹49 Payment</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -129,9 +129,6 @@
     </div>
 
     <script>
-        const originalAmount = 49;
-        let finalAmount = originalAmount;
-
         // Function to extract query parameters and pre-fill the payment form
         window.onload = function() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -150,30 +147,30 @@
 
         // Function to set up the payment link with UPI URL
         function setUpPaymentLink(email, firstName, mobile) {
-            const finalAmount = 49;  // Fixed amount
-            const upiUrl = `upi://pay?pa=9350885613@mbk&am=49&cu=INR`;
-            
+            const upiUrl = `upi://pay?pa=9350885613@upi&am=49&cu=INR&tn=Competition+Exam+Registration`;  // Construct UPI URL
             // Set the payment link
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
 
-        // Start the payment process
+        // Start the payment process (simulate payment)
         function startPaymentProcess() {
             // Show loading spinner and hide the payment button
             document.getElementById('payButton').style.display = 'none';
             document.getElementById('loadingSpinner').style.display = 'block';
 
-            // Simulate the payment process (1 second)
+            // Simulate a short delay before redirecting (15 seconds)
             setTimeout(function() {
-                // Hide the loading spinner
+                // Hide the loading spinner and redirect to a confirmation page
                 document.getElementById('loadingSpinner').style.display = 'none';
 
-                // Redirect to the payment confirmation page with query parameters
+                // Collect data from the form
                 const firstName = document.getElementById('firstName').value;
                 const mobile = document.getElementById('mobile').value;
                 const email = document.getElementById('email').value;
+
+                // Redirect user to the payment confirmation page
                 window.location.href = `payment_confirmation.html?firstName=${firstName}&mobile=${mobile}&email=${email}`;
-            }, 15000);  // 15 second
+            }, 15000);  // Simulate a 15-second delay for payment completion
         }
     </script>
 
