@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -71,8 +72,18 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* QR Code Styling */
+        .qr-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+        }
+
     </style>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1-crypto-js.js"></script>
 </head>
 <body>
 
@@ -109,79 +120,58 @@
         <p>Please wait, redirecting to payment...</p>
     </div>
 
-    <script>
-        // SabPaisa Authentication details
-        const authKey = "kaY9AIhuJZNvKGp2"; // Authentication Key
-        const authIV = "YN2v8qQcU3rGfA1y";  // Authentication IV
+    <p class="note">You will be redirected to your payment app (Google Pay, PhonePe, Paytm, etc.) to complete the payment.</p>
 
-        // Function to encrypt request data using AES encryption
-        function encryptData(data) {
-            const encrypted = CryptoJS.AES.encrypt(JSON.stringify(data), CryptoJS.enc.Utf8.parse(authKey), {
-                iv: CryptoJS.enc.Utf8.parse(authIV),
-                mode: CryptoJS.mode.CBC,
-                padding: CryptoJS.pad.Pkcs7
-            });
-            return encrypted.toString();
+    <!-- QR Code Section -->
+    <div class="qr-container">
+        <p class="note">If you're unable to complete the payment through the button, you can scan the QR code below:</p>
+        <img src="vss.png" alt="UPI QR Code" class="qr-code">
+    </div>
+
+    <script>
+        // Function to extract query parameters and pre-fill the payment form
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const firstName = urlParams.get('firstName') || '';
+            const mobile = urlParams.get('mobile') || '';
+            const email = urlParams.get('email') || '';
+            
+            // Pre-fill fields
+            document.getElementById('firstName').value = firstName;
+            document.getElementById('mobile').value = mobile;
+            document.getElementById('email').value = email;
+
+            // Set up initial payment link with original amount
+            setUpPaymentLink(email, firstName, mobile);
+        };
+
+        // Function to set up the payment link with UPI URL
+        function setUpPaymentLink(email, firstName, mobile) {
+              upiUrl = `upi://pay?pa=vinodjoshi48776-1@okicici&am=49.00&tn=Competition%20Registration%20Fee`;
+
+            // Set the payment link
+            document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
 
-        // Function to generate a payment link from SabPaisa's API
+        // Start the payment process (simulate payment)
         function startPaymentProcess() {
-            // Retrieve the customer details from the pre-filled form
-            const firstName = document.getElementById('firstName').value;
-            const mobile = document.getElementById('mobile').value;
-            const email = document.getElementById('email').value;
+            // Show loading spinner and hide the payment button
+            document.getElementById('payButton').style.display = 'none';
+            document.getElementById('loadingSpinner').style.display = 'block';
 
-            // Fixed payment amount of ₹49
-            const amount = "49.00";
+            // Simulate a short delay before redirecting (15 seconds)
+            setTimeout(function() {
+                // Hide the loading spinner and redirect to a confirmation page
+                document.getElementById('loadingSpinner').style.display = 'none';
 
-            // Prepare data for the API request with auto-filled customer details
-            const requestData = {
-                "clientCode": "TM001", // Your client code
-                "userName": "spuser_2013", // Your username
-                "password": "RIADA_SP336", // Your password
-                "amount": amount, 
-                "customer_name": firstName,  // Automatically filled from the form
-                "customer_mobile": mobile,  // Automatically filled from the form
-                "customer_email": email,    // Automatically filled from the form
-                "note": "Competition Registration Fee",
-                "redirect_url": "https://lalit35.github.io/vivekananad-sr-sec-school/thanks.html", // Success page URL
-                "merchant_id": "32776" // Your Merchant ID
-            };
+                // Collect data from the form
+                const firstName = document.getElementById('firstName').value;
+                const mobile = document.getElementById('mobile').value;
+                const email = document.getElementById('email').value;
 
-            // Encrypt the data using the authentication key and IV
-            const encryptedData = encryptData(requestData);
-
-            // Send the encrypted data to the SabPaisa API
-            const apiUrl = "https://stage-securepay.sabpaisa.in/SabPaisa/sabPaisaInit?v=1"; // SabPaisa API endpoint
-
-            fetch(apiUrl, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    data: encryptedData // Send encrypted data
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.status === "success") {
-                    // If API call is successful, set the payment link
-                    document.getElementById('paymentLink').setAttribute('href', data.payment_link);
-                    document.getElementById('payButton').style.display = 'none';
-                    document.getElementById('loadingSpinner').style.display = 'block';
-                    setTimeout(() => {
-                        // Redirect to the payment link after encryption
-                        window.location.href = data.payment_link;
-                    }, 2000);
-                } else {
-                    alert("Error generating payment link. Please try again later.");
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("Something went wrong. Please try again later.");
-            });
+                // Redirect user to the payment confirmation page
+                window.location.href = `payment_confirmation.html?firstName=${firstName}&mobile=${mobile}&email=${email}`;
+            }, 15000);  // Simulate a 15-second delay for payment completion
         }
     </script>
 
