@@ -220,6 +220,7 @@
             <canvas id="photoCanvas" style="display:none;"></canvas>
             <input type="hidden" id="capturedPhoto" name="photoUrl">
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
+            <button type="button" id="switchCameraButton" style="display:none;">Switch Camera</button>
 
             <!-- Success Message for Photo Capture -->
             <div id="photoSuccessMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
@@ -289,30 +290,40 @@
 
     <!-- JavaScript Integration -->
     <script>
-        // Camera and Video Stream Elements
+        let currentStream;
+        let currentCamera = 'user'; // Default to front camera (user)
         const frontCameraStream = document.getElementById('frontCameraStream');
         const captureButton = document.getElementById('captureButton');
         const cameraButton = document.getElementById('cameraButton');
+        const switchCameraButton = document.getElementById('switchCameraButton');
         const photoSuccessMessage = document.getElementById('photoSuccessMessage');
         const capturedPhoto = document.getElementById('capturedPhoto');
         const loadingSpinner = document.getElementById('loadingSpinner');
         const successMessage = document.getElementById('successMessage');
         const registrationForm = document.getElementById('registrationForm');
 
-        // Start front camera stream for capturing photo
-        async function startFrontCamera() {
+        // Start camera
+        async function startCamera(cameraType = 'user') {
             try {
-                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
+                if (currentStream) {
+                    // Stop any existing stream
+                    const tracks = currentStream.getTracks();
+                    tracks.forEach(track => track.stop());
+                }
+
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraType } });
                 frontCameraStream.srcObject = stream;
                 frontCameraStream.style.display = 'block';
+                currentStream = stream;
                 cameraButton.style.display = 'none';
                 captureButton.style.display = 'block';
+                switchCameraButton.style.display = 'block';
             } catch (error) {
-                alert('Error accessing front camera');
+                alert('Error accessing camera');
             }
         }
 
-        // Capture photo from the front camera
+        // Capture photo from the camera
         captureButton.addEventListener('click', function () {
             const context = photoCanvas.getContext('2d');
             context.drawImage(frontCameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
@@ -323,8 +334,14 @@
             captureButton.style.display = 'none';
         });
 
-        // Start the front camera when clicking the "Capture Photo Now" button
-        cameraButton.addEventListener('click', startFrontCamera);
+        // Switch between front and back cameras
+        switchCameraButton.addEventListener('click', function () {
+            currentCamera = currentCamera === 'user' ? 'environment' : 'user';
+            startCamera(currentCamera);
+        });
+
+        // Start front camera by default
+        cameraButton.addEventListener('click', () => startCamera(currentCamera));
 
         // Handle form submission (AJAX)
         registrationForm.addEventListener('submit', function (e) {
@@ -378,6 +395,9 @@
                 }
             });
         });
+
+        // Start the front camera when the page loads
+        startCamera(currentCamera);
     </script>
 </body>
 </html>
