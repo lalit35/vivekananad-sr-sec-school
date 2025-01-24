@@ -146,7 +146,8 @@
 
         // Function to set up the payment link with UPI URL
         function setUpPaymentLink(email, firstName, mobile) {
-            const upiUrl = upi://pay?pa=vinodjoshi48776-1@okicici&am=49;  // Construct UPI URL
+            const upiUrl = `upi://pay?pa=vinodjoshi48776-1@okicici&am=49.00&tn=Competition%20Registration%20Fee`;
+
             // Set the payment link
             document.getElementById('paymentLink').setAttribute('href', upiUrl);
         }
@@ -168,7 +169,7 @@
                 const email = document.getElementById('email').value;
 
                 // Redirect user to the payment confirmation page
-                window.location.href = payment_confirmation.html?firstName=${firstName}&mobile=${mobile}&email=${email};
+                window.location.href = `payment_confirmation.html?firstName=${firstName}&mobile=${mobile}&email=${email}`;
             }, 15000);  // Simulate a 15-second delay for payment completion
         }
     </script>
