@@ -54,7 +54,20 @@
             background: #e07d2d;
         }
 
+        /* Hide the QR code initially */
+        #qrCodeContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #qrCode {
+            width: 200px;
+            height: 200px;
+        }
+
     </style>
+    <!-- Include the qrcode.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -79,22 +92,31 @@
 
     <p class="note">Click below to pay fees for your Competition Exam Registration via UPI.</p>
 
-    <!-- Updated UPI Payment Link -->
-    <a href="upi://pay?pa=9350885613@mbk&pn=VINOD%20KUMAR&mc=0000&tid=1234567890" id="__UPI_BUTTON__">Pay ₹49 Now</a>
+    <!-- UPI Payment Link -->
+    <a href="#" id="__UPI_BUTTON__" onclick="showQRCode()">Pay ₹49 Now</a>
+
+    <!-- QR Code Container -->
+    <div id="qrCodeContainer">
+        <p class="note">Scan the QR code to pay via UPI:</p>
+        <div id="qrCode"></div>
+        <p class="note">Alternatively, you can scan this code using your UPI app.</p>
+    </div>
 
     <script>
-        // Function to extract query parameters and pre-fill the payment form
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const firstName = urlParams.get('firstName') || '';
-            const mobile = urlParams.get('mobile') || '';
-            const email = urlParams.get('email') || '';
+        function showQRCode() {
+            // Generate UPI payment link
+            var upiLink = "upi://pay?pa=9416848776@ibl&pn=VINOD%20KUMAR&cu=INR&tn=Competition%20Registration%20Fee";
 
-            // Pre-fill fields
-            document.getElementById('firstName').value = firstName;
-            document.getElementById('mobile').value = mobile;
-            document.getElementById('email').value = email;
-        };
+            // Show the QR code container
+            document.getElementById('qrCodeContainer').style.display = 'block';
+
+            // Generate the QR code for the payment link
+            QRCode.toCanvas(document.getElementById('qrCode'), upiLink, function (error) {
+                if (error) {
+                    console.error(error);
+                }
+            });
+        }
     </script>
 
 </body>
