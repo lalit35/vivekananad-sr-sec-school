@@ -198,7 +198,6 @@
             opacity: 1;
             visibility: visible;
         }
-
     </style>
 </head>
 <body>
@@ -266,29 +265,26 @@
                 <input type="text" name="motherName" id="motherName" required>
             </div>
 
-            <!-- Contact Information -->
-            <h3>Contact Details:</h3>
-            <label for="mobileNumber">Whatsapp Number:</label>
-            <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
-
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required> 
-            
-            <!-- Submit Button -->
-            <button type="submit" id="submitButton">Submit</button>
+            <input type="email" name="email" id="email" required>
+
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="tel" name="mobileNumber" id="mobileNumber" required>
+
+            <!-- Submission Section -->
+            <button type="submit">Submit</button>
         </form>
 
-        <!-- Success/Error Message -->
-        <div id="successMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;"></div>
+        <!-- Loading Spinner -->
+        <div id="loadingSpinner"></div>
+
+        <!-- Success Message after Form Submission -->
+        <div id="successMessage"></div>
     </div>
 
-    <!-- Loading Spinner -->
-    <div id="loadingSpinner"></div>
-
     <!-- Help Button -->
-    <button class="help-button" onclick="window.location.href='https://youtu.be/jDE9A8__dwg?si=xDrtw7el5_MObfc5'">?</button>
+    <button class="help-button" onclick="window.location.href='help.html'">?</button>
 
-    <!-- JavaScript Integration -->
     <script>
         let currentStream;
         let currentCamera = 'user'; // Default to front camera (user)
@@ -302,7 +298,6 @@
         const successMessage = document.getElementById('successMessage');
         const registrationForm = document.getElementById('registrationForm');
 
-        // Start camera
         async function startCamera(cameraType = 'user') {
             try {
                 if (currentStream) {
@@ -315,9 +310,12 @@
                 frontCameraStream.srcObject = stream;
                 frontCameraStream.style.display = 'block';
                 currentStream = stream;
+                
+                // Hide camera start button and show capture photo button
                 cameraButton.style.display = 'none';
                 captureButton.style.display = 'block';
-                switchCameraButton.style.display = 'block';
+                switchCameraButton.style.display = 'block'; // Show switch camera button
+                
             } catch (error) {
                 alert('Error accessing camera');
             }
@@ -336,7 +334,13 @@
 
         // Switch between front and back cameras
         switchCameraButton.addEventListener('click', function () {
+            // Hide switch camera button when clicked
+            switchCameraButton.style.display = 'none';
+            
+            // Switch camera type between front and back
             currentCamera = currentCamera === 'user' ? 'environment' : 'user';
+            
+            // Restart the camera with new type
             startCamera(currentCamera);
         });
 
