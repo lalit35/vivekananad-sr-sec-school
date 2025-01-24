@@ -90,17 +90,17 @@
 
     <h3>Amount: ₹49</h3>
 
-    <p class="note">Click below to pay fees for your Competition Exam Registration via UPI.</p>
-
-    <!-- UPI Payment Link -->
-    <a href="#" id="__UPI_BUTTON__" onclick="showQRCode()">Pay ₹49 Now</a>
+    <p class="note">Scan the QR code below to pay via UPI.</p>
 
     <!-- QR Code Container -->
     <div id="qrCodeContainer">
-        <p class="note">Scan the QR code to pay via UPI:</p>
+        <p class="note">Scan this QR code using your UPI app:</p>
         <div id="qrCode"></div>
-        <p class="note">Alternatively, you can scan this code using your UPI app.</p>
+        <p class="note">After scanning, proceed with payment.</p>
     </div>
+
+    <!-- UPI Payment Link Button -->
+    <a href="#" id="__UPI_BUTTON__" onclick="showQRCode()">Pay ₹49 Now</a>
 
     <script>
         function showQRCode() {
