@@ -198,6 +198,7 @@
             opacity: 1;
             visibility: visible;
         }
+
     </style>
 </head>
 <body>
@@ -215,11 +216,11 @@
             <!-- Camera Capture Section for Photo (Front Camera) -->
             <label for="photo">Capture Photo :</label>
             <button type="button" id="cameraButton">Capture Photo Now</button>
+            <button type="button" id="switchCameraButton">Switch Camera</button>
             <video id="frontCameraStream" autoplay style="display:none; width: 100%;"></video>
             <canvas id="photoCanvas" style="display:none;"></canvas>
             <input type="hidden" id="capturedPhoto" name="photoUrl">
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
-            <button type="button" id="switchCameraButton" style="display:none;">Switch Camera</button>
 
             <!-- Success Message for Photo Capture -->
             <div id="photoSuccessMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
@@ -265,29 +266,31 @@
                 <input type="text" name="motherName" id="motherName" required>
             </div>
 
+            <!-- Contact Information -->
+            <h3>Contact Details:</h3>
+            <label for="mobileNumber">Whatsapp Number:</label>
+            <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
+
             <label for="email">Email:</label>
-            <input type="email" name="email" id="email" required>
-
-            <label for="mobileNumber">Mobile Number:</label>
-            <input type="tel" name="mobileNumber" id="mobileNumber" required>
-
-            <!-- Submission Section -->
-            <button type="submit">Submit</button>
+            <input type="email" name="email" id="email" required> 
+            
+            <!-- Submit Button -->
+            <button type="submit" id="submitButton">Submit</button>
         </form>
 
-        <!-- Loading Spinner -->
-        <div id="loadingSpinner"></div>
-
-        <!-- Success Message after Form Submission -->
-        <div id="successMessage"></div>
+        <!-- Success/Error Message -->
+        <div id="successMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;"></div>
     </div>
 
-    <!-- Help Button -->
-    <button class="help-button" onclick="window.location.href='help.html'">?</button>
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner"></div>
 
+    <!-- Help Button -->
+    <button class="help-button" onclick="window.location.href='https://youtu.be/jDE9A8__dwg?si=xDrtw7el5_MObfc5'">?</button>
+
+    <!-- JavaScript Integration -->
     <script>
-        let currentStream;
-        let currentCamera = 'user'; // Default to front camera (user)
+        // Camera and Video Stream Elements
         const frontCameraStream = document.getElementById('frontCameraStream');
         const captureButton = document.getElementById('captureButton');
         const cameraButton = document.getElementById('cameraButton');
@@ -297,27 +300,47 @@
         const loadingSpinner = document.getElementById('loadingSpinner');
         const successMessage = document.getElementById('successMessage');
         const registrationForm = document.getElementById('registrationForm');
+        let currentStream;
 
-        async function startCamera(cameraType = 'user') {
+        // Start front camera stream for capturing photo
+        async function startFrontCamera() {
             try {
-                if (currentStream) {
-                    // Stop any existing stream
-                    const tracks = currentStream.getTracks();
-                    tracks.forEach(track => track.stop());
-                }
-
-                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: cameraType } });
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
+                currentStream = stream;
                 frontCameraStream.srcObject = stream;
                 frontCameraStream.style.display = 'block';
-                currentStream = stream;
-                
-                // Hide camera start button and show capture photo button
                 cameraButton.style.display = 'none';
                 captureButton.style.display = 'block';
-                switchCameraButton.style.display = 'block'; // Show switch camera button
-                
+                switchCameraButton.style.display = 'block'; // Show the switch camera button
             } catch (error) {
-                alert('Error accessing camera');
+                alert('Error accessing front camera');
+            }
+        }
+
+        // Switch camera functionality
+        switchCameraButton.addEventListener('click', function() {
+            const facingMode = frontCameraStream.srcObject.getVideoTracks()[0].getSettings().facingMode === 'user' ? 'environment' : 'user';
+            stopStream(currentStream);
+            startCamera(facingMode);
+        });
+
+        // Stop the stream
+        function stopStream(stream) {
+            stream.getTracks().forEach(track => track.stop());
+        }
+
+        // Start camera with the specific facing mode
+        async function startCamera(facingMode) {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode } });
+                currentStream = stream;
+                frontCameraStream.srcObject = stream;
+                frontCameraStream.style.display = 'block';
+                cameraButton.style.display = 'none';
+                captureButton.style.display = 'block';
+                switchCameraButton.style.display = 'block';
+            } catch (error) {
+                alert('Error switching camera');
             }
         }
 
@@ -330,22 +353,11 @@
             frontCameraStream.style.display = 'none';
             photoCanvas.style.display = 'none';
             captureButton.style.display = 'none';
+            switchCameraButton.style.display = 'none'; // Hide the switch camera button after capture
         });
 
-        // Switch between front and back cameras
-        switchCameraButton.addEventListener('click', function () {
-            // Hide switch camera button when clicked
-            switchCameraButton.style.display = 'none';
-            
-            // Switch camera type between front and back
-            currentCamera = currentCamera === 'user' ? 'environment' : 'user';
-            
-            // Restart the camera with new type
-            startCamera(currentCamera);
-        });
-
-        // Start front camera by default
-        cameraButton.addEventListener('click', () => startCamera(currentCamera));
+        // Start the front camera when clicking the "Capture Photo Now" button
+        cameraButton.addEventListener('click', startFrontCamera);
 
         // Handle form submission (AJAX)
         registrationForm.addEventListener('submit', function (e) {
@@ -357,7 +369,7 @@
 
             // AJAX request to submit form
             $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbzjE3Z1ZDBzvP0HLgXrJb4yPxdefewHOhyBaC0W-1-KSDzESTCj-u_koMJWQ2JF9foW9g/exec',  // Replace with your actual server-side script
+                url: 'https://script.google.com/macros/s/AKfycbzjE3Z1ZDBzvP0HLgXrJb4yPxdefewHOhyBaC0W-1-KSDzESTCj-u_koMJWQ2JF9foW9g/exec',
                 type: 'POST',
                 data: formData,
                 processData: false,
@@ -399,9 +411,6 @@
                 }
             });
         });
-
-        // Start the front camera when the page loads
-        startCamera(currentCamera);
     </script>
 </body>
 </html>
