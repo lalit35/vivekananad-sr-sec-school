@@ -99,20 +99,26 @@
     </div>
 
     <!-- UPI Payment Link Button -->
-    <a href="#" id="__UPI_BUTTON__" onclick="showQRCodeAndOpenUPI()">Pay ₹49 Now</a>
+    <a href="#" id="__UPI_BUTTON__" onclick="showQRCodeAndRedirectToUPIApp()">Pay ₹49 Now</a>
 
     <script>
-        function showQRCodeAndOpenUPI() {
+        function showQRCodeAndRedirectToUPIApp() {
             // Step 1: Show the QR code container with image immediately
             document.getElementById('qrCodeContainer').style.display = 'block';
 
             // Step 2: Wait for 3 seconds to let the user see the QR code before redirecting
             setTimeout(function() {
-                // Step 3: Use a generic UPI URL to allow the user to select their preferred UPI app
-                var upiLink = "upi://pay?pa=9350885613@mbk&pn=Competition&mc=0000&tid=1234567890&tr=9876543210&tn=₹49%20Payment&am=49.00&cu=INR&url=https://yourwebsite.com";
+                // Step 3: Open UPI app chooser (using intent for UPI apps on Android)
+                var intentLink = "intent://pay#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end;";
 
-                // Redirect to UPI payment interface
-                window.location.href = upiLink;
+                // Try to open the UPI app with the intent
+                window.location.href = intentLink;
+
+                // If the UPI app does not open, you can fall back to opening UPI URL
+                setTimeout(function() {
+                    var fallbackLink = "upi://"; // Fallback link to open the UPI payment interface
+                    window.location.href = fallbackLink;
+                }, 500);
 
             }, 3000); // Delay for 3 seconds to show QR code
 
