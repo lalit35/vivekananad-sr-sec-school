@@ -9,19 +9,21 @@
 
     <h1>Click to Pay</h1>
 
-    <!-- Example UPI payment button -->
+    <!-- UPI Payment Button -->
     <button onclick="payWithUPI()">Pay ₹500</button>
 
     <script>
         function payWithUPI() {
-            const upiID = '9350885613@mbk';  // Replace with your UPI ID
+            const upiID = 'yourupi@upi';  // Replace with your UPI ID
             const amount = '5';  // Amount to be paid
             const note = 'Payment for service';  // Note for the transaction
+            const transactionId = '50255421213832  ';  // Transaction ID
+            const referenceNumber = '53927295719173';  // Reference Number
 
-            // Generate UPI intent URL with the required parameters
-            const url = `upi://pay?pa=${upiID}&am=${amount}&tn=${encodeURIComponent(note)}&cu=INR`;
+            // Constructing UPI intent URL
+            const url = `upi://pay?pa=${upiID}&pn=Merchant%20Name&am=${amount}&tn=${encodeURIComponent(note)}&cu=INR&tid=${transactionId}&tr=${referenceNumber}`;
 
-            // Redirect user to UPI payment app
+            // Redirect user to UPI app
             window.location.href = url;
         }
     </script>
