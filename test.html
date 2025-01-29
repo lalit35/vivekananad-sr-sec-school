@@ -14,11 +14,16 @@
 
     <script>
         function payWithUPI() {
-            const upiID = 'yourupi@upi';  // Replace with your UPI ID
-            const amount = '5';  // Amount to be paid
-            const note = 'Payment for service';  // Note for the transaction
-            const transactionId = '5025542121383 ';  // Transaction ID
-            const referenceNumber = '53927295719173';  // Reference Number
+            const upiID = 'lalit0@fam';  // Replace with your UPI ID
+            const amount = '5';  // Amount to be paid (₹5 in this case)
+
+            // Generate a random 10-digit transaction ID
+            const randomTransactionNumber = Math.floor(Math.random() * 10000000000);  // Random 10-digit number
+            const transactionId = 'FMPIB' + randomTransactionNumber;  // Transaction ID starting with FMPIB
+
+            // Generate a random 16-digit reference number
+            const randomReferenceNumber = Math.floor(Math.random() * 10000000000000000);  // Random 16-digit number
+            const referenceNumber = randomReferenceNumber.toString();  // Convert to string to ensure it's not scientific notation
 
             // Constructing UPI intent URL
             const url = `upi://pay?pa=${upiID}&pn=Merchant%20Name&am=${amount}&tn=${encodeURIComponent(note)}&cu=INR&tid=${transactionId}&tr=${referenceNumber}`;
