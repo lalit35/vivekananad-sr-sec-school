@@ -3,139 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Competition Registration - ₹49 Payment</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 20px;
-        }
-
-        h1, h2 {
-            color: #4CAF50;
-        }
-
-        .form-container {
-            margin: 20px 0;
-        }
-
-        .form-container label {
-            display: block;
-            margin: 10px 0 5px;
-            font-weight: bold;
-        }
-
-        .form-container input {
-            width: 300px;
-            padding: 8px;
-            margin: 5px 0;
-            border: 1px solid #ccc;
-        }
-
-        .note {
-            font-size: 16px;
-            color: #555;
-        }
-
-        /* Custom style for the UPI Pay Button */
-        #__UPI_BUTTON__ {
-            background: #ff912f;
-            border: 2px solid #8a4100;
-            padding: 10px;
-            text-decoration: none;
-            color: white;
-            font-size: larger;
-            border-radius: 10px;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        #__UPI_BUTTON__:hover {
-            background: #e07d2d;
-        }
-
-        /* Hide the QR code initially */
-        #qrCodeContainer {
-            display: none;
-            margin-top: 20px;
-        }
-
-        #qrCodeImage {
-            width: 200px; /* Adjust size as needed */
-            height: 200px; /* Adjust size as needed */
-        }
-
-    </style>
+    <title>UPI Payment</title>
 </head>
 <body>
 
-    <h1>Competition Registration</h1>
-    <h2>₹49 Payment</h2>
+    <h1>Click to Pay</h1>
 
-    <p class="note">Please review your details before proceeding.</p>
-
-    <!-- Form: First Name, Mobile Number, Email (autofilled) -->
-    <div class="form-container">
-        <label for="firstName">First Name:</label>
-        <input type="text" id="firstName" name="firstName" readonly>
-
-        <label for="mobile">Mobile Number:</label>
-        <input type="tel" id="mobile" name="mobile" readonly>
-
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" readonly>
-    </div>
-
-    <h3>Amount: ₹49</h3>
-
-    <p class="note">Scan the QR code below to pay via UPI.</p>
-
-    <!-- QR Code Container (image) -->
-    <div id="qrCodeContainer">
-        <p class="note">Scan this QR code using your UPI app:</p>
-        <img src="vss.png" id="qrCodeImage" alt="UPI QR Code">
-        <!-- Button to download the QR Code Image -->
-        <button id="downloadBtn">Download QR Code</button>
-    </div>
-
-    <!-- UPI Payment Link Button -->
-    <a href="#" id="__UPI_BUTTON__" onclick="showQRCodeAndRedirectToUPIApp()">Pay ₹49 Now</a>
+    <!-- Example UPI payment button -->
+    <button onclick="payWithUPI()">Pay ₹500</button>
 
     <script>
-        function showQRCodeAndRedirectToUPIApp() {
-            // Step 1: Show the QR code container with image immediately
-            document.getElementById('qrCodeContainer').style.display = 'block';
+        function payWithUPI() {
+            const upiID = '9350885613@mbk';  // Replace with your UPI ID
+            const amount = '5';  // Amount to be paid
+            const note = 'Payment for service';  // Note for the transaction
 
-            // Step 2: Wait for 3 seconds to let the user see the QR code before redirecting
-            setTimeout(function() {
-                // Step 3: Open UPI app chooser (using intent for UPI apps on Android)
-                var intentLink = "intent://pay#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end;";
+            // Generate UPI intent URL with the required parameters
+            const url = `upi://pay?pa=${upiID}&am=${amount}&tn=${encodeURIComponent(note)}&cu=INR`;
 
-                // Try to open the UPI app with the intent
-                window.location.href = intentLink;
-
-                // If the UPI app does not open, you can fall back to opening UPI URL
-                setTimeout(function() {
-                    var fallbackLink = "upi://"; // Fallback link to open the UPI payment interface
-                    window.location.href = fallbackLink;
-                }, 500);
-
-            }, 3000); // Delay for 3 seconds to show QR code
-
-            // Step 4: Redirect to payment_confirmation.html after 10 seconds
-            setTimeout(function() {
-                window.location.href = "payment_confirmation.html"; // Redirect after 10 seconds
-            }, 10000); // 10 seconds = 10000 milliseconds
+            // Redirect user to UPI payment app
+            window.location.href = url;
         }
-
-        // Download QR code when the button is clicked
-        document.getElementById('downloadBtn').addEventListener('click', function () {
-            var qrImage = document.getElementById('qrCodeImage');
-            var link = document.createElement('a');
-            link.href = qrImage.src; // Use the source of the QR code image
-            link.download = 'vss.png'; // Set the download filename
-            link.click(); // Simulate a click to trigger the download
-        });
     </script>
 
 </body>
