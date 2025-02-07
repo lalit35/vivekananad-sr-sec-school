@@ -5,8 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Download Admit Card</title>
   <script>
-    const apiKey = 'AIzaSyAhMxRAaNNfuy5UsjamObrFSs11YaVidNA'; // Your Google Sheets API key
-    const sheetId = '1EAkVi7y6vaW9JftDP1PwlHcjb4tGVh27UvhAZpHC9fo'; // Your Google Sheet ID
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbx9i3b6WjazdLq48sxFuYEqT8_CNBqLp1Rm3K3GxIYYlZGhI3PraJVJ7TtfjkwyafI6/exec'; // Your Web App URL
 
     function fetchAdmitCardLink() {
       const mobile = document.getElementById('mobile').value;
@@ -16,34 +15,28 @@
         return;
       }
 
-      // Fetch the data from the Google Sheet
-      fetch(`https://sheets.googleapis.com/v4/spreadsheets/${1EAkVi7y6vaW9JftDP1PwlHcjb4tGVh27UvhAZpHC9fo}/values/Sheet1?key=${AIzaSyAhMxRAaNNfuy5UsjamObrFSs11YaVidNA}`)
+      // Make a GET request to the Google Apps Script Web App with the mobile number
+      const url = `${webAppUrl}?mobile=${encodeURIComponent(mobile)}`;
+
+      fetch(url)
         .then(response => response.json())
         .then(data => {
-          const rows = data.values;
-          let admitCardLink = null;
-
-          // Search for the student's mobile number in the sheet and get the corresponding admit card link
-          for (let i = 1; i < rows.length; i++) {  // Start from index 1 to skip header row
-            if (rows[i][9] === mobile) {  // Assuming the mobile number is in column 10 (index 9)
-              admitCardLink = rows[i][12];  // Assuming the link is in column 13 (index 12)
-              break;
-            }
-          }
-
-          if (admitCardLink) {
+          if (data.success) {
             document.getElementById('link-container').innerHTML = `
               <p>Click below to download your Admit Card:</p>
-              <a href="${admitCardLink}" target="_blank">Download Admit Card</a>
+              <a href="${data.link}" target="_blank">Download Admit Card</a>
             `;
           } else {
             document.getElementById('link-container').innerHTML = `
-              <p>No admit card found for this mobile number.</p>
+              <p>${data.message}</p>
             `;
           }
         })
         .catch(error => {
-          console.error('Error fetching data from Google Sheets:', error);
+          console.error('Error fetching admit card:', error);
+          document.getElementById('link-container').innerHTML = `
+            <p>Error retrieving admit card. Please try again later.</p>
+          `;
         });
     }
   </script>
