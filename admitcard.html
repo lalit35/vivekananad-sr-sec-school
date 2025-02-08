@@ -79,6 +79,7 @@ fetch('students.json')
     .then(response => response.json())
     .then(data => {
         students = data; // Assign data to the students array
+        console.log("Students data loaded:", students); // Debugging step to ensure data is fetched correctly
     })
     .catch(error => {
         console.error('Error loading student data:', error);
@@ -97,8 +98,16 @@ document.getElementById('admitCardForm').addEventListener('submit', function (e)
         return;
     }
 
+    // Ensure the input data is the correct type (string for mobile and class, number for dob)
+    mobile = mobile.toString(); // Convert to string to prevent type mismatch
+    studentClass = studentClass.toString(); // Convert to string for comparison
+    dob = parseInt(dob); // Make sure the DOB is an integer
+
+    // Debugging the corrected comparison
+    console.log("Searching for student with mobile:", mobile, "class:", studentClass, "dob:", dob);
+
     // Auto-fetch the student's admit card based on the entered information
-    let student = students.find(s => s.mobile === mobile && s.studentClass == studentClass && s.dob == dob);
+    let student = students.find(s => s.mobile === mobile && s.studentClass.toString() === studentClass && s.dob === dob);
     
     if (student) {
         // Display admit card download link if student is found
