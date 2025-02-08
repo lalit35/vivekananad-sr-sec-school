@@ -19,7 +19,7 @@
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .input-field {
+        .input-field, .select-field {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
@@ -50,38 +50,55 @@
     <form id="admitCardForm">
         <label for="mobile">Enter Mobile Number</label>
         <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
+
+        <label for="studentClass">Select Student Class</label>
+        <select id="studentClass" class="select-field" required>
+            <option value="">Select Class</option>
+            <option value="11">Class 11</option>
+            <option value="10">Class 10</option>
+            <option value="9">Class 9</option>
+            <option value="8">Class 8</option>
+            <option value="7">Class 7</option>
+            <option value="6">Class 6</option>
+            <option value="5">Class 5</option>
+        </select>
+
         <button type="submit" class="btn">Get Admit Card</button>
     </form>
     <div id="result"></div>
 </div>
 
 <script>
-// Student data - This will usually come from an API or JSON file
-const students = [
-    {"mobile": "7988018289", "pdfUrl": "https://drive.google.com/file/d/1RnUeQtipmYzhFGD7BYv9EzHP0YjYs5v0/view", "studentClass": "11"},
-    {"mobile": "8901042071", "pdfUrl": "https://drive.google.com/file/d/1zAF9oget4-97IJSlY5HboB7r3JAhTxH2/view?usp=drivesdk", "studentClass": "7"},
-    {"mobile": "8901042071", "pdfUrl": "https://drive.google.com/file/d/13YfkJe0ANboQAQiZmjeSH8sfY82uRDYV/view?usp=drivesdk", "studentClass": "9"},
-    {"mobile": "9813457870", "pdfUrl": "https://drive.google.com/file/d/1tQrIatlCydTrmpR8yai4hNwe16GECfF3/view?usp=drivesdk", "studentClass": "9"},
-    {"mobile": "9813457870", "pdfUrl": "https://drive.google.com/file/d/1lSE7Sf_VxzNUiLoT3_ZvcTO1BcJD1nHx/view?usp=drivesdk", "studentClass": "5"},
-    {"mobile": "8570918954", "pdfUrl": "https://drive.google.com/file/d/11pLlXAaL6YP5pMVhnOUOGqXJwSdG48sA/view?usp=drivesdk", "studentClass": "9"},
-    {"mobile": "9812814252", "pdfUrl": "https://drive.google.com/file/d/1IYtL9hTUJy_8quE1871MOw-b-o86X8vM/view?usp=drivesdk", "studentClass": "6"},
-    {"mobile": "9416531628", "pdfUrl": "https://drive.google.com/file/d/1bZzhwKxn9DCzW7sShpnPEOsa129N-e5b/view?usp=drivesdk", "studentClass": "7"},
-    {"mobile": "8221848720", "pdfUrl": "https://drive.google.com/file/d/1Ld7URYTJhtXWKh7c1rM8Ua82gtO9a_KG/view?usp=drivesdk", "studentClass": "9"},
-    {"mobile": "9053114559", "pdfUrl": "https://drive.google.com/file/d/1IkN2_F6sS4Ty1sOy02QBNUbTxPf-8hX8/view?usp=drivesdk", "studentClass": "8"}
-];
+// Fetch student data from students.json file
+let students = [];
+
+fetch('students.json')
+    .then(response => response.json())
+    .then(data => {
+        students = data; // Assign data to the students array
+    })
+    .catch(error => {
+        console.error('Error loading student data:', error);
+    });
 
 document.getElementById('admitCardForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
     let mobile = document.getElementById('mobile').value.trim();
+    let studentClass = document.getElementById('studentClass').value.trim();
     let resultDiv = document.getElementById('result');
 
-    let student = students.find(s => s.mobile === mobile);
+    if (!mobile || !studentClass) {
+        resultDiv.innerHTML = '<p class="error">Please enter both mobile number and select student class.</p>';
+        return;
+    }
+
+    let student = students.find(s => s.mobile === mobile && s.studentClass === studentClass);
     
     if (student) {
-        resultDiv.innerHTML = `<p>Your admit card is ready. <a href="${student.pdfUrl}" target="_blank">Click here to download it</a></p>`;
+        resultDiv.innerHTML = `<p>Your admit card for class ${student.studentClass} is ready. <br><b>Mobile: ${student.mobile}</b><br><a href="${student.pdfUrl}" target="_blank">Click here to download it</a></p>`;
     } else {
-        resultDiv.innerHTML = '<p class="error">No student found with this mobile number. Please try again.</p>';
+        resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
     }
 });
 </script>
