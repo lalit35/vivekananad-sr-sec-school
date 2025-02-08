@@ -1,53 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Download Admit Card</title>
-  <script>
-    const webAppUrl = 'https://script.google.com/macros/s/AKfycbx9i3b6WjazdLq48sxFuYEqT8_CNBqLp1Rm3K3GxIYYlZGhI3PraJVJ7TtfjkwyafI6/exec'; // Your Web App URL
-
-    function fetchAdmitCardLink() {
-      const mobile = document.getElementById('mobile').value;
-
-      if (!mobile) {
-        alert("Please enter a mobile number.");
-        return;
-      }
-
-      // Make a GET request to the Google Apps Script Web App with the mobile number
-      const url = `${webAppUrl}?mobile=${encodeURIComponent(mobile)}`;
-
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          if (data.success) {
-            document.getElementById('link-container').innerHTML = `
-              <p>Click below to download your Admit Card:</p>
-              <a href="${data.link}" target="_blank">Download Admit Card</a>
-            `;
-          } else {
-            document.getElementById('link-container').innerHTML = `
-              <p>${data.message}</p>
-            `;
-          }
-        })
-        .catch(error => {
-          console.error('Error fetching admit card:', error);
-          document.getElementById('link-container').innerHTML = `
-            <p>Error retrieving admit card. Please try again later.</p>
-          `;
-        });
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download Admit Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Download Your Admit Card</h1>
-  <p>Enter your mobile number to access your admit card:</p>
-  
-  <input type="text" id="mobile" placeholder="Enter Mobile Number" />
-  <button onclick="fetchAdmitCardLink()">Get Admit Card</button>
 
-  <div id="link-container"></div>
+<div class="container">
+    <h2>Download Admit Card</h2>
+    <form id="admitCardForm">
+        <label for="mobile">Enter Mobile Number</label>
+        <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
+        <button type="submit" class="btn">Get Admit Card</button>
+    </form>
+    <div id="result"></div>
+</div>
+
+<script>
+// Student data - This will usually come from an API or JSON file
+const students = [
+    {"mobile": "7988018289", "pdfUrl": "https://drive.google.com/file/d/1RnUeQtipmYzhFGD7BYv9EzHP0YjYs5v0/view", "studentClass": "11"},
+    {"mobile": "8901042071", "pdfUrl": "https://drive.google.com/file/d/1zAF9oget4-97IJSlY5HboB7r3JAhTxH2/view?usp=drivesdk", "studentClass": "7"},
+    {"mobile": "8901042071", "pdfUrl": "https://drive.google.com/file/d/13YfkJe0ANboQAQiZmjeSH8sfY82uRDYV/view?usp=drivesdk", "studentClass": "9"},
+    {"mobile": "9813457870", "pdfUrl": "https://drive.google.com/file/d/1tQrIatlCydTrmpR8yai4hNwe16GECfF3/view?usp=drivesdk", "studentClass": "9"},
+    {"mobile": "9813457870", "pdfUrl": "https://drive.google.com/file/d/1lSE7Sf_VxzNUiLoT3_ZvcTO1BcJD1nHx/view?usp=drivesdk", "studentClass": "5"},
+    {"mobile": "8570918954", "pdfUrl": "https://drive.google.com/file/d/11pLlXAaL6YP5pMVhnOUOGqXJwSdG48sA/view?usp=drivesdk", "studentClass": "9"},
+    {"mobile": "9812814252", "pdfUrl": "https://drive.google.com/file/d/1IYtL9hTUJy_8quE1871MOw-b-o86X8vM/view?usp=drivesdk", "studentClass": "6"},
+    {"mobile": "9416531628", "pdfUrl": "https://drive.google.com/file/d/1bZzhwKxn9DCzW7sShpnPEOsa129N-e5b/view?usp=drivesdk", "studentClass": "7"},
+    {"mobile": "8221848720", "pdfUrl": "https://drive.google.com/file/d/1Ld7URYTJhtXWKh7c1rM8Ua82gtO9a_KG/view?usp=drivesdk", "studentClass": "9"},
+    {"mobile": "9053114559", "pdfUrl": "https://drive.google.com/file/d/1IkN2_F6sS4Ty1sOy02QBNUbTxPf-8hX8/view?usp=drivesdk", "studentClass": "8"}
+];
+
+document.getElementById('admitCardForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    let mobile = document.getElementById('mobile').value.trim();
+    let resultDiv = document.getElementById('result');
+
+    let student = students.find(s => s.mobile === mobile);
+    
+    if (student) {
+        resultDiv.innerHTML = `<p>Your admit card is ready. <a href="${student.pdfUrl}" target="_blank">Click here to download it</a></p>`;
+    } else {
+        resultDiv.innerHTML = '<p class="error">No student found with this mobile number. Please try again.</p>';
+    }
+});
+</script>
+
 </body>
 </html>
