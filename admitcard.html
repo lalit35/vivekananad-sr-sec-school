@@ -63,6 +63,9 @@
             <option value="5">Class 5</option>
         </select>
 
+        <label for="dob">Enter Year of Birth</label>
+        <input type="number" id="dob" class="input-field" placeholder="Enter your year of birth" min="1900" max="2100" required>
+
         <button type="submit" class="btn">Get Admit Card</button>
     </form>
     <div id="result"></div>
@@ -86,19 +89,23 @@ document.getElementById('admitCardForm').addEventListener('submit', function (e)
 
     let mobile = document.getElementById('mobile').value.trim();
     let studentClass = document.getElementById('studentClass').value.trim();
+    let dob = document.getElementById('dob').value.trim();
     let resultDiv = document.getElementById('result');
 
-    if (!mobile || !studentClass) {
-        resultDiv.innerHTML = '<p class="error">Please enter both mobile number and select student class.</p>';
+    if (!mobile || !studentClass || !dob) {
+        resultDiv.innerHTML = '<p class="error">Please enter mobile number, select student class, and provide year of birth.</p>';
         return;
     }
 
-    let student = students.find(s => s.mobile === mobile && s.studentClass === studentClass);
+    // Auto-fetch the student's admit card based on the entered information
+    let student = students.find(s => s.mobile === mobile && s.studentClass == studentClass && s.dob == dob);
     
     if (student) {
+        // Display admit card download link if student is found
         resultDiv.innerHTML = `<p>Your admit card for class ${student.studentClass} is ready. <br><b>Mobile: ${student.mobile}</b><br><a href="${student.pdfUrl}" target="_blank">Click here to download it</a></p>`;
     } else {
-        resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
+        // Show error message if no student matches
+        resultDiv.innerHTML = '<p class="error">No student found with this mobile number, class, and year of birth. Please try again.</p>';
     }
 });
 </script>
