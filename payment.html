@@ -102,6 +102,30 @@
     <a href="#" id="__UPI_BUTTON__" onclick="showQRCodeAndRedirectToUPIApp()">Pay ₹49 Now</a>
 
     <script>
+        // Function to get the query parameter value from URL
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Fetch details from the URL and set to form fields
+        window.onload = function() {
+            const email = getQueryParam('email');
+            const firstName = getQueryParam('firstName');
+            const mobileNumber = getQueryParam('mobile');
+
+            // Set the values to the respective form fields
+            if (email) {
+                document.getElementById('email').value = email;
+            }
+            if (firstName) {
+                document.getElementById('firstName').value = firstName;
+            }
+            if (mobileNumber) {
+                document.getElementById('mobile').value = mobileNumber;
+            }
+        };
+
         function showQRCodeAndRedirectToUPIApp() {
             // Step 1: Show the QR code container with image immediately
             document.getElementById('qrCodeContainer').style.display = 'block';
