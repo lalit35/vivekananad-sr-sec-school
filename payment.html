@@ -146,10 +146,15 @@
 
             }, 3000); // Delay for 3 seconds to show QR code
 
-            // Step 4: Redirect to payment_confirmation.html after 10 seconds
+            // Step 4: Redirect to payment_confirmation.html after 15 seconds with user details in URL
             setTimeout(function() {
-                window.location.href = "payment_confirmation.html"; // Redirect after 10 seconds
-            }, 15000); // 15 seconds = 15000 milliseconds
+                const email = document.getElementById('email').value;
+                const firstName = document.getElementById('firstName').value;
+                const mobileNumber = document.getElementById('mobile').value;
+
+                // Redirect to the payment confirmation page with the details passed in the URL
+                window.location.href = `https://lalit35.github.io/vivekananad-sr-sec-school/payment_confirmation.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
+            }, 15000); // Redirect after 15 seconds
         }
 
         // Download QR code when the button is clicked
