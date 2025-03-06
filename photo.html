@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capture and Submit Image to Google Sheets</title>
+    <style>
+        #video {
+            border: 1px solid black;
+        }
+        #canvas {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Capture Live Image and Submit to Google Sheets</h1>
+    
+    <!-- Video feed -->
+    <video id="video" width="320" height="240" autoplay></video><br>
+    <button id="captureBtn">Capture Photo</button><br><br>
+
+    <!-- Canvas to capture photo -->
+    <canvas id="canvas" width="320" height="240"></canvas><br><br>
+    
+    <!-- Form to collect student details -->
+    <form id="submitForm">
+        <input type="text" id="studentName" name="studentName" value="John Doe" readonly><br><br>
+        <input type="text" id="studentID" name="studentID" value="12345" readonly><br><br>
+        
+        <!-- Hidden input to store the captured image -->
+        <input type="hidden" name="imageData" id="imageData">
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        // Access the camera and display the video feed
+        const video = document.getElementById('video');
+        const captureBtn = document.getElementById('captureBtn');
+        const canvas = document.getElementById('canvas');
+        const context = canvas.getContext('2d');
+        const imageDataInput = document.getElementById('imageData');
+
+        // Set up the camera feed
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+            })
+            .catch(err => {
+                console.log('Error accessing camera: ', err);
+            });
+
+        // Capture photo from video feed
+        captureBtn.addEventListener('click', () => {
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageDataURL = canvas.toDataURL('image/png');
+            imageDataInput.value = imageDataURL;  // Store the image data
+        });
+
+        // Submit the form to Google Sheets using Google Apps Script
+        document.getElementById('submitForm').addEventListener('submit', function (e) {
+            e.preventDefault();  // Prevent the default form submission
+
+            // Get the form data
+            const studentName = document.getElementById('studentName').value;
+            const studentID = document.getElementById('studentID').value;
+            const imageData = imageDataInput.value;
+
+            // Call the Google Apps Script function to submit data to the sheet
+            google.script.run.submitFormData(studentName, studentID, imageData);
+        });
+    </script>
+
+    <!-- Google Apps Script Library to handle the submission -->
+    <script>
+        function onSuccess() {
+            alert('Form submitted successfully!');
+        }
+
+        function onFailure(error) {
+            alert('Error submitting the form: ' + error);
+        }
+    </script>
+
+</body>
+</html>
