@@ -5,55 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competition Registration</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* General Body and Layout */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f1f1f1; /* Light gray background */
+            background: linear-gradient(135deg, #6a82fb, #fc5c7d); /* Beautiful gradient background */
+            color: #333;
+            overflow-x: hidden;
         }
 
         /* Header Styling */
         .header {
             text-align: center;
-            padding: 20px;
-            background-color: #56c8d8; /* Light blue */
+            padding: 50px 20px;
+            background-color: #4b79a1;
             color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            position: relative;
         }
 
         .header .school-name {
-            font-size: 2.5em;
+            font-size: 3em;
             margin: 0;
+            font-weight: bold;
         }
 
         .header .logo {
-            width: 100px;
+            width: 120px;
             height: auto;
-            margin-top: 10px;
+            margin-top: 20px;
         }
 
-        /* Container for Form */
+        /* Main Container */
         .container {
             width: 80%;
-            max-width: 900px;
-            margin: 20px auto;
-            padding: 20px;
+            max-width: 950px;
+            margin: 0 auto;
+            padding: 40px;
             background-color: white;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            border: 1px solid #ddd; /* Light border */
-            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .form-title {
             text-align: center;
-            font-size: 2em;
-            margin-bottom: 20px;
-            color: #333; /* Darker text color for contrast */
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #4b79a1;
+            text-transform: uppercase;
         }
 
-        /* Step Navigation Styling */
         .step-container {
             display: none;
         }
@@ -65,35 +70,46 @@
         /* Form Fields Styling */
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             font-weight: bold;
             color: #555;
+            font-size: 1.1em;
         }
 
         input, select, button {
             width: 100%;
             padding: 14px;
-            margin-bottom: 15px;
-            font-size: 1em;
+            margin-bottom: 20px;
+            font-size: 1.1em;
             border: 1px solid #ccc;
-            border-radius: 5px;
+            border-radius: 8px;
             box-sizing: border-box;
             background-color: #f9f9f9;
             color: #333;
+            transition: border 0.3s ease-in-out, background-color 0.3s ease-in-out;
+        }
+
+        input:focus, select:focus, button:focus {
+            border-color: #fc5c7d;
+            background-color: #f2f2f2;
+            outline: none;
         }
 
         button {
-            background-color: #56c8d8;
+            background-color: #fc5c7d;
             color: white;
             cursor: pointer;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease-in-out;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
+            padding: 14px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         button:hover {
-            background-color: #3ea1a8;
+            background-color: #ff3c6f;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         /* Camera Capture Section */
@@ -101,7 +117,7 @@
             width: 100%;
             height: auto;
             border: 2px solid #ddd;
-            border-radius: 5px;
+            border-radius: 8px;
             margin-bottom: 15px;
             display: none;
         }
@@ -114,7 +130,7 @@
             left: 50%;
             transform: translate(-50%, -50%);
             border: 8px solid #f3f3f3;
-            border-top: 8px solid #56c8d8;
+            border-top: 8px solid #fc5c7d;
             border-radius: 50%;
             width: 50px;
             height: 50px;
@@ -129,7 +145,7 @@
         /* Success/Error Message */
         #successMessage {
             color: green;
-            font-size: 1.2em;
+            font-size: 1.3em;
             text-align: center;
             margin-top: 20px;
             display: none;
@@ -142,7 +158,7 @@
             right: 20px;
             width: 60px;
             height: 60px;
-            background-color: #56c8d8;
+            background-color: #4b79a1;
             color: white;
             border: none;
             border-radius: 50%;
@@ -151,13 +167,13 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
             animation: blinkAnimation 2s infinite;
             transition: transform 0.3s ease;
         }
 
         .help-button:hover {
-            background-color: #3ea1a8;
+            background-color: #ff3c6f;
             transform: scale(1.1);
         }
 
@@ -165,6 +181,22 @@
             0% { opacity: 1; }
             50% { opacity: 0.5; }
             100% { opacity: 1; }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+
+            .form-title {
+                font-size: 2em;
+            }
+
+            .header .school-name {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
@@ -197,6 +229,12 @@
 
             <label for="lastName">Last Name:</label>
             <input type="text" name="lastName" id="lastName" required>
+
+            <label for="studentClass">Class:</label>
+            <input type="text" name="studentClass" id="studentClass" required>
+
+            <label for="city">City:</label>
+            <input type="text" name="city" id="city" required>
 
             <button id="nextButtonStep2">Next</button>
         </div>
@@ -234,97 +272,125 @@
     <button class="help-button" id="helpButton">?</button>
 
     <script>
-        $(document).ready(function() {
-            let currentStep = 1;
-            let cameraStream;
+        // Camera and Video Stream Elements
+        const frontCameraStream = document.getElementById('frontCameraStream');
+        const captureButton = document.getElementById('captureButton');
+        const cameraButton = document.getElementById('cameraButton');
+        const switchCameraButton = document.getElementById('switchCameraButton');
+        const photoSuccessMessage = document.getElementById('photoSuccessMessage');
+        const capturedPhoto = document.getElementById('capturedPhoto');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const successMessage = document.getElementById('successMessage');
+        const registrationForm = document.getElementById('registrationForm');
+        let currentStream;
 
-            // Step 1: Capture Photo
-            $('#cameraButton').click(function() {
-                startCamera();
-            });
-
-            $('#nextButtonStep1').click(function() {
-                if ($('#capturedPhoto').val()) {
-                    currentStep = 2;
-                    showStep();
-                } else {
-                    alert("Please capture the photo first.");
-                }
-            });
-
-            // Step 2: Student Details
-            $('#nextButtonStep2').click(function() {
-                if ($('#firstName').val() && $('#lastName').val()) {
-                    currentStep = 3;
-                    showStep();
-                } else {
-                    alert("Please fill out the first and last name.");
-                }
-            });
-
-            // Step 3: Parent Details
-            $('#nextButtonStep3').click(function() {
-                if ($('#fatherName').val() && $('#motherName').val()) {
-                    currentStep = 4;
-                    showStep();
-                } else {
-                    alert("Please provide parent names.");
-                }
-            });
-
-            // Step 4: Final Submit
-            $('#submitButton').click(function(e) {
-                e.preventDefault();
-                // Validate and submit the form
-                alert('Form submitted successfully!');
-            });
-
-            function showStep() {
-                $('.step-container').removeClass('active');
-                $('#step' + currentStep).addClass('active');
+        // Start front camera stream for capturing photo
+        async function startFrontCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'user' } });
+                currentStream = stream;
+                frontCameraStream.srcObject = stream;
+                frontCameraStream.style.display = 'block';
+                cameraButton.style.display = 'none';
+                captureButton.style.display = 'block';
+                switchCameraButton.style.display = 'block'; // Show the switch camera button
+            } catch (error) {
+                alert('Error accessing front camera');
             }
+        }
 
-            function startCamera() {
-                const video = $('#frontCameraStream')[0];
-                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-                    navigator.mediaDevices.getUserMedia({ video: true })
-                        .then(function(stream) {
-                            cameraStream = stream;
-                            video.srcObject = stream;
-                            video.style.display = 'block';
-                            $('#captureButton').show();
-                            $('#nextButtonStep1').show();
-                        })
-                        .catch(function(err) {
-                            alert("Error accessing camera: " + err);
-                        });
-                }
+        // Switch camera functionality
+        switchCameraButton.addEventListener('click', function() {
+            const facingMode = frontCameraStream.srcObject.getVideoTracks()[0].getSettings().facingMode === 'user' ? 'environment' : 'user';
+            stopStream(currentStream);
+            startCamera(facingMode);
+        });
+
+        // Stop the stream
+        function stopStream(stream) {
+            stream.getTracks().forEach(track => track.stop());
+        }
+
+        // Start camera with the specific facing mode
+        async function startCamera(facingMode) {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode } });
+                currentStream = stream;
+                frontCameraStream.srcObject = stream;
+                frontCameraStream.style.display = 'block';
+                cameraButton.style.display = 'none';
+                captureButton.style.display = 'block';
+                switchCameraButton.style.display = 'block';
+            } catch (error) {
+                alert('Error switching camera');
             }
+        }
 
-            $('#captureButton').click(function() {
-                capturePhoto();
-            });
+        // Capture photo from the camera
+        captureButton.addEventListener('click', function () {
+            const context = photoCanvas.getContext('2d');
+            context.drawImage(frontCameraStream, 0, 0, photoCanvas.width, photoCanvas.height);
+            capturedPhoto.value = photoCanvas.toDataURL();
+            photoSuccessMessage.style.display = 'block';
+            frontCameraStream.style.display = 'none';
+            photoCanvas.style.display = 'none';
+            captureButton.style.display = 'none';
+            switchCameraButton.style.display = 'none'; // Hide the switch camera button after capture
+        });
 
-            function capturePhoto() {
-                const video = $('#frontCameraStream')[0];
-                const canvas = $('#photoCanvas')[0];
-                const context = canvas.getContext('2d');
+        // Start the front camera when clicking the "Capture Photo Now" button
+        cameraButton.addEventListener('click', startFrontCamera);
 
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        // Handle form submission (AJAX)
+        registrationForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            loadingSpinner.style.display = "block"; // Show loading spinner
 
-                const dataUrl = canvas.toDataURL('image/png');
-                $('#capturedPhoto').val(dataUrl);
-                $('#photoSuccessMessage').show();
-            }
+            // Construct form data
+            const formData = new FormData(registrationForm);
 
-            // Allow switching between front/back camera
-            $('#switchCameraButton').click(function() {
-                if (cameraStream) {
-                    cameraStream.getTracks().forEach(track => track.stop());
+            // AJAX request to submit form
+            $.ajax({
+                url: 'https://script.google.com/macros/s/AKfycbzjE3Z1ZDBzvP0HLgXrJb4yPxdefewHOhyBaC0W-1-KSDzESTCj-u_koMJWQ2JF9foW9g/exec',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log('Form submitted successfully:', response);
+
+                    // Hide the loading spinner
+                    loadingSpinner.style.display = "none";
+
+                    // Show success message
+                    successMessage.textContent = "Your form has been submitted successfully!";
+                    successMessage.style.color = "green";
+                    successMessage.style.display = "block";
+
+                    // Redirect to payment page after 3 seconds
+                    setTimeout(function () {
+                        const email = encodeURIComponent($('#email').val());
+                        const firstName = encodeURIComponent($('#firstName').val());
+                        const mobileNumber = encodeURIComponent($('#mobileNumber').val());
+
+                        // Construct the payment URL with query parameters
+                        const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
+
+                        // Redirect to the payment page
+                        window.location.href = paymentUrl;
+                    }, 3000);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error in form submission:', error);
+
+                    // Hide the loading spinner
+                    loadingSpinner.style.display = "none";
+
+                    // Show error message if submission fails
+                    successMessage.textContent = "There was an error submitting your form. Please try again.";
+                    successMessage.style.color = "red";
+                    successMessage.style.display = "block";
                 }
-                startCamera();
             });
         });
     </script>
