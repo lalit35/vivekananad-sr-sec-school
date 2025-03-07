@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Competition Registration</title>
-    <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
         /* General Body and Layout */
@@ -12,7 +11,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9; /* Light background color */
+            background-color: #f1f1f1; /* Light gray background */
         }
 
         /* Header Styling */
@@ -37,78 +36,73 @@
         /* Container for Form */
         .container {
             width: 80%;
-            max-width: 800px;
+            max-width: 900px;
             margin: 20px auto;
             padding: 20px;
             background-color: white;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
             border: 1px solid #ddd; /* Light border */
+            background-color: #ffffff;
         }
 
         .form-title {
             text-align: center;
-            font-size: 1.8em;
+            font-size: 2em;
             margin-bottom: 20px;
             color: #333; /* Darker text color for contrast */
+        }
+
+        /* Step Navigation Styling */
+        .step-container {
+            display: none;
+        }
+
+        .step-container.active {
+            display: block;
         }
 
         /* Form Fields Styling */
         label {
             display: block;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
             font-weight: bold;
-            color: #555; /* Darker text color */
+            color: #555;
         }
 
         input, select, button {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin-bottom: 15px;
             font-size: 1em;
             border: 1px solid #ccc;
             border-radius: 5px;
             box-sizing: border-box;
-            background-color: #f3f3f3; /* Light input background */
-            color: #555; /* Dark text for readability */
+            background-color: #f9f9f9;
+            color: #333;
         }
 
-        input[type="tel"], input[type="email"], input[type="date"], input[type="number"] {
-            width: calc(100% - 20px);
-        }
-
-        /* Button Styles */
         button {
-            background-color: #56c8d8; /* Light blue */
+            background-color: #56c8d8;
             color: white;
-            border: none;
             cursor: pointer;
             font-size: 1.1em;
             transition: background-color 0.3s ease;
+            border: none;
+            border-radius: 5px;
         }
 
         button:hover {
-            background-color: #3ea1a8; /* Slightly darker blue on hover */
+            background-color: #3ea1a8;
         }
 
-        /* Capture Photo Section */
+        /* Camera Capture Section */
         #frontCameraStream {
             width: 100%;
             height: auto;
             border: 2px solid #ddd;
             border-radius: 5px;
             margin-bottom: 15px;
-            display: none;
-        }
-
-        #photoCanvas {
-            display: none;
-        }
-
-        #photoSuccessMessage {
-            font-size: 1.2em;
-            color: green;
-            text-align: center;
             display: none;
         }
 
@@ -132,7 +126,7 @@
             100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        /* Form Success Message */
+        /* Success/Error Message */
         #successMessage {
             color: green;
             font-size: 1.2em;
@@ -172,29 +166,6 @@
             50% { opacity: 0.5; }
             100% { opacity: 1; }
         }
-
-        /* Tooltip text styling */
-        .help-button:after {
-            content: "Help";
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            padding: 5px 10px;
-            background-color: #56c8d8;
-            color: white;
-            border-radius: 5px;
-            font-size: 1em;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease;
-        }
-
-        .help-button:hover:after {
-            opacity: 1;
-            visibility: visible;
-        }
-
     </style>
 </head>
 <body>
@@ -206,76 +177,54 @@
     <div class="container">
         <h2 class="form-title">Competition Exam Registration</h2>
         
-        <!-- Form Start -->
-        <form id="registrationForm" method="POST" enctype="multipart/form-data">
-            
-            <!-- Camera Capture Section for Photo (Front Camera) -->
-            <label for="photo">Capture Photo :</label>
+        <!-- Step 1: Camera Capture -->
+        <div class="step-container active" id="step1">
+            <label for="photo">Capture Photo:</label>
             <button type="button" id="cameraButton">Capture Photo Now</button>
             <button type="button" id="switchCameraButton">Switch Camera</button>
-            <video id="frontCameraStream" autoplay style="display:none; width: 100%;"></video>
+            <video id="frontCameraStream" autoplay></video>
             <canvas id="photoCanvas" style="display:none;"></canvas>
             <input type="hidden" id="capturedPhoto" name="photoUrl">
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
+            <div id="photoSuccessMessage" style="display:none; color: green;">Photo captured successfully!</div>
+            <button id="nextButtonStep1">Next</button>
+        </div>
 
-            <!-- Success Message for Photo Capture -->
-            <div id="photoSuccessMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;">
-                Photo captured successfully!
-            </div>
-
-            <!-- Student Details Section -->
-            <h3>Student Details:</h3>
+        <!-- Step 2: Student Details -->
+        <div class="step-container" id="step2">
             <label for="firstName">First Name:</label>
             <input type="text" name="firstName" id="firstName" required>
 
             <label for="lastName">Last Name:</label>
             <input type="text" name="lastName" id="lastName" required>
 
-            <label for="dob">Date of Birth:</label>
-            <input type="date" name="dob" id="dob" required>
+            <button id="nextButtonStep2">Next</button>
+        </div>
 
-            <label for="age">Age:</label>
-            <input type="number" name="age" id="age" required>
+        <!-- Step 3: Parent Details -->
+        <div class="step-container" id="step3">
+            <label for="fatherName">Father's Name:</label>
+            <input type="text" name="fatherName" id="fatherName" required>
 
-            <label for="currentSchool">Current School:</label>
-            <input type="text" name="currentSchool" id="currentSchool" required>
+            <label for="motherName">Mother's Name:</label>
+            <input type="text" name="motherName" id="motherName" required>
 
-            <label for="class">Class (5th to 11th):</label>
-            <select name="class" id="class" required>
-                <option value="">Select Class</option>
-                <option value="5">5th</option>
-                <option value="6">6th</option>
-                <option value="7">7th</option>
-                <option value="8">8th</option>
-                <option value="9">9th</option>
-                <option value="10">10th</option>
-                <option value="11">11th</option>
-            </select>
+            <button id="nextButtonStep3">Next</button>
+        </div>
 
-            <!-- Parent Information Section -->
-            <h3>Parent Details:</h3>
-            <div class="parent-names">
-                <label for="fatherName">Father's Name:</label>
-                <input type="text" name="fatherName" id="fatherName" required>
-
-                <label for="motherName">Mother's Name:</label>
-                <input type="text" name="motherName" id="motherName" required>
-            </div>
-
-            <!-- Contact Information -->
-            <h3>Contact Details:</h3>
+        <!-- Step 4: Contact Information -->
+        <div class="step-container" id="step4">
             <label for="mobileNumber">Whatsapp Number:</label>
             <input type="tel" name="mobileNumber" id="mobileNumber" pattern="[0-9]{10}" required>
 
             <label for="email">Email:</label>
             <input type="email" name="email" id="email" required> 
             
-            <!-- Submit Button -->
             <button type="submit" id="submitButton">Submit</button>
-        </form>
+        </div>
 
         <!-- Success/Error Message -->
-        <div id="successMessage" style="display:none; color: green; font-size: 1.2em; text-align: center; margin-top: 20px;"></div>
+        <div id="successMessage"></div>
     </div>
 
     <!-- Loading Spinner -->
@@ -283,5 +232,72 @@
 
     <!-- Help Button -->
     <button class="help-button" id="helpButton">?</button>
+
+    <script>
+        $(document).ready(function() {
+            let currentStep = 1;
+
+            // Step 1: Capture Photo
+            $('#cameraButton').click(function() {
+                startCamera();
+            });
+
+            $('#nextButtonStep1').click(function() {
+                if ($('#capturedPhoto').val()) {
+                    currentStep = 2;
+                    showStep();
+                } else {
+                    alert("Please capture the photo first.");
+                }
+            });
+
+            // Step 2: Student Details
+            $('#nextButtonStep2').click(function() {
+                if ($('#firstName').val() && $('#lastName').val()) {
+                    currentStep = 3;
+                    showStep();
+                } else {
+                    alert("Please fill out the first and last name.");
+                }
+            });
+
+            // Step 3: Parent Details
+            $('#nextButtonStep3').click(function() {
+                if ($('#fatherName').val() && $('#motherName').val()) {
+                    currentStep = 4;
+                    showStep();
+                } else {
+                    alert("Please provide parent names.");
+                }
+            });
+
+            // Step 4: Final Submit
+            $('#submitButton').click(function(e) {
+                e.preventDefault();
+                // Validate and submit the form
+                alert('Form submitted successfully!');
+            });
+
+            function showStep() {
+                $('.step-container').removeClass('active');
+                $('#step' + currentStep).addClass('active');
+            }
+
+            function startCamera() {
+                const video = $('#frontCameraStream')[0];
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function(stream) {
+                            video.srcObject = stream;
+                            video.style.display = 'block';
+                            $('#captureButton').show();
+                        })
+                        .catch(function(err) {
+                            alert("Error accessing camera: " + err);
+                        });
+                }
+            }
+        });
+    </script>
 </body>
 </html>
