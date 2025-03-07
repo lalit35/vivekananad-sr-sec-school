@@ -187,7 +187,7 @@
             <input type="hidden" id="capturedPhoto" name="photoUrl">
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
             <div id="photoSuccessMessage" style="display:none; color: green;">Photo captured successfully!</div>
-            <button id="nextButtonStep1">Next</button>
+            <button id="nextButtonStep1" style="display:none;">Next</button>
         </div>
 
         <!-- Step 2: Student Details -->
@@ -236,6 +236,7 @@
     <script>
         $(document).ready(function() {
             let currentStep = 1;
+            let cameraStream;
 
             // Step 1: Capture Photo
             $('#cameraButton').click(function() {
@@ -288,15 +289,43 @@
                 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                     navigator.mediaDevices.getUserMedia({ video: true })
                         .then(function(stream) {
+                            cameraStream = stream;
                             video.srcObject = stream;
                             video.style.display = 'block';
                             $('#captureButton').show();
+                            $('#nextButtonStep1').show();
                         })
                         .catch(function(err) {
                             alert("Error accessing camera: " + err);
                         });
                 }
             }
+
+            $('#captureButton').click(function() {
+                capturePhoto();
+            });
+
+            function capturePhoto() {
+                const video = $('#frontCameraStream')[0];
+                const canvas = $('#photoCanvas')[0];
+                const context = canvas.getContext('2d');
+
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                context.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+                const dataUrl = canvas.toDataURL('image/png');
+                $('#capturedPhoto').val(dataUrl);
+                $('#photoSuccessMessage').show();
+            }
+
+            // Allow switching between front/back camera
+            $('#switchCameraButton').click(function() {
+                if (cameraStream) {
+                    cameraStream.getTracks().forEach(track => track.stop());
+                }
+                startCamera();
+            });
         });
     </script>
 </body>
