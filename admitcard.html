@@ -5,152 +5,219 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Download Admit Card</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f6f8;
+        /* Global Styles */
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 16px;
         }
 
         .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
             text-align: center;
+            width: 100%;
+            max-width: 450px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 1s ease-out;
         }
 
         h2 {
-            color: #4CAF50;
-            font-size: 24px;
+            font-size: 30px;
+            font-weight: 700;
+            color: #FFDC5E;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        label {
-            font-size: 16px;
-            color: #555;
-            margin: 10px 0;
-            display: block;
-        }
-
-        .input-field, .select-field {
+        .input-field,
+        .select-field {
             width: 100%;
             padding: 12px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: none;
+            background-color: #444;
+            color: white;
             font-size: 16px;
-            box-sizing: border-box;
+            outline: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .input-field:focus,
+        .select-field:focus {
+            background-color: #2a5298;
+            box-shadow: 0 0 8px rgba(255, 220, 94, 0.8);
         }
 
         .btn {
-            padding: 12px 20px;
-            background-color: #4CAF50;
-            color: white;
+            padding: 14px;
+            background-color: #FFDC5E;
+            color: #1e3c72;
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            border-radius: 8px;
             font-size: 18px;
+            cursor: pointer;
             width: 100%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .btn:hover {
-            background-color: #45a049;
+            background-color: #FFB84C;
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
         }
 
         .error {
-            color: red;
+            color: #ff4d4d;
             font-size: 14px;
+            margin-top: 10px;
         }
 
         .success {
-            color: green;
+            color: #2ecc71;
             font-size: 16px;
+            margin-top: 20px;
         }
 
         .result-link {
             display: inline-block;
-            margin-top: 15px;
-            font-size: 16px;
-            color: #007BFF;
+            font-size: 18px;
+            color: #1e3c72;
             text-decoration: none;
+            border: 2px solid #1e3c72;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .result-link:hover {
-            text-decoration: underline;
+            background-color: #1e3c72;
+            color: white;
+            text-decoration: none;
         }
+
+        /* Animation for form */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .input-field, .select-field {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+        
     </style>
 </head>
+
 <body>
+    <div class="container">
+        <h2>Download Your Admit Card</h2>
+        <form id="admitCardForm">
+            <label for="mobile">Enter Mobile Number</label>
+            <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
 
-<div class="container">
-    <h2>Download Your Admit Card</h2>
-    <form id="admitCardForm">
-        <label for="mobile">Enter Mobile Number</label>
-        <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
+            <label for="studentClass">Select Student Class</label>
+            <select id="studentClass" class="select-field" required>
+                <option value="">Select Class</option>
+                <option value="11">Class 11</option>
+                <option value="10">Class 10</option>
+                <option value="9">Class 9</option>
+                <option value="8">Class 8</option>
+                <option value="7">Class 7</option>
+                <option value="6">Class 6</option>
+                <option value="5">Class 5</option>
+            </select>
 
-        <label for="studentClass">Select Student Class</label>
-        <select id="studentClass" class="select-field" required>
-            <option value="">Select Class</option>
-            <option value="11">Class 11</option>
-            <option value="10">Class 10</option>
-            <option value="9">Class 9</option>
-            <option value="8">Class 8</option>
-            <option value="7">Class 7</option>
-            <option value="6">Class 6</option>
-            <option value="5">Class 5</option>
-        </select>
+            <button type="submit" class="btn">Get Admit Card</button>
+        </form>
+        <div id="result"></div>
+    </div>
 
-        <button type="submit" class="btn">Get Admit Card</button>
-    </form>
-    <div id="result"></div>
-</div>
+    <script>
+        // Simulating student data fetching from an external JSON file
+        let students = [];
 
-<script>
-// Fetch student data from the 'students.json' file
-let students = [];
+        // Fetching student data
+        fetch('students.json')
+            .then(response => response.json())
+            .then(data => {
+                students = data.Sheet1; // Assign the student data from the JSON file
+            })
+            .catch(error => {
+                console.error('Error fetching student data:', error);
+            });
 
-fetch('students.json')
-    .then(response => response.json())
-    .then(data => {
-        students = data.Sheet1; // Adjust based on your JSON structure
-    })
-    .catch(error => {
-        console.error('Error loading student data:', error);
-    });
+        // Handling form submission
+        document.getElementById('admitCardForm').addEventListener('submit', function (e) {
+            e.preventDefault();
 
-// Event listener for form submission
-document.getElementById('admitCardForm').addEventListener('submit', function(e) {
-    e.preventDefault();
+            let mobile = document.getElementById('mobile').value.trim();
+            let studentClass = document.getElementById('studentClass').value.trim();
+            let resultDiv = document.getElementById('result');
 
-    let mobile = document.getElementById('mobile').value.trim();
-    let studentClass = document.getElementById('studentClass').value.trim();
-    let resultDiv = document.getElementById('result');
+            // Validation
+            if (!mobile || !studentClass) {
+                resultDiv.innerHTML = '<p class="error">Please enter mobile number and select student class.</p>';
+                return;
+            }
 
-    if (!mobile || !studentClass) {
-        resultDiv.innerHTML = '<p class="error">Please enter mobile number and select student class.</p>';
-        return;
-    }
+            // Search for the student
+            let student = students.find(s => s.Mobile.toString() === mobile && s.class.toString() === studentClass);
 
-    mobile = mobile.toString(); // Convert to string for comparison
-    studentClass = studentClass.toString(); // Convert to string for comparison
-
-    // Search for the student in the array
-    let student = students.find(s => s.Mobile.toString() === mobile && s.class.toString() === studentClass);
-
-    if (student) {
-        resultDiv.innerHTML = `
-            <p class="success">Your admit card for Class ${student.class} is ready!</p>
-            <p><b>Student: ${student.Name}</b></p>
-            <a href="${student.Pdf}" target="_blank" class="result-link">Click here to download your admit card</a>
-        `;
-    } else {
-        resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
-    }
-});
-</script>
+            if (student) {
+                resultDiv.innerHTML = `
+                    <p class="success">Your admit card for Class ${student.class} is ready!</p>
+                    <p><b>Student: ${student.Name}</b></p>
+                    <a href="${student.Pdf}" target="_blank" class="result-link">Click here to download your admit card</a>
+                `;
+            } else {
+                resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
+            }
+        });
+    </script>
 
 </body>
 </html>
