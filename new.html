@@ -34,12 +34,6 @@
             font-weight: bold;
         }
 
-        .header .logo {
-            width: 120px;
-            height: auto;
-            margin-top: 20px;
-        }
-
         /* Main Container */
         .container {
             width: 80%;
@@ -203,7 +197,6 @@
 <body>
     <div class="header">
         <h1 class="school-name">VIVEKANAND SR. SEC. SCHOOL</h1>
-        <img src="swami-vivekananda-png-thumbnail-1641912297.jpg" alt="Logo" class="logo">
     </div>
 
     <div class="container">
@@ -219,7 +212,7 @@
             <input type="hidden" id="capturedPhoto" name="photoUrl">
             <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
             <div id="photoSuccessMessage" style="display:none; color: green;">Photo captured successfully!</div>
-            <button id="nextButtonStep1" style="display:none;">Next</button>
+            <button id="nextButtonStep1" style="display:none;" onclick="nextStep(2)">Next</button>
         </div>
 
         <!-- Step 2: Student Details -->
@@ -236,7 +229,7 @@
             <label for="city">City:</label>
             <input type="text" name="city" id="city" required>
 
-            <button id="nextButtonStep2">Next</button>
+            <button id="nextButtonStep2" onclick="nextStep(3)">Next</button>
         </div>
 
         <!-- Step 3: Parent Details -->
@@ -247,7 +240,7 @@
             <label for="motherName">Mother's Name:</label>
             <input type="text" name="motherName" id="motherName" required>
 
-            <button id="nextButtonStep3">Next</button>
+            <button id="nextButtonStep3" onclick="nextStep(4)">Next</button>
         </div>
 
         <!-- Step 4: Contact Information -->
@@ -336,62 +329,37 @@
             photoCanvas.style.display = 'none';
             captureButton.style.display = 'none';
             switchCameraButton.style.display = 'none'; // Hide the switch camera button after capture
+
+            // Automatically move to next part after photo capture
+            document.getElementById('nextButtonStep1').style.display = 'block';  // Show next button
         });
 
         // Start the front camera when clicking the "Capture Photo Now" button
         cameraButton.addEventListener('click', startFrontCamera);
 
+        // Function to move to next step
+        function nextStep(stepNumber) {
+            const currentStep = document.getElementById(`step${stepNumber - 1}`);
+            const nextStep = document.getElementById(`step${stepNumber}`);
+
+            currentStep.classList.remove('active');
+            nextStep.classList.add('active');
+        }
+
         // Handle form submission (AJAX)
         registrationForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            loadingSpinner.style.display = "block"; // Show loading spinner
+            loadingSpinner.style.display = 'block';
 
-            // Construct form data
             const formData = new FormData(registrationForm);
 
-            // AJAX request to submit form
-            $.ajax({
-                url: 'https://script.google.com/macros/s/AKfycbzjE3Z1ZDBzvP0HLgXrJb4yPxdefewHOhyBaC0W-1-KSDzESTCj-u_koMJWQ2JF9foW9g/exec',
-                type: 'POST',
-                data: formData,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    console.log('Form submitted successfully:', response);
-
-                    // Hide the loading spinner
-                    loadingSpinner.style.display = "none";
-
-                    // Show success message
-                    successMessage.textContent = "Your form has been submitted successfully!";
-                    successMessage.style.color = "green";
-                    successMessage.style.display = "block";
-
-                    // Redirect to payment page after 3 seconds
-                    setTimeout(function () {
-                        const email = encodeURIComponent($('#email').val());
-                        const firstName = encodeURIComponent($('#firstName').val());
-                        const mobileNumber = encodeURIComponent($('#mobileNumber').val());
-
-                        // Construct the payment URL with query parameters
-                        const paymentUrl = `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
-
-                        // Redirect to the payment page
-                        window.location.href = paymentUrl;
-                    }, 3000);
-                },
-                error: function(xhr, status, error) {
-                    console.error('Error in form submission:', error);
-
-                    // Hide the loading spinner
-                    loadingSpinner.style.display = "none";
-
-                    // Show error message if submission fails
-                    successMessage.textContent = "There was an error submitting your form. Please try again.";
-                    successMessage.style.color = "red";
-                    successMessage.style.display = "block";
-                }
-            });
+            // Simulate success after form submission
+            setTimeout(function () {
+                loadingSpinner.style.display = 'none';
+                successMessage.textContent = 'Registration Successful!';
+                successMessage.style.display = 'block';
+                registrationForm.reset();
+            }, 2000);
         });
     </script>
 </body>
