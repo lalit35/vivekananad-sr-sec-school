@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,12 +117,6 @@
             margin-top: 10px;
         }
 
-        .success {
-            color: #2ecc71;
-            font-size: 16px;
-            margin-top: 20px;
-        }
-
         .result-link {
             display: inline-block;
             font-size: 18px;
@@ -225,8 +218,11 @@
     </div>
 
     <script>
-        // Fetch student data from detail.json
-        fetch('https://lalit35.github.io/vivekananad-sr-sec-school/detail.json')
+        // Path to the detail.json file located in the same repository as the HTML file
+        const jsonUrl = "https://lalit35.github.io/vivekananad-sr-sec-school/detail.json"; 
+
+        // Fetch student data from the JSON file
+        fetch(jsonUrl)
             .then(response => response.json())
             .then(data => {
                 const form = document.getElementById('studentForm');
@@ -265,5 +261,4 @@
             });
     </script>
 </body>
-
 </html>
