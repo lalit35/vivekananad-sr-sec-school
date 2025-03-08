@@ -218,47 +218,48 @@
     </div>
 
     <script>
-        // Path to the detail.json file located in the same repository as the HTML file
-        const jsonUrl = "https://lalit35.github.io/vivekananad-sr-sec-school/detail.json"; 
+        let students = [];
 
-        // Fetch student data from the JSON file
-        fetch(jsonUrl)
+        // Fetch student data from the students.json file
+        fetch('detail.json')
             .then(response => response.json())
             .then(data => {
-                const form = document.getElementById('studentForm');
-                const resultDiv = document.getElementById('result');
-                const errorDiv = document.getElementById('error');
-
-                form.addEventListener('submit', function (event) {
-                    event.preventDefault();
-
-                    const mobile = document.getElementById('mobile').value.trim();
-
-                    // Search for the student by mobile number
-                    const student = data.find(student => student["mobile Number"] == mobile);
-
-                    if (student) {
-                        errorDiv.textContent = '';  // Clear any error message
-                        resultDiv.innerHTML = `
-                            <div><strong>First Name:</strong> ${student["first Name"]}</div>
-                            <div><strong>Last Name:</strong> ${student["last Name"]}</div>
-                            <div><strong>DOB:</strong> ${student.DOB}</div>
-                            <div><strong>Age:</strong> ${student.AGE}</div>
-                            <div><strong>Class:</strong> ${student.className}</div>
-                            <div><strong>Father's Name:</strong> ${student["father Name"]}</div>
-                            <div><strong>Mother's Name:</strong> ${student["mother Name"]}</div>
-                            <div><strong>Mobile Number:</strong> ${student["mobile Number"]}</div>
-                        `;
-                    } else {
-                        errorDiv.textContent = 'Student not found! Please check your mobile number.';
-                        resultDiv.innerHTML = '';  // Clear any previous results
-                    }
-                });
+                students = data.Sheet1; // Assign the student data from the JSON file
             })
             .catch(error => {
-                console.error('Error loading student data: ', error);
+                console.error('Error fetching student data:', error);
                 document.getElementById('error').textContent = 'Error loading student data. Please try again later.';
             });
+
+        const form = document.getElementById('studentForm');
+        const resultDiv = document.getElementById('result');
+        const errorDiv = document.getElementById('error');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const mobile = document.getElementById('mobile').value.trim();
+
+            // Search for the student by mobile number
+            const student = students.find(student => student["mobile Number"] == mobile);
+
+            if (student) {
+                errorDiv.textContent = '';  // Clear any error message
+                resultDiv.innerHTML = `
+                    <div><strong>First Name:</strong> ${student["first Name"]}</div>
+                    <div><strong>Last Name:</strong> ${student["last Name"]}</div>
+                    <div><strong>DOB:</strong> ${student.DOB}</div>
+                    <div><strong>Age:</strong> ${student.AGE}</div>
+                    <div><strong>Class:</strong> ${student.className}</div>
+                    <div><strong>Father's Name:</strong> ${student["father Name"]}</div>
+                    <div><strong>Mother's Name:</strong> ${student["mother Name"]}</div>
+                    <div><strong>Mobile Number:</strong> ${student["mobile Number"]}</div>
+                `;
+            } else {
+                errorDiv.textContent = 'Student not found! Please check your mobile number.';
+                resultDiv.innerHTML = '';  // Clear any previous results
+            }
+        });
     </script>
 </body>
 </html>
