@@ -23,6 +23,7 @@
             flex-direction: column;
             color: #fff;
             font-size: 16px;
+            padding-top: 60px; /* Space for fixed header */
         }
 
         /* Header */
@@ -36,6 +37,10 @@
             text-align: center;
             border-radius: 8px;
             margin-bottom: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000; /* Ensure the header stays on top */
         }
 
         .header .school-name {
@@ -191,7 +196,7 @@
             max-width: 450px;
             backdrop-filter: blur(10px);
             display: none; /* Hidden initially */
-            margin-top: 20px;
+            margin-top: 100px; /* Adjusting for the fixed header */
         }
 
         .details-container div {
