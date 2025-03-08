@@ -218,19 +218,21 @@
     </div>
 
     <script>
+        // Array to store the student data
         let students = [];
 
-        // Fetch student data from the students.json file
+        // Fetch student data from the detail.json file
         fetch('detail.json')
             .then(response => response.json())
             .then(data => {
-                students = data.Sheet1; // Assign the student data from the JSON file
+                students = data; // Assign the student data
             })
             .catch(error => {
                 console.error('Error fetching student data:', error);
                 document.getElementById('error').textContent = 'Error loading student data. Please try again later.';
             });
 
+        // Handling the form submission to search for a student by mobile number
         const form = document.getElementById('studentForm');
         const resultDiv = document.getElementById('result');
         const errorDiv = document.getElementById('error');
@@ -240,8 +242,8 @@
 
             const mobile = document.getElementById('mobile').value.trim();
 
-            // Search for the student by mobile number
-            const student = students.find(student => student["mobile Number"] == mobile);
+            // Search for the student by mobile number (matching the correct key in the JSON)
+            const student = students.find(student => student["mobile"] == mobile);
 
             if (student) {
                 errorDiv.textContent = '';  // Clear any error message
@@ -253,7 +255,7 @@
                     <div><strong>Class:</strong> ${student.className}</div>
                     <div><strong>Father's Name:</strong> ${student["father Name"]}</div>
                     <div><strong>Mother's Name:</strong> ${student["mother Name"]}</div>
-                    <div><strong>Mobile Number:</strong> ${student["mobile Number"]}</div>
+                    <div><strong>Mobile Number:</strong> ${student.mobile}</div>
                 `;
             } else {
                 errorDiv.textContent = 'Student not found! Please check your mobile number.';
