@@ -240,8 +240,10 @@
             <label for="mobile">Enter Mobile Number</label>
             <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
 
-            <label for="dob">Enter Year of Birth</label>
-            <input type="text" id="dob" class="input-field" placeholder="Enter your birth year" required>
+            <label for="dob">Select Year of Birth</label>
+            <select id="dob" class="select-field" required>
+                <option value="">Select Year of Birth</option>
+            </select>
 
             <label for="studentClass">Select Student Class</label>
             <select id="studentClass" class="select-field" required>
@@ -283,6 +285,15 @@
     </div>
 
     <script>
+        // Populate Year of Birth dropdown with options from 2000 to 2020
+        const dobSelect = document.getElementById('dob');
+        for (let year = 2000; year <= 2020; year++) {
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            dobSelect.appendChild(option);
+        }
+
         // Array to store the student data
         let students = [];
 
@@ -336,26 +347,22 @@
                 document.getElementById('motherName').innerText = student["mother Name"];
                 document.getElementById('studentMobile').innerText = student.mobile;
 
-                resultDiv.innerHTML = ''; // Clear error message if any
+                resultDiv.innerHTML = '';  // Clear the result box
 
-                // Generate WhatsApp message
                 const studentFullName = student["first Name"] + " " + student["last Name"];
                 const fatherName = student["father Name"];
                 const whatsappMessage = `Hello Sir, My name is ${fatherName}. I want to change my son/daughter details. Student Full name: ${studentFullName}.`;
-                
-                // Encode the message for URL
                 const whatsappUrl = `https://wa.me/9350885613?text=${encodeURIComponent(whatsappMessage)}`;
 
-                // Set the WhatsApp link in the details box
+                // Display WhatsApp link
                 const whatsappLink = document.getElementById('whatsappLink');
                 whatsappLink.setAttribute('href', whatsappUrl);
-                whatsappLink.style.display = 'inline-block'; // Make the button visible
+                whatsappLink.style.display = 'inline-block';  // Show the link
             } else {
                 resultDiv.innerHTML = '<p class="error">No student found with this mobile number, class, and year of birth. Please try again.</p>';
             }
         });
     </script>
-
 </body>
 
 </html>
