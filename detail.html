@@ -69,7 +69,8 @@
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
 
-        .input-field {
+        .input-field,
+        .select-field {
             width: 100%;
             padding: 12px;
             margin: 15px 0;
@@ -83,7 +84,8 @@
             transition: all 0.3s ease-in-out;
         }
 
-        .input-field:focus {
+        .input-field:focus,
+        .select-field:focus {
             background-color: #2a5298;
             box-shadow: 0 0 8px rgba(255, 220, 94, 0.8);
         }
@@ -113,12 +115,6 @@
             color: #ff4d4d;
             font-size: 14px;
             margin-top: 10px;
-        }
-
-        .success {
-            color: #2ecc71;
-            font-size: 16px;
-            margin-top: 20px;
         }
 
         .result-link {
@@ -181,7 +177,7 @@
                 font-size: 26px;
             }
 
-            .input-field {
+            .input-field, .select-field {
                 font-size: 14px;
                 padding: 10px;
             }
@@ -191,7 +187,6 @@
                 padding: 12px;
             }
         }
-
     </style>
 </head>
 
@@ -206,8 +201,8 @@
     <div class="container">
         <h2>Check Your Student Details</h2>
         <form id="studentForm">
-            <label for="mobile">Mobile Number:</label>
-            <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="text" id="mobileNumber" class="input-field" placeholder="Enter your mobile number" required>
             <button type="submit" class="btn">Get Details</button>
         </form>
 
@@ -217,53 +212,64 @@
 
     <!-- Footer -->
     <div class="footer">
-        <p>&copy; 2025 <a href="https://example.com" target="_blank">Vivekanand School</a></p>
+        <p>&copy; 2025 <a href="https://lalit35.github.io/vivekananad-sr-sec-school/" target="_blank">Vivekanand School</a></p>
     </div>
 
     <script>
-        // Fetch student data from the external JSON file
-        let studentsData = [];
-
-        fetch('detail.json')
+        // Fetch student data from GitHub Pages URL
+        fetch('https://lalit35.github.io/vivekananad-sr-sec-school/detail.json')
             .then(response => response.json())
             .then(data => {
-                studentsData = data;  // Store the data from the JSON file
+                const studentsData = data;
+
+                const form = document.getElementById('studentForm');
+                const resultDiv = document.getElementById('result');
+                const errorDiv = document.getElementById('error');
+
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+
+                    const mobileNumber = document.getElementById('mobileNumber').value.trim();
+
+                    // Search for the student by mobile number
+                    const student = studentsData.find(student => student['mobile Number'] === mobileNumber);
+
+                    if (student) {
+                        errorDiv.textContent = '';  // Clear any error message
+                        let studentPhoto = student.photo;
+
+                        // If photo is "Error uploading image", we can show a placeholder image or text
+                        if (studentPhoto === "Error uploading image") {
+                            studentPhoto = "https://via.placeholder.com/150?text=No+Image+Available";
+                        } else {
+                            // Convert Google Drive link to a direct image URL
+                            const fileId = studentPhoto.match(/d\/(.*)\/view/);
+                            if (fileId && fileId[1]) {
+                                studentPhoto = `https://drive.google.com/uc?id=${fileId[1]}`;
+                            }
+                        }
+
+                        resultDiv.innerHTML = `
+                            <div><strong>First Name:</strong> ${student['first Name']}</div>
+                            <div><strong>Last Name:</strong> ${student['last Name']}</div>
+                            <div><strong>DOB:</strong> ${student.DOB}</div>
+                            <div><strong>Age:</strong> ${student.AGE}</div>
+                            <div><strong>Class:</strong> ${student.className}</div>
+                            <div><strong>Father's Name:</strong> ${student['father Name']}</div>
+                            <div><strong>Mother's Name:</strong> ${student['mother Name']}</div>
+                            <div><strong>Mobile Number:</strong> ${student['mobile Number']}</div>
+                            <div><strong>Photo:</strong><br><img src="${studentPhoto}" alt="Student Photo" style="max-width: 100%; max-height: 300px;"></div>
+                        `;
+                    } else {
+                        errorDiv.textContent = 'Student not found! Please check your mobile number.';
+                        resultDiv.innerHTML = '';  // Clear any previous results
+                    }
+                });
             })
             .catch(error => {
                 console.error('Error loading student data:', error);
-                alert('Error loading student data. Please try again later.');
+                document.getElementById('error').textContent = 'Error loading student data. Please try again later.';
             });
-
-        const form = document.getElementById('studentForm');
-        const resultDiv = document.getElementById('result');
-        const errorDiv = document.getElementById('error');
-
-        form.addEventListener('submit', function (event) {
-            event.preventDefault();
-
-            const mobile = document.getElementById('mobile').value.trim();
-
-            // Search for the student by mobile number
-            const student = studentsData.find(student => student.mobileNumber === mobile);
-
-            if (student) {
-                errorDiv.textContent = '';  // Clear any error message
-                resultDiv.innerHTML = `
-                    <div><strong>First Name:</strong> ${student.firstName}</div>
-                    <div><strong>Last Name:</strong> ${student.lastName}</div>
-                    <div><strong>DOB:</strong> ${student.DOB}</div>
-                    <div><strong>Age:</strong> ${student.age}</div>
-                    <div><strong>Class:</strong> ${student.className}</div>
-                    <div><strong>Father's Name:</strong> ${student.fatherName}</div>
-                    <div><strong>Mother's Name:</strong> ${student.motherName}</div>
-                    <div><strong>Mobile Number:</strong> ${student.mobileNumber}</div>
-                    <div><strong>Photo:</strong><br><img src="${student.photo}" alt="Student Photo" style="width: 150px; height: auto; border-radius: 8px; margin-top: 10px;"></div>
-                `;
-            } else {
-                errorDiv.textContent = 'Student not found! Please check your mobile number.';
-                resultDiv.innerHTML = '';  // Clear any previous results
-            }
-        });
     </script>
 </body>
 </html>
