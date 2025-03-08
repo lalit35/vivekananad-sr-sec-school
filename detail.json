@@ -6,7 +6,7 @@
   "className": 11,
   "father Name": "Vinod kumar",
   "mother Name": "Sameshta sharma",
-  "mobile Number": 9416848776
+  "mobile": 9416848776
  },
  {
   "first Name": "amit",
@@ -16,7 +16,7 @@
   "className": 8,
   "father Name": "balwan sing",
   "mother Name": "Roshni",
-  "mobile Number": 9729808173
+  "mobile": 9729808173
  },
  {
   "first Name": "Rubby",
@@ -26,7 +26,7 @@
   "className": 11,
   "father Name": "Jagatpal",
   "mother Name": "Beant Kaur",
-  "mobile Number": 9053609170
+  "mobile": 9053609170
  },
  {
   "first Name": "Gourav",
@@ -36,7 +36,7 @@
   "className": 8,
   "father Name": "Roshan",
   "mother Name": "Sita",
-  "mobile Number": 7082840018
+  "mobile": 7082840018
  },
  {
   "first Name": "Dev",
@@ -46,7 +46,7 @@
   "className": 8,
   "father Name": "Vipin beniwal",
   "mother Name": "Kiran",
-  "mobile Number": 8708621915
+  "mobile": 8708621915
  },
  {
   "first Name": "Himanshu",
@@ -56,7 +56,7 @@
   "className": 6,
   "father Name": "Satish Kumar",
   "mother Name": "Anuradha",
-  "mobile Number": 8168764268
+  "mobile": 8168764268
  },
  {
   "first Name": "Payal",
@@ -66,7 +66,7 @@
   "className": 8,
   "father Name": "Sohan lal",
   "mother Name": "Sunita Devi",
-  "mobile Number": 9416490165
+  "mobile": 9416490165
  },
  {
   "first Name": "Pragati",
@@ -76,7 +76,7 @@
   "className": 8,
   "father Name": "Jaswant Singh",
   "mother Name": "Rekha Rani",
-  "mobile Number": 9812151611
+  "mobile": 9812151611
  },
  {
   "first Name": "Supriya",
@@ -86,7 +86,7 @@
   "className": 8,
   "father Name": "Mangeram",
   "mother Name": "Parvati devi",
-  "mobile Number": 9728134482
+  "mobile": 9728134482
  },
  {
   "first Name": "Vinit",
@@ -96,7 +96,7 @@
   "className": 8,
   "father Name": "Bijender singh",
   "mother Name": "Suman devi",
-  "mobile Number": 9466618558
+  "mobile": 9466618558
  },
  {
   "first Name": "Hawa",
@@ -106,7 +106,7 @@
   "className": 8,
   "father Name": "Sajjan Kumar",
   "mother Name": "Kiran devi",
-  "mobile Number": 7355847043
+  "mobile": 7355847043
  },
  {
   "first Name": "Yogesh",
@@ -116,7 +116,7 @@
   "className": 8,
   "father Name": "Vinod Kumar",
   "mother Name": "Manju Devi",
-  "mobile Number": 9467101530
+  "mobile": 9467101530
  },
  {
   "first Name": "Dev",
@@ -126,7 +126,7 @@
   "className": 8,
   "father Name": "Vipin Beniwal",
   "mother Name": "Kiran devi",
-  "mobile Number": 8708621915
+  "mobile": 8708621915
  },
  {
   "first Name": "Himanshu",
@@ -136,7 +136,7 @@
   "className": 6,
   "father Name": "Mohan lal",
   "mother Name": "Poonam Devi",
-  "mobile Number": 7082810369
+  "mobile": 7082810369
  },
  {
   "first Name": "Arti",
@@ -146,7 +146,7 @@
   "className": 6,
   "father Name": "Krishna Kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 9992355094
+  "mobile": 9992355094
  },
  {
   "first Name": "Devika",
@@ -156,7 +156,7 @@
   "className": 9,
   "father Name": "Rohtash kumar",
   "mother Name": "Geeta Devi",
-  "mobile Number": 9518117705
+  "mobile": 9518117705
  },
  {
   "first Name": "Manisa",
@@ -166,7 +166,7 @@
   "className": 7,
   "father Name": "Balwan singh",
   "mother Name": "Roshni devi",
-  "mobile Number": 9034308173
+  "mobile": 9034308173
  },
  {
   "first Name": "Tammna",
@@ -176,7 +176,7 @@
   "className": 7,
   "father Name": "Sonu Kumar",
   "mother Name": "Sunita Devi",
-  "mobile Number": 9416490165
+  "mobile": 9416490165
  },
  {
   "first Name": "Jatin",
@@ -186,7 +186,7 @@
   "className": 7,
   "father Name": "Satish Kumar",
   "mother Name": "Saroj Devi",
-  "mobile Number": 9467692643
+  "mobile": 9467692643
  },
  {
   "first Name": "Parsun",
@@ -196,7 +196,7 @@
   "className": 7,
   "father Name": "Narender Singh",
   "mother Name": "Sharda Devi",
-  "mobile Number": 9991012458
+  "mobile": 9991012458
  },
  {
   "first Name": "Sourabh",
@@ -206,7 +206,7 @@
   "className": 7,
   "father Name": "Jaswant Singh",
   "mother Name": "Rekha devi",
-  "mobile Number": 9812151611
+  "mobile": 9812151611
  },
  {
   "first Name": "Prachi",
@@ -216,7 +216,7 @@
   "className": 9,
   "father Name": "Vinod Kumar",
   "mother Name": "Sunita Devi",
-  "mobile Number": 8684855012
+  "mobile": 8684855012
  },
  {
   "first Name": "Martha",
@@ -226,7 +226,7 @@
   "className": 10,
   "father Name": "Sajjan Kumar",
   "mother Name": "Kiran devi",
-  "mobile Number": 7355847043
+  "mobile": 7355847043
  },
  {
   "first Name": "Anjali",
@@ -236,7 +236,7 @@
   "className": 9,
   "father Name": "Rajkumar",
   "mother Name": "Krishna Devi",
-  "mobile Number": 7082729799
+  "mobile": 7082729799
  },
  {
   "first Name": "Priti",
@@ -246,7 +246,7 @@
   "className": 10,
   "father Name": "Rakesh Sharma",
   "mother Name": "Santosh devi",
-  "mobile Number": 9992332944
+  "mobile": 9992332944
  },
  {
   "first Name": "Yogita",
@@ -256,7 +256,7 @@
   "className": 9,
   "father Name": "Satish",
   "mother Name": "Saroj",
-  "mobile Number": 9467692643
+  "mobile": 9467692643
  },
  {
   "first Name": "Karan",
@@ -266,7 +266,7 @@
   "className": 10,
   "father Name": "Jai singh",
   "mother Name": "Sunder Devi",
-  "mobile Number": 7206051512
+  "mobile": 7206051512
  },
  {
   "first Name": "Sachin",
@@ -276,7 +276,7 @@
   "className": 9,
   "father Name": "Ratan lal",
   "mother Name": "Pushpa devi",
-  "mobile Number": 9466161314
+  "mobile": 9466161314
  },
  {
   "first Name": "Joni",
@@ -286,7 +286,7 @@
   "className": 9,
   "father Name": "Ratan lal",
   "mother Name": "Pushpa devi",
-  "mobile Number": 9466161314
+  "mobile": 9466161314
  },
  {
   "first Name": "Manak",
@@ -295,7 +295,7 @@
   "AGE": 11,
   "className": 5,
   "mother Name": "Suman",
-  "mobile Number": 8901073871
+  "mobile": 8901073871
  },
  {
   "first Name": "Manish",
@@ -305,7 +305,7 @@
   "className": 11,
   "father Name": "Rajkumar",
   "mother Name": "Lakshmi Devi",
-  "mobile Number": 9306231728
+  "mobile": 9306231728
  },
  {
   "first Name": "Rohit",
@@ -315,7 +315,7 @@
   "className": 11,
   "father Name": "Bansilal",
   "mother Name": "Kaushlya",
-  "mobile Number": 9996529760
+  "mobile": 9996529760
  },
  {
   "first Name": "Priya",
@@ -325,7 +325,7 @@
   "className": 7,
   "father Name": "Sohan lal",
   "mother Name": "Geeta Devi",
-  "mobile Number": 9416354223
+  "mobile": 9416354223
  },
  {
   "first Name": "Shiv",
@@ -335,7 +335,7 @@
   "className": 6,
   "father Name": "Iswar singh",
   "mother Name": "Maine devi",
-  "mobile Number": 9996567905
+  "mobile": 9996567905
  },
  {
   "first Name": "Tamanna",
@@ -345,7 +345,7 @@
   "className": 6,
   "father Name": "Indraj",
   "mother Name": "Maya Devi",
-  "mobile Number": 8950745556
+  "mobile": 8950745556
  },
  {
   "first Name": "Laxmi",
@@ -355,7 +355,7 @@
   "className": 5,
   "father Name": "Dharamveer bana",
   "mother Name": "Suman",
-  "mobile Number": 9992393191
+  "mobile": 9992393191
  },
  {
   "first Name": "Pallavi",
@@ -365,7 +365,7 @@
   "className": 8,
   "father Name": "Rohtash kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 9024304413
+  "mobile": 9024304413
  },
  {
   "first Name": "Harshal",
@@ -375,7 +375,7 @@
   "className": 5,
   "father Name": "Omprakash",
   "mother Name": "Promila",
-  "mobile Number": 8059773001
+  "mobile": 8059773001
  },
  {
   "first Name": "Tamanna",
@@ -385,7 +385,7 @@
   "className": 5,
   "father Name": "Ratanlal",
   "mother Name": "Manju Devi",
-  "mobile Number": 9588172313
+  "mobile": 9588172313
  },
  {
   "first Name": "CHETNA",
@@ -395,7 +395,7 @@
   "className": 6,
   "father Name": "LAKHAN SINGH",
   "mother Name": "SUMAN",
-  "mobile Number": 9728995001
+  "mobile": 9728995001
  },
  {
   "first Name": "GAGAN",
@@ -405,7 +405,7 @@
   "className": 6,
   "father Name": "LAKHAN SINGH",
   "mother Name": "SUMAN",
-  "mobile Number": 9728995001
+  "mobile": 9728995001
  },
  {
   "first Name": "Manish",
@@ -415,7 +415,7 @@
   "className": 11,
   "father Name": "Mr. Surender kumar",
   "mother Name": "Mrs. Nirmala",
-  "mobile Number": 8168068757
+  "mobile": 8168068757
  },
  {
   "first Name": "Dhruv",
@@ -425,7 +425,7 @@
   "className": 11,
   "father Name": "Mr. Rajkumar",
   "mother Name": "Mrs. Krishna devi",
-  "mobile Number": 7082729799
+  "mobile": 7082729799
  },
  {
   "first Name": "Deepak",
@@ -435,7 +435,7 @@
   "className": 11,
   "father Name": "Prem Kumar",
   "mother Name": "Kamlish",
-  "mobile Number": 9671770581
+  "mobile": 9671770581
  },
  {
   "first Name": "Parhalad",
@@ -445,7 +445,7 @@
   "className": 9,
   "father Name": "Ishwar",
   "mother Name": "Silochna",
-  "mobile Number": 8569852008
+  "mobile": 8569852008
  },
  {
   "first Name": "Kulbir",
@@ -455,7 +455,7 @@
   "className": 10,
   "father Name": "Dharamveer",
   "mother Name": "Kiran devi",
-  "mobile Number": 8607414307
+  "mobile": 8607414307
  },
  {
   "first Name": "Sachin",
@@ -465,7 +465,7 @@
   "className": 7,
   "father Name": "Dharmpal",
   "mother Name": "Birma devi",
-  "mobile Number": 9518218492
+  "mobile": 9518218492
  },
  {
   "first Name": "Bhawana",
@@ -475,7 +475,7 @@
   "className": 10,
   "father Name": "Dharmpal",
   "mother Name": "Birma devi",
-  "mobile Number": 9518218492
+  "mobile": 9518218492
  },
  {
   "first Name": "Narender",
@@ -485,7 +485,7 @@
   "className": 11,
   "father Name": "Krishan kumar",
   "mother Name": "Sunita devi",
-  "mobile Number": 9518218492
+  "mobile": 9518218492
  },
  {
   "first Name": "Raman",
@@ -495,7 +495,7 @@
   "className": 5,
   "father Name": "Mr. Rajesh",
   "mother Name": "Mrs. Sunita",
-  "mobile Number": 8053552207
+  "mobile": 8053552207
  },
  {
   "first Name": "Prince",
@@ -505,7 +505,7 @@
   "className": 6,
   "father Name": "ShivRaj",
   "mother Name": "Sona",
-  "mobile Number": 9991813664
+  "mobile": 9991813664
  },
  {
   "first Name": "Sahil",
@@ -515,7 +515,7 @@
   "className": 10,
   "father Name": "Amar Singh",
   "mother Name": "Santosh",
-  "mobile Number": 9518647877
+  "mobile": 9518647877
  },
  {
   "first Name": "Reena",
@@ -525,7 +525,7 @@
   "className": 11,
   "father Name": "Krishan",
   "mother Name": "Suman lata",
-  "mobile Number": 9050088324
+  "mobile": 9050088324
  },
  {
   "first Name": "Kanchan",
@@ -535,7 +535,7 @@
   "className": 8,
   "father Name": "Nihal Singh",
   "mother Name": "Suman devi",
-  "mobile Number": 9466457134
+  "mobile": 9466457134
  },
  {
   "first Name": "Navdeep",
@@ -545,7 +545,7 @@
   "className": 9,
   "father Name": "Kuldeep",
   "mother Name": "Sunita Devi",
-  "mobile Number": 9671552203
+  "mobile": 9671552203
  },
  {
   "first Name": "Gourav",
@@ -555,7 +555,7 @@
   "className": 9,
   "father Name": "Vinod Kumar",
   "mother Name": "Sumitra",
-  "mobile Number": 9467750506
+  "mobile": 9467750506
  },
  {
   "first Name": "Chirag",
@@ -565,7 +565,7 @@
   "className": 8,
   "father Name": "Vinod Kumar",
   "mother Name": "Sumitra",
-  "mobile Number": 9467750506
+  "mobile": 9467750506
  },
  {
   "first Name": "Vikram",
@@ -575,7 +575,7 @@
   "className": 8,
   "father Name": "Sonu",
   "mother Name": "Savitri",
-  "mobile Number": 9416490165
+  "mobile": 9416490165
  },
  {
   "first Name": "Kiran",
@@ -585,7 +585,7 @@
   "className": 10,
   "father Name": "Ransinghbana",
   "mother Name": "Saroj",
-  "mobile Number": 8168608103
+  "mobile": 8168608103
  },
  {
   "first Name": "Yogita",
@@ -595,7 +595,7 @@
   "className": 9,
   "father Name": "Ransinghbana",
   "mother Name": "Saroj",
-  "mobile Number": 8168608103
+  "mobile": 8168608103
  },
  {
   "first Name": "Pratibha",
@@ -605,7 +605,7 @@
   "className": 6,
   "father Name": "Ramesh",
   "mother Name": "Poonam",
-  "mobile Number": 9350149387
+  "mobile": 9350149387
  },
  {
   "first Name": "Mukesh",
@@ -615,7 +615,7 @@
   "className": 8,
   "father Name": "Jugti Ram",
   "mother Name": "Indu Bala",
-  "mobile Number": 8816830111
+  "mobile": 8816830111
  },
  {
   "first Name": "Rohit",
@@ -625,7 +625,7 @@
   "className": 5,
   "father Name": "Mahaveer",
   "mother Name": "Roopkala",
-  "mobile Number": 7015755009
+  "mobile": 7015755009
  },
  {
   "first Name": "Raman",
@@ -635,7 +635,7 @@
   "className": 5,
   "father Name": "Saroj Devi",
   "mother Name": "Dharmpal",
-  "mobile Number": 9416777525
+  "mobile": 9416777525
  },
  {
   "first Name": "Shiya",
@@ -645,7 +645,7 @@
   "className": 6,
   "father Name": "Sunil Kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 8901064908
+  "mobile": 8901064908
  },
  {
   "first Name": "Parmod",
@@ -655,7 +655,7 @@
   "className": 5,
   "father Name": "Sunil Kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 8901064908
+  "mobile": 8901064908
  },
  {
   "first Name": "Sachin",
@@ -665,7 +665,7 @@
   "className": 8,
   "father Name": "Rajesh",
   "mother Name": "Sunita",
-  "mobile Number": 9467489682
+  "mobile": 9467489682
  },
  {
   "first Name": "Baljeet",
@@ -675,7 +675,7 @@
   "className": 8,
   "father Name": "Mahender",
   "mother Name": "Laxmi",
-  "mobile Number": 9306313320
+  "mobile": 9306313320
  },
  {
   "first Name": "Abhishek",
@@ -685,7 +685,7 @@
   "className": 10,
   "father Name": "Devender Kumar",
   "mother Name": "Suman",
-  "mobile Number": 9996581265
+  "mobile": 9996581265
  },
  {
   "first Name": "Navya",
@@ -695,7 +695,7 @@
   "className": 10,
   "father Name": "Dinesh Garg",
   "mother Name": "Pooja Garg",
-  "mobile Number": 8684946900
+  "mobile": 8684946900
  },
  {
   "first Name": "Jatin",
@@ -705,7 +705,7 @@
   "className": 8,
   "father Name": "Mr. Satpal Sai",
   "mother Name": "Mrs. Suman Sai",
-  "mobile Number": 9996225137
+  "mobile": 9996225137
  },
  {
   "first Name": "Pranjal",
@@ -714,7 +714,7 @@
   "className": 6,
   "father Name": "Sunil godara",
   "mother Name": "Kavita",
-  "mobile Number": 9991668629
+  "mobile": 9991668629
  },
  {
   "first Name": "Harsh",
@@ -724,7 +724,7 @@
   "className": 9,
   "father Name": "Rajender",
   "mother Name": "Darshana",
-  "mobile Number": 9467844869
+  "mobile": 9467844869
  },
  {
   "first Name": "Yograj",
@@ -734,7 +734,7 @@
   "className": 9,
   "father Name": "Roshan lal",
   "mother Name": "Sita",
-  "mobile Number": 7082840018
+  "mobile": 7082840018
  },
  {
   "first Name": "Yuvraj",
@@ -744,7 +744,7 @@
   "className": 9,
   "father Name": "Vinod Kumar",
   "mother Name": "Sunita",
-  "mobile Number": 9728070177
+  "mobile": 9728070177
  },
  {
   "first Name": "Mandeep",
@@ -754,7 +754,7 @@
   "className": 8,
   "father Name": "Navdeep",
   "mother Name": "Sunita",
-  "mobile Number": 9671552203
+  "mobile": 9671552203
  },
  {
   "first Name": "Rohit",
@@ -764,7 +764,7 @@
   "className": 7,
   "father Name": "Sandeep Kumar",
   "mother Name": "Rittu Rani",
-  "mobile Number": 9992131020
+  "mobile": 9992131020
  },
  {
   "first Name": "Lakshya",
@@ -774,7 +774,7 @@
   "className": 5,
   "father Name": "Vikram singh",
   "mother Name": "Manju",
-  "mobile Number": 8059915166
+  "mobile": 8059915166
  },
  {
   "first Name": "Yashwin",
@@ -784,7 +784,7 @@
   "className": 6,
   "father Name": "Rajesh Kumar",
   "mother Name": "Lalita",
-  "mobile Number": 9812180609
+  "mobile": 9812180609
  },
  {
   "first Name": "Riya",
@@ -794,7 +794,7 @@
   "className": 6,
   "father Name": "Rajesh",
   "mother Name": "Sunita",
-  "mobile Number": 8053552207
+  "mobile": 8053552207
  },
  {
   "first Name": "Manish",
@@ -804,7 +804,7 @@
   "className": 5,
   "father Name": "Sohan lal",
   "mother Name": "Geeta",
-  "mobile Number": 9416354223
+  "mobile": 9416354223
  },
  {
   "first Name": "Mukesh",
@@ -814,7 +814,7 @@
   "className": 10,
   "father Name": "Rajesh",
   "mother Name": "Kiran",
-  "mobile Number": 7404330729
+  "mobile": 7404330729
  },
  {
   "first Name": "Gunjan",
@@ -824,7 +824,7 @@
   "className": 7,
   "father Name": "Mahaveer Singh",
   "mother Name": "Anju",
-  "mobile Number": 9588394511
+  "mobile": 9588394511
  },
  {
   "first Name": "Aaditya",
@@ -833,7 +833,7 @@
   "className": 6,
   "father Name": "Vinod",
   "mother Name": "Devki",
-  "mobile Number": 9350034443
+  "mobile": 9350034443
  },
  {
   "first Name": "Diksha",
@@ -842,7 +842,7 @@
   "className": 6,
   "father Name": "Naresh kumar",
   "mother Name": "Surajmukhi",
-  "mobile Number": 9992115480
+  "mobile": 9992115480
  },
  {
   "first Name": "Aarzoo",
@@ -851,7 +851,7 @@
   "className": 7,
   "father Name": "Sanjay kumar",
   "mother Name": "Gulshan",
-  "mobile Number": 9588134190
+  "mobile": 9588134190
  },
  {
   "first Name": "Sameer",
@@ -860,7 +860,7 @@
   "className": 8,
   "father Name": "Sanjay kumar",
   "mother Name": "Gulshan",
-  "mobile Number": 9588134190
+  "mobile": 9588134190
  },
  {
   "first Name": "Rahish",
@@ -869,7 +869,7 @@
   "className": 8,
   "father Name": "Krishan kumar",
   "mother Name": "Roshan devi",
-  "mobile Number": 9520962445
+  "mobile": 9520962445
  },
  {
   "first Name": "Garima",
@@ -878,7 +878,7 @@
   "className": 6,
   "father Name": "Nemchander",
   "mother Name": "Mamta",
-  "mobile Number": 9416340425
+  "mobile": 9416340425
  },
  {
   "first Name": "Pushpa",
@@ -887,7 +887,7 @@
   "className": 6,
   "father Name": "Keshrichand",
   "mother Name": "Maya",
-  "mobile Number": 8053407456
+  "mobile": 8053407456
  },
  {
   "first Name": "Vandana",
@@ -896,7 +896,7 @@
   "className": 11,
   "father Name": "Keshrichand",
   "mother Name": "Maya",
-  "mobile Number": 8053407456
+  "mobile": 8053407456
  },
  {
   "first Name": "Aashish",
@@ -905,7 +905,7 @@
   "className": 6,
   "father Name": "Kuldeep kumar",
   "mother Name": "Suman rani",
-  "mobile Number": 9996636325
+  "mobile": 9996636325
  },
  {
   "first Name": "Manvi",
@@ -914,7 +914,7 @@
   "className": 6,
   "father Name": "Rajesh kumar",
   "mother Name": "Rekha rani",
-  "mobile Number": 9416600818
+  "mobile": 9416600818
  },
  {
   "first Name": "Saksht",
@@ -923,7 +923,7 @@
   "className": 9,
   "father Name": "Rajander",
   "mother Name": "Mangla",
-  "mobile Number": 9355312062
+  "mobile": 9355312062
  },
  {
   "first Name": "Anushka",
@@ -932,7 +932,7 @@
   "className": 9,
   "father Name": "Mange ram sharma",
   "mother Name": "Rekha",
-  "mobile Number": 9466265284
+  "mobile": 9466265284
  },
  {
   "first Name": "Parveen",
@@ -941,7 +941,7 @@
   "className": 11,
   "father Name": "Balwan",
   "mother Name": "Manju bala",
-  "mobile Number": 7988018289
+  "mobile": 7988018289
  },
  {
   "first Name": "Chankit",
@@ -950,7 +950,7 @@
   "className": 7,
   "father Name": "Rajender",
   "mother Name": "Kailash",
-  "mobile Number": 8901042071
+  "mobile": 8901042071
  },
  {
   "first Name": "Manshu",
@@ -959,7 +959,7 @@
   "className": 9,
   "father Name": "Rajender",
   "mother Name": "Kailash",
-  "mobile Number": 8901042071
+  "mobile": 8901042071
  },
  {
   "first Name": "Sonakshi",
@@ -968,7 +968,7 @@
   "className": 9,
   "father Name": "Rajender",
   "mother Name": "Renu",
-  "mobile Number": 9813457870
+  "mobile": 9813457870
  },
  {
   "first Name": "Sarika",
@@ -977,7 +977,7 @@
   "className": 5,
   "father Name": "Rajender",
   "mother Name": "Renu",
-  "mobile Number": 9813457870
+  "mobile": 9813457870
  },
  {
   "first Name": "Diksha",
@@ -986,7 +986,7 @@
   "className": 9,
   "father Name": "Rakesh kumar",
   "mother Name": "Kiran devi",
-  "mobile Number": 8570918954
+  "mobile": 8570918954
  },
  {
   "first Name": "Lakshya",
@@ -995,7 +995,7 @@
   "className": 6,
   "father Name": "Deshraj",
   "mother Name": "Saroj",
-  "mobile Number": 9812814252
+  "mobile": 9812814252
  },
  {
   "first Name": "Manvi",
@@ -1004,7 +1004,7 @@
   "className": 7,
   "father Name": "Sanjay",
   "mother Name": "Rajbala",
-  "mobile Number": 9416531628
+  "mobile": 9416531628
  },
  {
   "first Name": "Suhana",
@@ -1013,7 +1013,7 @@
   "className": 9,
   "father Name": "Rohtash",
   "mother Name": "Sudase",
-  "mobile Number": 8221848720
+  "mobile": 8221848720
  },
  {
   "first Name": "Vikram",
@@ -1022,7 +1022,7 @@
   "className": 8,
   "father Name": "Ram singh",
   "mother Name": "Santosh",
-  "mobile Number": 9053114559
+  "mobile": 9053114559
  },
  {
   "first Name": "Avinash",
@@ -1032,7 +1032,7 @@
   "className": 9,
   "father Name": "Rohtash dudi",
   "mother Name": "Suman",
-  "mobile Number": 8053407794
+  "mobile": 8053407794
  },
  {
   "first Name": "Parveen",
@@ -1042,7 +1042,7 @@
   "className": 7,
   "father Name": "Rajender singh",
   "mother Name": "Meenita",
-  "mobile Number": 8053551655
+  "mobile": 8053551655
  },
  {
   "first Name": "Gajnish",
@@ -1052,7 +1052,7 @@
   "className": 7,
   "father Name": "Krishan kumar",
   "mother Name": "Ratan kaur",
-  "mobile Number": 9053131549
+  "mobile": 9053131549
  },
  {
   "first Name": "Nikhil",
@@ -1061,7 +1061,7 @@
   "className": 5,
   "father Name": "Nam chander",
   "mother Name": "Mamta",
-  "mobile Number": 9416340425
+  "mobile": 9416340425
  },
  {
   "first Name": "Sahil",
@@ -1071,7 +1071,7 @@
   "className": 7,
   "father Name": "Rohtash dudi",
   "mother Name": "Suman",
-  "mobile Number": 8053407794
+  "mobile": 8053407794
  },
  {
   "first Name": "Harish",
@@ -1080,7 +1080,7 @@
   "className": 8,
   "father Name": "Pradeep Kumar",
   "mother Name": "Kanta",
-  "mobile Number": 9729619796
+  "mobile": 9729619796
  },
  {
   "first Name": "Arvind",
@@ -1089,7 +1089,7 @@
   "className": 5,
   "father Name": "Pradeep kumar",
   "mother Name": "Kanta",
-  "mobile Number": 9729619796
+  "mobile": 9729619796
  },
  {
   "first Name": "Himanshu",
@@ -1098,7 +1098,7 @@
   "className": 5,
   "father Name": "Narshi",
   "mother Name": "Darshana",
-  "mobile Number": 9729619796
+  "mobile": 9729619796
  },
  {
   "first Name": "Pariddhi",
@@ -1107,7 +1107,7 @@
   "className": 6,
   "father Name": "Ashok kumar",
   "mother Name": "Manju",
-  "mobile Number": 9468333134
+  "mobile": 9468333134
  },
  {
   "first Name": "Aarti",
@@ -1116,7 +1116,7 @@
   "className": 6,
   "father Name": "Ashok kumar",
   "mother Name": "Manju",
-  "mobile Number": 9468333134
+  "mobile": 9468333134
  },
  {
   "first Name": "Yashvardhan",
@@ -1125,7 +1125,7 @@
   "className": 5,
   "father Name": "Mange ram sharma",
   "mother Name": "Rekha sharma",
-  "mobile Number": 9466265284
+  "mobile": 9466265284
  },
  {
   "first Name": "Praveen",
@@ -1134,7 +1134,7 @@
   "className": 5,
   "father Name": "Rajander",
   "mother Name": "Mangla",
-  "mobile Number": 9355312062
+  "mobile": 9355312062
  },
  {
   "first Name": "Diksha",
@@ -1144,7 +1144,7 @@
   "className": 10,
   "father Name": "Mr.Rohtash Beniwal",
   "mother Name": "Mrs.Suman",
-  "mobile Number": 9813765112
+  "mobile": 9813765112
  },
  {
   "first Name": "Nikita",
@@ -1154,7 +1154,7 @@
   "className": 9,
   "father Name": "Mr. Rattan Singh",
   "mother Name": "Mrs. Neelam Rani",
-  "mobile Number": 9996617410
+  "mobile": 9996617410
  },
  {
   "first Name": "Aaina",
@@ -1164,7 +1164,7 @@
   "className": 7,
   "father Name": "Mr. Saleem",
   "mother Name": "Mrs. Madina",
-  "mobile Number": 7056218478
+  "mobile": 7056218478
  },
  {
   "first Name": "Devender",
@@ -1174,7 +1174,7 @@
   "className": 9,
   "father Name": "Kundan Lal soni",
   "mother Name": "Rajbala devi",
-  "mobile Number": 8295169431
+  "mobile": 8295169431
  },
  {
   "first Name": "Jyoti",
@@ -1183,7 +1183,7 @@
   "className": 9,
   "father Name": "Sushil kumar",
   "mother Name": "Roshni devi",
-  "mobile Number": 9729455405
+  "mobile": 9729455405
  },
  {
   "first Name": "Surender",
@@ -1192,7 +1192,7 @@
   "className": 11,
   "father Name": "Sushil",
   "mother Name": "Roshni devi",
-  "mobile Number": 9729455405
+  "mobile": 9729455405
  },
  {
   "first Name": "Sujata",
@@ -1201,7 +1201,7 @@
   "className": 9,
   "father Name": "Balvit singh",
   "mother Name": "Poonam kumari",
-  "mobile Number": 8059548749
+  "mobile": 8059548749
  },
  {
   "first Name": "Preeti limba",
@@ -1210,7 +1210,7 @@
   "className": 6,
   "father Name": "Mukesh",
   "mother Name": "Suman rani",
-  "mobile Number": 8607307210
+  "mobile": 8607307210
  },
  {
   "first Name": "Usha",
@@ -1219,7 +1219,7 @@
   "className": 5,
   "father Name": "Balwan",
   "mother Name": "Kavita",
-  "mobile Number": 8607307210
+  "mobile": 8607307210
  },
  {
   "first Name": "Priyanshu",
@@ -1228,7 +1228,7 @@
   "className": 8,
   "father Name": "Sandeep kumar",
   "mother Name": "Koushalya",
-  "mobile Number": 8683858105
+  "mobile": 8683858105
  },
  {
   "first Name": "Aashish",
@@ -1238,7 +1238,7 @@
   "className": 10,
   "father Name": "Pawan",
   "mother Name": "Sunder Devi",
-  "mobile Number": 9896143596
+  "mobile": 9896143596
  },
  {
   "first Name": "Anju",
@@ -1247,7 +1247,7 @@
   "className": 8,
   "father Name": "Sandeep",
   "mother Name": "Neelam",
-  "mobile Number": 9416531498
+  "mobile": 9416531498
  },
  {
   "first Name": "Neelam",
@@ -1256,7 +1256,7 @@
   "className": 8,
   "father Name": "Partan singh",
   "mother Name": "Suman devi",
-  "mobile Number": 9813167166
+  "mobile": 9813167166
  },
  {
   "first Name": "Garima",
@@ -1265,7 +1265,7 @@
   "className": 5,
   "father Name": "Parveen kumar",
   "mother Name": "Rajbala",
-  "mobile Number": 8059011178
+  "mobile": 8059011178
  },
  {
   "first Name": "Luxmi",
@@ -1274,7 +1274,7 @@
   "className": 11,
   "father Name": "Surrender kumar",
   "mother Name": "Savitri",
-  "mobile Number": 9812270677
+  "mobile": 9812270677
  },
  {
   "first Name": "Jeevika",
@@ -1283,7 +1283,7 @@
   "className": 6,
   "father Name": "Sandeep Kumar",
   "mother Name": "Shuseela",
-  "mobile Number": 9467533320
+  "mobile": 9467533320
  },
  {
   "first Name": "Arju",
@@ -1292,7 +1292,7 @@
   "className": 9,
   "father Name": "Subhash",
   "mother Name": "Suman",
-  "mobile Number": 9817007541
+  "mobile": 9817007541
  },
  {
   "first Name": "Gagan",
@@ -1301,7 +1301,7 @@
   "className": 7,
   "father Name": "Subhash",
   "mother Name": "Suman",
-  "mobile Number": 9817007541
+  "mobile": 9817007541
  },
  {
   "first Name": "Naman",
@@ -1310,7 +1310,7 @@
   "className": 5,
   "father Name": "Surender kumar",
   "mother Name": "Savitri",
-  "mobile Number": 9306085377
+  "mobile": 9306085377
  },
  {
   "first Name": "Sneha",
@@ -1319,7 +1319,7 @@
   "className": 11,
   "father Name": "Mukesh kumar",
   "mother Name": "Suman",
-  "mobile Number": 9812270677
+  "mobile": 9812270677
  },
  {
   "first Name": "Priyanka",
@@ -1328,7 +1328,7 @@
   "className": 8,
   "father Name": "Satpal",
   "mother Name": "Kalavati",
-  "mobile Number": 9992037135
+  "mobile": 9992037135
  },
  {
   "first Name": "Mahak",
@@ -1337,7 +1337,7 @@
   "className": 11,
   "father Name": "Rajender",
   "mother Name": "Babita",
-  "mobile Number": 9992513100
+  "mobile": 9992513100
  },
  {
   "first Name": "Devilal",
@@ -1346,7 +1346,7 @@
   "className": 11,
   "father Name": "Rajesh kumar",
   "mother Name": "Monica devi",
-  "mobile Number": 9416867508
+  "mobile": 9416867508
  },
  {
   "first Name": "Arju",
@@ -1355,7 +1355,7 @@
   "className": 7,
   "father Name": "Mohan lal",
   "mother Name": "Roshni",
-  "mobile Number": 9350642939
+  "mobile": 9350642939
  },
  {
   "first Name": "Piyush",
@@ -1364,7 +1364,7 @@
   "className": 7,
   "father Name": "Ramurti",
   "mother Name": "Sunita",
-  "mobile Number": 8221040019
+  "mobile": 8221040019
  },
  {
   "first Name": "Sameen",
@@ -1373,7 +1373,7 @@
   "className": 9,
   "father Name": "Salim",
   "mother Name": "Madina",
-  "mobile Number": 7056218478
+  "mobile": 7056218478
  },
  {
   "first Name": "Kabir",
@@ -1382,7 +1382,7 @@
   "className": 7,
   "father Name": "Sandeep",
   "mother Name": "Sunita",
-  "mobile Number": 9812242999
+  "mobile": 9812242999
  },
  {
   "first Name": "Mamta",
@@ -1391,7 +1391,7 @@
   "className": 9,
   "father Name": "Krishan",
   "mother Name": "Saroj",
-  "mobile Number": 9996767662
+  "mobile": 9996767662
  },
  {
   "first Name": "Asha",
@@ -1400,7 +1400,7 @@
   "className": 9,
   "father Name": "Sandeep",
   "mother Name": "Sunita",
-  "mobile Number": 9812242999
+  "mobile": 9812242999
  },
  {
   "first Name": "Bhupender",
@@ -1410,7 +1410,7 @@
   "className": 9,
   "father Name": "Shamsher",
   "mother Name": "Sunita Devi",
-  "mobile Number": 9467605741
+  "mobile": 9467605741
  },
  {
   "first Name": "Preeti",
@@ -1420,7 +1420,7 @@
   "className": 6,
   "father Name": "Shamsher",
   "mother Name": "Sunita Devi",
-  "mobile Number": 9467605741
+  "mobile": 9467605741
  },
  {
   "first Name": "Deepu",
@@ -1430,7 +1430,7 @@
   "className": 11,
   "father Name": "Ramesh",
   "mother Name": "Geeta",
-  "mobile Number": 9728166573
+  "mobile": 9728166573
  },
  {
   "first Name": "Deepika",
@@ -1440,7 +1440,7 @@
   "className": 8,
   "father Name": "Ramesh Kumar",
   "mother Name": "Geeta Devi",
-  "mobile Number": 9728166573
+  "mobile": 9728166573
  },
  {
   "first Name": "Deepanshu",
@@ -1450,7 +1450,7 @@
   "className": 6,
   "father Name": "Ramesh Kumar",
   "mother Name": "Geeta Devi",
-  "mobile Number": 9728166573
+  "mobile": 9728166573
  },
  {
   "first Name": "Vivek",
@@ -1460,7 +1460,7 @@
   "className": 7,
   "father Name": "Vikash kumar",
   "mother Name": "Rakha devi",
-  "mobile Number": 9729623354
+  "mobile": 9729623354
  },
  {
   "first Name": "Aaditya",
@@ -1470,7 +1470,7 @@
   "className": 7,
   "father Name": "Nirjanee",
   "mother Name": "Rakha devi",
-  "mobile Number": 9729623354
+  "mobile": 9729623354
  },
  {
   "first Name": "Karan",
@@ -1480,7 +1480,7 @@
   "className": 9,
   "father Name": "Rajender",
   "mother Name": "Kaushlya",
-  "mobile Number": 9992035898
+  "mobile": 9992035898
  },
  {
   "first Name": "Palak",
@@ -1490,7 +1490,7 @@
   "className": 6,
   "father Name": "Anil Kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 9992370231
+  "mobile": 9992370231
  },
  {
   "first Name": "Jyoti",
@@ -1499,7 +1499,7 @@
   "className": 6,
   "father Name": "Sarvan",
   "mother Name": "Kalawati",
-  "mobile Number": 7082246846
+  "mobile": 7082246846
  },
  {
   "first Name": "Neelam",
@@ -1508,7 +1508,7 @@
   "className": 10,
   "father Name": "Suresh kumar",
   "mother Name": "Saroj",
-  "mobile Number": 9468145562
+  "mobile": 9468145562
  },
  {
   "first Name": "Narsi",
@@ -1517,7 +1517,7 @@
   "className": 11,
   "father Name": "Dalip singh",
   "mother Name": "Kalawati",
-  "mobile Number": 7082246846
+  "mobile": 7082246846
  },
  {
   "first Name": "Nidhi",
@@ -1526,7 +1526,7 @@
   "className": 7,
   "father Name": "Dalip singh",
   "mother Name": "Mamta",
-  "mobile Number": 9671853572
+  "mobile": 9671853572
  },
  {
   "first Name": "Rahul",
@@ -1536,7 +1536,7 @@
   "className": 9,
   "father Name": "Satpal",
   "mother Name": "Myna",
-  "mobile Number": 9017325400
+  "mobile": 9017325400
  },
  {
   "first Name": "aarti",
@@ -1545,7 +1545,7 @@
   "className": 6,
   "father Name": "mahander singh",
   "mother Name": "suman",
-  "mobile Number": 9350407737
+  "mobile": 9350407737
  },
  {
   "first Name": "Khushboo",
@@ -1555,7 +1555,7 @@
   "className": 7,
   "father Name": "Narender singh",
   "mother Name": "Sunita saharan",
-  "mobile Number": 8814035194
+  "mobile": 8814035194
  },
  {
   "first Name": "sumit",
@@ -1564,7 +1564,7 @@
   "className": 9,
   "father Name": "bijender",
   "mother Name": "manju",
-  "mobile Number": 8607578298
+  "mobile": 8607578298
  },
  {
   "first Name": "ajay",
@@ -1573,7 +1573,7 @@
   "className": 6,
   "father Name": "alha mehar",
   "mother Name": "kantun",
-  "mobile Number": 8397851899
+  "mobile": 8397851899
  },
  {
   "first Name": "madeena",
@@ -1582,7 +1582,7 @@
   "className": 10,
   "father Name": "alha mehar",
   "mother Name": "khatun",
-  "mobile Number": 8397851899
+  "mobile": 8397851899
  },
  {
   "first Name": "Payal",
@@ -1591,7 +1591,7 @@
   "className": 9,
   "father Name": "Mr rohtash",
   "mother Name": "Mrs Suman",
-  "mobile Number": 7988412578
+  "mobile": 7988412578
  },
  {
   "first Name": "ekta",
@@ -1600,7 +1600,7 @@
   "className": 8,
   "father Name": "sarjeet",
   "mother Name": "saroj kumarrri",
-  "mobile Number": 8059150487
+  "mobile": 8059150487
  },
  {
   "first Name": "Harsh",
@@ -1609,7 +1609,7 @@
   "className": 5,
   "father Name": "Mr Ajaypal",
   "mother Name": "Mrs suman",
-  "mobile Number": 9812247683
+  "mobile": 9812247683
  },
  {
   "first Name": "muskan",
@@ -1618,7 +1618,7 @@
   "className": 10,
   "father Name": "om parkash",
   "mother Name": "kavita",
-  "mobile Number": 9416445482
+  "mobile": 9416445482
  },
  {
   "first Name": "priti",
@@ -1627,7 +1627,7 @@
   "className": 7,
   "father Name": "rakesh",
   "mother Name": "suman lata",
-  "mobile Number": 8307893462
+  "mobile": 8307893462
  },
  {
   "first Name": "aaina",
@@ -1636,7 +1636,7 @@
   "className": 5,
   "father Name": "rakesh",
   "mother Name": "suman lata",
-  "mobile Number": 9307893462
+  "mobile": 9307893462
  },
  {
   "first Name": "Pratigya",
@@ -1645,7 +1645,7 @@
   "className": 9,
   "father Name": "Mr bhajanlal",
   "mother Name": "Mrs Monika",
-  "mobile Number": 8059455996
+  "mobile": 8059455996
  },
  {
   "first Name": "ravinder",
@@ -1654,7 +1654,7 @@
   "className": 11,
   "father Name": "rajnder",
   "mother Name": "phulawatti",
-  "mobile Number": 9992264162
+  "mobile": 9992264162
  },
  {
   "first Name": "aayasa",
@@ -1664,7 +1664,7 @@
   "className": 9,
   "father Name": "mahender khan",
   "mother Name": "sareena",
-  "mobile Number": 9802948785
+  "mobile": 9802948785
  },
  {
   "first Name": "Tanu",
@@ -1673,7 +1673,7 @@
   "className": 8,
   "father Name": "Mr fatehsingh",
   "mother Name": "Mrs Anita",
-  "mobile Number": 8295758277
+  "mobile": 8295758277
  },
  {
   "first Name": "rehan",
@@ -1682,7 +1682,7 @@
   "className": 5,
   "father Name": "anwar khan",
   "mother Name": "rajni",
-  "mobile Number": 8816805783
+  "mobile": 8816805783
  },
  {
   "first Name": "arman",
@@ -1692,7 +1692,7 @@
   "className": 9,
   "father Name": "anwar khan",
   "mother Name": "rajni",
-  "mobile Number": 8816805783
+  "mobile": 8816805783
  },
  {
   "first Name": "Mohit",
@@ -1701,7 +1701,7 @@
   "className": 10,
   "father Name": "Mr rohtash",
   "mother Name": "Mrs suman",
-  "mobile Number": 9813495370
+  "mobile": 9813495370
  },
  {
   "first Name": "yoven",
@@ -1710,7 +1710,7 @@
   "className": 7,
   "father Name": "mahaveer singh",
   "mother Name": "suman",
-  "mobile Number": 9381867903
+  "mobile": 9381867903
  },
  {
   "first Name": "nisha",
@@ -1719,7 +1719,7 @@
   "className": 11,
   "father Name": "alha mehar",
   "mother Name": "khatun",
-  "mobile Number": 8397851899
+  "mobile": 8397851899
  },
  {
   "first Name": "Gagan",
@@ -1729,7 +1729,7 @@
   "className": 7,
   "father Name": "Mr Bansilal",
   "mother Name": "Mrs Kavita devi",
-  "mobile Number": 9518847199
+  "mobile": 9518847199
  },
  {
   "first Name": "Ritu",
@@ -1738,7 +1738,7 @@
   "className": 11,
   "father Name": "Mr fateh singh",
   "mother Name": "Mrs Anita",
-  "mobile Number": 8295758277
+  "mobile": 8295758277
  },
  {
   "first Name": "Tamanna",
@@ -1747,7 +1747,7 @@
   "className": 10,
   "father Name": "Mr Vinod Kumar",
   "mother Name": "Mrs Mira",
-  "mobile Number": 7988412578
+  "mobile": 7988412578
  },
  {
   "first Name": "Mohit",
@@ -1756,7 +1756,7 @@
   "className": 9,
   "father Name": "Mr rohtash",
   "mother Name": "Mrs chameli",
-  "mobile Number": 9992862887
+  "mobile": 9992862887
  },
  {
   "first Name": "Chetna",
@@ -1765,7 +1765,7 @@
   "className": 5,
   "father Name": "Mr chhotu ram",
   "mother Name": "Mrs pinki",
-  "mobile Number": 9992687987
+  "mobile": 9992687987
  },
  {
   "first Name": "Cheshta",
@@ -1775,7 +1775,7 @@
   "className": 6,
   "father Name": "JOGINDER SINGH",
   "mother Name": "SUMAN",
-  "mobile Number": 8053374008
+  "mobile": 8053374008
  },
  {
   "first Name": "Sakshi",
@@ -1784,7 +1784,7 @@
   "className": 8,
   "father Name": "Mr chota ram",
   "mother Name": "Mrs pinki",
-  "mobile Number": 9992687987
+  "mobile": 9992687987
  },
  {
   "first Name": "Anil",
@@ -1793,7 +1793,7 @@
   "className": 6,
   "father Name": "Mr Sandeep",
   "mother Name": "Mrs salichhna",
-  "mobile Number": 9728078007
+  "mobile": 9728078007
  },
  {
   "first Name": "Anshu",
@@ -1802,7 +1802,7 @@
   "className": 9,
   "father Name": "Mr Narender",
   "mother Name": "Mrs sharmila",
-  "mobile Number": 9996766102
+  "mobile": 9996766102
  },
  {
   "first Name": "Lalita",
@@ -1811,7 +1811,7 @@
   "className": 6,
   "father Name": "Mr rajveer",
   "mother Name": "Mrs nimal",
-  "mobile Number": 9728012194
+  "mobile": 9728012194
  },
  {
   "first Name": "Rajnish",
@@ -1820,7 +1820,7 @@
   "className": 9,
   "father Name": "Bhajan lal",
   "mother Name": "Bhateri",
-  "mobile Number": 9518463454
+  "mobile": 9518463454
  },
  {
   "first Name": "Kartik",
@@ -1829,7 +1829,7 @@
   "className": 6,
   "father Name": "Kirsan",
   "mother Name": "Parser",
-  "mobile Number": 9991013099
+  "mobile": 9991013099
  },
  {
   "first Name": "Bhim",
@@ -1839,7 +1839,7 @@
   "className": 10,
   "father Name": "Kundan Lal soni",
   "mother Name": "Rajbala devi",
-  "mobile Number": 8295169431
+  "mobile": 8295169431
  },
  {
   "first Name": "Mayank",
@@ -1848,7 +1848,7 @@
   "className": 7,
   "father Name": "Mr Ramesh poonia",
   "mother Name": "Mrs Sharda devi",
-  "mobile Number": 9812516519
+  "mobile": 9812516519
  },
  {
   "first Name": "Reetika",
@@ -1858,7 +1858,7 @@
   "className": 5,
   "father Name": "Mr nandram khaleri",
   "mother Name": "Mrs roshani devi",
-  "mobile Number": 9467158272
+  "mobile": 9467158272
  },
  {
   "first Name": "Harshita",
@@ -1867,7 +1867,7 @@
   "className": 8,
   "father Name": "Mr nandram khaleri",
   "mother Name": "Mrs Roshani devi",
-  "mobile Number": 9467158272
+  "mobile": 9467158272
  },
  {
   "first Name": "Deepak",
@@ -1876,7 +1876,7 @@
   "className": 6,
   "father Name": "Mr Krishan",
   "mother Name": "Mrs parser",
-  "mobile Number": 9991013099
+  "mobile": 9991013099
  },
  {
   "first Name": "Jaideep",
@@ -1885,7 +1885,7 @@
   "className": 5,
   "father Name": "Mr Sandeep Kumar",
   "mother Name": "Mrs Sushila",
-  "mobile Number": 9467533320
+  "mobile": 9467533320
  },
  {
   "first Name": "Arman",
@@ -1894,7 +1894,7 @@
   "className": 10,
   "father Name": "Shokin",
   "mother Name": "Rahmtibano",
-  "mobile Number": 9466638524
+  "mobile": 9466638524
  },
  {
   "first Name": "Jaya",
@@ -1903,7 +1903,7 @@
   "className": 10,
   "father Name": "Mr Mukesh Kumar",
   "mother Name": "Mrs Suman",
-  "mobile Number": 9812443934
+  "mobile": 9812443934
  },
  {
   "first Name": "Dhruv",
@@ -1912,7 +1912,7 @@
   "className": 8,
   "father Name": "Mr banshilal",
   "mother Name": "Mrs meena",
-  "mobile Number": 9813700506
+  "mobile": 9813700506
  },
  {
   "first Name": "Harsh",
@@ -1921,7 +1921,7 @@
   "className": 10,
   "father Name": "Mr rajendra",
   "mother Name": "Mrs Babita",
-  "mobile Number": 9992513100
+  "mobile": 9992513100
  },
  {
   "first Name": "Veshvik",
@@ -1930,7 +1930,7 @@
   "className": 7,
   "father Name": "Mr Mangat ram",
   "mother Name": "Mrs bhagwanti",
-  "mobile Number": 8307835510
+  "mobile": 8307835510
  },
  {
   "first Name": "Komal",
@@ -1939,7 +1939,7 @@
   "className": 11,
   "father Name": "Balvir singh",
   "mother Name": "Punam kumari",
-  "mobile Number": 8059548749
+  "mobile": 8059548749
  },
  {
   "first Name": "Rohit",
@@ -1948,7 +1948,7 @@
   "className": 11,
   "father Name": "Mahender singh",
   "mother Name": "Veena",
-  "mobile Number": 9416140942
+  "mobile": 9416140942
  },
  {
   "first Name": "Divya",
@@ -1957,7 +1957,7 @@
   "className": 6,
   "father Name": "Ravinder kumar",
   "mother Name": "Ritu bala",
-  "mobile Number": 9992902004
+  "mobile": 9992902004
  },
  {
   "first Name": "Khusboo",
@@ -1966,7 +1966,7 @@
   "className": 10,
   "father Name": "Hosiyar singh",
   "mother Name": "Dhapa devi",
-  "mobile Number": 9728012693
+  "mobile": 9728012693
  },
  {
   "first Name": "Aarti",
@@ -1975,7 +1975,7 @@
   "className": 9,
   "father Name": "Rajender kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 8168838331
+  "mobile": 8168838331
  },
  {
   "first Name": "Mahak",
@@ -1984,7 +1984,7 @@
   "className": 10,
   "father Name": "Rajender kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 8168838331
+  "mobile": 8168838331
  },
  {
   "first Name": "Komal",
@@ -1994,7 +1994,7 @@
   "className": 9,
   "father Name": "Subhash chander",
   "mother Name": "Darshan devi",
-  "mobile Number": 9467038795
+  "mobile": 9467038795
  },
  {
   "first Name": "Aryan",
@@ -2003,7 +2003,7 @@
   "className": 8,
   "father Name": "Satish kumar",
   "mother Name": "Reman devi",
-  "mobile Number": 9992246554
+  "mobile": 9992246554
  },
  {
   "first Name": "Jyoti",
@@ -2012,7 +2012,7 @@
   "className": 11,
   "father Name": "Sube singh",
   "mother Name": "Murti devi",
-  "mobile Number": 9050511911
+  "mobile": 9050511911
  },
  {
   "first Name": "Poonam",
@@ -2021,7 +2021,7 @@
   "className": 10,
   "father Name": "Kuldeep",
   "mother Name": "Kamlesh rani",
-  "mobile Number": 8607870463
+  "mobile": 8607870463
  },
  {
   "first Name": "Monika",
@@ -2030,7 +2030,7 @@
   "className": 9,
   "father Name": "Hosiyar singh",
   "mother Name": "Dhapa devi",
-  "mobile Number": 9728012693
+  "mobile": 9728012693
  },
  {
   "first Name": "Poonam",
@@ -2039,7 +2039,7 @@
   "className": 6,
   "father Name": "Rajender chahar",
   "mother Name": "Ramdevi",
-  "mobile Number": 9729224892
+  "mobile": 9729224892
  },
  {
   "first Name": "Bhawna",
@@ -2048,7 +2048,7 @@
   "className": 6,
   "father Name": "Rajpal",
   "mother Name": "Darshna",
-  "mobile Number": 7357316616
+  "mobile": 7357316616
  },
  {
   "first Name": "Sharvan",
@@ -2058,7 +2058,7 @@
   "className": 11,
   "father Name": "Vinod kumar",
   "mother Name": "Sunita devi",
-  "mobile Number": 9466263611
+  "mobile": 9466263611
  },
  {
   "first Name": "Sachin",
@@ -2067,7 +2067,7 @@
   "className": 8,
   "father Name": "Satish kumar",
   "mother Name": "Reman devi",
-  "mobile Number": 9992246554
+  "mobile": 9992246554
  },
  {
   "first Name": "Mohit",
@@ -2076,7 +2076,7 @@
   "className": 11,
   "father Name": "Hawa singh",
   "mother Name": "Bimla devi",
-  "mobile Number": 9991599312
+  "mobile": 9991599312
  },
  {
   "first Name": "Ritika",
@@ -2085,7 +2085,7 @@
   "className": 8,
   "father Name": "Suresh kumar",
   "mother Name": "Rumal devi",
-  "mobile Number": 9812273405
+  "mobile": 9812273405
  },
  {
   "first Name": "Anjali",
@@ -2094,7 +2094,7 @@
   "className": 5,
   "father Name": "Suresh kumar",
   "mother Name": "Rumal devi",
-  "mobile Number": 9812273405
+  "mobile": 9812273405
  },
  {
   "first Name": "Bhumika",
@@ -2103,7 +2103,7 @@
   "className": 5,
   "father Name": "Chand mal",
   "mother Name": "Nirmala",
-  "mobile Number": 9772180555
+  "mobile": 9772180555
  },
  {
   "first Name": "Aadesh",
@@ -2112,7 +2112,7 @@
   "className": 8,
   "father Name": "Rajender kumar",
   "mother Name": "Sunita",
-  "mobile Number": 9416374894
+  "mobile": 9416374894
  },
  {
   "first Name": "Ankit",
@@ -2121,7 +2121,7 @@
   "className": 8,
   "father Name": "Suresh kumar",
   "mother Name": "Sarina",
-  "mobile Number": 9416531424
+  "mobile": 9416531424
  },
  {
   "first Name": "Anusiya",
@@ -2130,7 +2130,7 @@
   "className": 6,
   "father Name": "Vinod kumar",
   "mother Name": "Rajbala",
-  "mobile Number": 9468172729
+  "mobile": 9468172729
  },
  {
   "first Name": "Nisha",
@@ -2139,7 +2139,7 @@
   "className": 8,
   "father Name": "Vinod kumar",
   "mother Name": "Rajbala",
-  "mobile Number": 9468172729
+  "mobile": 9468172729
  },
  {
   "first Name": "Lokesh",
@@ -2148,7 +2148,7 @@
   "className": 6,
   "father Name": "Krishan kumar",
   "mother Name": "Radha devi",
-  "mobile Number": 8398014853
+  "mobile": 8398014853
  },
  {
   "first Name": "Shashank",
@@ -2157,7 +2157,7 @@
   "className": 5,
   "father Name": "Pawan kumar",
   "mother Name": "Kavita devi",
-  "mobile Number": 9728124845
+  "mobile": 9728124845
  },
  {
   "first Name": "Hemakshi",
@@ -2166,7 +2166,7 @@
   "className": 5,
   "father Name": "Pawan kumar",
   "mother Name": "Kavita devi",
-  "mobile Number": 9728124845
+  "mobile": 9728124845
  },
  {
   "first Name": "Antima",
@@ -2175,7 +2175,7 @@
   "className": 5,
   "father Name": "Baldev",
   "mother Name": "Sandeep kour",
-  "mobile Number": 9812154592
+  "mobile": 9812154592
  },
  {
   "first Name": "Kanika",
@@ -2184,7 +2184,7 @@
   "className": 5,
   "father Name": "Sunil sharma",
   "mother Name": "Kanchan sharma",
-  "mobile Number": 8059673790
+  "mobile": 8059673790
  },
  {
   "first Name": "Riya",
@@ -2193,7 +2193,7 @@
   "className": 5,
   "father Name": "Sumit",
   "mother Name": "Anu",
-  "mobile Number": 9804421021
+  "mobile": 9804421021
  },
  {
   "first Name": "Mannat",
@@ -2202,7 +2202,7 @@
   "className": 5,
   "father Name": "Anil sharma",
   "mother Name": "Seema sharma",
-  "mobile Number": 8708782294
+  "mobile": 8708782294
  },
  {
   "first Name": "Munishka",
@@ -2211,7 +2211,7 @@
   "className": 5,
   "father Name": "Bharat singh bhambhu",
   "mother Name": "Mitu",
-  "mobile Number": 9306051772
+  "mobile": 9306051772
  },
  {
   "first Name": "Vanshika",
@@ -2220,7 +2220,7 @@
   "className": 5,
   "father Name": "Vinay kumar",
   "mother Name": "Suman",
-  "mobile Number": 8901034401
+  "mobile": 8901034401
  },
  {
   "first Name": "Hitesh",
@@ -2229,7 +2229,7 @@
   "className": 8,
   "father Name": "Pawan kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 9991421450
+  "mobile": 9991421450
  },
  {
   "first Name": "Sandhaya",
@@ -2238,7 +2238,7 @@
   "className": 5,
   "father Name": "Pawan kumar",
   "mother Name": "Suman",
-  "mobile Number": 9991421450
+  "mobile": 9991421450
  },
  {
   "first Name": "Yashoda",
@@ -2247,7 +2247,7 @@
   "className": 5,
   "father Name": "Vijender",
   "mother Name": "Ramati",
-  "mobile Number": 9812612500
+  "mobile": 9812612500
  },
  {
   "first Name": "Bhavishya",
@@ -2256,7 +2256,7 @@
   "className": 8,
   "father Name": "Chhinder pal",
   "mother Name": "Sunita",
-  "mobile Number": 9812254273
+  "mobile": 9812254273
  },
  {
   "first Name": "Lalita",
@@ -2265,7 +2265,7 @@
   "className": 5,
   "father Name": "Rajesh kumar",
   "mother Name": "Usha devi",
-  "mobile Number": 9050237548
+  "mobile": 9050237548
  },
  {
   "first Name": "Janvi",
@@ -2274,7 +2274,7 @@
   "className": 5,
   "father Name": "Suresh kumar",
   "mother Name": "Kavita devi",
-  "mobile Number": 9991421450
+  "mobile": 9991421450
  },
  {
   "first Name": "Yash",
@@ -2284,7 +2284,7 @@
   "className": 6,
   "father Name": "Sandeep bhatti",
   "mother Name": "Sunita",
-  "mobile Number": 9729621459
+  "mobile": 9729621459
  },
  {
   "first Name": "Kartik",
@@ -2293,7 +2293,7 @@
   "className": 8,
   "father Name": "Rajveer saharan",
   "mother Name": "Sanju",
-  "mobile Number": 9466062155
+  "mobile": 9466062155
  },
  {
   "first Name": "Daksh",
@@ -2302,7 +2302,7 @@
   "className": 6,
   "father Name": "Satpal singh",
   "mother Name": "Chetna",
-  "mobile Number": 8529846572
+  "mobile": 8529846572
  },
  {
   "first Name": "Rishika",
@@ -2311,7 +2311,7 @@
   "className": 5,
   "father Name": "Satinder",
   "mother Name": "Priyanka",
-  "mobile Number": 7340491195
+  "mobile": 7340491195
  },
  {
   "first Name": "Chhavi",
@@ -2320,7 +2320,7 @@
   "className": 5,
   "father Name": "Vikash",
   "mother Name": "Aruna",
-  "mobile Number": 7742312848
+  "mobile": 7742312848
  },
  {
   "first Name": "Harsh",
@@ -2329,7 +2329,7 @@
   "className": 9,
   "father Name": "Anil kumar",
   "mother Name": "Mukesh",
-  "mobile Number": 7988800916
+  "mobile": 7988800916
  },
  {
   "first Name": "Happy",
@@ -2338,7 +2338,7 @@
   "className": 5,
   "father Name": "Ram singh",
   "mother Name": "Lalita",
-  "mobile Number": 8053649961
+  "mobile": 8053649961
  },
  {
   "first Name": "Reet",
@@ -2347,7 +2347,7 @@
   "className": 5,
   "father Name": "Sandeep kumar",
   "mother Name": "Saroj devi",
-  "mobile Number": 9416097375
+  "mobile": 9416097375
  },
  {
   "first Name": "Saras",
@@ -2356,7 +2356,7 @@
   "className": 5,
   "father Name": "Amit kumar",
   "mother Name": "Seema",
-  "mobile Number": 9306154102
+  "mobile": 9306154102
  },
  {
   "first Name": "Paras",
@@ -2366,7 +2366,7 @@
   "className": 10,
   "father Name": "Kuldeep",
   "mother Name": "Rachna devi",
-  "mobile Number": 7357434720
+  "mobile": 7357434720
  },
  {
   "first Name": "Navdeep",
@@ -2376,7 +2376,7 @@
   "className": 7,
   "father Name": "Om Parkash",
   "mother Name": "Kavita",
-  "mobile Number": 9466919118
+  "mobile": 9466919118
  },
  {
   "first Name": "Rambhateri",
@@ -2385,7 +2385,7 @@
   "className": 9,
   "father Name": "Jagdish kumar",
   "mother Name": "Rajbala",
-  "mobile Number": 9466208923
+  "mobile": 9466208923
  },
  {
   "first Name": "Renu",
@@ -2394,7 +2394,7 @@
   "className": 10,
   "father Name": "Jagdish",
   "mother Name": "Rajbala",
-  "mobile Number": 9466208923
+  "mobile": 9466208923
  },
  {
   "first Name": "Suhani",
@@ -2403,7 +2403,7 @@
   "className": 9,
   "father Name": "Sunder singh",
   "mother Name": "Kavita",
-  "mobile Number": 9812173643
+  "mobile": 9812173643
  },
  {
   "first Name": "Aarti",
@@ -2412,7 +2412,7 @@
   "className": 8,
   "father Name": "Ram chander",
   "mother Name": "Sumesta",
-  "mobile Number": 9812486323
+  "mobile": 9812486323
  },
  {
   "first Name": "Divya",
@@ -2421,7 +2421,7 @@
   "className": 11,
   "father Name": "Kripal singh",
   "mother Name": "Vedika",
-  "mobile Number": 8295770757
+  "mobile": 8295770757
  },
  {
   "first Name": "Ishu",
@@ -2430,7 +2430,7 @@
   "className": 9,
   "father Name": "Ramesh kumar",
   "mother Name": "Kalpana",
-  "mobile Number": 9466327400
+  "mobile": 9466327400
  },
  {
   "first Name": "Himanshu",
@@ -2439,7 +2439,7 @@
   "className": 6,
   "father Name": "Rakesh",
   "mother Name": "Sunita devi",
-  "mobile Number": 9466331365
+  "mobile": 9466331365
  },
  {
   "first Name": "Karandeep",
@@ -2448,7 +2448,7 @@
   "className": 9,
   "father Name": "Gajan lal",
   "mother Name": "Shilochana",
-  "mobile Number": 8930089489
+  "mobile": 8930089489
  },
  {
   "first Name": "Ashish",
@@ -2457,7 +2457,7 @@
   "className": 7,
   "father Name": "Mr rajesh kumar",
   "mother Name": "Mrs rachna",
-  "mobile Number": 9466014716
+  "mobile": 9466014716
  },
  {
   "first Name": "Muskan",
@@ -2466,7 +2466,7 @@
   "className": 8,
   "father Name": "Rajesh",
   "mother Name": "Susheela",
-  "mobile Number": 9466536283
+  "mobile": 9466536283
  },
  {
   "first Name": "Aryan",
@@ -2475,7 +2475,7 @@
   "className": 9,
   "father Name": "Balwan singh",
   "mother Name": "Reeta",
-  "mobile Number": 8059830033
+  "mobile": 8059830033
  },
  {
   "first Name": "Chirag",
@@ -2484,7 +2484,7 @@
   "className": 5,
   "father Name": "Balwan singh",
   "mother Name": "Reeta",
-  "mobile Number": 8059830033
+  "mobile": 8059830033
  },
  {
   "first Name": "Suraj",
@@ -2493,7 +2493,7 @@
   "className": 7,
   "father Name": "Rajveer",
   "mother Name": "Koshla",
-  "mobile Number": 9992355511
+  "mobile": 9992355511
  },
  {
   "first Name": "Aadity",
@@ -2502,7 +2502,7 @@
   "className": 6,
   "father Name": "Pawan kumar",
   "mother Name": "Chander kala",
-  "mobile Number": 9812484855
+  "mobile": 9812484855
  },
  {
   "first Name": "Gayatri",
@@ -2512,7 +2512,7 @@
   "className": 5,
   "father Name": "Mr rajbirsingh",
   "mother Name": "Mrs aarti rani",
-  "mobile Number": 9306514108
+  "mobile": 9306514108
  },
  {
   "first Name": "Pavnesh",
@@ -2522,7 +2522,7 @@
   "className": 6,
   "father Name": "Dalip Kumar",
   "mother Name": "Sunita Devi",
-  "mobile Number": 8607591800
+  "mobile": 8607591800
  },
  {
   "first Name": "Harshika",
@@ -2531,7 +2531,7 @@
   "className": 5,
   "father Name": "Paramjeet singh",
   "mother Name": "Sunita",
-  "mobile Number": 8684918876
+  "mobile": 8684918876
  },
  {
   "first Name": "Chandni",
@@ -2541,7 +2541,7 @@
   "className": 11,
   "father Name": "Vinod Kumar",
   "mother Name": "Manju Bala",
-  "mobile Number": 7082729799
+  "mobile": 7082729799
  },
  {
   "first Name": "Nitin",
@@ -2551,7 +2551,7 @@
   "className": 11,
   "father Name": "Suresh Kumar",
   "mother Name": "Kavita Devi",
-  "mobile Number": 9518080399
+  "mobile": 9518080399
  },
  {
   "first Name": "Bhavya",
@@ -2560,7 +2560,7 @@
   "className": 5,
   "father Name": "Mr sharvan Kumar",
   "mother Name": "Mrs Sunita Rani",
-  "mobile Number": 9306937722
+  "mobile": 9306937722
  },
  {
   "first Name": "Sagar",
@@ -2569,7 +2569,7 @@
   "className": 7,
   "father Name": "Mr sher singh",
   "mother Name": "Mrs krishna devi",
-  "mobile Number": 9729618865
+  "mobile": 9729618865
  },
  {
   "first Name": "Aman",
@@ -2578,7 +2578,7 @@
   "className": 9,
   "father Name": "Rajesh kumar",
   "mother Name": "Aswami devi",
-  "mobile Number": 9992217872
+  "mobile": 9992217872
  },
  {
   "first Name": "Lakshay",
@@ -2587,7 +2587,7 @@
   "className": 11,
   "father Name": "Pankaj",
   "mother Name": "Saroj",
-  "mobile Number": 8295798008
+  "mobile": 8295798008
  },
  {
   "first Name": "Rukhsana",
@@ -2597,7 +2597,7 @@
   "className": 10,
   "father Name": "Mr sube khan",
   "mother Name": "Mrs mafiya",
-  "mobile Number": 9416160233
+  "mobile": 9416160233
  },
  {
   "first Name": "Vanita",
@@ -2606,7 +2606,7 @@
   "className": 5,
   "father Name": "Ranveer",
   "mother Name": "Sarla devi",
-  "mobile Number": 9812790354
+  "mobile": 9812790354
  },
  {
   "first Name": "Jatin",
@@ -2615,7 +2615,7 @@
   "className": 10,
   "father Name": "Ranveer",
   "mother Name": "Sarla devi",
-  "mobile Number": 9812790354
+  "mobile": 9812790354
  },
  {
   "first Name": "Priyanka",
@@ -2624,7 +2624,7 @@
   "className": 8,
   "father Name": "Mr mahavir",
   "mother Name": "Mrs Rajbala",
-  "mobile Number": 9817300893
+  "mobile": 9817300893
  },
  {
   "first Name": "Pooja",
@@ -2633,7 +2633,7 @@
   "className": 10,
   "father Name": "Mr mahavir",
   "mother Name": "Mrs Rajbala",
-  "mobile Number": 9817300893
+  "mobile": 9817300893
  },
  {
   "first Name": "Jatin",
@@ -2642,7 +2642,7 @@
   "className": 5,
   "father Name": "Mr Surender Kumar",
   "mother Name": "Mrs sanesta",
-  "mobile Number": 9466472765
+  "mobile": 9466472765
  },
  {
   "first Name": "Navita",
@@ -2651,7 +2651,7 @@
   "className": 7,
   "father Name": "Mr Surender Kumar",
   "mother Name": "Mrs sanesta",
-  "mobile Number": 9466472765
+  "mobile": 9466472765
  },
  {
   "first Name": "Parveen",
@@ -2660,7 +2660,7 @@
   "className": 6,
   "father Name": "Anil Kumar",
   "mother Name": "Maya",
-  "mobile Number": 9729716334
+  "mobile": 9729716334
  },
  {
   "first Name": "Jyoti",
@@ -2669,7 +2669,7 @@
   "className": 10,
   "father Name": "Mr Surender Kumar",
   "mother Name": "Mrs sanesta",
-  "mobile Number": 9466472765
+  "mobile": 9466472765
  },
  {
   "first Name": "Sanjana",
@@ -2678,7 +2678,7 @@
   "className": 5,
   "father Name": "Mr sharwan Kumar",
   "mother Name": "Mrs saveeta",
-  "mobile Number": 9812794011
+  "mobile": 9812794011
  },
  {
   "first Name": "Suray",
@@ -2688,7 +2688,7 @@
   "className": 6,
   "father Name": "Rajbir singh",
   "mother Name": "Silochana",
-  "mobile Number": 9991271100
+  "mobile": 9991271100
  },
  {
   "first Name": "Chanchal",
@@ -2697,7 +2697,7 @@
   "className": 11,
   "father Name": "Dalbir",
   "mother Name": "Kavita devi",
-  "mobile Number": 9813047260
+  "mobile": 9813047260
  },
  {
   "first Name": "Kritika",
@@ -2706,7 +2706,7 @@
   "className": 7,
   "father Name": "Mukesh",
   "mother Name": "Pooja",
-  "mobile Number": 8570974908
+  "mobile": 8570974908
  },
  {
   "first Name": "Amrita",
@@ -2715,7 +2715,7 @@
   "className": 11,
   "father Name": "Mr sharwan Kumar",
   "mother Name": "Mrs saveeta",
-  "mobile Number": 9812794011
+  "mobile": 9812794011
  },
  {
   "first Name": "Simran",
@@ -2724,7 +2724,7 @@
   "className": 9,
   "father Name": "Mr rajender",
   "mother Name": "Mrs krishna devi",
-  "mobile Number": 9812962134
+  "mobile": 9812962134
  },
  {
   "first Name": "Anmol",
@@ -2734,7 +2734,7 @@
   "className": 8,
   "father Name": "Mr rajender",
   "mother Name": "Mrs krishna devi",
-  "mobile Number": 9812962134
+  "mobile": 9812962134
  },
  {
   "first Name": "Komal",
@@ -2743,7 +2743,7 @@
   "className": 8,
   "father Name": "Mr Amit",
   "mother Name": "Mrs saroj",
-  "mobile Number": 8059853633
+  "mobile": 8059853633
  },
  {
   "first Name": "Pooja",
@@ -2752,7 +2752,7 @@
   "className": 7,
   "father Name": "Mr Krishan",
   "mother Name": "Mrs guddi devi",
-  "mobile Number": 8571865688
+  "mobile": 8571865688
  },
  {
   "first Name": "Heena",
@@ -2761,7 +2761,7 @@
   "className": 8,
   "father Name": "Mr sher singh",
   "mother Name": "Mrs surekha",
-  "mobile Number": 8569819686
+  "mobile": 8569819686
  },
  {
   "first Name": "Kavita",
@@ -2770,7 +2770,7 @@
   "className": 11,
   "father Name": "Mr Partap Singh",
   "mother Name": "Mrs sharmila",
-  "mobile Number": 8901302515
+  "mobile": 8901302515
  },
  {
   "first Name": "Somvati",
@@ -2779,7 +2779,7 @@
   "className": 11,
   "father Name": "Mr Partap Singh",
   "mother Name": "Mrs sharmila",
-  "mobile Number": 8901302515
+  "mobile": 8901302515
  },
  {
   "first Name": "Pratigya",
@@ -2788,7 +2788,7 @@
   "className": 7,
   "father Name": "Mr shishpal",
   "mother Name": "Mrs Saroj",
-  "mobile Number": 9416757108
+  "mobile": 9416757108
  },
  {
   "first Name": "Pankaj",
@@ -2797,7 +2797,7 @@
   "className": 7,
   "father Name": "Mr sumer",
   "mother Name": "Mrs jay bahaduri",
-  "mobile Number": 8295705963
+  "mobile": 8295705963
  },
  {
   "first Name": "Priyanka",
@@ -2806,7 +2806,7 @@
   "className": 7,
   "father Name": "Mr sumer",
   "mother Name": "Mrs jay bahaduri",
-  "mobile Number": 8295705963
+  "mobile": 8295705963
  },
  {
   "first Name": "Krish",
@@ -2815,7 +2815,7 @@
   "className": 6,
   "father Name": "Mr vijender singh",
   "mother Name": "Mrs Sunita",
-  "mobile Number": 9350464370
+  "mobile": 9350464370
  },
  {
   "first Name": "Kaffi",
@@ -2824,7 +2824,7 @@
   "className": 9,
   "father Name": "Rajbir singh",
   "mother Name": "Silochana",
-  "mobile Number": 9991271100
+  "mobile": 9991271100
  },
  {
   "first Name": "Prachi",
@@ -2833,7 +2833,7 @@
   "className": 8,
   "father Name": "Rakesh",
   "mother Name": "Seema",
-  "mobile Number": 9563373333
+  "mobile": 9563373333
  },
  {
   "first Name": "Tushar",
@@ -2843,7 +2843,7 @@
   "className": 10,
   "father Name": "Vikram singh",
   "mother Name": "Santosh kanwar",
-  "mobile Number": 9468197120
+  "mobile": 9468197120
  },
  {
   "first Name": "Chanda",
@@ -2852,7 +2852,7 @@
   "className": 11,
   "father Name": "Mahvir",
   "mother Name": "Manju",
-  "mobile Number": 9992957947
+  "mobile": 9992957947
  },
  {
   "first Name": "Lakshita",
@@ -2861,7 +2861,7 @@
   "className": 6,
   "father Name": "Mr rajesh",
   "mother Name": "Mrs preeti",
-  "mobile Number": 9468197120
+  "mobile": 9468197120
  },
  {
   "first Name": "Naman",
@@ -2870,7 +2870,7 @@
   "className": 5,
   "father Name": "Naresh kumar",
   "mother Name": "Surksha",
-  "mobile Number": 8816868614
+  "mobile": 8816868614
  },
  {
   "first Name": "Nidhi",
@@ -2879,7 +2879,7 @@
   "className": 11,
   "father Name": "Om singh",
   "mother Name": "Sunita",
-  "mobile Number": 9416889717
+  "mobile": 9416889717
  },
  {
   "first Name": "Mohit",
@@ -2888,7 +2888,7 @@
   "className": 5,
   "father Name": "Mr mahavir singh",
   "mother Name": "Mrs manju rani",
-  "mobile Number": 9992957947
+  "mobile": 9992957947
  },
  {
   "first Name": "Aaditya",
@@ -2897,7 +2897,7 @@
   "className": 9,
   "father Name": "Mr Vakil Kumar",
   "mother Name": "Mrs Saroj Bala",
-  "mobile Number": 9466202043
+  "mobile": 9466202043
  },
  {
   "first Name": "Vandana",
@@ -2906,7 +2906,7 @@
   "className": 9,
   "father Name": "Mr Sanjay Kumar",
   "mother Name": "Mrs mamta rani",
-  "mobile Number": 9728424045
+  "mobile": 9728424045
  },
  {
   "first Name": "Sandeep",
@@ -2915,7 +2915,7 @@
   "className": 9,
   "father Name": "Mr santok singh",
   "mother Name": "Mrs mitlash kanwar",
-  "mobile Number": 9468197120
+  "mobile": 9468197120
  },
  {
   "first Name": "Chanch",
@@ -2925,7 +2925,7 @@
   "className": 10,
   "father Name": "Rishal singh",
   "mother Name": "Mamta devi",
-  "mobile Number": 9416941407
+  "mobile": 9416941407
  },
  {
   "first Name": "Manjeet",
@@ -2935,7 +2935,7 @@
   "className": 5,
   "father Name": "Rishal singh",
   "mother Name": "Mamta devi",
-  "mobile Number": 9416941407
+  "mobile": 9416941407
  },
  {
   "first Name": "Estsata",
@@ -2944,7 +2944,7 @@
   "className": 7,
   "father Name": "Satbir",
   "mother Name": "Ekta",
-  "mobile Number": 9466247545
+  "mobile": 9466247545
  },
  {
   "first Name": "Kashish",
@@ -2953,7 +2953,7 @@
   "className": 7,
   "father Name": "Kishor singh",
   "mother Name": "Suman devi",
-  "mobile Number": 9053655297
+  "mobile": 9053655297
  },
  {
   "first Name": "Pragi",
@@ -2962,7 +2962,7 @@
   "className": 8,
   "father Name": "Shubash",
   "mother Name": "Nisha devi",
-  "mobile Number": 9416445644
+  "mobile": 9416445644
  },
  {
   "first Name": "Adithya",
@@ -2972,7 +2972,7 @@
   "className": 5,
   "father Name": "Uttam singh",
   "mother Name": "Pooja devi",
-  "mobile Number": 9466777822
+  "mobile": 9466777822
  },
  {
   "first Name": "Gourav",
@@ -2981,7 +2981,7 @@
   "className": 9,
   "father Name": "Bhajan machra",
   "mother Name": "Suman",
-  "mobile Number": 9991121345
+  "mobile": 9991121345
  },
  {
   "first Name": "Subham",
@@ -2990,7 +2990,7 @@
   "className": 8,
   "father Name": "Bansi lal",
   "mother Name": "Neelam rani",
-  "mobile Number": 9812794638
+  "mobile": 9812794638
  },
  {
   "first Name": "Dev",
@@ -3000,7 +3000,7 @@
   "className": 9,
   "father Name": "Jitender Kumar",
   "mother Name": "Rachna devi",
-  "mobile Number": 9728282258
+  "mobile": 9728282258
  },
  {
   "first Name": "Amit",
@@ -3010,7 +3010,7 @@
   "className": 10,
   "father Name": "Pala ram",
   "mother Name": "Sunita",
-  "mobile Number": 9996244240
+  "mobile": 9996244240
  },
  {
   "first Name": "Rohit",
@@ -3020,7 +3020,7 @@
   "className": 6,
   "father Name": "Sunil",
   "mother Name": "Suman devi",
-  "mobile Number": 8059580494
+  "mobile": 8059580494
  },
  {
   "first Name": "Sneha",
@@ -3030,7 +3030,7 @@
   "className": 6,
   "father Name": "Mr. Vinod",
   "mother Name": "Mrs. Naveen rani",
-  "mobile Number": 9991922932
+  "mobile": 9991922932
  },
  {
   "first Name": "Aman",
@@ -3040,7 +3040,7 @@
   "className": 6,
   "father Name": "Mr. Kuldeep",
   "mother Name": "Mrs. Sunita",
-  "mobile Number": 9518654660
+  "mobile": 9518654660
  },
  {
   "first Name": "Somay",
@@ -3050,7 +3050,7 @@
   "className": 6,
   "father Name": "Shriram Sharma",
   "mother Name": "Rajbala",
-  "mobile Number": 9991349447
+  "mobile": 9991349447
  },
  {
   "first Name": "Himanshu",
@@ -3060,7 +3060,7 @@
   "className": 10,
   "father Name": "Mr Suresh Chandra",
   "mother Name": "Mrs siluchna",
-  "mobile Number": 7082438535
+  "mobile": 7082438535
  },
  {
   "first Name": "Nikhil",
@@ -3069,7 +3069,7 @@
   "className": 11,
   "father Name": "Mr inder singh",
   "mother Name": "Mrs Urmila",
-  "mobile Number": 9729630372
+  "mobile": 9729630372
  },
  {
   "first Name": "Harish",
@@ -3078,7 +3078,7 @@
   "className": 10,
   "father Name": "Kuldeep",
   "mother Name": "Sunita devi",
-  "mobile Number": 8684969307
+  "mobile": 8684969307
  },
  {
   "first Name": "Lalit",
@@ -3087,7 +3087,7 @@
   "className": 10,
   "father Name": "Mange ram",
   "mother Name": "Bimla devi",
-  "mobile Number": 9355552333
+  "mobile": 9355552333
  },
  {
   "first Name": "Manish",
@@ -3096,7 +3096,7 @@
   "className": 10,
   "father Name": "Surender",
   "mother Name": "Seeta",
-  "mobile Number": 9728181974
+  "mobile": 9728181974
  },
  {
   "first Name": "Kirana",
@@ -3105,7 +3105,7 @@
   "className": 5,
   "father Name": "Vinod",
   "mother Name": "Sarjo",
-  "mobile Number": 9812434619
+  "mobile": 9812434619
  },
  {
   "first Name": "Manisha",
@@ -3114,7 +3114,7 @@
   "className": 5,
   "father Name": "Bajiar",
   "mother Name": "Laksmi",
-  "mobile Number": 9034285760
+  "mobile": 9034285760
  },
  {
   "first Name": "Devender",
@@ -3123,7 +3123,7 @@
   "className": 10,
   "father Name": "Satveer",
   "mother Name": "Uasha",
-  "mobile Number": 9812155251
+  "mobile": 9812155251
  },
  {
   "first Name": "Minakshi",
@@ -3132,7 +3132,7 @@
   "className": 9,
   "father Name": "Satver",
   "mother Name": "Usha",
-  "mobile Number": 9812155251
+  "mobile": 9812155251
  },
  {
   "first Name": "Himanshu",
@@ -3141,7 +3141,7 @@
   "className": 5,
   "father Name": "Subhash chander",
   "mother Name": "Rekha",
-  "mobile Number": 8950044964
+  "mobile": 8950044964
  },
  {
   "first Name": "Abhinab",
@@ -3150,7 +3150,7 @@
   "className": 5,
   "father Name": "Subash",
   "mother Name": "Saroj bala",
-  "mobile Number": 9812611371
+  "mobile": 9812611371
  },
  {
   "first Name": "Yogesh",
@@ -3159,7 +3159,7 @@
   "className": 5,
   "father Name": "Mr karan singh",
   "mother Name": "Mrs Suman",
-  "mobile Number": 9728623811
+  "mobile": 9728623811
  },
  {
   "first Name": "Khusboo",
@@ -3168,7 +3168,7 @@
   "className": 8,
   "father Name": "Anil",
   "mother Name": "Deepika",
-  "mobile Number": 8142700000
+  "mobile": 8142700000
  },
  {
   "first Name": "Mahak",
@@ -3177,7 +3177,7 @@
   "className": 8,
   "father Name": "Subash",
   "mother Name": "Saroj bala",
-  "mobile Number": 9812611371
+  "mobile": 9812611371
  },
  {
   "first Name": "Gaurav",
@@ -3186,7 +3186,7 @@
   "className": 7,
   "father Name": "Krishan kumar",
   "mother Name": "Santosh",
-  "mobile Number": 8059791800
+  "mobile": 8059791800
  },
  {
   "first Name": "Ronak",
@@ -3195,7 +3195,7 @@
   "className": 7,
   "father Name": "Tej singh",
   "mother Name": "Sanju",
-  "mobile Number": 7082820971
+  "mobile": 7082820971
  },
  {
   "first Name": "Manjeet",
@@ -3204,7 +3204,7 @@
   "className": 5,
   "father Name": "Mr Rajesh Kumar",
   "mother Name": "Mrs pushpa",
-  "mobile Number": 9169207000
+  "mobile": 9169207000
  },
  {
   "first Name": "Nainshi",
@@ -3213,7 +3213,7 @@
   "className": 6,
   "father Name": "Balwan",
   "mother Name": "Kavita",
-  "mobile Number": 9466888892
+  "mobile": 9466888892
  },
  {
   "first Name": "Muskan",
@@ -3222,7 +3222,7 @@
   "className": 11,
   "father Name": "Ram gopal",
   "mother Name": "Poonam",
-  "mobile Number": 8059884322
+  "mobile": 8059884322
  },
  {
   "first Name": "Naresh",
@@ -3232,7 +3232,7 @@
   "className": 7,
   "father Name": "Vinod singh",
   "mother Name": "Sunita rani",
-  "mobile Number": 9813834927
+  "mobile": 9813834927
  },
  {
   "first Name": "Harsh",
@@ -3241,7 +3241,7 @@
   "className": 10,
   "father Name": "Ram gopal",
   "mother Name": "Poonam",
-  "mobile Number": 8059884322
+  "mobile": 8059884322
  },
  {
   "first Name": "Neha",
@@ -3250,7 +3250,7 @@
   "className": 10,
   "father Name": "Mr ashok",
   "mother Name": "Mrs parmila rani",
-  "mobile Number": 8930383183
+  "mobile": 8930383183
  },
  {
   "first Name": "Riya",
@@ -3259,7 +3259,7 @@
   "className": 5,
   "father Name": "Mr Rohtash",
   "mother Name": "Mrs jaimala",
-  "mobile Number": 7082786096
+  "mobile": 7082786096
  },
  {
   "first Name": "Sanju",
@@ -3268,7 +3268,7 @@
   "className": 11,
   "father Name": "Mr sunil kumar",
   "mother Name": "Mrs rachna",
-  "mobile Number": 7206183262
+  "mobile": 7206183262
  },
  {
   "first Name": "Pushpa",
@@ -3277,7 +3277,7 @@
   "className": 11,
   "father Name": "Mr ransingh",
   "mother Name": "Mrs bhateri",
-  "mobile Number": 7404571235
+  "mobile": 7404571235
  },
  {
   "first Name": "Anjali",
@@ -3286,7 +3286,7 @@
   "className": 5,
   "father Name": "Mr kuldeep",
   "mother Name": "Mrs Sunita",
-  "mobile Number": 9729780792
+  "mobile": 9729780792
  },
  {
   "first Name": "Dali",
@@ -3296,7 +3296,7 @@
   "className": 7,
   "father Name": "Mr Umesh Kumar",
   "mother Name": "Mrs poonam",
-  "mobile Number": 9812688473
+  "mobile": 9812688473
  },
  {
   "first Name": "Keshav",
@@ -3306,7 +3306,7 @@
   "className": 8,
   "father Name": "Mr rajesh solanki",
   "mother Name": "Mrs indu bala",
-  "mobile Number": 9416786281
+  "mobile": 9416786281
  },
  {
   "first Name": "Harshita",
@@ -3315,7 +3315,7 @@
   "className": 5,
   "father Name": "Mr Narender",
   "mother Name": "Mrs Sumitra kumari",
-  "mobile Number": 7988340139
+  "mobile": 7988340139
  },
  {
   "first Name": "Isha",
@@ -3324,7 +3324,7 @@
   "className": 5,
   "father Name": "Mr Krishan Kumar",
   "mother Name": "Mrs anju Bala",
-  "mobile Number": 9416007788
+  "mobile": 9416007788
  },
  {
   "first Name": "Jannat",
@@ -3334,7 +3334,7 @@
   "className": 5,
   "father Name": "Rajender singh",
   "mother Name": "Anita",
-  "mobile Number": 9992152492
+  "mobile": 9992152492
  },
  {
   "first Name": "Tamanna",
@@ -3343,7 +3343,7 @@
   "className": 11,
   "father Name": "Bhawani singh",
   "mother Name": "Payal",
-  "mobile Number": 8813894094
+  "mobile": 8813894094
  },
  {
   "first Name": "Himanshi",
@@ -3352,7 +3352,7 @@
   "className": 5,
   "father Name": "Narender",
   "mother Name": "Sumitra kumari",
-  "mobile Number": 7988340139
+  "mobile": 7988340139
  },
  {
   "first Name": "Kanika",
@@ -3362,7 +3362,7 @@
   "className": 10,
   "father Name": "Rohtash",
   "mother Name": "Suman rani",
-  "mobile Number": 9812983623
+  "mobile": 9812983623
  },
  {
   "first Name": "Ekta",
@@ -3371,7 +3371,7 @@
   "className": 9,
   "father Name": "Inder singh",
   "mother Name": "Urmila devi",
-  "mobile Number": 8708826764
+  "mobile": 8708826764
  },
  {
   "first Name": "Poonam",
@@ -3380,7 +3380,7 @@
   "className": 10,
   "father Name": "Rohtash",
   "mother Name": "Raj bala",
-  "mobile Number": 8059041762
+  "mobile": 8059041762
  },
  {
   "first Name": "Devesh",
@@ -3389,7 +3389,7 @@
   "className": 9,
   "father Name": "Sheetal kumar",
   "mother Name": "Manisha",
-  "mobile Number": 9350202300
+  "mobile": 9350202300
  },
  {
   "first Name": "Sakshi",
@@ -3398,7 +3398,7 @@
   "className": 8,
   "father Name": "Krishan chander",
   "mother Name": "Shanti devi",
-  "mobile Number": 7497890564
+  "mobile": 7497890564
  },
  {
   "first Name": "Nisha",
@@ -3407,7 +3407,7 @@
   "className": 5,
   "father Name": "Sanjay",
   "mother Name": "Saroj kumari",
-  "mobile Number": 8708182493
+  "mobile": 8708182493
  },
  {
   "first Name": "Sunny",
@@ -3416,7 +3416,7 @@
   "className": 6,
   "father Name": "Ram kumar",
   "mother Name": "Bhateri",
-  "mobile Number": 9812760281
+  "mobile": 9812760281
  },
  {
   "first Name": "Radhika",
@@ -3425,7 +3425,7 @@
   "className": 8,
   "father Name": "Vinod",
   "mother Name": "Rani devi",
-  "mobile Number": 9034038779
+  "mobile": 9034038779
  },
  {
   "first Name": "Veena",
@@ -3434,7 +3434,7 @@
   "className": 6,
   "father Name": "Vinod",
   "mother Name": "Rani devi",
-  "mobile Number": 9034038779
+  "mobile": 9034038779
  },
  {
   "first Name": "Tushar",
@@ -3443,7 +3443,7 @@
   "className": 5,
   "father Name": "Mange ram",
   "mother Name": "Bhateri",
-  "mobile Number": 9467858509
+  "mobile": 9467858509
  },
  {
   "first Name": "Bispati",
@@ -3452,7 +3452,7 @@
   "className": 11,
   "father Name": "Mange ram",
   "mother Name": "Bhateri",
-  "mobile Number": 9467858509
+  "mobile": 9467858509
  },
  {
   "first Name": "Kanta",
@@ -3462,7 +3462,7 @@
   "className": 8,
   "father Name": "Sanjay machra",
   "mother Name": "Sunita devi",
-  "mobile Number": 9992484981
+  "mobile": 9992484981
  },
  {
   "first Name": "KARTIK",
@@ -3472,7 +3472,7 @@
   "className": 5,
   "father Name": "SANDEEP KUMAR",
   "mother Name": "SURAJMUKHI",
-  "mobile Number": 8930965335
+  "mobile": 8930965335
  },
  {
   "first Name": "VIREN",
@@ -3482,7 +3482,7 @@
   "className": 5,
   "father Name": "CHANDERPAL",
   "mother Name": "MINAKSHI",
-  "mobile Number": 8901213196
+  "mobile": 8901213196
  },
  {
   "first Name": "DEEPANSHU",
@@ -3492,7 +3492,7 @@
   "className": 5,
   "father Name": "DEEPAK KUMAR",
   "mother Name": "SANTOSH",
-  "mobile Number": 8059768298
+  "mobile": 8059768298
  },
  {
   "first Name": "ASHWIN",
@@ -3502,7 +3502,7 @@
   "className": 5,
   "father Name": "KRISHAN",
   "mother Name": "SUDESH",
-  "mobile Number": 9813967843
+  "mobile": 9813967843
  },
  {
   "first Name": "UDESH",
@@ -3512,7 +3512,7 @@
   "className": 5,
   "father Name": "RAMPAL",
   "mother Name": "SUMAN",
-  "mobile Number": 8813004517
+  "mobile": 8813004517
  },
  {
   "first Name": "PARTEEK",
@@ -3522,7 +3522,7 @@
   "className": 5,
   "father Name": "SURESH CHANDER",
   "mother Name": "MANITA DEVI",
-  "mobile Number": 9813039353
+  "mobile": 9813039353
  },
  {
   "first Name": "SHIVAM",
@@ -3532,7 +3532,7 @@
   "className": 5,
   "father Name": "ISHWAR SINGH",
   "mother Name": "KAMLA DEVI",
-  "mobile Number": 9996431142
+  "mobile": 9996431142
  },
  {
   "first Name": "PINKI",
@@ -3542,7 +3542,7 @@
   "className": 5,
   "father Name": "RAJ KUMAR",
   "mother Name": "SEEMA",
-  "mobile Number": 9466472013
+  "mobile": 9466472013
  },
  {
   "first Name": "ANSHIKA",
@@ -3552,7 +3552,7 @@
   "className": 5,
   "father Name": "ASHOK",
   "mother Name": "KANTA DEVI",
-  "mobile Number": 8529505555
+  "mobile": 8529505555
  },
  {
   "first Name": "KARINA",
@@ -3562,7 +3562,7 @@
   "className": 5,
   "father Name": "VIJENDER",
   "mother Name": "YOGITA",
-  "mobile Number": 9728034719
+  "mobile": 9728034719
  },
  {
   "first Name": "DIVYA",
@@ -3572,7 +3572,7 @@
   "className": 5,
   "father Name": "ANIL KUMAR",
   "mother Name": "SUNITA",
-  "mobile Number": 8684805813
+  "mobile": 8684805813
  },
  {
   "first Name": "LALITA",
@@ -3582,7 +3582,7 @@
   "className": 5,
   "father Name": "ANIL KUMAR",
   "mother Name": "MINAKSHI",
-  "mobile Number": 9671901919
+  "mobile": 9671901919
  },
  {
   "first Name": "VANDANA",
@@ -3592,7 +3592,7 @@
   "className": 5,
   "father Name": "JILE SINGH",
   "mother Name": "RAMETI",
-  "mobile Number": 9813555620
+  "mobile": 9813555620
  },
  {
   "first Name": "PAYAL",
@@ -3602,7 +3602,7 @@
   "className": 5,
   "father Name": "MAHENDER SINGH",
   "mother Name": "ANITA",
-  "mobile Number": 9983102484
+  "mobile": 9983102484
  },
  {
   "first Name": "MINAKSHI",
@@ -3612,7 +3612,7 @@
   "className": 5,
   "father Name": "ATMA RAM",
   "mother Name": "PUSHPA DEVI",
-  "mobile Number": 9728294025
+  "mobile": 9728294025
  },
  {
   "first Name": "RAVINA",
@@ -3622,7 +3622,7 @@
   "className": 5,
   "father Name": "HANUMAN",
   "mother Name": "KAMLESH",
-  "mobile Number": 8059868700
+  "mobile": 8059868700
  },
  {
   "first Name": "NIKHIL",
@@ -3632,7 +3632,7 @@
   "className": 5,
   "father Name": "KULDEEP",
   "mother Name": "CHANDERKALA",
-  "mobile Number": 9350632372
+  "mobile": 9350632372
  },
  {
   "first Name": "HIMANSHU",
@@ -3642,7 +3642,7 @@
   "className": 5,
   "father Name": "SUNDER SINGH",
   "mother Name": "REETA",
-  "mobile Number": 8235770230
+  "mobile": 8235770230
  },
  {
   "first Name": "Hardik",
@@ -3651,7 +3651,7 @@
   "className": 5,
   "father Name": "Bhim singh",
   "mother Name": "Madhu bala",
-  "mobile Number": 9992792122
+  "mobile": 9992792122
  },
  {
   "first Name": "Monu",
@@ -3660,7 +3660,7 @@
   "className": 10,
   "father Name": "Chanderbhan",
   "mother Name": "Rajbala",
-  "mobile Number": 8221040019
+  "mobile": 8221040019
  },
  {
   "first Name": "Javed",
@@ -3669,7 +3669,7 @@
   "className": 5,
   "father Name": "Ramzan",
   "mother Name": "Neelam",
-  "mobile Number": 9991923093
+  "mobile": 9991923093
  },
  {
   "first Name": "Ritika",
@@ -3678,7 +3678,7 @@
   "className": 7,
   "father Name": "Subhash chander",
   "mother Name": "Kavita devi",
-  "mobile Number": 9991923093
+  "mobile": 9991923093
  },
  {
   "first Name": "Imran",
@@ -3687,7 +3687,7 @@
   "className": 5,
   "father Name": "Salim",
   "mother Name": "Suman",
-  "mobile Number": 9466811131
+  "mobile": 9466811131
  },
  {
   "first Name": "Diksha",
@@ -3696,7 +3696,7 @@
   "className": 10,
   "father Name": "Rohtash",
   "mother Name": "Suman devi",
-  "mobile Number": 9991923445
+  "mobile": 9991923445
  },
  {
   "first Name": "Amandeep",
@@ -3705,7 +3705,7 @@
   "className": 8,
   "father Name": "Bansi lal",
   "mother Name": "Kavita devi",
-  "mobile Number": 9518847199
+  "mobile": 9518847199
  },
  {
   "first Name": "Jaspreet",
@@ -3714,7 +3714,7 @@
   "className": 5,
   "father Name": "Khemchand",
   "mother Name": "Geeta",
-  "mobile Number": 9992688401
+  "mobile": 9992688401
  },
  {
   "first Name": "Neha",
@@ -3723,7 +3723,7 @@
   "className": 6,
   "father Name": "Rajesh kumar",
   "mother Name": "Samestha",
-  "mobile Number": 9992385899
+  "mobile": 9992385899
  },
  {
   "first Name": "Mayank",
@@ -3733,7 +3733,7 @@
   "className": 7,
   "father Name": "Harpal",
   "mother Name": "Birma",
-  "mobile Number": 9466536283
+  "mobile": 9466536283
  },
  {
   "first Name": "Sanjay",
@@ -3742,7 +3742,7 @@
   "className": 11,
   "father Name": "Rohtash",
   "mother Name": "Krishna",
-  "mobile Number": 9466536283
+  "mobile": 9466536283
  },
  {
   "first Name": "Lakshay",
@@ -3751,7 +3751,7 @@
   "className": 5,
   "father Name": "Rajesh kumar",
   "mother Name": "Dhani devi",
-  "mobile Number": 8059830032
+  "mobile": 8059830032
  },
  {
   "first Name": "Kritika",
@@ -3760,7 +3760,7 @@
   "className": 6,
   "father Name": "Vinod kumar",
   "mother Name": "Maya",
-  "mobile Number": 8059830032
+  "mobile": 8059830032
  },
  {
   "first Name": "Rubal",
@@ -3769,7 +3769,7 @@
   "className": 8,
   "father Name": "Surender kumar",
   "mother Name": "Kanta rani",
-  "mobile Number": 8708806714
+  "mobile": 8708806714
  },
  {
   "first Name": "Deepak",
@@ -3778,7 +3778,7 @@
   "className": 9,
   "father Name": "Surender kumar",
   "mother Name": "Kanta rani",
-  "mobile Number": 8708806714
+  "mobile": 8708806714
  },
  {
   "first Name": "Naresh",
@@ -3788,7 +3788,7 @@
   "className": 9,
   "father Name": "Mahveer singh",
   "mother Name": "Narmla",
-  "mobile Number": 7082572026
+  "mobile": 7082572026
  },
  {
   "first Name": "Virat",
@@ -3797,7 +3797,7 @@
   "className": 7,
   "father Name": "Vikram",
   "mother Name": "Anju",
-  "mobile Number": 9350105515
+  "mobile": 9350105515
  },
  {
   "first Name": "Mansi",
@@ -3806,7 +3806,7 @@
   "className": 11,
   "father Name": "Subey singh suthar",
   "mother Name": "Ritu",
-  "mobile Number": 9416445646
+  "mobile": 9416445646
  },
  {
   "first Name": "Navdeep",
@@ -3815,7 +3815,7 @@
   "className": 5,
   "father Name": "Subey singh suthar",
   "mother Name": "Ritu",
-  "mobile Number": 9416445646
+  "mobile": 9416445646
  },
  {
   "first Name": "Nidhi",
@@ -3824,7 +3824,7 @@
   "className": 9,
   "father Name": "Krishan kumar",
   "mother Name": "Seema",
-  "mobile Number": 8607546778
+  "mobile": 8607546778
  },
  {
   "first Name": "Nitesh",
@@ -3833,7 +3833,7 @@
   "className": 6,
   "father Name": "Sandeep sihag",
   "mother Name": "Geta devi",
-  "mobile Number": 9053173302
+  "mobile": 9053173302
  },
  {
   "first Name": "Payal",
@@ -3842,7 +3842,7 @@
   "className": 7,
   "father Name": "Rajesh kumar",
   "mother Name": "Ashwani devi",
-  "mobile Number": 9992217872
+  "mobile": 9992217872
  },
  {
   "first Name": "RITIKA",
@@ -3852,7 +3852,7 @@
   "className": 6,
   "father Name": "RAMESH KUMAR",
   "mother Name": "PARMILA",
-  "mobile Number": 9991152995
+  "mobile": 9991152995
  },
  {
   "first Name": "KHUSI",
@@ -3862,7 +3862,7 @@
   "className": 6,
   "father Name": "SUBE SINGH",
   "mother Name": "SUMAN",
-  "mobile Number": 9350887694
+  "mobile": 9350887694
  },
  {
   "first Name": "Mahi",
@@ -3871,7 +3871,7 @@
   "className": 6,
   "father Name": "Anil kumar",
   "mother Name": "Mukesh",
-  "mobile Number": 7988800916
+  "mobile": 7988800916
  },
  {
   "first Name": "YASHVI",
@@ -3881,7 +3881,7 @@
   "className": 6,
   "father Name": "RAJIV",
   "mother Name": "BINDU",
-  "mobile Number": 9991152995
+  "mobile": 9991152995
  },
  {
   "first Name": "Paras",
@@ -3890,7 +3890,7 @@
   "className": 5,
   "father Name": "Suresh kumar",
   "mother Name": "Seema",
-  "mobile Number": 9468199726
+  "mobile": 9468199726
  },
  {
   "first Name": "Varsha",
@@ -3899,7 +3899,7 @@
   "className": 9,
   "father Name": "Suresh kumar",
   "mother Name": "Kavita devi",
-  "mobile Number": 9991421450
+  "mobile": 9991421450
  },
  {
   "first Name": "VANSHIKA",
@@ -3909,7 +3909,7 @@
   "className": 6,
   "father Name": "KULDEEP",
   "mother Name": "KAVITA",
-  "mobile Number": 9996719067
+  "mobile": 9996719067
  },
  {
   "first Name": "PARUL",
@@ -3919,7 +3919,7 @@
   "className": 6,
   "father Name": "RAMDHARI",
   "mother Name": "SUNITA",
-  "mobile Number": 9518473877
+  "mobile": 9518473877
  },
  {
   "first Name": "ANKITA",
@@ -3929,7 +3929,7 @@
   "className": 6,
   "father Name": "DEVI LAL",
   "mother Name": "SONIA",
-  "mobile Number": 9813574248
+  "mobile": 9813574248
  },
  {
   "first Name": "Payal",
@@ -3938,7 +3938,7 @@
   "className": 7,
   "father Name": "Rajesh",
   "mother Name": "Suman",
-  "mobile Number": 9813956993
+  "mobile": 9813956993
  },
  {
   "first Name": "Krishan",
@@ -3947,7 +3947,7 @@
   "className": 5,
   "father Name": "Satveer",
   "mother Name": "Ritu",
-  "mobile Number": 9992826224
+  "mobile": 9992826224
  },
  {
   "first Name": "DIKSHA",
@@ -3957,7 +3957,7 @@
   "className": 6,
   "father Name": "RADHE SHYAM",
   "mother Name": "KAVITA",
-  "mobile Number": 9996528815
+  "mobile": 9996528815
  },
  {
   "first Name": "Yuvraj",
@@ -3966,7 +3966,7 @@
   "className": 7,
   "father Name": "Mukesh kumar",
   "mother Name": "Raj bala",
-  "mobile Number": 9729766874
+  "mobile": 9729766874
  },
  {
   "first Name": "KOMAL",
@@ -3976,7 +3976,7 @@
   "className": 6,
   "father Name": "SANDEEP",
   "mother Name": "SAROJ",
-  "mobile Number": 9416450654
+  "mobile": 9416450654
  },
  {
   "first Name": "ANUJ",
@@ -3986,7 +3986,7 @@
   "className": 6,
   "father Name": "KULDEEP",
   "mother Name": "SHARMILA",
-  "mobile Number": 9812729890
+  "mobile": 9812729890
  },
  {
   "first Name": "Kanta",
@@ -3995,7 +3995,7 @@
   "className": 8,
   "father Name": "Sanjay machra",
   "mother Name": "Sunita devi",
-  "mobile Number": 8708806714
+  "mobile": 8708806714
  },
  {
   "first Name": "ROHAN",
@@ -4005,7 +4005,7 @@
   "className": 6,
   "father Name": "SUNIL KUMAR",
   "mother Name": "KANTA DEVI",
-  "mobile Number": 9802303004
+  "mobile": 9802303004
  },
  {
   "first Name": "AMANDEEP",
@@ -4015,7 +4015,7 @@
   "className": 6,
   "father Name": "SURESH KUMAR",
   "mother Name": "SUDESH",
-  "mobile Number": 9050813160
+  "mobile": 9050813160
  },
  {
   "first Name": "CHIRAG",
@@ -4025,7 +4025,7 @@
   "className": 6,
   "father Name": "SANDEEP KUMAR",
   "mother Name": "SURAJMUKHI",
-  "mobile Number": 9991152995
+  "mobile": 9991152995
  },
  {
   "first Name": "Dinesh",
@@ -4034,7 +4034,7 @@
   "className": 10,
   "father Name": "Ramurti",
   "mother Name": "Rajbala",
-  "mobile Number": 9416277501
+  "mobile": 9416277501
  },
  {
   "first Name": "KULVEER",
@@ -4044,7 +4044,7 @@
   "className": 6,
   "father Name": "JAGAT SINGH",
   "mother Name": "SAROJ",
-  "mobile Number": 8295740205
+  "mobile": 8295740205
  },
  {
   "first Name": "Vijender",
@@ -4053,7 +4053,7 @@
   "className": 9,
   "father Name": "Rajesh",
   "mother Name": "Krishna",
-  "mobile Number": 9416270087
+  "mobile": 9416270087
  },
  {
   "first Name": "BHAVISHYA",
@@ -4063,7 +4063,7 @@
   "className": 6,
   "father Name": "BHIM SINGH",
   "mother Name": "GANGA DEVI",
-  "mobile Number": 9728130974
+  "mobile": 9728130974
  },
  {
   "first Name": "HARSH",
@@ -4073,7 +4073,7 @@
   "className": 6,
   "father Name": "MAHENDER SINGH",
   "mother Name": "MANJU BALA",
-  "mobile Number": 8059207316
+  "mobile": 8059207316
  },
  {
   "first Name": "MANKIT",
@@ -4083,7 +4083,7 @@
   "className": 6,
   "father Name": "RAJBIR",
   "mother Name": "KARISHMA",
-  "mobile Number": 9812563344
+  "mobile": 9812563344
  },
  {
   "first Name": "Sudesh",
@@ -4092,7 +4092,7 @@
   "className": 9,
   "father Name": "Mukesh kumar",
   "mother Name": "Rajbala",
-  "mobile Number": 9729766874
+  "mobile": 9729766874
  },
  {
   "first Name": "TANMAY",
@@ -4102,7 +4102,7 @@
   "className": 7,
   "father Name": "ANIL KUMAR",
   "mother Name": "SUMAN",
-  "mobile Number": 9991152995
+  "mobile": 9991152995
  },
  {
   "first Name": "Avni",
@@ -4111,7 +4111,7 @@
   "className": 7,
   "father Name": "Kuldeep singh",
   "mother Name": "Kiran",
-  "mobile Number": 8689035488
+  "mobile": 8689035488
  },
  {
   "first Name": "Jagriti",
@@ -4120,7 +4120,7 @@
   "className": 7,
   "father Name": "Sajjan singh",
   "mother Name": "Sunia devi",
-  "mobile Number": 8689035488
+  "mobile": 8689035488
  },
  {
   "first Name": "DEEPANSHU",
@@ -4130,7 +4130,7 @@
   "className": 7,
   "father Name": "KULDEEP",
   "mother Name": "BIRKHA DEVI",
-  "mobile Number": 8571918197
+  "mobile": 8571918197
  },
  {
   "first Name": "Manoj",
@@ -4140,7 +4140,7 @@
   "className": 10,
   "father Name": "Jai prkash",
   "mother Name": "Usha devi",
-  "mobile Number": 8570032268
+  "mobile": 8570032268
  },
  {
   "first Name": "Shivam",
@@ -4149,7 +4149,7 @@
   "className": 10,
   "father Name": "Balwan singh",
   "mother Name": "Mamta",
-  "mobile Number": 9728277454
+  "mobile": 9728277454
  },
  {
   "first Name": "ADITYA",
@@ -4159,7 +4159,7 @@
   "className": 7,
   "father Name": "MOHAN LAL",
   "mother Name": "NIRMLA DEVI",
-  "mobile Number": 9813039353
+  "mobile": 9813039353
  },
  {
   "first Name": "Rajneesh",
@@ -4169,7 +4169,7 @@
   "className": 11,
   "father Name": "Mr.omparkash",
   "mother Name": "Selochana.",
-  "mobile Number": 9466058990
+  "mobile": 9466058990
  },
  {
   "first Name": "YOGESH",
@@ -4179,7 +4179,7 @@
   "className": 7,
   "father Name": "PARDEEP KUMAR",
   "mother Name": "PARTIBHA",
-  "mobile Number": 9053108500
+  "mobile": 9053108500
  },
  {
   "first Name": "YASH",
@@ -4189,7 +4189,7 @@
   "className": 7,
   "father Name": "MUKESH KUMAR",
   "mother Name": "NIRMALA",
-  "mobile Number": 9991168319
+  "mobile": 9991168319
  },
  {
   "first Name": "JIYA",
@@ -4199,7 +4199,7 @@
   "className": 7,
   "father Name": "SURESH CHANDER",
   "mother Name": "MANITA DEVI",
-  "mobile Number": 9992744700
+  "mobile": 9992744700
  },
  {
   "first Name": "Manis",
@@ -4208,7 +4208,7 @@
   "className": 10,
   "father Name": "Hemant singh",
   "mother Name": "Rani devi",
-  "mobile Number": 7497048115
+  "mobile": 7497048115
  },
  {
   "first Name": "VANDANA",
@@ -4218,7 +4218,7 @@
   "className": 7,
   "father Name": "ANOOP SINGH",
   "mother Name": "SILOCHANA",
-  "mobile Number": 9996220013
+  "mobile": 9996220013
  },
  {
   "first Name": "Monika",
@@ -4227,7 +4227,7 @@
   "className": 10,
   "father Name": "Hemant singh",
   "mother Name": "Rani devi",
-  "mobile Number": 7497048115
+  "mobile": 7497048115
  },
  {
   "first Name": "DEEPIKA",
@@ -4237,7 +4237,7 @@
   "className": 7,
   "father Name": "MANDEEP",
   "mother Name": "SHEELA DEVI",
-  "mobile Number": 8571918197
+  "mobile": 8571918197
  },
  {
   "first Name": "Arun",
@@ -4246,7 +4246,7 @@
   "className": 10,
   "father Name": "Dhan ram",
   "mother Name": "Dani devi",
-  "mobile Number": 7496084172
+  "mobile": 7496084172
  },
  {
   "first Name": "KHUSHI",
@@ -4256,7 +4256,7 @@
   "className": 7,
   "father Name": "ATAMA RAM",
   "mother Name": "PUSHPA DEVI",
-  "mobile Number": 9728294025
+  "mobile": 9728294025
  },
  {
   "first Name": "BHUMIKA",
@@ -4266,7 +4266,7 @@
   "className": 7,
   "father Name": "VED PARKASH",
   "mother Name": "SAKUNTALA",
-  "mobile Number": 9812822906
+  "mobile": 9812822906
  },
  {
   "first Name": "Rohit",
@@ -4276,7 +4276,7 @@
   "className": 10,
   "father Name": "Om parkash",
   "mother Name": "Bina",
-  "mobile Number": 7496084172
+  "mobile": 7496084172
  },
  {
   "first Name": "Navnidhi",
@@ -4285,7 +4285,7 @@
   "className": 9,
   "father Name": "Maan singh",
   "mother Name": "Samesta",
-  "mobile Number": 9416684598
+  "mobile": 9416684598
  },
  {
   "first Name": "Nirmala",
@@ -4294,7 +4294,7 @@
   "className": 10,
   "father Name": "Satish",
   "mother Name": "Suman",
-  "mobile Number": 9053573121
+  "mobile": 9053573121
  },
  {
   "first Name": "Mamta",
@@ -4304,7 +4304,7 @@
   "className": 8,
   "father Name": "Lal chand",
   "mother Name": "Kiran",
-  "mobile Number": 9992062780
+  "mobile": 9992062780
  },
  {
   "first Name": "Priya",
@@ -4313,7 +4313,7 @@
   "className": 9,
   "father Name": "Lal chand",
   "mother Name": "Kiran",
-  "mobile Number": 9992062780
+  "mobile": 9992062780
  },
  {
   "first Name": "Ruchi",
@@ -4322,7 +4322,7 @@
   "className": 10,
   "father Name": "Mahender pal",
   "mother Name": "Seema devi",
-  "mobile Number": 9541720020
+  "mobile": 9541720020
  },
  {
   "first Name": "Sarla",
@@ -4331,7 +4331,7 @@
   "className": 11,
   "father Name": "Dalbir singh",
   "mother Name": "Savita devi",
-  "mobile Number": 8221072635
+  "mobile": 8221072635
  },
  {
   "first Name": "Yash",
@@ -4340,7 +4340,7 @@
   "className": 7,
   "father Name": "Dalbir",
   "mother Name": "Savita",
-  "mobile Number": 8221072635
+  "mobile": 8221072635
  },
  {
   "first Name": "Heena",
@@ -4349,7 +4349,7 @@
   "className": 6,
   "father Name": "Madan lal",
   "mother Name": "Sharda devi",
-  "mobile Number": 7056872124
+  "mobile": 7056872124
  },
  {
   "first Name": "Chanchal",
@@ -4359,7 +4359,7 @@
   "className": 9,
   "father Name": "Madan lal",
   "mother Name": "Sharda devi",
-  "mobile Number": 7056872124
+  "mobile": 7056872124
  },
  {
   "first Name": "Jiya",
@@ -4368,7 +4368,7 @@
   "className": 5,
   "father Name": "Inder jeet",
   "mother Name": "Parveen",
-  "mobile Number": 9466247416
+  "mobile": 9466247416
  },
  {
   "first Name": "MOHIT",
@@ -4378,7 +4378,7 @@
   "className": 8,
   "father Name": "DARA SINGH",
   "mother Name": "SUMAN",
-  "mobile Number": 9467027973
+  "mobile": 9467027973
  },
  {
   "first Name": "JASHAN",
@@ -4388,7 +4388,7 @@
   "className": 8,
   "father Name": "KULDEEP",
   "mother Name": "NIRMALA",
-  "mobile Number": 9996970654
+  "mobile": 9996970654
  },
  {
   "first Name": "AMIT",
@@ -4398,7 +4398,7 @@
   "className": 8,
   "father Name": "MANJEET SINGH",
   "mother Name": "VINOD BALA",
-  "mobile Number": 9050054215
+  "mobile": 9050054215
  },
  {
   "first Name": "MAYANK",
@@ -4408,7 +4408,7 @@
   "className": 8,
   "father Name": "DINESH KUMAR",
   "mother Name": "SUMAN",
-  "mobile Number": 8222838015
+  "mobile": 8222838015
  },
  {
   "first Name": "RAVI",
@@ -4418,7 +4418,7 @@
   "className": 8,
   "father Name": "DILBAG SINGH",
   "mother Name": "SONIA RANI",
-  "mobile Number": 9813032890
+  "mobile": 9813032890
  },
  {
   "first Name": "KOMAL",
@@ -4428,7 +4428,7 @@
   "className": 8,
   "father Name": "MOHAN LAL",
   "mother Name": "NIRMALA",
-  "mobile Number": 8221911549
+  "mobile": 8221911549
  },
  {
   "first Name": "MUSKAN",
@@ -4438,7 +4438,7 @@
   "className": 8,
   "father Name": "BALENDER",
   "mother Name": "SUMAN",
-  "mobile Number": 9813684744
+  "mobile": 9813684744
  },
  {
   "first Name": "FARISTA",
@@ -4448,7 +4448,7 @@
   "className": 8,
   "father Name": "HARISH KUMAR",
   "mother Name": "SUNITA",
-  "mobile Number": 9350632372
+  "mobile": 9350632372
  },
  {
   "first Name": "Kriti",
@@ -4457,7 +4457,7 @@
   "className": 6,
   "father Name": "Surender kumar",
   "mother Name": "Bindu bala",
-  "mobile Number": 9812214351
+  "mobile": 9812214351
  },
  {
   "first Name": "DIMPLE",
@@ -4467,7 +4467,7 @@
   "className": 8,
   "father Name": "KULDEEP SINGH",
   "mother Name": "CHANDERKALA",
-  "mobile Number": 9350632372
+  "mobile": 9350632372
  },
  {
   "first Name": "Tanisha",
@@ -4476,7 +4476,7 @@
   "className": 5,
   "father Name": "Radha krishan",
   "mother Name": "Kavita devi",
-  "mobile Number": 9729726080
+  "mobile": 9729726080
  },
  {
   "first Name": "Rina",
@@ -4485,7 +4485,7 @@
   "className": 11,
   "father Name": "Dharmveer singh",
   "mother Name": "Suman devi",
-  "mobile Number": 9896158930
+  "mobile": 9896158930
  },
  {
   "first Name": "Muskan",
@@ -4494,7 +4494,7 @@
   "className": 11,
   "father Name": "Dilbag singh",
   "mother Name": "Radha devi",
-  "mobile Number": 8595043254
+  "mobile": 8595043254
  },
  {
   "first Name": "Niyati",
@@ -4503,7 +4503,7 @@
   "className": 6,
   "father Name": "Vijay kumar",
   "mother Name": "Sonika",
-  "mobile Number": 9896724553
+  "mobile": 9896724553
  },
  {
   "first Name": "Renu",
@@ -4512,7 +4512,7 @@
   "className": 9,
   "father Name": "Budhram",
   "mother Name": "Rajbala",
-  "mobile Number": 9996412311
+  "mobile": 9996412311
  },
  {
   "first Name": "Kareena",
@@ -4521,7 +4521,7 @@
   "className": 9,
   "father Name": "Kapil",
   "mother Name": "Manju devi",
-  "mobile Number": 8607753122
+  "mobile": 8607753122
  },
  {
   "first Name": "Trishna",
@@ -4530,7 +4530,7 @@
   "className": 7,
   "father Name": "Kapil",
   "mother Name": "Manju devi",
-  "mobile Number": 8607753122
+  "mobile": 8607753122
  },
  {
   "first Name": "Bhumika",
@@ -4539,7 +4539,7 @@
   "className": 5,
   "father Name": "Sudesh kumar",
   "mother Name": "Sharmila",
-  "mobile Number": 9466682395
+  "mobile": 9466682395
  },
  {
   "first Name": "Sakshi",
@@ -4548,7 +4548,7 @@
   "className": 9,
   "father Name": "Om parkash",
   "mother Name": "Kalavati devi",
-  "mobile Number": 9466682395
+  "mobile": 9466682395
  },
  {
   "first Name": "Mandeep",
@@ -4557,7 +4557,7 @@
   "className": 5,
   "father Name": "Anand machra",
   "mother Name": "Sunita",
-  "mobile Number": 9896783907
+  "mobile": 9896783907
  },
  {
   "first Name": "Kanika",
@@ -4566,7 +4566,7 @@
   "className": 6,
   "father Name": "Vikash kumar",
   "mother Name": "Roshni",
-  "mobile Number": 9896783907
+  "mobile": 9896783907
  },
  {
   "first Name": "Ankita",
@@ -4576,7 +4576,7 @@
   "className": 8,
   "father Name": "Anand machra",
   "mother Name": "Sunita",
-  "mobile Number": 9896783907
+  "mobile": 9896783907
  },
  {
   "first Name": "Diksant",
@@ -4585,7 +4585,7 @@
   "className": 8,
   "father Name": "Bhani ram",
   "mother Name": "Suman",
-  "mobile Number": 7206889576
+  "mobile": 7206889576
  },
  {
   "first Name": "Simran",
@@ -4594,7 +4594,7 @@
   "className": 5,
   "father Name": "Manoj kumar",
   "mother Name": "Poonam",
-  "mobile Number": 8607295156
+  "mobile": 8607295156
  },
  {
   "first Name": "Jyoti",
@@ -4603,7 +4603,7 @@
   "className": 8,
   "father Name": "Sunil kumar",
   "mother Name": "Kanta",
-  "mobile Number": 9253039461
+  "mobile": 9253039461
  },
  {
   "first Name": "Kalpana",
@@ -4612,7 +4612,7 @@
   "className": 8,
   "father Name": "Sumer singh",
   "mother Name": "Rajbala",
-  "mobile Number": 9728692916
+  "mobile": 9728692916
  },
  {
   "first Name": "Sunny",
@@ -4621,7 +4621,7 @@
   "className": 9,
   "father Name": "Kalu ram",
   "mother Name": "Anju",
-  "mobile Number": 9416133852
+  "mobile": 9416133852
  },
  {
   "first Name": "Partigya",
@@ -4630,7 +4630,7 @@
   "className": 7,
   "father Name": "Kalu ram",
   "mother Name": "Anju",
-  "mobile Number": 9416133852
+  "mobile": 9416133852
  },
  {
   "first Name": "Tanu",
@@ -4639,7 +4639,7 @@
   "className": 6,
   "father Name": "Pawan kumar",
   "mother Name": "Suman",
-  "mobile Number": 9729630753
+  "mobile": 9729630753
  },
  {
   "first Name": "Gaurav",
@@ -4649,7 +4649,7 @@
   "className": 8,
   "father Name": "Rohtash",
   "mother Name": "Dhapee devi",
-  "mobile Number": 7027045707
+  "mobile": 7027045707
  },
  {
   "first Name": "Punita",
@@ -4658,7 +4658,7 @@
   "className": 8,
   "father Name": "Krishan kumar",
   "mother Name": "Santosh",
-  "mobile Number": 8059791800
+  "mobile": 8059791800
  },
  {
   "first Name": "Rohan",
@@ -4667,7 +4667,7 @@
   "className": 7,
   "father Name": "Ramesh kumar",
   "mother Name": "Suman",
-  "mobile Number": 8059872384
+  "mobile": 8059872384
  },
  {
   "first Name": "DURGESH",
@@ -4677,7 +4677,7 @@
   "className": 8,
   "father Name": "VIKRAM KUMAR",
   "mother Name": "MANJU BALA",
-  "mobile Number": 9466005515
+  "mobile": 9466005515
  },
  {
   "first Name": "Krish",
@@ -4686,7 +4686,7 @@
   "className": 6,
   "father Name": "Vijender singh",
   "mother Name": "Sunita",
-  "mobile Number": 9350464370
+  "mobile": 9350464370
  },
  {
   "first Name": "DEEPAK",
@@ -4696,7 +4696,7 @@
   "className": 6,
   "father Name": "RAM KUMAR",
   "mother Name": "SAROJ",
-  "mobile Number": 8950655208
+  "mobile": 8950655208
  },
  {
   "first Name": "Shejal",
@@ -4705,7 +4705,7 @@
   "className": 7,
   "father Name": "Stapal",
   "mother Name": "Jeena",
-  "mobile Number": 9812082052
+  "mobile": 9812082052
  },
  {
   "first Name": "TANIYA",
@@ -4715,7 +4715,7 @@
   "className": 8,
   "father Name": "ANOOP SINGH",
   "mother Name": "KAMLESH",
-  "mobile Number": 8059548793
+  "mobile": 8059548793
  },
  {
   "first Name": "Sakshi",
@@ -4724,7 +4724,7 @@
   "className": 8,
   "father Name": "Satpal",
   "mother Name": "Jeena",
-  "mobile Number": 9812082052
+  "mobile": 9812082052
  },
  {
   "first Name": "Kailash",
@@ -4733,7 +4733,7 @@
   "className": 10,
   "father Name": "Surender machra",
   "mother Name": "Kavita",
-  "mobile Number": 9992704491
+  "mobile": 9992704491
  },
  {
   "first Name": "YOGESH",
@@ -4743,7 +4743,7 @@
   "className": 5,
   "father Name": "BHOOP SINGH",
   "mother Name": "SHARDA DEVI",
-  "mobile Number": 9785088015
+  "mobile": 9785088015
  },
  {
   "first Name": "Rahul",
@@ -4753,7 +4753,7 @@
   "className": 11,
   "father Name": "Prithvi singh",
   "mother Name": "Renu devi",
-  "mobile Number": 9468371542
+  "mobile": 9468371542
  },
  {
   "first Name": "NAVDEEP",
@@ -4763,7 +4763,7 @@
   "className": 8,
   "father Name": "VIRENDER SINGH",
   "mother Name": "SUMAN",
-  "mobile Number": 9729978056
+  "mobile": 9729978056
  },
  {
   "first Name": "DEEPAK",
@@ -4773,7 +4773,7 @@
   "className": 9,
   "father Name": "SATISH",
   "mother Name": "RAJKALA",
-  "mobile Number": 8307339479
+  "mobile": 8307339479
  },
  {
   "first Name": "MAYANK",
@@ -4783,7 +4783,7 @@
   "className": 8,
   "father Name": "RAM PAL",
   "mother Name": "SUMAN",
-  "mobile Number": 9813636005
+  "mobile": 9813636005
  },
  {
   "first Name": "pooja",
@@ -4793,7 +4793,7 @@
   "className": 11,
   "father Name": "Jay parkash",
   "mother Name": "Anguri devi",
-  "mobile Number": 7056488626
+  "mobile": 7056488626
  },
  {
   "first Name": "AYUSH",
@@ -4803,7 +4803,7 @@
   "className": 6,
   "father Name": "SANDEEP",
   "mother Name": "MONIKA",
-  "mobile Number": 9991352467
+  "mobile": 9991352467
  },
  {
   "first Name": "MINAKSHI",
@@ -4813,7 +4813,7 @@
   "className": 8,
   "father Name": "AMIT KUMAR",
   "mother Name": "VIDYA DEVI",
-  "mobile Number": 9812889665
+  "mobile": 9812889665
  },
  {
   "first Name": "Amar",
@@ -4823,7 +4823,7 @@
   "className": 10,
   "father Name": "Raghubir singh",
   "mother Name": "Lalita devi",
-  "mobile Number": 9518694607
+  "mobile": 9518694607
  },
  {
   "first Name": "ANU",
@@ -4833,7 +4833,7 @@
   "className": 5,
   "father Name": "AMIT KUMAR",
   "mother Name": "VIDYA DEVI",
-  "mobile Number": 9991152995
+  "mobile": 9991152995
  },
  {
   "first Name": "HEMLTA",
@@ -4843,7 +4843,7 @@
   "className": 9,
   "father Name": "SUKHBIR",
   "mother Name": "URMILA",
-  "mobile Number": 9671924890
+  "mobile": 9671924890
  },
  {
   "first Name": "MINAKSHI",
@@ -4853,7 +4853,7 @@
   "className": 9,
   "father Name": "SATISH",
   "mother Name": "KAMLESH",
-  "mobile Number": 9996331021
+  "mobile": 9996331021
  },
  {
   "first Name": "Parveen",
@@ -4862,7 +4862,7 @@
   "className": 5,
   "father Name": "Parthvi raj",
   "mother Name": "Rajbala",
-  "mobile Number": 9024074721
+  "mobile": 9024074721
  },
  {
   "first Name": "MANISHA",
@@ -4872,7 +4872,7 @@
   "className": 9,
   "father Name": "PARDEEP KUMAR",
   "mother Name": "SILOCHANA",
-  "mobile Number": 8059666096
+  "mobile": 8059666096
  },
  {
   "first Name": "Gagan",
@@ -4881,7 +4881,7 @@
   "className": 7,
   "father Name": "Parthvi raj",
   "mother Name": "Rajbala",
-  "mobile Number": 9424074721
+  "mobile": 9424074721
  },
  {
   "first Name": "PARUL",
@@ -4891,7 +4891,7 @@
   "className": 9,
   "father Name": "BUDH RAM",
   "mother Name": "POONAM",
-  "mobile Number": 9813536071
+  "mobile": 9813536071
  },
  {
   "first Name": "KANISHKA",
@@ -4901,7 +4901,7 @@
   "className": 9,
   "father Name": "MANGE RAM",
   "mother Name": "DHARMA",
-  "mobile Number": 9896814916
+  "mobile": 9896814916
  },
  {
   "first Name": "Ravina",
@@ -4910,7 +4910,7 @@
   "className": 6,
   "father Name": "Sandeep",
   "mother Name": "Sunderi",
-  "mobile Number": 9729430236
+  "mobile": 9729430236
  },
  {
   "first Name": "SANJANA",
@@ -4920,7 +4920,7 @@
   "className": 9,
   "father Name": "ANOOP SINGH",
   "mother Name": "SILOCHANA",
-  "mobile Number": 9996220013
+  "mobile": 9996220013
  },
  {
   "first Name": "Ritesh",
@@ -4929,7 +4929,7 @@
   "className": 6,
   "father Name": "Sudhir",
   "mother Name": "Bhateri",
-  "mobile Number": 9467244012
+  "mobile": 9467244012
  },
  {
   "first Name": "Renu",
@@ -4938,7 +4938,7 @@
   "className": 10,
   "father Name": "Suresh kumar",
   "mother Name": "Suman",
-  "mobile Number": 9636062037
+  "mobile": 9636062037
  },
  {
   "first Name": "YOGESH",
@@ -4948,7 +4948,7 @@
   "className": 7,
   "father Name": "SHAMSHER",
   "mother Name": "KIRAN",
-  "mobile Number": 7206551249
+  "mobile": 7206551249
  },
  {
   "first Name": "Manish",
@@ -4957,7 +4957,7 @@
   "className": 5,
   "father Name": "Suresh kumar",
   "mother Name": "Suman",
-  "mobile Number": 7082786032
+  "mobile": 7082786032
  },
  {
   "first Name": "JYOTI",
@@ -4967,7 +4967,7 @@
   "className": 9,
   "father Name": "VED PARKASH",
   "mother Name": "SAKUNTALA",
-  "mobile Number": 9812822906
+  "mobile": 9812822906
  },
  {
   "first Name": "Dipanshu",
@@ -4976,7 +4976,7 @@
   "className": 8,
   "father Name": "Suresh",
   "mother Name": "Vandana",
-  "mobile Number": 9350019454
+  "mobile": 9350019454
  },
  {
   "first Name": "RACHANA",
@@ -4986,7 +4986,7 @@
   "className": 9,
   "father Name": "RAJENDER",
   "mother Name": "POONAM",
-  "mobile Number": 9991977426
+  "mobile": 9991977426
  },
  {
   "first Name": "Manisha",
@@ -4995,7 +4995,7 @@
   "className": 10,
   "father Name": "Rohtash",
   "mother Name": "Sunita",
-  "mobile Number": 9350019454
+  "mobile": 9350019454
  },
  {
   "first Name": "Sahil",
@@ -5004,7 +5004,7 @@
   "className": 9,
   "father Name": "Sunder lal",
   "mother Name": "Suman",
-  "mobile Number": 8059924321
+  "mobile": 8059924321
  },
  {
   "first Name": "Karan",
@@ -5013,7 +5013,7 @@
   "className": 10,
   "father Name": "Anil kumar",
   "mother Name": "Santosh",
-  "mobile Number": 8295293605
+  "mobile": 8295293605
  },
  {
   "first Name": "Rahul",
@@ -5022,7 +5022,7 @@
   "className": 5,
   "father Name": "Surender",
   "mother Name": "Manju",
-  "mobile Number": 9450406549
+  "mobile": 9450406549
  },
  {
   "first Name": "Paras",
@@ -5031,7 +5031,7 @@
   "className": 5,
   "father Name": "Ajay",
   "mother Name": "Jyana",
-  "mobile Number": 9813828822
+  "mobile": 9813828822
  },
  {
   "first Name": "Manjeet",
@@ -5040,7 +5040,7 @@
   "className": 5,
   "father Name": "Naresh",
   "mother Name": "Suman",
-  "mobile Number": 9996324168
+  "mobile": 9996324168
  },
  {
   "first Name": "Yukta",
@@ -5050,7 +5050,7 @@
   "className": 8,
   "father Name": "Ajay kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 9992385123
+  "mobile": 9992385123
  },
  {
   "first Name": "Aashish",
@@ -5060,7 +5060,7 @@
   "className": 7,
   "father Name": "Mr. Mahender",
   "mother Name": "Mrs. Kavita Rani",
-  "mobile Number": 9996027872
+  "mobile": 9996027872
  },
  {
   "first Name": "AARJU",
@@ -5070,7 +5070,7 @@
   "className": 5,
   "father Name": "VINOD KUMAR",
   "mother Name": "REKHA DEVI",
-  "mobile Number": 9468308314
+  "mobile": 9468308314
  },
  {
   "first Name": "GUNJAN",
@@ -5080,7 +5080,7 @@
   "className": 5,
   "father Name": "SANDEEP KUMAR",
   "mother Name": "URMILA DEVI",
-  "mobile Number": 9991476420
+  "mobile": 9991476420
  },
  {
   "first Name": "Milan",
@@ -5089,7 +5089,7 @@
   "className": 5,
   "father Name": "Hetram",
   "mother Name": "Kavita",
-  "mobile Number": 8607024872
+  "mobile": 8607024872
  },
  {
   "first Name": "Rahul",
@@ -5098,7 +5098,7 @@
   "className": 5,
   "father Name": "Suresh kumar",
   "mother Name": "Rani",
-  "mobile Number": 9050991065
+  "mobile": 9050991065
  },
  {
   "first Name": "Sachin",
@@ -5107,7 +5107,7 @@
   "className": 10,
   "father Name": "Duni ram",
   "mother Name": "Sharmila",
-  "mobile Number": 7497095585
+  "mobile": 7497095585
  },
  {
   "first Name": "Pankaj",
@@ -5117,7 +5117,7 @@
   "className": 11,
   "father Name": "Ramesh Kumar",
   "mother Name": "Kavita rani",
-  "mobile Number": 8307571454
+  "mobile": 8307571454
  },
  {
   "first Name": "Arju",
@@ -5126,7 +5126,7 @@
   "className": 7,
   "father Name": "Hetram",
   "mother Name": "Kavita",
-  "mobile Number": 8607024872
+  "mobile": 8607024872
  },
  {
   "first Name": "Jitesh",
@@ -5135,7 +5135,7 @@
   "className": 5,
   "father Name": "Jagdeep kumar",
   "mother Name": "Manisha",
-  "mobile Number": 8416083816
+  "mobile": 8416083816
  },
  {
   "first Name": "Krishan",
@@ -5144,7 +5144,7 @@
   "className": 8,
   "father Name": "Mukesh kumar",
   "mother Name": "Babita devi",
-  "mobile Number": 9813688674
+  "mobile": 9813688674
  },
  {
   "first Name": "Saniya",
@@ -5153,7 +5153,7 @@
   "className": 8,
   "father Name": "Suresh kumar",
   "mother Name": "Kavita devi",
-  "mobile Number": 9991421450
+  "mobile": 9991421450
  },
  {
   "first Name": "Snaya",
@@ -5162,7 +5162,7 @@
   "className": 5,
   "father Name": "Subhash",
   "mother Name": "Sunita",
-  "mobile Number": 8818007472
+  "mobile": 8818007472
  },
  {
   "first Name": "Vinay",
@@ -5171,7 +5171,7 @@
   "className": 7,
   "father Name": "Shiv kumar",
   "mother Name": "Kavita",
-  "mobile Number": 9729431821
+  "mobile": 9729431821
  },
  {
   "first Name": "Deepak",
@@ -5180,7 +5180,7 @@
   "className": 11,
   "father Name": "Surjbhan",
   "mother Name": "Devki rani",
-  "mobile Number": 9468333011
+  "mobile": 9468333011
  },
  {
   "first Name": "Devender",
@@ -5189,7 +5189,7 @@
   "className": 9,
   "father Name": "Rajesh",
   "mother Name": "Anju",
-  "mobile Number": 8930042004
+  "mobile": 8930042004
  },
  {
   "first Name": "Sapna",
@@ -5198,7 +5198,7 @@
   "className": 11,
   "father Name": "Ramesh Kumar",
   "mother Name": "Kavita",
-  "mobile Number": 8307571454
+  "mobile": 8307571454
  },
  {
   "first Name": "NIDHI",
@@ -5208,7 +5208,7 @@
   "className": 9,
   "father Name": "BHOOP SINGH",
   "mother Name": "KANTA DEVI",
-  "mobile Number": 9896269599
+  "mobile": 9896269599
  },
  {
   "first Name": "DEVINA",
@@ -5218,7 +5218,7 @@
   "className": 9,
   "father Name": "DILBAG SINGH",
   "mother Name": "SONIA RANI",
-  "mobile Number": 9813032890
+  "mobile": 9813032890
  },
  {
   "first Name": "Vanshika",
@@ -5228,7 +5228,7 @@
   "className": 7,
   "father Name": "Mr. Bajeer",
   "mother Name": "Mrs. Sonu",
-  "mobile Number": 9729821101
+  "mobile": 9729821101
  },
  {
   "first Name": "Palkin",
@@ -5238,7 +5238,7 @@
   "className": 7,
   "father Name": "Mr. Ghansham",
   "mother Name": "Mrs. Raj Kumari",
-  "mobile Number": 7056948061
+  "mobile": 7056948061
  },
  {
   "first Name": "Himanshi",
@@ -5248,7 +5248,7 @@
   "className": 7,
   "father Name": "Mr. Baldev",
   "mother Name": "Mrs. Kavita",
-  "mobile Number": 8686045200
+  "mobile": 8686045200
  },
  {
   "first Name": "Saloni",
@@ -5258,7 +5258,7 @@
   "className": 11,
   "father Name": "Mr. Vinod kumar",
   "mother Name": "Mrs.satayabala",
-  "mobile Number": 9466642997
+  "mobile": 9466642997
  },
  {
   "first Name": "Gujjan",
@@ -5268,7 +5268,7 @@
   "className": 6,
   "father Name": "Mr. Baldev",
   "mother Name": "Mrs. Kavita",
-  "mobile Number": 8686045200
+  "mobile": 8686045200
  },
  {
   "first Name": "Ramlakhan",
@@ -5278,7 +5278,7 @@
   "className": 5,
   "father Name": "Rohtash Bana",
   "mother Name": "Suman",
-  "mobile Number": 9992777297
+  "mobile": 9992777297
  },
  {
   "first Name": "Prachi",
@@ -5288,7 +5288,7 @@
   "className": 7,
   "father Name": "Mr. Pardeep",
   "mother Name": "Mrs. Silichana",
-  "mobile Number": 9812650814
+  "mobile": 9812650814
  },
  {
   "first Name": "Divanshi",
@@ -5298,7 +5298,7 @@
   "className": 7,
   "father Name": "Mr. Hira lal",
   "mother Name": "Mrs. Santosh",
-  "mobile Number": 9896032483
+  "mobile": 9896032483
  },
  {
   "first Name": "Rachna",
@@ -5308,7 +5308,7 @@
   "className": 7,
   "father Name": "Mr. Binja ram",
   "mother Name": "Mrs. Rajbala",
-  "mobile Number": 9812520919
+  "mobile": 9812520919
  },
  {
   "first Name": "Naksh",
@@ -5317,7 +5317,7 @@
   "className": 5,
   "father Name": "Subhash",
   "mother Name": "Sheela",
-  "mobile Number": 7015342985
+  "mobile": 7015342985
  },
  {
   "first Name": "LAKSHAY",
@@ -5326,7 +5326,7 @@
   "className": 7,
   "father Name": "jagatpal",
   "mother Name": "seema",
-  "mobile Number": 9812476706
+  "mobile": 9812476706
  },
  {
   "first Name": "Vishakha",
@@ -5335,7 +5335,7 @@
   "className": 10,
   "father Name": "Sunil kumar",
   "mother Name": "Rajbala",
-  "mobile Number": 9306455018
+  "mobile": 9306455018
  },
  {
   "first Name": "Chirag",
@@ -5344,7 +5344,7 @@
   "className": 8,
   "father Name": "Subhash chander",
   "mother Name": "Seeta devi",
-  "mobile Number": 9992105602
+  "mobile": 9992105602
  },
  {
   "first Name": "Poonam",
@@ -5353,7 +5353,7 @@
   "className": 10,
   "father Name": "Mukesh kumar",
   "mother Name": "Anjana devi",
-  "mobile Number": 9992105602
+  "mobile": 9992105602
  },
  {
   "first Name": "Devender",
@@ -5362,7 +5362,7 @@
   "className": 8,
   "father Name": "Yudhister",
   "mother Name": "Suman",
-  "mobile Number": 7015992901
+  "mobile": 7015992901
  },
  {
   "first Name": "Monika",
@@ -5371,7 +5371,7 @@
   "className": 10,
   "father Name": "Yudhister",
   "mother Name": "Suman",
-  "mobile Number": 7015992901
+  "mobile": 7015992901
  },
  {
   "first Name": "Manshi",
@@ -5380,7 +5380,7 @@
   "className": 9,
   "father Name": "Rajesh",
   "mother Name": "Nirmala",
-  "mobile Number": 9812463545
+  "mobile": 9812463545
  },
  {
   "first Name": "Khushboo",
@@ -5390,7 +5390,7 @@
   "className": 5,
   "father Name": "Ajit Singh",
   "mother Name": "Roshni",
-  "mobile Number": 7015081844
+  "mobile": 7015081844
  },
  {
   "first Name": "Deepak",
@@ -5400,7 +5400,7 @@
   "className": 7,
   "father Name": "Ajit Singh",
   "mother Name": "Roshni",
-  "mobile Number": 9350003015
+  "mobile": 9350003015
  },
  {
   "first Name": "Tamanna",
@@ -5410,7 +5410,7 @@
   "className": 6,
   "father Name": "Bijender Kumar",
   "mother Name": "Anita devi",
-  "mobile Number": 9466334025
+  "mobile": 9466334025
  },
  {
   "first Name": "Yugam",
@@ -5420,7 +5420,7 @@
   "className": 5,
   "father Name": "Mr. Kuldeep Singh",
   "mother Name": "Mrs. Ishwari Devi",
-  "mobile Number": 9306616374
+  "mobile": 9306616374
  },
  {
   "first Name": "Prachi",
@@ -5430,7 +5430,7 @@
   "className": 7,
   "father Name": "Mr. Pardeep",
   "mother Name": "Mrs. Silichana",
-  "mobile Number": 9812650814
+  "mobile": 9812650814
  },
  {
   "first Name": "Divanshi",
@@ -5440,7 +5440,7 @@
   "className": 7,
   "father Name": "Mr. Hira lal",
   "mother Name": "Mrs. Santosh",
-  "mobile Number": 9896032483
+  "mobile": 9896032483
  },
  {
   "first Name": "Palkin",
@@ -5450,7 +5450,7 @@
   "className": 7,
   "father Name": "Mr. Ghansham",
   "mother Name": "Mrs. Raj Kumari",
-  "mobile Number": 7056948061
+  "mobile": 7056948061
  },
  {
   "first Name": "Rachna",
@@ -5460,7 +5460,7 @@
   "className": 7,
   "father Name": "Mr. Binja ram",
   "mother Name": "Mrs. Rajbala",
-  "mobile Number": 9812520919
+  "mobile": 9812520919
  },
  {
   "first Name": "Himanshi",
@@ -5470,7 +5470,7 @@
   "className": 7,
   "father Name": "Mr. Baldev",
   "mother Name": "Mrs. Kavita",
-  "mobile Number": 8686045200
+  "mobile": 8686045200
  },
  {
   "first Name": "Gujjan",
@@ -5480,7 +5480,7 @@
   "className": 6,
   "father Name": "Mr. Baldev",
   "mother Name": "Mrs. Kavita",
-  "mobile Number": 8686045200
+  "mobile": 8686045200
  },
  {
   "first Name": "Sakshi",
@@ -5490,7 +5490,7 @@
   "className": 6,
   "father Name": "Mr. Sushil Kumar",
   "mother Name": "Mrs. Meena davi",
-  "mobile Number": 9466060512
+  "mobile": 9466060512
  },
  {
   "first Name": "Sahil kumar",
@@ -5500,7 +5500,7 @@
   "className": 8,
   "father Name": "Mr Ramdev",
   "mother Name": "Ritu devi",
-  "mobile Number": 9991751129
+  "mobile": 9991751129
  },
  {
   "first Name": "Akhil",
@@ -5510,7 +5510,7 @@
   "className": 8,
   "father Name": "Sandeep kumar",
   "mother Name": "Anu",
-  "mobile Number": 9813395424
+  "mobile": 9813395424
  },
  {
   "first Name": "Vanshika",
@@ -5520,7 +5520,7 @@
   "className": 7,
   "father Name": "Mr. Bajeer",
   "mother Name": "Mrs. Sonu",
-  "mobile Number": 9729821101
+  "mobile": 9729821101
  },
  {
   "first Name": "Dinesh",
@@ -5529,7 +5529,7 @@
   "className": 9,
   "father Name": "Amit kumar",
   "mother Name": "Sarswati",
-  "mobile Number": 9468333707
+  "mobile": 9468333707
  },
  {
   "first Name": "Divyanshu",
@@ -5538,7 +5538,7 @@
   "className": 6,
   "father Name": "Iswar singh",
   "mother Name": "Mamta",
-  "mobile Number": 9053410164
+  "mobile": 9053410164
  },
  {
   "first Name": "Rahul",
@@ -5547,7 +5547,7 @@
   "className": 11,
   "father Name": "Rupram",
   "mother Name": "Kavita",
-  "mobile Number": 9306575175
+  "mobile": 9306575175
  },
  {
   "first Name": "Dipanshu",
@@ -5556,7 +5556,7 @@
   "className": 9,
   "father Name": "Sunil kumar",
   "mother Name": "Suman rani",
-  "mobile Number": 8168379967
+  "mobile": 8168379967
  },
  {
   "first Name": "Prince",
@@ -5565,7 +5565,7 @@
   "className": 9,
   "father Name": "Sunil kumar",
   "mother Name": "Suman rani",
-  "mobile Number": 8168379967
+  "mobile": 8168379967
  },
  {
   "first Name": "Sharad",
@@ -5574,7 +5574,7 @@
   "className": 11,
   "father Name": "Mani ram",
   "mother Name": "Seema",
-  "mobile Number": 9306575175
+  "mobile": 9306575175
  },
  {
   "first Name": "Himanshu",
@@ -5583,7 +5583,7 @@
   "className": 6,
   "father Name": "Makkhan singy",
   "mother Name": "Sunita rani",
-  "mobile Number": 9468333707
+  "mobile": 9468333707
  },
  {
   "first Name": "Himanshu",
@@ -5592,7 +5592,7 @@
   "className": 6,
   "father Name": "Kuldeep",
   "mother Name": "Sumesta",
-  "mobile Number": 9350602703
+  "mobile": 9350602703
  },
  {
   "first Name": "Lakshay",
@@ -5601,7 +5601,7 @@
   "className": 9,
   "father Name": "Jagatpal",
   "mother Name": "Shrmila",
-  "mobile Number": 9350955112
+  "mobile": 9350955112
  },
  {
   "first Name": "Anjali",
@@ -5610,7 +5610,7 @@
   "className": 6,
   "father Name": "Anil kumar",
   "mother Name": "Poonam devi",
-  "mobile Number": 9468301349
+  "mobile": 9468301349
  },
  {
   "first Name": "Parwash",
@@ -5620,7 +5620,7 @@
   "className": 6,
   "father Name": "Rohtash",
   "mother Name": "Santosh",
-  "mobile Number": 9468006257
+  "mobile": 9468006257
  },
  {
   "first Name": "Rajat",
@@ -5629,7 +5629,7 @@
   "className": 8,
   "father Name": "Rohtash",
   "mother Name": "Santosh",
-  "mobile Number": 9468006257
+  "mobile": 9468006257
  },
  {
   "first Name": "Preety",
@@ -5638,7 +5638,7 @@
   "className": 10,
   "father Name": "Raja ram",
   "mother Name": "Silochna",
-  "mobile Number": 9729553153
+  "mobile": 9729553153
  },
  {
   "first Name": "Virat",
@@ -5647,7 +5647,7 @@
   "className": 5,
   "father Name": "Parmod kumar",
   "mother Name": "Santosh",
-  "mobile Number": 9992488601
+  "mobile": 9992488601
  },
  {
   "first Name": "Kalpana",
@@ -5656,7 +5656,7 @@
   "className": 5,
   "father Name": "Anil kumar",
   "mother Name": "Poonam",
-  "mobile Number": 9468301349
+  "mobile": 9468301349
  },
  {
   "first Name": "Surbhi",
@@ -5665,7 +5665,7 @@
   "className": 10,
   "father Name": "Vinod kumar",
   "mother Name": "Pawarka",
-  "mobile Number": 9992146108
+  "mobile": 9992146108
  },
  {
   "first Name": "Anjali",
@@ -5675,7 +5675,7 @@
   "className": 7,
   "father Name": "Rajveer",
   "mother Name": "Amandeep kaur",
-  "mobile Number": 8931800004
+  "mobile": 8931800004
  },
  {
   "first Name": "Sumitra",
@@ -5684,7 +5684,7 @@
   "className": 10,
   "father Name": "Jagdish",
   "mother Name": "Darshna",
-  "mobile Number": 9468201654
+  "mobile": 9468201654
  },
  {
   "first Name": "Naseb",
@@ -5693,7 +5693,7 @@
   "className": 10,
   "father Name": "Ram singh",
   "mother Name": "Kiran",
-  "mobile Number": 9467612630
+  "mobile": 9467612630
  },
  {
   "first Name": "Miss pooja",
@@ -5702,7 +5702,7 @@
   "className": 11,
   "father Name": "Balraj",
   "mother Name": "Saroj",
-  "mobile Number": 9069433330
+  "mobile": 9069433330
  },
  {
   "first Name": "Monika",
@@ -5711,7 +5711,7 @@
   "className": 11,
   "father Name": "Krishan kumar",
   "mother Name": "Dhapa devi",
-  "mobile Number": 9466893925
+  "mobile": 9466893925
  },
  {
   "first Name": "Radhika",
@@ -5720,7 +5720,7 @@
   "className": 5,
   "father Name": "Kapil",
   "mother Name": "Sunita kumari",
-  "mobile Number": 9468002441
+  "mobile": 9468002441
  },
  {
   "first Name": "Ramdas",
@@ -5729,7 +5729,7 @@
   "className": 10,
   "father Name": "Krishan kumar",
   "mother Name": "Dhapa devi",
-  "mobile Number": 9466893925
+  "mobile": 9466893925
  },
  {
   "first Name": "Naseeb",
@@ -5738,7 +5738,7 @@
   "className": 8,
   "father Name": "Sarwan kumar",
   "mother Name": "Mukesh devi",
-  "mobile Number": 8570982752
+  "mobile": 8570982752
  },
  {
   "first Name": "Renu",
@@ -5747,7 +5747,7 @@
   "className": 11,
   "father Name": "Sarwan kumar",
   "mother Name": "Mukesh devi",
-  "mobile Number": 8570982752
+  "mobile": 8570982752
  },
  {
   "first Name": "Netik",
@@ -5756,7 +5756,7 @@
   "className": 5,
   "father Name": "Sarwan kumar",
   "mother Name": "Mukesh devi",
-  "mobile Number": 8570982752
+  "mobile": 8570982752
  },
  {
   "first Name": "Payal",
@@ -5764,7 +5764,7 @@
   "AGE": 18,
   "className": 11,
   "father Name": "Chekin singh",
-  "mobile Number": 9991139632
+  "mobile": 9991139632
  },
  {
   "first Name": "Arti",
@@ -5773,7 +5773,7 @@
   "className": 6,
   "father Name": "Rampershad",
   "mother Name": "Sukh devi",
-  "mobile Number": 9253317571
+  "mobile": 9253317571
  },
  {
   "first Name": "Rohit",
@@ -5782,7 +5782,7 @@
   "className": 7,
   "father Name": "Rampershad",
   "mother Name": "Sukh devi",
-  "mobile Number": 9729917171
+  "mobile": 9729917171
  },
  {
   "first Name": "Ekta",
@@ -5791,7 +5791,7 @@
   "className": 11,
   "father Name": "Mangal singh",
   "mother Name": "Pushpa",
-  "mobile Number": 9050384692
+  "mobile": 9050384692
  },
  {
   "first Name": "Ankit",
@@ -5800,7 +5800,7 @@
   "className": 9,
   "father Name": "Mangal singh",
   "mother Name": "Pushpa",
-  "mobile Number": 9050384692
+  "mobile": 9050384692
  },
  {
   "first Name": "Laxmi",
@@ -5810,7 +5810,7 @@
   "className": 5,
   "father Name": "Vinod kumar",
   "mother Name": "Soma",
-  "mobile Number": 9034783912
+  "mobile": 9034783912
  },
  {
   "first Name": "Muskan",
@@ -5819,7 +5819,7 @@
   "className": 8,
   "father Name": "Bansi lal",
   "mother Name": "Sunita",
-  "mobile Number": 9467332980
+  "mobile": 9467332980
  },
  {
   "first Name": "Tamana",
@@ -5828,7 +5828,7 @@
   "className": 8,
   "father Name": "Subhash",
   "mother Name": "Suman",
-  "mobile Number": 8607217096
+  "mobile": 8607217096
  },
  {
   "first Name": "Manish",
@@ -5837,7 +5837,7 @@
   "className": 5,
   "father Name": "Subhash",
   "mother Name": "Suman",
-  "mobile Number": 8607217096
+  "mobile": 8607217096
  },
  {
   "first Name": "Navya",
@@ -5846,7 +5846,7 @@
   "className": 8,
   "father Name": "Norang",
   "mother Name": "Nellam",
-  "mobile Number": 9996890926
+  "mobile": 9996890926
  },
  {
   "first Name": "Kamal",
@@ -5855,7 +5855,7 @@
   "className": 9,
   "father Name": "Norang",
   "mother Name": "Nellam",
-  "mobile Number": 9996890926
+  "mobile": 9996890926
  },
  {
   "first Name": "Parmod",
@@ -5864,7 +5864,7 @@
   "className": 11,
   "father Name": "Dasrath",
   "mother Name": "Lilavati",
-  "mobile Number": 9466307632
+  "mobile": 9466307632
  },
  {
   "first Name": "Anuj",
@@ -5874,7 +5874,7 @@
   "className": 5,
   "father Name": "Rajesh",
   "mother Name": "Kavita",
-  "mobile Number": 8571086537
+  "mobile": 8571086537
  },
  {
   "first Name": "Vedika",
@@ -5883,7 +5883,7 @@
   "className": 9,
   "father Name": "Vinod kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 8607095112
+  "mobile": 8607095112
  },
  {
   "first Name": "Prerna",
@@ -5892,7 +5892,7 @@
   "className": 6,
   "father Name": "Prem",
   "mother Name": "Dhapi",
-  "mobile Number": 9053151564
+  "mobile": 9053151564
  },
  {
   "first Name": "Sohan",
@@ -5901,7 +5901,7 @@
   "className": 9,
   "father Name": "Satyawan",
   "mother Name": "Saroj",
-  "mobile Number": 8901158353
+  "mobile": 8901158353
  },
  {
   "first Name": "Priti",
@@ -5910,7 +5910,7 @@
   "className": 8,
   "father Name": "Satyawan",
   "mother Name": "Saroj",
-  "mobile Number": 8901158353
+  "mobile": 8901158353
  },
  {
   "first Name": "Lakhvinder",
@@ -5919,7 +5919,7 @@
   "className": 8,
   "father Name": "Narsi",
   "mother Name": "Sonu rani",
-  "mobile Number": 9467551273
+  "mobile": 9467551273
  },
  {
   "first Name": "Siksha",
@@ -5928,7 +5928,7 @@
   "className": 10,
   "father Name": "Narshi",
   "mother Name": "Sonu rani",
-  "mobile Number": 9497551273
+  "mobile": 9497551273
  },
  {
   "first Name": "Sandhya",
@@ -5937,7 +5937,7 @@
   "className": 8,
   "father Name": "Vishnu",
   "mother Name": "Manju",
-  "mobile Number": 9991923420
+  "mobile": 9991923420
  },
  {
   "first Name": "Mahak",
@@ -5946,7 +5946,7 @@
   "className": 7,
   "father Name": "Sandeep",
   "mother Name": "Suman",
-  "mobile Number": 9253397098
+  "mobile": 9253397098
  },
  {
   "first Name": "Aditya",
@@ -5955,7 +5955,7 @@
   "className": 7,
   "father Name": "Kuldeep",
   "mother Name": "Saroj",
-  "mobile Number": 9467677127
+  "mobile": 9467677127
  },
  {
   "first Name": "Rayna",
@@ -5964,7 +5964,7 @@
   "className": 5,
   "father Name": "Kapil dev",
   "mother Name": "Sonu",
-  "mobile Number": 9467418971
+  "mobile": 9467418971
  },
  {
   "first Name": "Rajiv",
@@ -5973,7 +5973,7 @@
   "className": 7,
   "father Name": "Kapil",
   "mother Name": "Sonu",
-  "mobile Number": 9467418971
+  "mobile": 9467418971
  },
  {
   "first Name": "Sidharth",
@@ -5982,7 +5982,7 @@
   "className": 8,
   "father Name": "Vinod kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 8607095112
+  "mobile": 8607095112
  },
  {
   "first Name": "Komal",
@@ -5991,7 +5991,7 @@
   "className": 9,
   "father Name": "Surender kumar",
   "mother Name": "Sudesh kumari",
-  "mobile Number": 9466061014
+  "mobile": 9466061014
  },
  {
   "first Name": "Ritu",
@@ -6000,7 +6000,7 @@
   "className": 9,
   "father Name": "Sarwan kumar",
   "mother Name": "Mukesh devi",
-  "mobile Number": 8570982752
+  "mobile": 8570982752
  },
  {
   "first Name": "Rahul",
@@ -6009,7 +6009,7 @@
   "className": 6,
   "father Name": "Dangarmal",
   "mother Name": "Poonam",
-  "mobile Number": 9992332147
+  "mobile": 9992332147
  },
  {
   "first Name": "Ankita",
@@ -6018,7 +6018,7 @@
   "className": 9,
   "father Name": "Rajesh kumar",
   "mother Name": "Santosh devi",
-  "mobile Number": 8607369704
+  "mobile": 8607369704
  },
  {
   "first Name": "Sahil",
@@ -6027,7 +6027,7 @@
   "className": 6,
   "father Name": "Ratan singh",
   "mother Name": "Raj mukesh",
-  "mobile Number": 8892902929
+  "mobile": 8892902929
  },
  {
   "first Name": "Deeksha",
@@ -6036,7 +6036,7 @@
   "className": 6,
   "father Name": "Balvir",
   "mother Name": "Suman",
-  "mobile Number": 9812721657
+  "mobile": 9812721657
  },
  {
   "first Name": "Viren",
@@ -6045,7 +6045,7 @@
   "className": 6,
   "father Name": "Sandeep loyal",
   "mother Name": "Sunder",
-  "mobile Number": 9817741049
+  "mobile": 9817741049
  },
  {
   "first Name": "Simran",
@@ -6054,7 +6054,7 @@
   "className": 5,
   "father Name": "Krishan",
   "mother Name": "Neelam",
-  "mobile Number": 7015211841
+  "mobile": 7015211841
  },
  {
   "first Name": "Payal",
@@ -6063,7 +6063,7 @@
   "className": 6,
   "father Name": "Raghubir",
   "mother Name": "Ritu",
-  "mobile Number": 9812586482
+  "mobile": 9812586482
  },
  {
   "first Name": "Anju",
@@ -6072,7 +6072,7 @@
   "className": 6,
   "father Name": "Bansilal",
   "mother Name": "Maina",
-  "mobile Number": 9518161630
+  "mobile": 9518161630
  },
  {
   "first Name": "Aarju",
@@ -6081,7 +6081,7 @@
   "className": 5,
   "father Name": "Pawan kumar",
   "mother Name": "Nirmala",
-  "mobile Number": 9813832432
+  "mobile": 9813832432
  },
  {
   "first Name": "Shiwani",
@@ -6090,7 +6090,7 @@
   "className": 10,
   "father Name": "San singh",
   "mother Name": "Santosh",
-  "mobile Number": 9066200058
+  "mobile": 9066200058
  },
  {
   "first Name": "Tina",
@@ -6099,7 +6099,7 @@
   "className": 8,
   "father Name": "Ran singh",
   "mother Name": "Santosh",
-  "mobile Number": 9066200058
+  "mobile": 9066200058
  },
  {
   "first Name": "Aaiyna",
@@ -6108,7 +6108,7 @@
   "className": 9,
   "father Name": "Prahlad",
   "mother Name": "Maina",
-  "mobile Number": 9728017309
+  "mobile": 9728017309
  },
  {
   "first Name": "Manisha",
@@ -6117,7 +6117,7 @@
   "className": 11,
   "father Name": "Prahlad",
   "mother Name": "Maina",
-  "mobile Number": 9728017309
+  "mobile": 9728017309
  },
  {
   "first Name": "Lakshay",
@@ -6127,7 +6127,7 @@
   "className": 11,
   "father Name": "Krishan kumar",
   "mother Name": "Silochana devi",
-  "mobile Number": 9996322344
+  "mobile": 9996322344
  },
  {
   "first Name": "Nisha",
@@ -6136,7 +6136,7 @@
   "className": 9,
   "father Name": "Balbir",
   "mother Name": "Guddi devi",
-  "mobile Number": 9996212591
+  "mobile": 9996212591
  },
  {
   "first Name": "Bhateri",
@@ -6145,7 +6145,7 @@
   "className": 10,
   "father Name": "Dale singh",
   "mother Name": "Saroj",
-  "mobile Number": 9812898385
+  "mobile": 9812898385
  },
  {
   "first Name": "Shyam",
@@ -6155,7 +6155,7 @@
   "className": 6,
   "father Name": "Prahlad",
   "mother Name": "Maina",
-  "mobile Number": 9728017309
+  "mobile": 9728017309
  },
  {
   "first Name": "Deepika",
@@ -6164,7 +6164,7 @@
   "className": 10,
   "father Name": "Krishan kumar",
   "mother Name": "Bhanto devi",
-  "mobile Number": 9817842451
+  "mobile": 9817842451
  },
  {
   "first Name": "Manish",
@@ -6173,7 +6173,7 @@
   "className": 6,
   "father Name": "Randheer",
   "mother Name": "Poonam",
-  "mobile Number": 9812414352
+  "mobile": 9812414352
  },
  {
   "first Name": "Naman",
@@ -6182,7 +6182,7 @@
   "className": 6,
   "father Name": "Kuldeep singh",
   "mother Name": "Kamlesh",
-  "mobile Number": 9812660969
+  "mobile": 9812660969
  },
  {
   "first Name": "Sidharth",
@@ -6191,7 +6191,7 @@
   "className": 8,
   "father Name": "Vinod kumar",
   "mother Name": "Suman devi",
-  "mobile Number": 8607095112
+  "mobile": 8607095112
  },
  {
   "first Name": "Jiya",
@@ -6200,7 +6200,7 @@
   "className": 9,
   "father Name": "Daya ram",
   "mother Name": "Manju",
-  "mobile Number": 9812050282
+  "mobile": 9812050282
  },
  {
   "first Name": "Jatin",
@@ -6210,7 +6210,7 @@
   "className": 7,
   "father Name": "Sandeep kumar",
   "mother Name": "Sarita",
-  "mobile Number": 9729616346
+  "mobile": 9729616346
  },
  {
   "first Name": "Bhavisya",
@@ -6219,7 +6219,7 @@
   "className": 5,
   "father Name": "Jagdeep kumar",
   "mother Name": "Manoj kumar",
-  "mobile Number": 9729616346
+  "mobile": 9729616346
  },
  {
   "first Name": "Dimple",
@@ -6228,7 +6228,7 @@
   "className": 5,
   "father Name": "Amit sidhu",
   "mother Name": "Kiran",
-  "mobile Number": 9361084107
+  "mobile": 9361084107
  },
  {
   "first Name": "Yogita",
@@ -6237,7 +6237,7 @@
   "className": 11,
   "father Name": "Rohtash",
   "mother Name": "Anita",
-  "mobile Number": 7056347705
+  "mobile": 7056347705
  },
  {
   "first Name": "Manoj",
@@ -6247,7 +6247,7 @@
   "className": 10,
   "father Name": "Sushil",
   "mother Name": "Snehlata",
-  "mobile Number": 9466278104
+  "mobile": 9466278104
  },
  {
   "first Name": "Varun",
@@ -6256,7 +6256,7 @@
   "className": 5,
   "father Name": "Kishmat",
   "mother Name": "Manju",
-  "mobile Number": 9606045104
+  "mobile": 9606045104
  },
  {
   "first Name": "Harsha",
@@ -6265,7 +6265,7 @@
   "className": 9,
   "father Name": "Ramesh",
   "mother Name": "Anu rani",
-  "mobile Number": 9817410227
+  "mobile": 9817410227
  },
  {
   "first Name": "Jyoti",
@@ -6274,7 +6274,7 @@
   "className": 10,
   "father Name": "Rakesh kumar",
   "mother Name": "Saroj kumari",
-  "mobile Number": 9992633223
+  "mobile": 9992633223
  },
  {
   "first Name": "Mohit",
@@ -6283,7 +6283,7 @@
   "className": 9,
   "father Name": "Jaswant singh",
   "mother Name": "Versha",
-  "mobile Number": 8222833819
+  "mobile": 8222833819
  },
  {
   "first Name": "Aashish",
@@ -6292,7 +6292,7 @@
   "className": 7,
   "father Name": "Jaswant singh",
   "mother Name": "Versha devi",
-  "mobile Number": 8222833819
+  "mobile": 8222833819
  },
  {
   "first Name": "Sippy",
@@ -6301,7 +6301,7 @@
   "className": 6,
   "father Name": "Ramniwas",
   "mother Name": "Sonika",
-  "mobile Number": 7015393121
+  "mobile": 7015393121
  },
  {
   "first Name": "Rajiv",
@@ -6310,7 +6310,7 @@
   "className": 7,
   "father Name": "Kapil dev",
   "mother Name": "Sonu",
-  "mobile Number": 9467418971
+  "mobile": 9467418971
  },
  {
   "first Name": "Garima",
@@ -6320,7 +6320,7 @@
   "className": 6,
   "father Name": "Sunil Kumar",
   "mother Name": "Maya",
-  "mobile Number": 9812282106
+  "mobile": 9812282106
  },
  {
   "first Name": "Chetan",
@@ -6330,7 +6330,7 @@
   "className": 7,
   "father Name": "Mangeram",
   "mother Name": "Sunita",
-  "mobile Number": 9466315141
+  "mobile": 9466315141
  },
  {
   "first Name": "Komal",
@@ -6339,7 +6339,7 @@
   "className": 11,
   "father Name": "Gulab singh",
   "mother Name": "Santi devi",
-  "mobile Number": 8295699117
+  "mobile": 8295699117
  },
  {
   "first Name": "Priyanka",
@@ -6348,7 +6348,7 @@
   "className": 8,
   "father Name": "Gulab singh",
   "mother Name": "Banti devi",
-  "mobile Number": 8295699117
+  "mobile": 8295699117
  },
  {
   "first Name": "Chhatar",
@@ -6358,7 +6358,7 @@
   "className": 5,
   "father Name": "Gulab singh",
   "mother Name": "Banti devi",
-  "mobile Number": 8295699117
+  "mobile": 8295699117
  },
  {
   "first Name": "Jannt",
@@ -6367,7 +6367,7 @@
   "className": 5,
   "father Name": "Gopi ram",
   "mother Name": "Asha rani",
-  "mobile Number": 9729453728
+  "mobile": 9729453728
  },
  {
   "first Name": "Sakshi",
@@ -6376,7 +6376,7 @@
   "className": 9,
   "father Name": "om parkash",
   "mother Name": "kavita",
-  "mobile Number": 9466919118
+  "mobile": 9466919118
  },
  {
   "first Name": "Ansu",
@@ -6385,7 +6385,7 @@
   "className": 8,
   "father Name": "Gopi ram",
   "mother Name": "Asha rani",
-  "mobile Number": 9729453728
+  "mobile": 9729453728
  },
  {
   "first Name": "Sakshi",
@@ -6394,7 +6394,7 @@
   "className": 6,
   "father Name": "Parmanand",
   "mother Name": "Pooja",
-  "mobile Number": 9050147750
+  "mobile": 9050147750
  },
  {
   "first Name": "Palak",
@@ -6403,7 +6403,7 @@
   "className": 7,
   "father Name": "Pawan",
   "mother Name": "Nisha",
-  "mobile Number": 9812682081
+  "mobile": 9812682081
  },
  {
   "first Name": "Harish",
@@ -6412,7 +6412,7 @@
   "className": 6,
   "father Name": "Mangalsen",
   "mother Name": "Krishna",
-  "mobile Number": 9812682081
+  "mobile": 9812682081
  },
  {
   "first Name": "Komal",
@@ -6421,7 +6421,7 @@
   "className": 10,
   "father Name": "Rohtash",
   "mother Name": "Kavita",
-  "mobile Number": 7015354174
+  "mobile": 7015354174
  },
  {
   "first Name": "Anjani",
@@ -6430,7 +6430,7 @@
   "className": 9,
   "father Name": "rajender",
   "mother Name": "Radha rani",
-  "mobile Number": 9467302507
+  "mobile": 9467302507
  },
  {
   "first Name": "Alfaj",
@@ -6439,7 +6439,7 @@
   "className": 7,
   "father Name": "Saleem khan",
   "mother Name": "Suman",
-  "mobile Number": 8053274795
+  "mobile": 8053274795
  },
  {
   "first Name": "Sonakshi",
@@ -6448,7 +6448,7 @@
   "className": 5,
   "father Name": "Vinod kumar",
   "mother Name": "Saharda",
-  "mobile Number": 9992355444
+  "mobile": 9992355444
  },
  {
   "first Name": "Surender",
@@ -6458,7 +6458,7 @@
   "className": 11,
   "father Name": "Parlad",
   "mother Name": "Selja",
-  "mobile Number": 9466002743
+  "mobile": 9466002743
  },
  {
   "first Name": "Tamana",
@@ -6467,7 +6467,7 @@
   "className": 9,
   "father Name": "Parlad",
   "mother Name": "Selja",
-  "mobile Number": 9466002743
+  "mobile": 9466002743
  },
  {
   "first Name": "Jaideep",
@@ -6476,7 +6476,7 @@
   "className": 10,
   "father Name": "Suresh",
   "mother Name": "Suman",
-  "mobile Number": 9253624615
+  "mobile": 9253624615
  },
  {
   "first Name": "Rakhsya",
@@ -6485,7 +6485,7 @@
   "className": 6,
   "father Name": "Suresh",
   "mother Name": "Sukhi",
-  "mobile Number": 8307322465
+  "mobile": 8307322465
  },
  {
   "first Name": "Tanvi",
@@ -6494,7 +6494,7 @@
   "className": 6,
   "father Name": "Satvir",
   "mother Name": "Savitri",
-  "mobile Number": 8307322465
+  "mobile": 8307322465
  },
  {
   "first Name": "Pooja",
@@ -6503,7 +6503,7 @@
   "className": 8,
   "father Name": "Hanuman singh",
   "mother Name": "Kamlesh",
-  "mobile Number": 7496822644
+  "mobile": 7496822644
  },
  {
   "first Name": "Deepika",
@@ -6512,7 +6512,7 @@
   "className": 6,
   "father Name": "Bajrang singh",
   "mother Name": "Sharla",
-  "mobile Number": 8570006871
+  "mobile": 8570006871
  },
  {
   "first Name": "Tamana",
@@ -6521,7 +6521,7 @@
   "className": 6,
   "father Name": "Krishan singh",
   "mother Name": "Babita devi",
-  "mobile Number": 8053374218
+  "mobile": 8053374218
  },
  {
   "first Name": "Lovkesh",
@@ -6530,7 +6530,7 @@
   "className": 8,
   "father Name": "Chanderbhan",
   "mother Name": "Monika",
-  "mobile Number": 8689053519
+  "mobile": 8689053519
  },
  {
   "first Name": "Aman",
@@ -6539,7 +6539,7 @@
   "className": 9,
   "father Name": "Anoop",
   "mother Name": "Sirla",
-  "mobile Number": 9468170060
+  "mobile": 9468170060
  },
  {
   "first Name": "Kiran",
@@ -6548,7 +6548,7 @@
   "className": 9,
   "father Name": "Prithavi singh",
   "mother Name": "Bhagyvati",
-  "mobile Number": 9416134805
+  "mobile": 9416134805
  },
  {
   "first Name": "Laphpat",
@@ -6557,7 +6557,7 @@
   "className": 11,
   "father Name": "Amar singh",
   "mother Name": "Roshni",
-  "mobile Number": 7015311091
+  "mobile": 7015311091
  },
  {
   "first Name": "Deepika",
@@ -6566,7 +6566,7 @@
   "className": 10,
   "father Name": "Mainpal",
   "mother Name": "Sharda",
-  "mobile Number": 9350812454
+  "mobile": 9350812454
  },
  {
   "first Name": "Payal",
@@ -6575,7 +6575,7 @@
   "className": 6,
   "father Name": "Satish",
   "mother Name": "Rajbala",
-  "mobile Number": 9350417470
+  "mobile": 9350417470
  },
  {
   "first Name": "Varsha",
@@ -6584,7 +6584,7 @@
   "className": 10,
   "father Name": "Devi lal",
   "mother Name": "Suman",
-  "mobile Number": 9416197908
+  "mobile": 9416197908
  },
  {
   "first Name": "Vashu",
@@ -6593,7 +6593,7 @@
   "className": 8,
   "father Name": "Devi lal",
   "mother Name": "Suman",
-  "mobile Number": 9416197908
+  "mobile": 9416197908
  },
  {
   "first Name": "Bhawna",
@@ -6602,7 +6602,7 @@
   "className": 6,
   "father Name": "Balvant",
   "mother Name": "Suman",
-  "mobile Number": 9034224632
+  "mobile": 9034224632
  },
  {
   "first Name": "Suman",
@@ -6611,7 +6611,7 @@
   "className": 11,
   "father Name": "Hari singh",
   "mother Name": "Veermati",
-  "mobile Number": 7988509400
+  "mobile": 7988509400
  },
  {
   "first Name": "Pawan",
@@ -6620,7 +6620,7 @@
   "className": 11,
   "father Name": "Ram chander",
   "mother Name": "Ompla",
-  "mobile Number": 9306973013
+  "mobile": 9306973013
  },
  {
   "first Name": "Sarjan",
@@ -6629,7 +6629,7 @@
   "className": 8,
   "father Name": "Sarjit khasa",
   "mother Name": "Komal",
-  "mobile Number": 8295596899
+  "mobile": 8295596899
  },
  {
   "first Name": "Manshu",
@@ -6639,7 +6639,7 @@
   "className": 5,
   "father Name": "Suresh",
   "mother Name": "Ramkala",
-  "mobile Number": 8607073157
+  "mobile": 8607073157
  },
  {
   "first Name": "Kiran",
@@ -6648,7 +6648,7 @@
   "className": 11,
   "father Name": "Mukesh kumar",
   "mother Name": "Suman",
-  "mobile Number": 9467780170
+  "mobile": 9467780170
  },
  {
   "first Name": "Manisha",
@@ -6657,7 +6657,7 @@
   "className": 11,
   "father Name": "Mukesh kumar",
   "mother Name": "Suman",
-  "mobile Number": 9467780170
+  "mobile": 9467780170
  },
  {
   "first Name": "Gorav",
@@ -6666,7 +6666,7 @@
   "className": 6,
   "father Name": "Lalchand",
   "mother Name": "Saroj",
-  "mobile Number": 7082299497
+  "mobile": 7082299497
  },
  {
   "first Name": "Rishav",
@@ -6675,7 +6675,7 @@
   "className": 8,
   "father Name": "Dilavar",
   "mother Name": "Manjulata",
-  "mobile Number": 9053260016
+  "mobile": 9053260016
  },
  {
   "first Name": "Bhavay",
@@ -6684,7 +6684,7 @@
   "className": 6,
   "father Name": "Vijay kumar",
   "mother Name": "Pooja",
-  "mobile Number": 8930351303
+  "mobile": 8930351303
  },
  {
   "first Name": "Meetu",
@@ -6693,7 +6693,7 @@
   "className": 10,
   "father Name": "Rajender singh",
   "mother Name": "Indravati",
-  "mobile Number": 7015718790
+  "mobile": 7015718790
  },
  {
   "first Name": "Ariff",
@@ -6702,7 +6702,7 @@
   "className": 5,
   "father Name": "Shokin",
   "mother Name": "Rehmtibano",
-  "mobile Number": 9466638524
+  "mobile": 9466638524
  },
  {
   "first Name": "Ishika",
@@ -6711,7 +6711,7 @@
   "className": 7,
   "father Name": "Sandeep",
   "mother Name": "Kavita",
-  "mobile Number": 8398824628
+  "mobile": 8398824628
  },
  {
   "first Name": "Ritika",
@@ -6720,7 +6720,7 @@
   "className": 5,
   "father Name": "Sunil Kumar",
   "mother Name": "Kiran",
-  "mobile Number": 9466601603
+  "mobile": 9466601603
  },
  {
   "first Name": "Tammna",
@@ -6729,7 +6729,7 @@
   "className": 9,
   "father Name": "Salim khan",
   "mother Name": "Suman",
-  "mobile Number": 8053274795
+  "mobile": 8053274795
  },
  {
   "first Name": "Tamnna",
@@ -6738,7 +6738,7 @@
   "className": 9,
   "father Name": "Takchand",
   "mother Name": "Seema",
-  "mobile Number": 7082092568
+  "mobile": 7082092568
  },
  {
   "first Name": "Simaran",
@@ -6747,7 +6747,7 @@
   "className": 6,
   "father Name": "Shiv kumar",
   "mother Name": "Kavita",
-  "mobile Number": 7056830884
+  "mobile": 7056830884
  },
  {
   "first Name": "Sahil",
@@ -6756,7 +6756,7 @@
   "className": 6,
   "father Name": "Takchand",
   "mother Name": "Seema",
-  "mobile Number": 7082092568
+  "mobile": 7082092568
  },
  {
   "first Name": "Rupesh",
@@ -6765,7 +6765,7 @@
   "className": 11,
   "father Name": "Bhupender",
   "mother Name": "Sunita",
-  "mobile Number": 8307240978
+  "mobile": 8307240978
  },
  {
   "first Name": "Rupesh",
@@ -6774,7 +6774,7 @@
   "className": 11,
   "father Name": "Bhupender",
   "mother Name": "Sunita",
-  "mobile Number": 8307240978
+  "mobile": 8307240978
  },
  {
   "first Name": "Navkamal",
@@ -6783,7 +6783,7 @@
   "className": 9,
   "father Name": "Bhupender",
   "mother Name": "Sunita",
-  "mobile Number": 8307240978
+  "mobile": 8307240978
  },
  {
   "first Name": "Jatin",
@@ -6792,7 +6792,7 @@
   "className": 8,
   "father Name": "Suresh kumar",
   "mother Name": "Krishna",
-  "mobile Number": 8607129001
+  "mobile": 8607129001
  },
  {
   "first Name": "Vishand",
@@ -6801,7 +6801,7 @@
   "className": 9,
   "father Name": "Nihal singh",
   "mother Name": "Rachna",
-  "mobile Number": 9467380411
+  "mobile": 9467380411
  },
  {
   "first Name": "Ujjwal",
@@ -6810,7 +6810,7 @@
   "className": 10,
   "father Name": "Amar singh",
   "mother Name": "Manju bala",
-  "mobile Number": 9306978172
+  "mobile": 9306978172
  },
  {
   "first Name": "Shalu",
@@ -6819,7 +6819,7 @@
   "className": 10,
   "father Name": "Rajesh",
   "mother Name": "Parwati",
-  "mobile Number": 9466022043
+  "mobile": 9466022043
  },
  {
   "first Name": "Rohit",
@@ -6828,7 +6828,7 @@
   "className": 8,
   "father Name": "Banti",
   "mother Name": "Roopa",
-  "mobile Number": 8708110704
+  "mobile": 8708110704
  },
  {
   "first Name": "Manrup",
@@ -6837,7 +6837,7 @@
   "className": 8,
   "father Name": "Munsiram",
   "mother Name": "Sumitra",
-  "mobile Number": 9518461123
+  "mobile": 9518461123
  },
  {
   "first Name": "Komal",
@@ -6846,7 +6846,7 @@
   "className": 11,
   "father Name": "Sunil kumar",
   "mother Name": "Bala devi",
-  "mobile Number": 9992815575
+  "mobile": 9992815575
  },
  {
   "first Name": "Aaina",
@@ -6855,7 +6855,7 @@
   "className": 11,
   "father Name": "Bhagirath",
   "mother Name": "Suman",
-  "mobile Number": 8302575305
+  "mobile": 8302575305
  },
  {
   "first Name": "Ritesh",
@@ -6864,7 +6864,7 @@
   "className": 10,
   "father Name": "Subash",
   "mother Name": "Raman",
-  "mobile Number": 9416589200
+  "mobile": 9416589200
  },
  {
   "first Name": "Komal",
@@ -6873,7 +6873,7 @@
   "className": 10,
   "father Name": "Rahish",
   "mother Name": "Suman",
-  "mobile Number": 9350496168
+  "mobile": 9350496168
  },
  {
   "first Name": "Himanshu",
@@ -6882,7 +6882,7 @@
   "className": 7,
   "father Name": "Bhagirath",
   "mother Name": "Suman",
-  "mobile Number": 8302575305
+  "mobile": 8302575305
  },
  {
   "first Name": "Laxmi",
@@ -6891,7 +6891,7 @@
   "className": 6,
   "father Name": "Amar singh",
   "mother Name": "Manju bala",
-  "mobile Number": 9306978172
+  "mobile": 9306978172
  },
  {
   "first Name": "Muskan",
@@ -6901,7 +6901,7 @@
   "className": 8,
   "father Name": "Rajbir",
   "mother Name": "Sarita",
-  "mobile Number": 9466092048
+  "mobile": 9466092048
  },
  {
   "first Name": "Rajni",
@@ -6911,7 +6911,7 @@
   "className": 9,
   "father Name": "Harpal singh",
   "mother Name": "Annu rani",
-  "mobile Number": 9467155430
+  "mobile": 9467155430
  },
  {
   "first Name": "Khushi",
@@ -6920,7 +6920,7 @@
   "className": 8,
   "father Name": "Rafi",
   "mother Name": "Anu",
-  "mobile Number": 9306400332
+  "mobile": 9306400332
  },
  {
   "first Name": "Monu",
@@ -6929,7 +6929,7 @@
   "className": 7,
   "father Name": "Rafi",
   "mother Name": "Anu",
-  "mobile Number": 9306400332
+  "mobile": 9306400332
  },
  {
   "first Name": "Deepika",
@@ -6938,7 +6938,7 @@
   "className": 7,
   "father Name": "Desveer",
   "mother Name": "Suman",
-  "mobile Number": 9053655294
+  "mobile": 9053655294
  },
  {
   "first Name": "Abhishek",
@@ -6947,7 +6947,7 @@
   "className": 9,
   "father Name": "Rajbir",
   "mother Name": "Darshana",
-  "mobile Number": 9467294686
+  "mobile": 9467294686
  },
  {
   "first Name": "Sameer",
@@ -6957,7 +6957,7 @@
   "className": 7,
   "father Name": "Mr. Parladh",
   "mother Name": "Mrs. Anu radha",
-  "mobile Number": 9467044414
+  "mobile": 9467044414
  },
  {
   "first Name": "Simran",
@@ -6966,7 +6966,7 @@
   "className": 5,
   "father Name": "Kanha ram",
   "mother Name": "Suman",
-  "mobile Number": 9817386582
+  "mobile": 9817386582
  },
  {
   "first Name": "Amarjeet",
@@ -6975,7 +6975,7 @@
   "className": 10,
   "father Name": "Vinod kumar",
   "mother Name": "Pushpa devi",
-  "mobile Number": 9466621596
+  "mobile": 9466621596
  },
  {
   "first Name": "Kanchan",
@@ -6985,7 +6985,7 @@
   "className": 7,
   "father Name": "Mr. Rajender Singh",
   "mother Name": "Mrs. Soma rani",
-  "mobile Number": 9992388810
+  "mobile": 9992388810
  },
  {
   "first Name": "Sonu",
@@ -6994,7 +6994,7 @@
   "className": 6,
   "father Name": "Bhim singh",
   "mother Name": "Jyoti",
-  "mobile Number": 9306404706
+  "mobile": 9306404706
  },
  {
   "first Name": "Deepak",
@@ -7003,7 +7003,7 @@
   "className": 11,
   "father Name": "Sunil kumar",
   "mother Name": "Reena devi",
-  "mobile Number": 8295591752
+  "mobile": 8295591752
  },
  {
   "first Name": "Santosh",
@@ -7012,7 +7012,7 @@
   "className": 9,
   "father Name": "Krishan",
   "mother Name": "Manju rani",
-  "mobile Number": 9355825279
+  "mobile": 9355825279
  },
  {
   "first Name": "Vishu",
@@ -7021,7 +7021,7 @@
   "className": 7,
   "father Name": "Rahul",
   "mother Name": "Sumitra",
-  "mobile Number": 8708880512
+  "mobile": 8708880512
  },
  {
   "first Name": "Yash",
@@ -7030,7 +7030,7 @@
   "className": 6,
   "father Name": "Rajesh",
   "mother Name": "Sumitra",
-  "mobile Number": 8307029744
+  "mobile": 8307029744
  },
  {
   "first Name": "Vikas",
@@ -7039,7 +7039,7 @@
   "className": 10,
   "father Name": "Satpal",
   "mother Name": "Silochana",
-  "mobile Number": 9466910673
+  "mobile": 9466910673
  },
  {
   "first Name": "Ashish",
@@ -7048,7 +7048,7 @@
   "className": 10,
   "father Name": "Subhash",
   "mother Name": "Bimla",
-  "mobile Number": 7015731780
+  "mobile": 7015731780
  },
  {
   "first Name": "Priyanka",
@@ -7057,7 +7057,7 @@
   "className": 9,
   "father Name": "Omprakash",
   "mother Name": "Santosh devi",
-  "mobile Number": 9306805812
+  "mobile": 9306805812
  },
  {
   "first Name": "Ritika",
@@ -7067,7 +7067,7 @@
   "className": 5,
   "father Name": "Kuldeep",
   "mother Name": "Lichhme",
-  "mobile Number": 9467023595
+  "mobile": 9467023595
  },
  {
   "first Name": "Kartik",
@@ -7077,7 +7077,7 @@
   "className": 6,
   "father Name": "Rajbir",
   "mother Name": "Sarita",
-  "mobile Number": 9466092048
+  "mobile": 9466092048
  },
  {
   "first Name": "Ritika",
@@ -7087,7 +7087,7 @@
   "className": 6,
   "father Name": "Mr.Sarwan",
   "mother Name": "Mrs. Sushmita",
-  "mobile Number": 9728278328
+  "mobile": 9728278328
  },
  {
   "first Name": "Tejas",
@@ -7096,7 +7096,7 @@
   "className": 7,
   "father Name": "Mr. Vijay Mohan",
   "mother Name": "Mrs. Kamlesh Kumari",
-  "mobile Number": 9729844497
+  "mobile": 9729844497
  },
  {
   "first Name": "Mahak",
@@ -7106,7 +7106,7 @@
   "className": 8,
   "father Name": "Ashok Kumar",
   "mother Name": "Sugni",
-  "mobile Number": 8684960514
+  "mobile": 8684960514
  },
  {
   "first Name": "Harish",
@@ -7115,7 +7115,7 @@
   "className": 10,
   "father Name": "Sonu",
   "mother Name": "Silochana",
-  "mobile Number": 8572036090
+  "mobile": 8572036090
  },
  {
   "first Name": "Sukhdev",
@@ -7124,7 +7124,7 @@
   "className": 6,
   "father Name": "mahander",
   "mother Name": "Bindu",
-  "mobile Number": 8295305821
+  "mobile": 8295305821
  },
  {
   "first Name": "Mamta",
@@ -7133,7 +7133,7 @@
   "className": 7,
   "father Name": "Sonu",
   "mother Name": "Silochana",
-  "mobile Number": 8972036090
+  "mobile": 8972036090
  },
  {
   "first Name": "Ujjwal",
@@ -7142,7 +7142,7 @@
   "className": 9,
   "father Name": "Dinesh kumar",
   "mother Name": "Pushpa",
-  "mobile Number": 8824258352
+  "mobile": 8824258352
  },
  {
   "first Name": "Yogesh",
@@ -7151,7 +7151,7 @@
   "className": 9,
   "father Name": "Tara chand",
   "mother Name": "Manju",
-  "mobile Number": 9467255662
+  "mobile": 9467255662
  },
  {
   "first Name": "Niral",
@@ -7160,7 +7160,7 @@
   "className": 7,
   "father Name": "Dinesh kumar",
   "mother Name": "Pushpa",
-  "mobile Number": 8824258352
+  "mobile": 8824258352
  },
  {
   "first Name": "Gagandeep",
@@ -7169,7 +7169,7 @@
   "className": 6,
   "father Name": "Kalu ram",
   "mother Name": "Sharda devi",
-  "mobile Number": 9728196557
+  "mobile": 9728196557
  },
  {
   "first Name": "Prince",
@@ -7178,7 +7178,7 @@
   "className": 6,
   "father Name": "Kulwant",
   "mother Name": "Sarita",
-  "mobile Number": 9518679270
+  "mobile": 9518679270
  },
  {
   "first Name": "Pooja",
@@ -7187,7 +7187,7 @@
   "className": 10,
   "father Name": "Mohar singh",
   "mother Name": "Reena",
-  "mobile Number": 9153391531
+  "mobile": 9153391531
  },
  {
   "first Name": "Chitralekha",
@@ -7196,7 +7196,7 @@
   "className": 11,
   "father Name": "Rohtash",
   "mother Name": "Rajlaxmi",
-  "mobile Number": 9416196737
+  "mobile": 9416196737
  },
  {
   "first Name": "Khushi",
@@ -7205,7 +7205,7 @@
   "className": 9,
   "father Name": "Balwant singh",
   "mother Name": "Suman",
-  "mobile Number": 9306867338
+  "mobile": 9306867338
  },
  {
   "first Name": "Bhavisya",
@@ -7214,7 +7214,7 @@
   "className": 6,
   "father Name": "Balwant",
   "mother Name": "Suman",
-  "mobile Number": 9306867338
+  "mobile": 9306867338
  },
  {
   "first Name": "YOGIT KUMAR",
@@ -7224,7 +7224,7 @@
   "className": 7,
   "father Name": "MANGE RAM",
   "mother Name": "DHARMA",
-  "mobile Number": 9991152995
+  "mobile": 9991152995
  },
  {
   "first Name": "Vishav",
@@ -7233,7 +7233,7 @@
   "className": 7,
   "father Name": "Subeh singh",
   "mother Name": "Maya devi",
-  "mobile Number": 9671726502
+  "mobile": 9671726502
  },
  {
   "first Name": "Payal",
@@ -7242,7 +7242,7 @@
   "className": 7,
   "father Name": "Krishan",
   "mother Name": "Suman",
-  "mobile Number": 8053153928
+  "mobile": 8053153928
  },
  {
   "first Name": "Nitin",
@@ -7251,7 +7251,7 @@
   "className": 11,
   "father Name": "Mangal singh",
   "mother Name": "Saroj rani",
-  "mobile Number": 9729599883
+  "mobile": 9729599883
  },
  {
   "first Name": "Minakshi",
@@ -7260,7 +7260,7 @@
   "className": 10,
   "father Name": "Jagvir",
   "mother Name": "Birma",
-  "mobile Number": 7496815419
+  "mobile": 7496815419
  },
  {
   "first Name": "Muskan",
@@ -7269,7 +7269,7 @@
   "className": 10,
   "father Name": "Jagvir",
   "mother Name": "Birma",
-  "mobile Number": 7496815419
+  "mobile": 7496815419
  },
  {
   "first Name": "Sandhya",
@@ -7278,7 +7278,7 @@
   "className": 8,
   "father Name": "Ram singh",
   "mother Name": "Indravati",
-  "mobile Number": 9610105739
+  "mobile": 9610105739
  },
  {
   "first Name": "Pratiksha",
@@ -7287,7 +7287,7 @@
   "className": 5,
   "father Name": "Sher singh",
   "mother Name": "Suman",
-  "mobile Number": 9050328138
+  "mobile": 9050328138
  },
  {
   "first Name": "Abhisak",
@@ -7296,7 +7296,7 @@
   "className": 8,
   "father Name": "Bhim singh",
   "mother Name": "Sunita",
-  "mobile Number": 9813564056
+  "mobile": 9813564056
  },
  {
   "first Name": "Sneha",
@@ -7305,7 +7305,7 @@
   "className": 10,
   "father Name": "Salander",
   "mother Name": "Sharda",
-  "mobile Number": 9992449550
+  "mobile": 9992449550
  },
  {
   "first Name": "Shobit",
@@ -7314,7 +7314,7 @@
   "className": 5,
   "father Name": "Jagdish",
   "mother Name": "Sharla",
-  "mobile Number": 9467480411
+  "mobile": 9467480411
  },
  {
   "first Name": "Pritam",
@@ -7323,7 +7323,7 @@
   "className": 6,
   "father Name": "Rajesh",
   "mother Name": "Parwati",
-  "mobile Number": 9466022043
+  "mobile": 9466022043
  },
  {
   "first Name": "Sanjay",
@@ -7332,7 +7332,7 @@
   "className": 9,
   "father Name": "Subhash",
   "mother Name": "Indra",
-  "mobile Number": 8307446122
+  "mobile": 8307446122
  },
  {
   "first Name": "Lakshay",
@@ -7341,7 +7341,7 @@
   "className": 8,
   "father Name": "Vijender",
   "mother Name": "Suman",
-  "mobile Number": 8307650561
+  "mobile": 8307650561
  },
  {
   "first Name": "Ravinder",
@@ -7350,7 +7350,7 @@
   "className": 11,
   "father Name": "Rahish",
   "mother Name": "Suman",
-  "mobile Number": 9350496168
+  "mobile": 9350496168
  },
  {
   "first Name": "punit",
@@ -7360,7 +7360,7 @@
   "className": 7,
   "father Name": "Chaman parkash",
   "mother Name": "sonika",
-  "mobile Number": 9813632126
+  "mobile": 9813632126
  },
  {
   "first Name": "Surina",
@@ -7370,7 +7370,7 @@
   "className": 11,
   "father Name": "Charan singh",
   "mother Name": "Saroj bala",
-  "mobile Number": 9518885817
+  "mobile": 9518885817
  },
  {
   "first Name": "Prachi",
@@ -7380,7 +7380,7 @@
   "className": 6,
   "father Name": "Mr. Balwan singh",
   "mother Name": "Mrs. Pinki",
-  "mobile Number": 9416325305
+  "mobile": 9416325305
  },
  {
   "first Name": "Sakshi",
@@ -7389,7 +7389,7 @@
   "className": 8,
   "father Name": "Mr. Vijay Mohan",
   "mother Name": "Mrs. Kamlesh Kumari",
-  "mobile Number": 9729844497
+  "mobile": 9729844497
  },
  {
   "first Name": "Pihu",
@@ -7398,7 +7398,7 @@
   "className": 5,
   "father Name": "Satbir suthar",
   "mother Name": "Maya",
-  "mobile Number": 8930395710
+  "mobile": 8930395710
  },
  {
   "first Name": "Riya",
@@ -7407,7 +7407,7 @@
   "className": 7,
   "father Name": "Rohtash suthar",
   "mother Name": "Suman",
-  "mobile Number": 9996514947
+  "mobile": 9996514947
  },
  {
   "first Name": "Aarjoo",
@@ -7416,7 +7416,7 @@
   "className": 9,
   "father Name": "Rohtash suthar",
   "mother Name": "Suman",
-  "mobile Number": 9996519947
+  "mobile": 9996519947
  },
  {
   "first Name": "Aayush",
@@ -7425,7 +7425,7 @@
   "className": 5,
   "father Name": "Mukesh kumar",
   "mother Name": "Manisha rani",
-  "mobile Number": 9813800987
+  "mobile": 9813800987
  },
  {
   "first Name": "Kamaljeet",
@@ -7434,7 +7434,7 @@
   "className": 8,
   "father Name": "Rajesh kumar",
   "mother Name": "Kavita",
-  "mobile Number": 9729773031
+  "mobile": 9729773031
  },
  {
   "first Name": "Kamlesh",
@@ -7443,7 +7443,7 @@
   "className": 11,
   "father Name": "Rajesh kumar",
   "mother Name": "Kavita",
-  "mobile Number": 9991312503
+  "mobile": 9991312503
  },
  {
   "first Name": "Komal",
@@ -7452,7 +7452,7 @@
   "className": 9,
   "father Name": "Rohtash kumar",
   "mother Name": "Sonu rani",
-  "mobile Number": 8053059472
+  "mobile": 8053059472
  },
  {
   "first Name": "Diksha",
@@ -7461,7 +7461,7 @@
   "className": 11,
   "father Name": "Hanuman",
   "mother Name": "Ramadevi",
-  "mobile Number": 9991433187
+  "mobile": 9991433187
  },
  {
   "first Name": "Sankita",
@@ -7470,7 +7470,7 @@
   "className": 11,
   "father Name": "Surender singh",
   "mother Name": "Neelam",
-  "mobile Number": 9896214554
+  "mobile": 9896214554
  },
  {
   "first Name": "Sarika",
@@ -7479,7 +7479,7 @@
   "className": 11,
   "father Name": "Randhir singh",
   "mother Name": "Savitri devi",
-  "mobile Number": 8689004580
+  "mobile": 8689004580
  },
  {
   "first Name": "Priya",
@@ -7488,7 +7488,7 @@
   "className": 9,
   "father Name": "Hanuman",
   "mother Name": "Santosh kumari",
-  "mobile Number": 9416670303
+  "mobile": 9416670303
  },
  {
   "first Name": "Prince",
@@ -7497,7 +7497,7 @@
   "className": 10,
   "father Name": "Sunil",
   "mother Name": "Suman",
-  "mobile Number": 9466204744
+  "mobile": 9466204744
  },
  {
   "first Name": "Varsha",
@@ -7506,7 +7506,7 @@
   "className": 10,
   "father Name": "Jaswant singh",
   "mother Name": "Sushila",
-  "mobile Number": 7027513592
+  "mobile": 7027513592
  },
  {
   "first Name": "Sakshi",
@@ -7515,7 +7515,7 @@
   "className": 10,
   "father Name": "Kuldeep singh",
   "mother Name": "Rajbala",
-  "mobile Number": 9812846005
+  "mobile": 9812846005
  },
  {
   "first Name": "Vikas",
@@ -7525,7 +7525,7 @@
   "className": 9,
   "father Name": "Jaswat",
   "mother Name": "Rani",
-  "mobile Number": 9416670270
+  "mobile": 9416670270
  },
  {
   "first Name": "Chirag",
@@ -7534,7 +7534,7 @@
   "className": 5,
   "father Name": "Pawan",
   "mother Name": "Poonam",
-  "mobile Number": 8059477219
+  "mobile": 8059477219
  },
  {
   "first Name": "Mayank",
@@ -7544,7 +7544,7 @@
   "className": 6,
   "father Name": "Kuldeep singh",
   "mother Name": "Sita Devi",
-  "mobile Number": 9992154535
+  "mobile": 9992154535
  },
  {
   "first Name": "Abhi",
@@ -7554,7 +7554,7 @@
   "className": 7,
   "father Name": "Mr. Rajesh Kumar",
   "mother Name": "Mrs. Silochna Devi",
-  "mobile Number": 9812607716
+  "mobile": 9812607716
  },
  {
   "first Name": "Pari",
@@ -7564,7 +7564,7 @@
   "className": 10,
   "father Name": "Sandeep Kumar",
   "mother Name": "Chander kala",
-  "mobile Number": 9813900015
+  "mobile": 9813900015
  },
  {
   "first Name": "Aaryan",
@@ -7574,7 +7574,7 @@
   "className": 5,
   "father Name": "Sunil kumae",
   "mother Name": "Jyoti",
-  "mobile Number": 8930464461
+  "mobile": 8930464461
  },
  {
   "first Name": "Krish",
@@ -7584,7 +7584,7 @@
   "className": 6,
   "father Name": "Kuldeep",
   "mother Name": "Saroj",
-  "mobile Number": 9812776771
+  "mobile": 9812776771
  },
  {
   "first Name": "Diya",
@@ -7594,7 +7594,7 @@
   "className": 7,
   "father Name": "Kapoor Singh",
   "mother Name": "Neelam",
-  "mobile Number": 8813870007
+  "mobile": 8813870007
  },
  {
   "first Name": "Sukhi",
@@ -7604,7 +7604,7 @@
   "className": 6,
   "father Name": "Mr Tek Ram",
   "mother Name": "Mrs. Sarita",
-  "mobile Number": 9466246110
+  "mobile": 9466246110
  },
  {
   "first Name": "Gourav",
@@ -7614,7 +7614,7 @@
   "className": 5,
   "father Name": "Mr. Tek Ram",
   "mother Name": "Mrs. Sarita",
-  "mobile Number": 9466246110
+  "mobile": 9466246110
  },
  {
   "first Name": "Shalini",
@@ -7624,7 +7624,7 @@
   "className": 6,
   "father Name": "Vinod Kumar",
   "mother Name": "Kiran",
-  "mobile Number": 9254107686
+  "mobile": 9254107686
  },
  {
   "first Name": "Ravina",
@@ -7634,7 +7634,7 @@
   "className": 9,
   "father Name": "Mr. Dharmender",
   "mother Name": "Mrs. Roshni devi",
-  "mobile Number": 9812178292
+  "mobile": 9812178292
  },
  {
   "first Name": "Deepika",
@@ -7644,7 +7644,7 @@
   "className": 7,
   "father Name": "Sunil Kumar",
   "mother Name": "Santosh",
-  "mobile Number": 9728507026
+  "mobile": 9728507026
  },
  {
   "first Name": "Chanderpal",
@@ -7654,7 +7654,7 @@
   "className": 6,
   "father Name": "Mr. Kuldeep Singh",
   "mother Name": "Mrs. Kanta",
-  "mobile Number": 9817202787
+  "mobile": 9817202787
  },
  {
   "first Name": "Shivani",
@@ -7663,7 +7663,7 @@
   "className": 5,
   "father Name": "Vinod kumar",
   "mother Name": "Prinynka",
-  "mobile Number": 9467027458
+  "mobile": 9467027458
  },
  {
   "first Name": "Rohit",
@@ -7672,7 +7672,7 @@
   "className": 7,
   "father Name": "Sumit",
   "mother Name": "Kiran",
-  "mobile Number": 9728780128
+  "mobile": 9728780128
  },
  {
   "first Name": "Arpita",
@@ -7682,7 +7682,7 @@
   "className": 7,
   "father Name": "Sushil Kumar",
   "mother Name": "Nirmala",
-  "mobile Number": 9812409085
+  "mobile": 9812409085
  },
  {
   "first Name": "Kashish",
@@ -7691,7 +7691,7 @@
   "className": 6,
   "father Name": "Vinod kumar",
   "mother Name": "Prinka",
-  "mobile Number": 9467027458
+  "mobile": 9467027458
  },
  {
   "first Name": "Sumit",
@@ -7701,7 +7701,7 @@
   "className": 9,
   "father Name": "Mr Surajbhan",
   "mother Name": "Mrs Usha Devi",
-  "mobile Number": 9467782944
+  "mobile": 9467782944
  },
  {
   "first Name": "Preenka",
@@ -7710,7 +7710,7 @@
   "className": 9,
   "father Name": "Ram singh",
   "mother Name": "Dhapa devi",
-  "mobile Number": 9812068512
+  "mobile": 9812068512
  },
  {
   "first Name": "Lovekesh",
@@ -7719,7 +7719,7 @@
   "className": 7,
   "father Name": "Mahender singh",
   "mother Name": "Rimpa devi",
-  "mobile Number": 9467251815
+  "mobile": 9467251815
  },
  {
   "first Name": "Tamanna",
@@ -7728,7 +7728,7 @@
   "className": 9,
   "father Name": "Mahender singh",
   "mother Name": "Rimpa devi",
-  "mobile Number": 9467251815
+  "mobile": 9467251815
  },
  {
   "first Name": "Ankit",
@@ -7737,7 +7737,7 @@
   "className": 9,
   "father Name": "Prithvi singh",
   "mother Name": "Krishna devi",
-  "mobile Number": 9817508206
+  "mobile": 9817508206
  },
  {
   "first Name": "Krina",
@@ -7746,7 +7746,7 @@
   "className": 11,
   "father Name": "Raj kumar",
   "mother Name": "Bala devi",
-  "mobile Number": 8818095213
+  "mobile": 8818095213
  },
  {
   "first Name": "Bhawna",
@@ -7756,7 +7756,7 @@
   "className": 6,
   "father Name": "Surender",
   "mother Name": "Bimla Devi",
-  "mobile Number": 9301380002
+  "mobile": 9301380002
  },
  {
   "first Name": "Riya",
@@ -7766,7 +7766,7 @@
   "className": 6,
   "father Name": "Sushil Kumar",
   "mother Name": "Priyanka",
-  "mobile Number": 9992222861
+  "mobile": 9992222861
  },
  {
   "first Name": "Palak",
@@ -7776,7 +7776,7 @@
   "className": 6,
   "father Name": "Bajrang",
   "mother Name": "Rekha",
-  "mobile Number": 9812810130
+  "mobile": 9812810130
  },
  {
   "first Name": "Ishwar",
@@ -7786,7 +7786,7 @@
   "className": 7,
   "father Name": "Mr. Mahabir",
   "mother Name": "Mrs. Manju",
-  "mobile Number": 8930050811
+  "mobile": 8930050811
  },
  {
   "first Name": "Rahul",
@@ -7796,7 +7796,7 @@
   "className": 6,
   "father Name": "Mr. Chanderpal",
   "mother Name": "Mrs. Nena",
-  "mobile Number": 9416366499
+  "mobile": 9416366499
  },
  {
   "first Name": "Varsha",
@@ -7806,7 +7806,7 @@
   "className": 6,
   "father Name": "Pushkar",
   "mother Name": "Banarsi",
-  "mobile Number": 9992116851
+  "mobile": 9992116851
  },
  {
   "first Name": "Srishti",
@@ -7816,7 +7816,7 @@
   "className": 6,
   "father Name": "Devilal",
   "mother Name": "Kamaljeet",
-  "mobile Number": 9996635031
+  "mobile": 9996635031
  },
  {
   "first Name": "Anu",
@@ -7826,7 +7826,7 @@
   "className": 6,
   "father Name": "Mr. Harish",
   "mother Name": "Mrs. Kavita",
-  "mobile Number": 9466215010
+  "mobile": 9466215010
  },
  {
   "first Name": "Vanshika",
@@ -7836,7 +7836,7 @@
   "className": 6,
   "father Name": "Hiralal",
   "mother Name": "Poonam rani",
-  "mobile Number": 9812497274
+  "mobile": 9812497274
  },
  {
   "first Name": "Sunidhi",
@@ -7846,7 +7846,7 @@
   "className": 6,
   "father Name": "Dashrath",
   "mother Name": "Maya Devi",
-  "mobile Number": 9728132022
+  "mobile": 9728132022
  },
  {
   "first Name": "Upasana",
@@ -7855,7 +7855,7 @@
   "className": 8,
   "father Name": "Ramesh kumar",
   "mother Name": "Rajbala",
-  "mobile Number": 9416316160
+  "mobile": 9416316160
  },
  {
   "first Name": "Suman",
@@ -7864,7 +7864,7 @@
   "className": 10,
   "father Name": "Pawan kumar",
   "mother Name": "Savtri devi",
-  "mobile Number": 9729835782
+  "mobile": 9729835782
  },
  {
   "first Name": "Parth",
@@ -7873,7 +7873,7 @@
   "className": 11,
   "father Name": "Ram niwas",
   "mother Name": "Suman",
-  "mobile Number": 9466748306
+  "mobile": 9466748306
  },
  {
   "first Name": "Vipul",
@@ -7882,7 +7882,7 @@
   "className": 6,
   "father Name": "Rajpal",
   "mother Name": "Sonu",
-  "mobile Number": 9812942121
+  "mobile": 9812942121
  },
  {
   "first Name": "Prachi",
@@ -7891,7 +7891,7 @@
   "className": 9,
   "father Name": "Joginder singh",
   "mother Name": "Soniya",
-  "mobile Number": 8708688612
+  "mobile": 8708688612
  },
  {
   "first Name": "Rishabh",
@@ -7900,7 +7900,7 @@
   "className": 6,
   "father Name": "Ravinder",
   "mother Name": "Santosh",
-  "mobile Number": 7206628614
+  "mobile": 7206628614
  },
  {
   "first Name": "Deepak",
@@ -7909,7 +7909,7 @@
   "className": 10,
   "father Name": "Madan lal",
   "mother Name": "Krishna",
-  "mobile Number": 9416626892
+  "mobile": 9416626892
  },
  {
   "first Name": "Parul",
@@ -7918,7 +7918,7 @@
   "className": 8,
   "father Name": "Madan lal",
   "mother Name": "Krishna",
-  "mobile Number": 9416626892
+  "mobile": 9416626892
  },
  {
   "first Name": "Payal",
@@ -7928,7 +7928,7 @@
   "className": 9,
   "father Name": "Pawan Kumar",
   "mother Name": "Darshna Devi",
-  "mobile Number": 7011247692
+  "mobile": 7011247692
  },
  {
   "first Name": "Chanchal",
@@ -7937,7 +7937,7 @@
   "className": 8,
   "father Name": "Krishan kumar",
   "mother Name": "Savita",
-  "mobile Number": 7988611858
+  "mobile": 7988611858
  },
  {
   "first Name": "Rakhi",
@@ -7947,7 +7947,7 @@
   "className": 9,
   "father Name": "Vinod Kumar",
   "mother Name": "Neelam",
-  "mobile Number": 7015400782
+  "mobile": 7015400782
  },
  {
   "first Name": "Deepika",
@@ -7956,7 +7956,7 @@
   "className": 9,
   "father Name": "Chhotu ram",
   "mother Name": "Maya devi",
-  "mobile Number": 9466499406
+  "mobile": 9466499406
  },
  {
   "first Name": "Ravina",
@@ -7965,7 +7965,7 @@
   "className": 8,
   "father Name": "Vinod",
   "mother Name": "Suman",
-  "mobile Number": 9992146546
+  "mobile": 9992146546
  },
  {
   "first Name": "Doli",
@@ -7975,7 +7975,7 @@
   "className": 9,
   "father Name": "Hiralal",
   "mother Name": "Poonam rani",
-  "mobile Number": 9812497274
+  "mobile": 9812497274
  },
  {
   "first Name": "Riya",
@@ -7984,7 +7984,7 @@
   "className": 6,
   "father Name": "Vinod kumar",
   "mother Name": "Suman",
-  "mobile Number": 9992146546
+  "mobile": 9992146546
  },
  {
   "first Name": "Madhu",
@@ -7993,7 +7993,7 @@
   "className": 6,
   "father Name": "Rajnder",
   "mother Name": "Roshni",
-  "mobile Number": 9466128004
+  "mobile": 9466128004
  },
  {
   "first Name": "Yatin",
@@ -8003,7 +8003,7 @@
   "className": 8,
   "father Name": "Rajesh Kumar",
   "mother Name": "Sunita",
-  "mobile Number": 8397005206
+  "mobile": 8397005206
  },
  {
   "first Name": "Prince",
@@ -8012,7 +8012,7 @@
   "className": 11,
   "father Name": "Parveen kumar",
   "mother Name": "Manju devi",
-  "mobile Number": 9996255527
+  "mobile": 9996255527
  },
  {
   "first Name": "Yuvan",
@@ -8022,7 +8022,7 @@
   "className": 6,
   "father Name": "Ramesh",
   "mother Name": "Sunita",
-  "mobile Number": 9992467092
+  "mobile": 9992467092
  },
  {
   "first Name": "Mannat",
@@ -8031,7 +8031,7 @@
   "className": 9,
   "father Name": "Manmmohan singy",
   "mother Name": "Suman rani",
-  "mobile Number": 9992720822
+  "mobile": 9992720822
  },
  {
   "first Name": "Khushmeet",
@@ -8041,7 +8041,7 @@
   "className": 6,
   "father Name": "Rajesh",
   "mother Name": "Sunita",
-  "mobile Number": 8397005206
+  "mobile": 8397005206
  },
  {
   "first Name": "Mansi",
@@ -8051,7 +8051,7 @@
   "className": 8,
   "father Name": "Jaikishan",
   "mother Name": "Sharda",
-  "mobile Number": 9812262724
+  "mobile": 9812262724
  },
  {
   "first Name": "Mahak",
@@ -8061,7 +8061,7 @@
   "className": 8,
   "father Name": "Sulender",
   "mother Name": "Sunita",
-  "mobile Number": 9518671326
+  "mobile": 9518671326
  },
  {
   "first Name": "Navneet",
@@ -8071,7 +8071,7 @@
   "className": 5,
   "father Name": "Jaikishan",
   "mother Name": "Sharda",
-  "mobile Number": 9812262724
+  "mobile": 9812262724
  },
  {
   "first Name": "Prince",
@@ -8080,7 +8080,7 @@
   "className": 8,
   "father Name": "Rajveer",
   "mother Name": "Suman",
-  "mobile Number": 9588382954
+  "mobile": 9588382954
  },
  {
   "first Name": "Ritik",
@@ -8090,7 +8090,7 @@
   "className": 11,
   "father Name": "Mr Suresh",
   "mother Name": "Mrs. Neha",
-  "mobile Number": 9812493799
+  "mobile": 9812493799
  },
  {
   "first Name": "Rahul",
@@ -8099,7 +8099,7 @@
   "className": 5,
   "father Name": "Sita ram",
   "mother Name": "Maina devi",
-  "mobile Number": 9416626892
+  "mobile": 9416626892
  },
  {
   "first Name": "Abhishek",
@@ -8108,7 +8108,7 @@
   "className": 9,
   "father Name": "Hoshiyar singh",
   "mother Name": "Jeta",
-  "mobile Number": 9416357422
+  "mobile": 9416357422
  },
  {
   "first Name": "Anushka",
@@ -8117,7 +8117,7 @@
   "className": 6,
   "father Name": "Hoshiyar singh",
   "mother Name": "Jeta",
-  "mobile Number": 9416357422
+  "mobile": 9416357422
  },
  {
   "first Name": "Jaspreet",
@@ -8126,7 +8126,7 @@
   "className": 9,
   "father Name": "Jitender",
   "mother Name": "Uma rani",
-  "mobile Number": 8295472123
+  "mobile": 8295472123
  },
  {
   "first Name": "Yogesh",
@@ -8135,7 +8135,7 @@
   "className": 10,
   "father Name": "Jitender",
   "mother Name": "Uma rani",
-  "mobile Number": 8295472123
+  "mobile": 8295472123
  },
  {
   "first Name": "Jonse",
@@ -8144,7 +8144,7 @@
   "className": 8,
   "father Name": "Parveen",
   "mother Name": "Manju",
-  "mobile Number": 9996255527
+  "mobile": 9996255527
  },
  {
   "first Name": "Umang",
@@ -8153,7 +8153,7 @@
   "className": 9,
   "father Name": "Prithavi raj",
   "mother Name": "Sudama devi",
-  "mobile Number": 8708416484
+  "mobile": 8708416484
  },
  {
   "first Name": "Khushi",
@@ -8162,7 +8162,7 @@
   "className": 8,
   "father Name": "Chhotu ram",
   "mother Name": "Maya devi",
-  "mobile Number": 9466484224
+  "mobile": 9466484224
  },
  {
   "first Name": "Anshika",
@@ -8171,7 +8171,7 @@
   "className": 8,
   "father Name": "Ramesh kumar",
   "mother Name": "Lakhpati",
-  "mobile Number": 9466262503
+  "mobile": 9466262503
  },
  {
   "first Name": "Anuradha",
@@ -8180,7 +8180,7 @@
   "className": 8,
   "father Name": "Ramesh kumar",
   "mother Name": "Lakhpati",
-  "mobile Number": 9466262503
+  "mobile": 9466262503
  },
  {
   "first Name": "Riya",
@@ -8189,7 +8189,7 @@
   "className": 6,
   "father Name": "Dharmjeet",
   "mother Name": "Suman",
-  "mobile Number": 9466484224
+  "mobile": 9466484224
  },
  {
   "first Name": "Nikhil",
@@ -8198,7 +8198,7 @@
   "className": 6,
   "father Name": "Jaiveer singh",
   "mother Name": "Laxmi",
-  "mobile Number": 9416137153
+  "mobile": 9416137153
  },
  {
   "first Name": "Krish",
@@ -8208,7 +8208,7 @@
   "className": 6,
   "father Name": "Kuldeep",
   "mother Name": "Saroj",
-  "mobile Number": 9812776771
+  "mobile": 9812776771
  },
  {
   "first Name": "Happy",
@@ -8218,7 +8218,7 @@
   "className": 7,
   "father Name": "Surendra Kumar",
   "mother Name": "Shailja Devi",
-  "mobile Number": 9992398715
+  "mobile": 9992398715
  },
  {
   "first Name": "Hardik",
@@ -8228,7 +8228,7 @@
   "className": 5,
   "father Name": "Sajjan Kumar",
   "mother Name": "Rajkumari",
-  "mobile Number": 9728028821
+  "mobile": 9728028821
  },
  {
   "first Name": "MOHIT",
@@ -8238,5 +8238,5 @@
   "className": 8,
   "father Name": "SUBHASH",
   "mother Name": "SUNITA",
-  "mobile Number": 9812681732
+  "mobile": 9812681732
  }
