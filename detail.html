@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        /* Header */
+        .header {
+            background-color: #2a5298;
+            width: 100%;
+            padding: 10px 0;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .header .school-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #FFDC5E;
+        }
+
+        .header .competition-name {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        /* Main Content */
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 1s ease-out;
+        }
+
+        h2 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #FFDC5E;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: none;
+            background-color: #444;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        .input-field:focus {
+            background-color: #2a5298;
+            box-shadow: 0 0 8px rgba(255, 220, 94, 0.8);
+        }
+
+        .btn {
+            padding: 14px;
+            background-color: #FFDC5E;
+            color: #1e3c72;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #FFB84C;
+            transform: scale(1.05);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .error {
+            color: #ff4d4d;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .success {
+            color: #2ecc71;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .result-link {
+            display: inline-block;
+            font-size: 18px;
+            color: #1e3c72;
+            text-decoration: none;
+            border: 2px solid #1e3c72;
+            padding: 10px 20px;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .result-link:hover {
+            background-color: #1e3c72;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Animation for form */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Footer Styles */
+        .footer {
+            font-size: 12px;
+            color: #fff;
+            margin-top: 30px;
+            text-align: center;
+            padding: 15px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 5px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .footer a {
+            color: #FFDC5E;
+            text-decoration: none;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+                max-width: 100%;
+            }
+
+            h2 {
+                font-size: 26px;
+            }
+
+            .input-field {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .btn {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div class="header">
+        <div class="school-name">Vivekanand Sr. Sec. School, Bhattu Kalan</div>
+        <div class="competition-name">VS-1st Scholarship Test</div>
+    </div>
+
+    <!-- Main Form -->
+    <div class="container">
+        <h2>Check Your Student Details</h2>
+        <form id="studentForm">
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
+            <button type="submit" class="btn">Get Details</button>
+        </form>
+
+        <div class="result" id="result"></div>
+        <div class="error" id="error"></div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        <p>&copy; 2025 <a href="https://example.com" target="_blank">Vivekanand School</a></p>
+    </div>
+
+    <script>
+        // Fetch student data from the external JSON file
+        let studentsData = [];
+
+        fetch('detail.json')
+            .then(response => response.json())
+            .then(data => {
+                studentsData = data;  // Store the data from the JSON file
+            })
+            .catch(error => {
+                console.error('Error loading student data:', error);
+                alert('Error loading student data. Please try again later.');
+            });
+
+        const form = document.getElementById('studentForm');
+        const resultDiv = document.getElementById('result');
+        const errorDiv = document.getElementById('error');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const mobile = document.getElementById('mobile').value.trim();
+
+            // Search for the student by mobile number
+            const student = studentsData.find(student => student.mobileNumber === mobile);
+
+            if (student) {
+                errorDiv.textContent = '';  // Clear any error message
+                resultDiv.innerHTML = `
+                    <div><strong>First Name:</strong> ${student.firstName}</div>
+                    <div><strong>Last Name:</strong> ${student.lastName}</div>
+                    <div><strong>DOB:</strong> ${student.DOB}</div>
+                    <div><strong>Age:</strong> ${student.age}</div>
+                    <div><strong>Class:</strong> ${student.className}</div>
+                    <div><strong>Father's Name:</strong> ${student.fatherName}</div>
+                    <div><strong>Mother's Name:</strong> ${student.motherName}</div>
+                    <div><strong>Mobile Number:</strong> ${student.mobileNumber}</div>
+                    <div><strong>Photo:</strong><br><img src="${student.photo}" alt="Student Photo" style="width: 150px; height: auto; border-radius: 8px; margin-top: 10px;"></div>
+                `;
+            } else {
+                errorDiv.textContent = 'Student not found! Please check your mobile number.';
+                resultDiv.innerHTML = '';  // Clear any previous results
+            }
+        });
+    </script>
+</body>
+</html>
