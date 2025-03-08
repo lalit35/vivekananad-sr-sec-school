@@ -190,7 +190,7 @@
     </div>
 
     <!-- Main Form -->
-    <div class="container" id="formContainer">
+    <div class="container">
         <h2>Enter Your Details</h2>
         <form id="admitCardForm">
             <label for="mobile">Enter Mobile Number</label>
@@ -232,7 +232,6 @@
             })
             .then(data => {
                 students = data.Sheet1; // Assign the student data from the JSON file
-                console.log("Student Data Loaded: ", students);  // Debugging: Check if student data is loaded
             })
             .catch(error => {
                 console.error('Error fetching student data:', error);
@@ -253,12 +252,8 @@
                 return;
             }
 
-            // Convert mobile number to number for comparison
-            mobile = Number(mobile);
-            console.log("Searching for student with mobile:", mobile, "and class:", studentClass);  // Debugging
-
-            // Search for the student by mobile and class
-            let student = students.find(s => s.mobile === mobile && s.className === studentClass);
+            // Search for the student by mobile and class (mobile stored as number)
+            let student = students.find(s => s.mobile === Number(mobile) && s.className.toString() === studentClass);
 
             if (student) {
                 resultDiv.innerHTML = `
