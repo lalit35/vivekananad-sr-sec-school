@@ -1,4 +1,4 @@
-<div><br class="Apple-interchange-newline"><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -198,6 +198,31 @@
             margin-bottom: 10px;
             color: #fff;
         }
+
+        /* WhatsApp button */
+        .whatsapp-btn {
+            padding: 12px 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+            display: inline-block;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+
+        .whatsapp-btn:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 
@@ -243,6 +268,9 @@
         <div><strong>Father's Name:</strong> <span id="fatherName"></span></div>
         <div><strong>Mother's Name:</strong> <span id="motherName"></span></div>
         <div><strong>Mobile Number:</strong> <span id="studentMobile"></span></div>
+
+        <!-- WhatsApp Contact Link as a Modern Button -->
+        <a id="whatsappLink" href="#" class="whatsapp-btn" style="display: none;">Contact on WhatsApp</a>
     </div>
 
     <!-- Footer Section -->
@@ -304,6 +332,19 @@
                 document.getElementById('studentMobile').innerText = student.mobile;
 
                 resultDiv.innerHTML = ''; // Clear error message if any
+
+                // Generate WhatsApp message
+                const studentFullName = student["first Name"] + " " + student["last Name"];
+                const fatherName = student["father Name"];
+                const whatsappMessage = `Hello Sir, My name is ${fatherName}. I want to change my son/daughter details. Full name: ${studentFullName}.`;
+                
+                // Encode the message for URL
+                const whatsappUrl = `https://wa.me/9350885613?text=${encodeURIComponent(whatsappMessage)}`;
+
+                // Set the WhatsApp link in the details box
+                const whatsappLink = document.getElementById('whatsappLink');
+                whatsappLink.setAttribute('href', whatsappUrl);
+                whatsappLink.style.display = 'inline-block'; // Make the button visible
             } else {
                 resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
             }
@@ -312,4 +353,4 @@
 
 </body>
 
-</html></div>
+</html>
