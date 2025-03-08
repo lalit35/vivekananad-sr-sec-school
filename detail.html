@@ -243,7 +243,7 @@
             const mobile = document.getElementById('mobile').value.trim();
 
             // Search for the student by mobile number (matching the correct key in the JSON)
-            const student = students.find(student => student["mobile"] == mobile);
+            const student = students.find(student => student["mobile"] === mobile);
 
             if (student) {
                 errorDiv.textContent = '';  // Clear any error message
