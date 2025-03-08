@@ -246,7 +246,6 @@
             let mobile = document.getElementById('mobile').value.trim();
             let studentClass = document.getElementById('studentClass').value.trim();
             let resultDiv = document.getElementById('result');
-            let formContainer = document.getElementById('formContainer');
 
             // Validation
             if (!mobile || !studentClass) {
@@ -272,8 +271,6 @@
                     <div><strong>Mother's Name:</strong> ${student["mother Name"]}</div>
                     <div><strong>Mobile Number:</strong> ${student.mobile}</div>
                 `;
-                // Hide the form section after displaying student details
-                formContainer.style.display = 'none';
             } else {
                 resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
             }
