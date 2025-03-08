@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -129,6 +130,7 @@
                 transform: translateY(-50px);
                 opacity: 0;
             }
+
             100% {
                 transform: translateY(0);
                 opacity: 1;
@@ -165,7 +167,8 @@
                 font-size: 26px;
             }
 
-            .input-field, .select-field {
+            .input-field,
+            .select-field {
                 font-size: 14px;
                 padding: 10px;
             }
@@ -249,8 +252,8 @@
                 return;
             }
 
-            // Search for the student by mobile and class
-            let student = students.find(s => s.mobile.toString() === mobile && s.className.toString() === studentClass);
+            // Search for the student by mobile and class (mobile stored as number)
+            let student = students.find(s => s.mobile === Number(mobile) && s.className.toString() === studentClass);
 
             if (student) {
                 resultDiv.innerHTML = `
@@ -270,4 +273,5 @@
     </script>
 
 </body>
+
 </html>
