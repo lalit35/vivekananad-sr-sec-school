@@ -9681,6 +9681,17 @@
   "mother Name": "LALITA",
   "mobile": 9772960385,
   "photo": "Error uploading image"
+ },
+ {
+  "first Name": "Kajal",
+  "last Name": "Kajal",
+  "DOB": "09\/04\/2010",
+  "AGE": 16,
+  "className": 8,
+  "father Name": "Anil kumar",
+  "mother Name": "Mukesh",
+  "mobile": 9350255985,
+  "photo": "https:\/\/drive.google.com\/file\/d\/1SAD2ZL3HpSYSO0gDOsesx9P85yyEACXh\/view?usp=drivesdk"
  }
 ]
 }
