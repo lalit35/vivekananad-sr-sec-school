@@ -23,7 +23,6 @@
             flex-direction: column;
             color: #fff;
             font-size: 16px;
-            padding-top: 60px; /* Space for fixed header */
         }
 
         /* Header */
@@ -37,10 +36,6 @@
             text-align: center;
             border-radius: 8px;
             margin-bottom: 20px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000; /* Ensure the header stays on top */
         }
 
         .header .school-name {
@@ -196,7 +191,7 @@
             max-width: 450px;
             backdrop-filter: blur(10px);
             display: none; /* Hidden initially */
-            margin-top: 100px; /* Adjusting for the fixed header */
+            margin-top: 20px;
         }
 
         .details-container div {
@@ -341,7 +336,7 @@
                 // Generate WhatsApp message
                 const studentFullName = student["first Name"] + " " + student["last Name"];
                 const fatherName = student["father Name"];
-                const whatsappMessage = `Hello Sir, My name is ${fatherName}. I want to change my son/daughter details. Full name: ${studentFullName}.`;
+                const whatsappMessage = `Hello Sir, My name is ${fatherName}. I want to change my son/daughter details. Student Full name: ${studentFullName}.`;
                 
                 // Encode the message for URL
                 const whatsappUrl = `https://wa.me/9350885613?text=${encodeURIComponent(whatsappMessage)}`;
