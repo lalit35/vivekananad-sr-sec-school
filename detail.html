@@ -240,6 +240,9 @@
             <label for="mobile">Enter Mobile Number</label>
             <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
 
+            <label for="dob">Enter Year of Birth</label>
+            <input type="text" id="dob" class="input-field" placeholder="Enter your birth year" required>
+
             <label for="studentClass">Select Student Class</label>
             <select id="studentClass" class="select-field" required>
                 <option value="">Select Class</option>
@@ -262,7 +265,7 @@
         <h2>Student Details</h2>
         <div><strong>First Name:</strong> <span id="firstName"></span></div>
         <div><strong>Last Name:</strong> <span id="lastName"></span></div>
-        <div><strong>DOB:</strong> <span id="dob"></span></div>
+        <div><strong>DOB:</strong> <span id="dobDetails"></span></div>
         <div><strong>Age:</strong> <span id="age"></span></div>
         <div><strong>Class:</strong> <span id="className"></span></div>
         <div><strong>Father's Name:</strong> <span id="fatherName"></span></div>
@@ -305,18 +308,19 @@
 
             let mobile = document.getElementById('mobile').value.trim();
             let studentClass = document.getElementById('studentClass').value.trim();
+            let dob = document.getElementById('dob').value.trim();
             let resultDiv = document.getElementById('result');
             let detailsBox = document.getElementById('detailsBox');
             let searchBox = document.querySelector('.container'); // Reference to the search form
 
             // Validation
-            if (!mobile || !studentClass) {
-                resultDiv.innerHTML = '<p class="error">Please enter mobile number and select student class.</p>';
+            if (!mobile || !studentClass || !dob) {
+                resultDiv.innerHTML = '<p class="error">Please enter mobile number, year of birth, and select student class.</p>';
                 return;
             }
 
-            // Search for the student by mobile and class (mobile stored as number)
-            let student = students.find(s => s.mobile === Number(mobile) && s.className.toString() === studentClass);
+            // Search for the student by mobile, class, and year of birth
+            let student = students.find(s => s.mobile === Number(mobile) && s.className.toString() === studentClass && new Date(s.DOB).getFullYear() === Number(dob));
 
             if (student) {
                 // Show student details and hide search form
@@ -325,7 +329,7 @@
 
                 document.getElementById('firstName').innerText = student["first Name"];
                 document.getElementById('lastName').innerText = student["last Name"];
-                document.getElementById('dob').innerText = student.DOB;
+                document.getElementById('dobDetails').innerText = student.DOB;
                 document.getElementById('age').innerText = student.AGE;
                 document.getElementById('className').innerText = student.className;
                 document.getElementById('fatherName').innerText = student["father Name"];
@@ -347,7 +351,7 @@
                 whatsappLink.setAttribute('href', whatsappUrl);
                 whatsappLink.style.display = 'inline-block'; // Make the button visible
             } else {
-                resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
+                resultDiv.innerHTML = '<p class="error">No student found with this mobile number, class, and year of birth. Please try again.</p>';
             }
         });
     </script>
