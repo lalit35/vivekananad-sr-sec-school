@@ -1,4 +1,5 @@
- {
+const studentsData = [
+{
   "first Name": "Poonam",
   "last Name": "Sharma",
   "DOB": "03\/12\/2008",
