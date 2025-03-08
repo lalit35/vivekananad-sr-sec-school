@@ -198,6 +198,20 @@
             margin-bottom: 10px;
             color: #fff;
         }
+
+        /* Image Section */
+        .student-photo {
+            max-width: 150px;
+            max-height: 150px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .no-photo-message {
+            color: #FFDC5E;
+            font-size: 16px;
+            display: none; /* Hidden initially */
+        }
     </style>
 </head>
 
@@ -243,6 +257,10 @@
         <div><strong>Father's Name:</strong> <span id="fatherName"></span></div>
         <div><strong>Mother's Name:</strong> <span id="motherName"></span></div>
         <div><strong>Mobile Number:</strong> <span id="studentMobile"></span></div>
+
+        <!-- Student Image Section -->
+        <img id="studentPhoto" class="student-photo" alt="Student Photo">
+        <div id="noPhotoMessage" class="no-photo-message">Photo Not Provided</div>
     </div>
 
     <!-- Footer Section -->
@@ -303,13 +321,43 @@
                 document.getElementById('motherName').innerText = student["mother Name"];
                 document.getElementById('studentMobile').innerText = student.mobile;
 
+                // Check if image URL is provided
+                const imageURL = student.imageURL; // Assuming this is the full Google Drive link
+
+                // If imageURL is provided and is not empty
+                if (imageURL) {
+                    // Extract the File ID from the provided Google Drive link
+                    const fileId = extractGoogleDriveFileId(imageURL);
+                    
+                    if (fileId) {
+                        // Construct the correct image URL to be displayed
+                        const formattedImageURL = `https://drive.google.com/uc?export=view&id=${fileId}`;
+                        document.getElementById('studentPhoto').src = formattedImageURL;
+                        document.getElementById('noPhotoMessage').style.display = 'none'; // Hide "Photo Not Provided" message
+                    } else {
+                        // If file ID is not valid, show "Photo Not Provided"
+                        document.getElementById('studentPhoto').style.display = 'none';
+                        document.getElementById('noPhotoMessage').style.display = 'block';
+                    }
+                } else {
+                    // If no image URL is provided, show "Photo Not Provided"
+                    document.getElementById('studentPhoto').style.display = 'none';
+                    document.getElementById('noPhotoMessage').style.display = 'block';
+                }
+
                 resultDiv.innerHTML = ''; // Clear error message if any
             } else {
                 resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
             }
         });
-    </script>
 
+        // Helper function to extract the file ID from a Google Drive URL
+        function extractGoogleDriveFileId(url) {
+            const regex = /\/d\/(.*?)\//;
+            const match = url.match(regex);
+            return match ? match[1] : null;
+        }
+    </script>
 </body>
 
 </html>
