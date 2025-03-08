@@ -60,6 +60,7 @@
             max-width: 450px;
             backdrop-filter: blur(10px);
             animation: slideIn 1s ease-out;
+            margin-bottom: 30px;
         }
 
         h2 {
@@ -179,6 +180,24 @@
             }
         }
 
+        /* Separate container for showing student details */
+        .details-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            width: 100%;
+            max-width: 450px;
+            backdrop-filter: blur(10px);
+            display: none; /* Hidden initially */
+            margin-top: 20px;
+        }
+
+        .details-container div {
+            margin-bottom: 10px;
+            color: #fff;
+        }
     </style>
 </head>
 
@@ -189,7 +208,7 @@
         <div class="competition-name">VS-1st Scholarship Test</div>
     </div>
 
-    <!-- Main Form -->
+    <!-- Main Form (Search Box) -->
     <div class="container">
         <h2>Enter Your Details</h2>
         <form id="admitCardForm">
@@ -211,6 +230,19 @@
             <button type="submit" class="btn">Get Student Details</button>
         </form>
         <div id="result"></div>
+    </div>
+
+    <!-- Student Details Box (Results) -->
+    <div id="detailsBox" class="details-container">
+        <h2>Student Details</h2>
+        <div><strong>First Name:</strong> <span id="firstName"></span></div>
+        <div><strong>Last Name:</strong> <span id="lastName"></span></div>
+        <div><strong>DOB:</strong> <span id="dob"></span></div>
+        <div><strong>Age:</strong> <span id="age"></span></div>
+        <div><strong>Class:</strong> <span id="className"></span></div>
+        <div><strong>Father's Name:</strong> <span id="fatherName"></span></div>
+        <div><strong>Mother's Name:</strong> <span id="motherName"></span></div>
+        <div><strong>Mobile Number:</strong> <span id="studentMobile"></span></div>
     </div>
 
     <!-- Footer Section -->
@@ -245,6 +277,8 @@
             let mobile = document.getElementById('mobile').value.trim();
             let studentClass = document.getElementById('studentClass').value.trim();
             let resultDiv = document.getElementById('result');
+            let detailsBox = document.getElementById('detailsBox');
+            let searchBox = document.querySelector('.container'); // Reference to the search form
 
             // Validation
             if (!mobile || !studentClass) {
@@ -256,16 +290,20 @@
             let student = students.find(s => s.mobile === Number(mobile) && s.className.toString() === studentClass);
 
             if (student) {
-                resultDiv.innerHTML = `
-                    <div><strong>First Name:</strong> ${student["first Name"]}</div>
-                    <div><strong>Last Name:</strong> ${student["last Name"]}</div>
-                    <div><strong>DOB:</strong> ${student.DOB}</div>
-                    <div><strong>Age:</strong> ${student.AGE}</div>
-                    <div><strong>Class:</strong> ${student.className}</div>
-                    <div><strong>Father's Name:</strong> ${student["father Name"]}</div>
-                    <div><strong>Mother's Name:</strong> ${student["mother Name"]}</div>
-                    <div><strong>Mobile Number:</strong> ${student.mobile}</div>
-                `;
+                // Show student details and hide search form
+                detailsBox.style.display = 'block';
+                searchBox.style.display = 'none';  // Hide the search form
+
+                document.getElementById('firstName').innerText = student["first Name"];
+                document.getElementById('lastName').innerText = student["last Name"];
+                document.getElementById('dob').innerText = student.DOB;
+                document.getElementById('age').innerText = student.AGE;
+                document.getElementById('className').innerText = student.className;
+                document.getElementById('fatherName').innerText = student["father Name"];
+                document.getElementById('motherName').innerText = student["mother Name"];
+                document.getElementById('studentMobile').innerText = student.mobile;
+
+                resultDiv.innerHTML = ''; // Clear error message if any
             } else {
                 resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
             }
