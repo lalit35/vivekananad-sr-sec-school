@@ -242,8 +242,7 @@
 
             <label for="yearOfBirth">Select Year of Birth</label>
             <select id="yearOfBirth" class="select-field" required>
-                <option value="">Select Year of Birth</option>
-                <!-- Adding years from 2005 to 2018 -->
+                <option value="">Select Year</option>
                 <option value="2005">2005</option>
                 <option value="2006">2006</option>
                 <option value="2007">2007</option>
@@ -323,13 +322,24 @@
             }
 
             // Search for the student by mobile and year of birth
-            let student = students.find(s => s.mobile === Number(mobile) && new Date(s.DOB).getFullYear() === Number(yearOfBirth));
+            let student = students.find(s => {
+                // Mobile number and year of birth extraction
+                let isMobileMatch = String(s["mobile Number"]) === mobile;
+
+                // Extract the year of birth from the DOB (assuming it's in MM/DD/YYYY format)
+                let studentYearOfBirth = new Date(s.DOB).getFullYear();
+                let isYearOfBirthMatch = studentYearOfBirth === Number(yearOfBirth);
+
+                // Return true if both mobile and year of birth match
+                return isMobileMatch && isYearOfBirthMatch;
+            });
 
             if (student) {
                 // Show student details and hide search form
                 detailsBox.style.display = 'block';
                 searchBox.style.display = 'none';  // Hide the search form
 
+                // Fill in the details
                 document.getElementById('firstName').innerText = student["first Name"];
                 document.getElementById('lastName').innerText = student["last Name"];
                 document.getElementById('dob').innerText = student.DOB;
@@ -337,7 +347,7 @@
                 document.getElementById('className').innerText = student.className;
                 document.getElementById('fatherName').innerText = student["father Name"];
                 document.getElementById('motherName').innerText = student["mother Name"];
-                document.getElementById('studentMobile').innerText = student.mobile;
+                document.getElementById('studentMobile').innerText = student["mobile Number"];
 
                 resultDiv.innerHTML = ''; // Clear error message if any
 
@@ -345,7 +355,7 @@
                 const studentFullName = student["first Name"] + " " + student["last Name"];
                 const fatherName = student["father Name"];
                 const whatsappMessage = `Hello Sir, My name is ${fatherName}. I want to change my son/daughter details. Full name: ${studentFullName}.`;
-                
+
                 // Encode the message for URL
                 const whatsappUrl = `https://wa.me/9350885613?text=${encodeURIComponent(whatsappMessage)}`;
 
@@ -358,7 +368,6 @@
             }
         });
     </script>
-
 </body>
 
 </html>
