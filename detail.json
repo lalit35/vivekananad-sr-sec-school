@@ -10161,6 +10161,26 @@
   "father Name": "Rakesh kumar",
   "mother Name": "Rajbala",
   "mobile Number": 7206806229
+ },
+ {
+  "first Name": "Jitender",
+  "last Name": "Bishnoi",
+  "DOB": "08\/01\/2012",
+  "AGE": 12,
+  "className": 7,
+  "father Name": "Mr. Sandeep Kumar",
+  "mother Name": "Mrs. Soma devi",
+  "mobile Number": 9467155431
+ },
+ {
+  "first Name": "Yashivini",
+  "last Name": "Bishnoi",
+  "DOB": "11\/07\/2013",
+  "AGE": 11,
+  "className": 7,
+  "father Name": "Mr. Harpal Singh",
+  "mother Name": "Mrs. Anu Rani",
+  "mobile Number": 9467155430
  }
 ]
 }
