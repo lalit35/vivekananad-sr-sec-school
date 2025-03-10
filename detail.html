@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -225,7 +224,6 @@
         }
     </style>
 </head>
-
 <body>
     <!-- Header Section -->
     <div class="header">
@@ -263,19 +261,11 @@
     </div>
 
     <!-- Student Details Box (Results) -->
-    <div id="detailsBox" class="details-container">
+    <div id="detailsBox" class="details-container" style="display: none;">
         <h2>Student Details</h2>
-        <div><strong>First Name:</strong> <span id="firstName"></span></div>
-        <div><strong>Last Name:</strong> <span id="lastName"></span></div>
-        <div><strong>DOB:</strong> <span id="dobDetails"></span></div>
-        <div><strong>Age:</strong> <span id="age"></span></div>
-        <div><strong>Class:</strong> <span id="className"></span></div>
-        <div><strong>Father's Name:</strong> <span id="fatherName"></span></div>
-        <div><strong>Mother's Name:</strong> <span id="motherName"></span></div>
-        <div><strong>Mobile Number:</strong> <span id="studentMobile"></span></div>
-        <div>If you want to change anything, click on WhatsApp below.</div>
+        <div id="studentDetailsList"></div>
 
-        <!-- WhatsApp Contact Link as a Modern Button -->
+        <!-- WhatsApp Contact Link -->
         <a id="whatsappLink" href="#" class="whatsapp-btn" style="display: none;">Contact on WhatsApp</a>
     </div>
 
@@ -323,6 +313,7 @@
             let resultDiv = document.getElementById('result');
             let detailsBox = document.getElementById('detailsBox');
             let searchBox = document.querySelector('.container'); // Reference to the search form
+            let studentDetailsList = document.getElementById('studentDetailsList');
 
             // Validation
             if (!mobile || !studentClass || !dob) {
@@ -330,31 +321,46 @@
                 return;
             }
 
-            // Search for the student by mobile, class, and year of birth
-            let student = students.find(s => s.mobile === Number(mobile) && s.className.toString() === studentClass && new Date(s.DOB).getFullYear() === Number(dob));
+            // Find all students that match the criteria
+            let filteredStudents = students.filter(s => {
+                return s.mobile === Number(mobile) && s.className.toString() === studentClass && new Date(s.DOB).getFullYear() === Number(dob);
+            });
 
-            if (student) {
-                // Show student details and hide search form
+            if (filteredStudents.length > 0) {
+                // Clear previous details
+                studentDetailsList.innerHTML = '';
+
+                // Display all matching student details
+                filteredStudents.forEach(student => {
+                    let studentDiv = document.createElement('div');
+                    studentDiv.classList.add('student-details');
+                    studentDiv.innerHTML = `
+                        <div><strong>First Name:</strong> ${student["first Name"]}</div>
+                        <div><strong>Last Name:</strong> ${student["last Name"]}</div>
+                        <div><strong>DOB:</strong> ${student.DOB}</div>
+                        <div><strong>Age:</strong> ${student.AGE}</div>
+                        <div><strong>Class:</strong> ${student.className}</div>
+                        <div><strong>Father's Name:</strong> ${student["father Name"]}</div>
+                        <div><strong>Mother's Name:</strong> ${student["mother Name"]}</div>
+                        <div><strong>Mobile Number:</strong> ${student.mobile}</div>
+                        <hr>
+                    `;
+                    studentDetailsList.appendChild(studentDiv);
+                });
+
+                // Show the details and hide the search form
                 detailsBox.style.display = 'block';
-                searchBox.style.display = 'none';  // Hide the search form
-
-                document.getElementById('firstName').innerText = student["first Name"];
-                document.getElementById('lastName').innerText = student["last Name"];
-                document.getElementById('dobDetails').innerText = student.DOB;
-                document.getElementById('age').innerText = student.AGE;
-                document.getElementById('className').innerText = student.className;
-                document.getElementById('fatherName').innerText = student["father Name"];
-                document.getElementById('motherName').innerText = student["mother Name"];
-                document.getElementById('studentMobile').innerText = student.mobile;
+                searchBox.style.display = 'none';
 
                 resultDiv.innerHTML = '';  // Clear the result box
 
-                const studentFullName = student["first Name"] + " " + student["last Name"];
-                const fatherName = student["father Name"];
+                // Display WhatsApp link for the first student (Optional - customize this)
+                const firstStudent = filteredStudents[0];
+                const studentFullName = firstStudent["first Name"] + " " + firstStudent["last Name"];
+                const fatherName = firstStudent["father Name"];
                 const whatsappMessage = `Hello Sir, My name is ${fatherName}. I want to change my son/daughter details. Student Full name: ${studentFullName}.`;
                 const whatsappUrl = `https://wa.me/9350885613?text=${encodeURIComponent(whatsappMessage)}`;
 
-                // Display WhatsApp link
                 const whatsappLink = document.getElementById('whatsappLink');
                 whatsappLink.setAttribute('href', whatsappUrl);
                 whatsappLink.style.display = 'inline-block';  // Show the link
@@ -364,5 +370,4 @@
         });
     </script>
 </body>
- 
 </html>
