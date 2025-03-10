@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -224,6 +225,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Header Section -->
     <div class="header">
@@ -238,21 +240,24 @@
             <label for="mobile">Enter Mobile Number</label>
             <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
 
-            <label for="dob">Select Year of Birth</label>
-            <select id="dob" class="select-field" required>
+            <label for="yearOfBirth">Select Year of Birth</label>
+            <select id="yearOfBirth" class="select-field" required>
                 <option value="">Select Year of Birth</option>
-            </select>
-
-            <label for="studentClass">Select Student Class</label>
-            <select id="studentClass" class="select-field" required>
-                <option value="">Select Class</option>
-                <option value="11">Class 11</option>
-                <option value="10">Class 10</option>
-                <option value="9">Class 9</option>
-                <option value="8">Class 8</option>
-                <option value="7">Class 7</option>
-                <option value="6">Class 6</option>
-                <option value="5">Class 5</option>
+                <!-- Adding years from 2005 to 2018 -->
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
             </select>
 
             <button type="submit" class="btn">Get Student Details</button>
@@ -261,11 +266,18 @@
     </div>
 
     <!-- Student Details Box (Results) -->
-    <div id="detailsBox" class="details-container" style="display: none;">
+    <div id="detailsBox" class="details-container">
         <h2>Student Details</h2>
-        <div id="studentDetailsList"></div>
+        <div><strong>First Name:</strong> <span id="firstName"></span></div>
+        <div><strong>Last Name:</strong> <span id="lastName"></span></div>
+        <div><strong>DOB:</strong> <span id="dob"></span></div>
+        <div><strong>Age:</strong> <span id="age"></span></div>
+        <div><strong>Class:</strong> <span id="className"></span></div>
+        <div><strong>Father's Name:</strong> <span id="fatherName"></span></div>
+        <div><strong>Mother's Name:</strong> <span id="motherName"></span></div>
+        <div><strong>Mobile Number:</strong> <span id="studentMobile"></span></div>
 
-        <!-- WhatsApp Contact Link -->
+        <!-- WhatsApp Contact Link as a Modern Button -->
         <a id="whatsappLink" href="#" class="whatsapp-btn" style="display: none;">Contact on WhatsApp</a>
     </div>
 
@@ -275,15 +287,6 @@
     </div>
 
     <script>
-        // Populate Year of Birth dropdown with options from 2000 to 2020
-        const dobSelect = document.getElementById('dob');
-        for (let year = 2000; year <= 2020; year++) {
-            const option = document.createElement('option');
-            option.value = year;
-            option.textContent = year;
-            dobSelect.appendChild(option);
-        }
-
         // Array to store the student data
         let students = [];
 
@@ -308,66 +311,54 @@
             e.preventDefault();
 
             let mobile = document.getElementById('mobile').value.trim();
-            let studentClass = document.getElementById('studentClass').value.trim();
-            let dob = document.getElementById('dob').value.trim();
+            let yearOfBirth = document.getElementById('yearOfBirth').value.trim();
             let resultDiv = document.getElementById('result');
             let detailsBox = document.getElementById('detailsBox');
             let searchBox = document.querySelector('.container'); // Reference to the search form
-            let studentDetailsList = document.getElementById('studentDetailsList');
 
             // Validation
-            if (!mobile || !studentClass || !dob) {
-                resultDiv.innerHTML = '<p class="error">Please enter mobile number, year of birth, and select student class.</p>';
+            if (!mobile || !yearOfBirth) {
+                resultDiv.innerHTML = '<p class="error">Please enter mobile number and select year of birth.</p>';
                 return;
             }
 
-            // Find all students that match the criteria
-            let filteredStudents = students.filter(s => {
-                return s.mobile === Number(mobile) && s.className.toString() === studentClass && new Date(s.DOB).getFullYear() === Number(dob);
-            });
+            // Search for the student by mobile and year of birth
+            let student = students.find(s => s.mobile === Number(mobile) && new Date(s.DOB).getFullYear() === Number(yearOfBirth));
 
-            if (filteredStudents.length > 0) {
-                // Clear previous details
-                studentDetailsList.innerHTML = '';
-
-                // Display all matching student details
-                filteredStudents.forEach(student => {
-                    let studentDiv = document.createElement('div');
-                    studentDiv.classList.add('student-details');
-                    studentDiv.innerHTML = `
-                        <div><strong>First Name:</strong> ${student["first Name"]}</div>
-                        <div><strong>Last Name:</strong> ${student["last Name"]}</div>
-                        <div><strong>DOB:</strong> ${student.DOB}</div>
-                        <div><strong>Age:</strong> ${student.AGE}</div>
-                        <div><strong>Class:</strong> ${student.className}</div>
-                        <div><strong>Father's Name:</strong> ${student["father Name"]}</div>
-                        <div><strong>Mother's Name:</strong> ${student["mother Name"]}</div>
-                        <div><strong>Mobile Number:</strong> ${student.mobile}</div>
-                        <hr>
-                    `;
-                    studentDetailsList.appendChild(studentDiv);
-                });
-
-                // Show the details and hide the search form
+            if (student) {
+                // Show student details and hide search form
                 detailsBox.style.display = 'block';
-                searchBox.style.display = 'none';
+                searchBox.style.display = 'none';  // Hide the search form
 
-                resultDiv.innerHTML = '';  // Clear the result box
+                document.getElementById('firstName').innerText = student["first Name"];
+                document.getElementById('lastName').innerText = student["last Name"];
+                document.getElementById('dob').innerText = student.DOB;
+                document.getElementById('age').innerText = student.AGE;
+                document.getElementById('className').innerText = student.className;
+                document.getElementById('fatherName').innerText = student["father Name"];
+                document.getElementById('motherName').innerText = student["mother Name"];
+                document.getElementById('studentMobile').innerText = student.mobile;
 
-                // Display WhatsApp link for the first student (Optional - customize this)
-                const firstStudent = filteredStudents[0];
-                const studentFullName = firstStudent["first Name"] + " " + firstStudent["last Name"];
-                const fatherName = firstStudent["father Name"];
-                const whatsappMessage = `Hello Sir, My name is ${fatherName}. I want to change my son/daughter details. Student Full name: ${studentFullName}.`;
+                resultDiv.innerHTML = ''; // Clear error message if any
+
+                // Generate WhatsApp message
+                const studentFullName = student["first Name"] + " " + student["last Name"];
+                const fatherName = student["father Name"];
+                const whatsappMessage = `Hello Sir, My name is ${fatherName}. I want to change my son/daughter details. Full name: ${studentFullName}.`;
+                
+                // Encode the message for URL
                 const whatsappUrl = `https://wa.me/9350885613?text=${encodeURIComponent(whatsappMessage)}`;
 
+                // Set the WhatsApp link in the details box
                 const whatsappLink = document.getElementById('whatsappLink');
                 whatsappLink.setAttribute('href', whatsappUrl);
-                whatsappLink.style.display = 'inline-block';  // Show the link
+                whatsappLink.style.display = 'inline-block'; // Make the button visible
             } else {
-                resultDiv.innerHTML = '<p class="error">No student found with this mobile number, class, and year of birth. Please try again.</p>';
+                resultDiv.innerHTML = '<p class="error">No student found with this mobile number and year of birth. Please try again.</p>';
             }
         });
     </script>
+
 </body>
+
 </html>
