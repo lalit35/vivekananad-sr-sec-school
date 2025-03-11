@@ -207,9 +207,7 @@
     <!-- Main Form -->
     <div class="container">
         <h2>Download Your Admit Card</h2>
-        <div id="countdown" style="font-size: 20px; color: #FFDC5E;"></div>
-        <p id="infoMessage" style="color: #fff; font-size: 16px;">Admit card will be available after the countdown ends.</p>
-        <form id="admitCardForm" style="display:none;">
+        <form id="admitCardForm">
             <label for="mobile">Enter Mobile Number</label>
             <input type="text" id="mobile" class="input-field" placeholder="Enter your mobile number" required>
 
@@ -236,29 +234,6 @@
     </div>
 
     <script>
-        // Countdown Timer
-        function updateCountdown() {
-            const now = new Date();
-            const targetTime = new Date();
-            targetTime.setHours(20, 0, 0, 0); // Target time: Today 8:00 PM
-
-            const timeDiff = targetTime - now;
-            if (timeDiff <= 0) {
-                document.getElementById('countdown').innerText = "The admit card is now available!";
-                document.getElementById('infoMessage').innerText = "You can now download your admit card.";
-                document.getElementById('admitCardForm').style.display = 'block'; // Show the form
-            } else {
-                const hours = Math.floor(timeDiff / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-
-                document.getElementById('countdown').innerText = `Time remaining: ${hours}h ${minutes}m ${seconds}s`;
-            }
-        }
-
-        setInterval(updateCountdown, 1000); // Update the countdown every second
-        updateCountdown(); // Initial call to display countdown immediately
-
         // Simulating student data fetching from an external JSON file
         let students = [];
 
