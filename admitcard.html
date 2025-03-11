@@ -240,8 +240,7 @@
         function updateCountdown() {
             const now = new Date();
             const targetTime = new Date();
-            targetTime.setHours(19, 0, 0, 0); // Target time: Today 7:00 PM
-            targetTime.setMinutes(targetTime.getMinutes() + 15); // Add 15 minutes to the target time
+            targetTime.setHours(19, 30, 0, 0); // Target time: Today 7:30 PM
 
             const timeDiff = targetTime - now;
             if (timeDiff <= 0) {
