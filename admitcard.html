@@ -214,13 +214,12 @@
             <label for="studentClass">Select Student Class</label>
             <select id="studentClass" class="select-field" required>
                 <option value="">Select Class</option>
-                <option value="11">Class 11</option>
-                <option value="10">Class 10</option>
-                <option value="9">Class 9</option>
-                <option value="8">Class 8</option>
-                <option value="7">Class 7</option>
                 <option value="6">Class 6</option>
-                <option value="5">Class 5</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+                <option value="9">Class 9</option>
+                <option value="10">Class 10</option>
+                <option value="11">Class 11</option>
             </select>
 
             <button type="submit" class="btn">Get Admit Card</button>
@@ -262,11 +261,11 @@
             }
 
             // Search for the student
-            let student = students.find(s => s.Mobile.toString() === mobile && s.class.toString() === studentClass);
+            let student = students.find(s => s.Mobile.toString() === mobile && s.className.toString() === studentClass);
 
             if (student) {
                 resultDiv.innerHTML = `
-                    <p class="success">Your admit card for Class ${student.class} is ready!</p>
+                    <p class="success">Your admit card for Class ${student.className} is ready!</p>
                     <p><b>Student: ${student.Name}</b></p>
                     <a href="${student.Pdf}" target="_blank" class="result-link">Click here to download your admit card</a>
                 `;
