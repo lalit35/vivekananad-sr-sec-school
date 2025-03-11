@@ -214,13 +214,27 @@
             <label for="studentClass">Select Student Class</label>
             <select id="studentClass" class="select-field" required>
                 <option value="">Select Class</option>
-                <option value="5">Class 5</option> <!-- New option added -->
+                <option value="5">Class 5</option>
                 <option value="6">Class 6</option>
                 <option value="7">Class 7</option>
                 <option value="8">Class 8</option>
                 <option value="9">Class 9</option>
                 <option value="10">Class 10</option>
                 <option value="11">Class 11</option>
+            </select>
+
+            <label for="yearOfBirth">Select Year of Birth</label>
+            <select id="yearOfBirth" class="select-field" required>
+                <option value="">Select Year</option>
+                <!-- Year options from 2005 to 2020 -->
+                <script>
+                    for (let year = 2005; year <= 2020; year++) {
+                        const option = document.createElement('option');
+                        option.value = year;
+                        option.textContent = year;
+                        document.getElementById('yearOfBirth').appendChild(option);
+                    }
+                </script>
             </select>
 
             <button type="submit" class="btn">Get Admit Card</button>
@@ -254,16 +268,17 @@
 
             let mobile = document.getElementById('mobile').value.trim();
             let studentClass = document.getElementById('studentClass').value.trim();
+            let yearOfBirth = document.getElementById('yearOfBirth').value.trim();
             let resultDiv = document.getElementById('result');
 
             // Validation
-            if (!mobile || !studentClass) {
-                resultDiv.innerHTML = '<p class="error">Please enter mobile number and select student class.</p>';
+            if (!mobile || !studentClass || !yearOfBirth) {
+                resultDiv.innerHTML = '<p class="error">Please enter mobile number, select student class, and year of birth.</p>';
                 return;
             }
 
             // Search for the student
-            let student = students.find(s => s.Mobile.toString() === mobile && s.className.toString() === studentClass);
+            let student = students.find(s => s.Mobile.toString() === mobile && s.className.toString() === studentClass && s.DOB.toString() === yearOfBirth);
 
             if (student) {
                 resultDiv.innerHTML = `
@@ -272,7 +287,7 @@
                     <a href="${student.Pdf}" target="_blank" class="result-link">Click here to download your admit card</a>
                 `;
             } else {
-                resultDiv.innerHTML = '<p class="error">No student found with this mobile number and class. Please try again.</p>';
+                resultDiv.innerHTML = '<p class="error">No student found with this mobile number, class, and year of birth. Please try again.</p>';
             }
         });
     </script>
