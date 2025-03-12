@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
     <title>Download Admit Card</title>
     <style>
         /* Global Styles */
@@ -19,7 +19,7 @@
             min-height: 100vh;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Align the content at the top */
+            align-items: flex-start;
             flex-direction: column;
             color: #fff;
             font-size: 16px;
@@ -51,13 +51,13 @@
 
         /* Main Content */
         .container {
-            background: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            max-width: 100%;
             padding: 30px 40px;
+            background: rgba(0, 0, 0, 0.7);
             border-radius: 15px;
             box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
             text-align: center;
-            width: 100%;
-            max-width: 450px;
             backdrop-filter: blur(10px);
             animation: slideIn 1s ease-out;
         }
@@ -73,7 +73,7 @@
         .input-field,
         .select-field {
             width: 100%;
-            padding: 12px;
+            padding: 14px;
             margin: 15px 0;
             border-radius: 8px;
             border: none;
@@ -177,6 +177,7 @@
         @media (max-width: 600px) {
             .container {
                 padding: 20px;
+                width: 100%;
                 max-width: 100%;
             }
 
@@ -186,13 +187,13 @@
 
             .input-field,
             .select-field {
-                font-size: 14px;
-                padding: 10px;
+                font-size: 16px;
+                padding: 12px;
             }
 
             .btn {
                 font-size: 16px;
-                padding: 12px;
+                padding: 14px;
             }
         }
     </style>
