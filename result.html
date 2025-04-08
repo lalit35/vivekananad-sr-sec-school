@@ -109,9 +109,22 @@
             transform: scale(0.98);
         }
 
-        .result {
+        .result-box {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+            text-align: left;
+            width: 100%;
+            max-width: 450px;
+            backdrop-filter: blur(10px);
+            display: none; /* Initially hidden */
             margin-top: 20px;
-            font-size: 18px;
+        }
+
+        .result-box div {
+            margin-bottom: 10px;
+            color: #fff;
         }
 
         .error {
@@ -149,7 +162,7 @@
     </div>
 
     <!-- Result Search Form -->
-    <div class="container">
+    <div class="container" id="searchBox">
         <h2>Enter Your Roll No. and Year</h2>
         <form id="resultForm">
             <label for="rollNo">Enter Roll Number</label>
@@ -161,6 +174,14 @@
             <button type="submit" class="btn">Get Result</button>
         </form>
         <div id="result"></div>
+    </div>
+
+    <!-- Result Display Box -->
+    <div class="result-box" id="resultBox">
+        <h2>Student Result</h2>
+        <div><strong>Name:</strong> <span id="studentName"></span></div>
+        <div><strong>DOB:</strong> <span id="studentDOB"></span></div>
+        <div><strong>Marks:</strong> <span id="studentMarks"></span> / 100</div>
     </div>
 
     <!-- Footer Section -->
@@ -206,10 +227,14 @@
             let result = results.find(r => r["Roll No."] == rollNo && r["Year"] == year);
 
             if (result) {
-                // Show the result details
-                resultDiv.innerHTML = `<p><strong>Name:</strong> ${result.Name}</p>
-                                       <p><strong>DOB:</strong> ${result.DOB}</p>
-                                       <p><strong>Marks:</strong> ${result.Marks} / 100</p>`;
+                // Hide the search box and show the result box
+                document.getElementById('searchBox').style.display = 'none';
+                document.getElementById('resultBox').style.display = 'block';
+
+                // Fill in the result details
+                document.getElementById('studentName').innerText = result.Name;
+                document.getElementById('studentDOB').innerText = result.DOB;
+                document.getElementById('studentMarks').innerText = result.Marks;
             } else {
                 resultDiv.innerHTML = '<p class="error">No result found for this roll number and year. Please try again.</p>';
             }
