@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Result</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <style>
         /* Global Styles from existing code */
         * {
@@ -155,13 +156,15 @@
         /* Call button style */
         .call-btn {
             display: inline-block;
-            padding: 12px 20px;
+            padding: 15px 20px;
             background-color: #25D366;
             color: white;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 50%;
+            font-size: 20px;
             text-align: center;
-            width: 100%;
+            width: 60px;
+            height: 60px;
+            line-height: 30px;
             text-decoration: none;
             cursor: pointer;
             margin-top: 20px;
@@ -170,11 +173,15 @@
 
         .call-btn:hover {
             background-color: #128C7E;
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .call-btn:active {
             transform: scale(0.98);
+        }
+
+        .call-btn i {
+            font-size: 30px;
         }
     </style>
 </head>
@@ -207,8 +214,10 @@
         <div><strong>Name:</strong> <span id="studentName"></span></div>
         <div><strong>Marks:</strong> <span id="studentMarks"></span> / 100</div>
 
-        <!-- Call Button -->
-        <a href="tel:+9416848776" class="call-btn">Call on 9416848776</a>
+        <!-- Call Button with Phone Icon -->
+        <a href="tel:+9416848776" class="call-btn">
+            <i class="fas fa-phone-alt"></i>
+        </a>
     </div>
 
     <!-- Footer Section -->
