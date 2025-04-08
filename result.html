@@ -151,6 +151,31 @@
             color: #FFDC5E;
             text-decoration: none;
         }
+
+        /* Call button style */
+        .call-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 8px;
+            font-size: 16px;
+            text-align: center;
+            width: 100%;
+            text-decoration: none;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .call-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+
+        .call-btn:active {
+            transform: scale(0.98);
+        }
     </style>
 </head>
 
@@ -180,8 +205,10 @@
     <div class="result-box" id="resultBox">
         <h2>Student Result</h2>
         <div><strong>Name:</strong> <span id="studentName"></span></div>
-        <div><strong>DOB:</strong> <span id="studentDOB"></span></div>
         <div><strong>Marks:</strong> <span id="studentMarks"></span> / 100</div>
+
+        <!-- Call Button -->
+        <a href="tel:+9416848776" class="call-btn">Call on 9416848776</a>
     </div>
 
     <!-- Footer Section -->
@@ -233,7 +260,6 @@
 
                 // Fill in the result details
                 document.getElementById('studentName').innerText = result.Name;
-                document.getElementById('studentDOB').innerText = result.DOB;
                 document.getElementById('studentMarks').innerText = result.Marks;
             } else {
                 resultDiv.innerHTML = '<p class="error">No result found for this roll number and year. Please try again.</p>';
