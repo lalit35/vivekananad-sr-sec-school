@@ -7,22 +7,23 @@
 
 <style>
 body{
-  font-family:Arial, sans-serif;
-  text-align:center;
-  padding:30px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 30px;
 }
 button{
-  font-size:18px;
-  padding:15px 30px;
-  background:#0f9d58;
-  color:white;
-  border:none;
-  border-radius:10px;
-  cursor:pointer;
+  font-size: 18px;
+  padding: 15px 35px;
+  background: #0f9d58;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
 }
 .note{
-  margin-top:20px;
-  color:gray;
+  margin-top: 20px;
+  color: gray;
+  font-size: 14px;
 }
 </style>
 </head>
@@ -37,7 +38,7 @@ button{
 <button onclick="payNow()">Pay Now</button>
 
 <p class="note">
-Google Pay • PhonePe • Paytm • BHIM • WhatsApp Pay
+UPI Apps available on your phone will be shown
 </p>
 
 <script>
@@ -49,36 +50,18 @@ document.getElementById("studentInfo").innerText =
   "Student Name: " + studentName;
 
 // ===== SINGLE BUTTON PAYMENT =====
-function payNow(){
+function payNow() {
 
   const upiUrl =
     "upi://pay" +
-    "?pa=9350885613-2@ybl" +     // YOUR UPI ID
-    "&pn=Lalit%20Kumar" +        // PAYEE NAME
-    "&am=1" +                   // AMOUNT
+    "?pa=9350885613-2@ybl" +      // YOUR UPI ID
+    "&pn=Lalit%20Kumar" +         // PAYEE NAME
+    "&am=79" +                    // AMOUNT
     "&cu=INR" +
     "&tn=Registration%20Fee%20-%20" + encodeURIComponent(studentName);
 
-  // Open UPI (Android decides which app)
+  // Open UPI app (Android decides which one)
   window.location.href = upiUrl;
-
-  // Optional WhatsApp confirmation after payment
-  setTimeout(openWhatsApp, 5000);
-}
-
-// ===== WHATSAPP CONFIRMATION =====
-function openWhatsApp(){
-  const msg =
-    "Hello,\n\n" +
-    "I have paid ₹79 registration fee.\n\n" +
-    "Student Name: " + studentName + "\n\n" +
-    "Please verify my payment.\n\nThank you.";
-
-  const waUrl =
-    "https://wa.me/919350885613?text=" +
-    encodeURIComponent(msg);
-
-  window.open(waUrl, "_blank");
 }
 </script>
 
