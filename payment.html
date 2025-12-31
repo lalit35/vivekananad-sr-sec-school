@@ -1,62 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <title>Pay Registration Fee</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
 
-<body style="font-family:Arial;text-align:center;padding:30px">
-
-<h2>Registration Fee</h2>
-<h3>Amount: ₹79</h3>
-<p id="studentInfo"></p>
-
-<button onclick="payNow()" style="
+<style>
+body{
+  font-family:Arial, sans-serif;
+  text-align:center;
+  padding:30px;
+}
+button{
   font-size:18px;
   padding:15px 30px;
   background:#0f9d58;
   color:white;
   border:none;
-  border-radius:10px;">
-  Pay Now
-</button>
+  border-radius:10px;
+  cursor:pointer;
+}
+.note{
+  margin-top:20px;
+  color:gray;
+}
+</style>
+</head>
 
-<p style="margin-top:20px;color:gray">
-Google Pay • PhonePe • Paytm • BHIM • Others
+<body>
+
+<h2>Registration Fee Payment</h2>
+<h3>Amount: ₹79</h3>
+
+<p id="studentInfo"></p>
+
+<button onclick="payNow()">Pay Now</button>
+
+<p class="note">
+Google Pay • PhonePe • Paytm • BHIM • WhatsApp Pay
 </p>
 
 <script>
+// ===== GET STUDENT NAME FROM URL =====
 const params = new URLSearchParams(window.location.search);
 const studentName = params.get("name") || "Student";
 
 document.getElementById("studentInfo").innerText =
   "Student Name: " + studentName;
 
+// ===== SINGLE BUTTON PAYMENT =====
 function payNow(){
+
   const upiUrl =
     "upi://pay" +
-    "?pa=9350885613-2@ybl" +
-    "&pn=Lalit%20Kumar" +
-    "&am=1" +
+    "?pa=9350885613-2@ybl" +     // YOUR UPI ID
+    "&pn=Lalit%20Kumar" +        // PAYEE NAME
+    "&am=1" +                   // AMOUNT
     "&cu=INR" +
     "&tn=Registration%20Fee%20-%20" + encodeURIComponent(studentName);
 
+  // Open UPI (Android decides which app)
   window.location.href = upiUrl;
 
-  // Optional WhatsApp confirmation
+  // Optional WhatsApp confirmation after payment
   setTimeout(openWhatsApp, 5000);
 }
 
+// ===== WHATSAPP CONFIRMATION =====
 function openWhatsApp(){
   const msg =
-    "Hello, I have paid ₹79 registration fee.\n\n" +
-    "Student Name: " + studentName + "\n" +
-    "Please verify my payment.";
+    "Hello,\n\n" +
+    "I have paid ₹79 registration fee.\n\n" +
+    "Student Name: " + studentName + "\n\n" +
+    "Please verify my payment.\n\nThank you.";
 
-  window.open(
-    "https://wa.me/919350885613?text=" + encodeURIComponent(msg),
-    "_blank"
-  );
+  const waUrl =
+    "https://wa.me/919350885613?text=" +
+    encodeURIComponent(msg);
+
+  window.open(waUrl, "_blank");
 }
 </script>
 
