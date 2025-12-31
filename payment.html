@@ -1,98 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pay Registration Fee</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+button{
+  width:100%;
+  padding:15px;
+  margin:10px 0;
+  font-size:18px;
+  border:none;
+  border-radius:10px;
+  color:white;
+}
+.gpay{background:#4285f4}
+.phonepe{background:#5f259f}
+.paytm{background:#02b9f5}
+</style>
+</head>
+
+<body style="font-family:Arial;text-align:center;padding:20px">
+
+<h2>Registration Fee</h2>
+<h3>Amount: ₹79</h3>
+<p id="studentInfo"></p>
+
+<button class="phonepe" onclick="pay('phonepe')">Pay with PhonePe</button>
+<button class="gpay" onclick="pay('gpay')">Pay with Google Pay</button>
+<button class="paytm" onclick="pay('paytm')">Pay with Paytm</button>
+
+<p style="color:gray;margin-top:20px">
+If app not installed, it will redirect automatically
+</p>
+
 <script>
-// ===== GET STUDENT NAME FROM URL =====
 const params = new URLSearchParams(window.location.search);
 const studentName = params.get("name") || "Student";
 
-// Show student name
 document.getElementById("studentInfo").innerText =
   "Student Name: " + studentName;
 
-// ===== PAY BUTTON =====
-document.getElementById("payBtn").onclick = function () {
-
-  const upiParams =
-    "pa=9350885613-2@ybl" +
+function pay(app){
+  const base =
+    "upi://pay" +
+    "?pa=9350885613-2@ybl" +
     "&pn=Lalit%20Kumar" +
-    "&am=1" +
+    "&am=79" +
     "&cu=INR" +
     "&tn=Registration%20Fee%20-%20" + encodeURIComponent(studentName);
 
-  // ANDROID INTENT → SHOWS APP CHOOSER
-  const intentUrl =
-    "intent://pay?" +
-    upiParams +
-    "#Intent;" +
-    "scheme=upi;" +
-    "action=android.intent.action.VIEW;" +
-    "end;";
+  let url = base;
 
-  window.location.href = intentUrl;
+  if(app === "gpay") url = "tez://upi/pay?" + base.split("?")[1];
+  if(app === "phonepe") url = "phonepe://pay?" + base.split("?")[1];
+  if(app === "paytm") url = "paytmmp://pay?" + base.split("?")[1];
 
-  // WhatsApp confirmation after payment attempt
-  setTimeout(openWhatsApp, 6000);
-};
+  window.location.href = url;
 
-// ===== WHATSAPP CONFIRMATION =====
-function openWhatsApp() {
+  setTimeout(openWhatsApp, 5000);
+}
+
+function openWhatsApp(){
   const msg =
     "Hello, I have paid ₹79 registration fee.\n\n" +
     "Student Name: " + studentName + "\n" +
-    "Please verify my payment.\n\n" +
-    "Thank you.";
+    "Please verify my payment.";
 
-  const whatsappUrl =
-    "https://wa.me/919350885613?text=" +
-    encodeURIComponent(msg);
-
-  window.open(whatsappUrl, "_blank");
+  window.open(
+    "https://wa.me/919350885613?text=" + encodeURIComponent(msg),
+    "_blank"
+  );
 }
 </script>
-<script>
-// ===== GET STUDENT NAME FROM URL =====
-const params = new URLSearchParams(window.location.search);
-const studentName = params.get("name") || "Student";
 
-// Show student name
-document.getElementById("studentInfo").innerText =
-  "Student Name: " + studentName;
-
-// ===== PAY BUTTON =====
-document.getElementById("payBtn").onclick = function () {
-
-  const upiParams =
-    "pa=9350885613-2@ybl" +
-    "&pn=Lalit%20Kumar" +
-    "&am=1" +
-    "&cu=INR" +
-    "&tn=Registration%20Fee%20-%20" + encodeURIComponent(studentName);
-
-  // ANDROID INTENT → SHOWS APP CHOOSER
-  const intentUrl =
-    "intent://pay?" +
-    upiParams +
-    "#Intent;" +
-    "scheme=upi;" +
-    "action=android.intent.action.VIEW;" +
-    "end;";
-
-  window.location.href = intentUrl;
-
-  // WhatsApp confirmation after payment attempt
-  setTimeout(openWhatsApp, 6000);
-};
-
-// ===== WHATSAPP CONFIRMATION =====
-function openWhatsApp() {
-  const msg =
-    "Hello, I have paid ₹79 registration fee.\n\n" +
-    "Student Name: " + studentName + "\n" +
-    "Please verify my payment.\n\n" +
-    "Thank you.";
-
-  const whatsappUrl =
-    "https://wa.me/919350885613?text=" +
-    encodeURIComponent(msg);
-
-  window.open(whatsappUrl, "_blank");
-}
-</script>
+</body>
+</html>
