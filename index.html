@@ -9,7 +9,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-/* SAME CSS — UNCHANGED */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
@@ -47,6 +46,7 @@ button {
     color:white;
     border:none;
     border-radius:8px;
+    cursor:pointer;
 }
 #frontCameraStream { display:none; width:100%; }
 #loadingSpinner {
@@ -58,12 +58,41 @@ button {
     border-top:6px solid #fc5c7d;
     border-radius:50%;
     animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
 }
 @keyframes spin { to { transform: rotate(360deg); } }
-#successMessage {
-    color:green;
-    font-size:1.3em;
+
+/* 🎉 Congratulations Animation */
+#congratsScreen {
+    display:none;
+    position:fixed;
+    top:0; left:0;
+    width:100%;
+    height:100%;
+    background: linear-gradient(135deg, #43cea2, #185a9d);
+    color:white;
     text-align:center;
+    padding-top:150px;
+    z-index:9999;
+}
+#congratsScreen h1 {
+    font-size:3em;
+    animation: pop 1s ease-in-out infinite alternate;
+}
+#congratsScreen p {
+    font-size:1.3em;
+}
+@keyframes pop {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+.confetti {
+    font-size:3em;
+    animation: fall 3s linear infinite;
+}
+@keyframes fall {
+    from { transform: translateY(-100px); opacity:1; }
+    to { transform: translateY(600px); opacity:0; }
 }
 </style>
 </head>
@@ -71,104 +100,108 @@ button {
 <body>
 
 <div class="header">
-<h1 class="school-name">VIVEKANAND SR. SEC. SCHOOL</h1>
+  <h1>VIVEKANAND SR. SEC. SCHOOL</h1>
 </div>
 
 <form class="container" id="registrationForm">
 
-<h2 class="form-title">Competition Exam Registration 2025-26</h2>
+<h2 class="form-title">Competition Exam Registration 2025–26</h2>
 
 <!-- STEP 1 -->
 <div class="step-container active" id="step1">
-<button type="button" id="cameraButton">Capture Photo Now</button>
-<button type="button" id="switchCameraButton">Switch Camera</button>
+  <button type="button" id="cameraButton">Capture Photo Now</button>
+  <button type="button" id="switchCameraButton">Switch Camera</button>
 
-<video id="frontCameraStream" autoplay></video>
-<canvas id="photoCanvas" width="640" height="480" style="display:none;"></canvas>
-<input type="hidden" id="capturedPhoto">
+  <video id="frontCameraStream" autoplay></video>
+  <canvas id="photoCanvas" width="640" height="480" style="display:none;"></canvas>
+  <input type="hidden" id="capturedPhoto">
 
-<button type="button" id="captureButton" style="display:none;">Capture Photo</button>
-<div id="photoSuccessMessage" style="display:none;color:green;">Photo captured!</div>
-<button type="button" id="nextButtonStep1" style="display:none;" onclick="nextStep(2)">Next</button>
+  <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
+  <div id="photoSuccessMessage" style="display:none;color:green;">Photo captured!</div>
+  <button type="button" id="nextButtonStep1" style="display:none;" onclick="nextStep(2)">Next</button>
 </div>
 
 <!-- STEP 2 -->
 <div class="step-container" id="step2">
-<label>First Name</label>
-<input id="firstName" required>
+  <label>First Name</label>
+  <input id="firstName" required>
 
-<label>Last Name</label>
-<input id="lastName" required>
+  <label>Last Name</label>
+  <input id="lastName" required>
 
-<label>DOB</label>
-<input type="date" id="dob" required>
+  <label>DOB</label>
+  <input type="date" id="dob" required>
 
-<label>Class</label>
-<select id="studentClass" required>
-<option value="">Select</option>
-<option>5</option><option>6</option><option>7</option>
-<option>8</option><option>9</option><option>10</option><option>11</option>
-</select>
+  <label>Class</label>
+  <select id="studentClass" required>
+    <option value="">Select</option>
+    <option>5</option><option>6</option><option>7</option>
+    <option>8</option><option>9</option><option>10</option><option>11</option>
+  </select>
 
-<label>City</label>
-<input id="city" required>
+  <label>City</label>
+  <input id="city" required>
 
-<button type="button" onclick="nextStep(3)">Next</button>
+  <button type="button" onclick="nextStep(3)">Next</button>
 </div>
 
 <!-- STEP 3 -->
 <div class="step-container" id="step3">
-<label>Father Name</label>
-<input id="fatherName" required>
+  <label>Father Name</label>
+  <input id="fatherName" required>
 
-<label>Mother Name</label>
-<input id="motherName" required>
+  <label>Mother Name</label>
+  <input id="motherName" required>
 
-<button type="button" onclick="nextStep(4)">Next</button>
+  <button type="button" onclick="nextStep(4)">Next</button>
 </div>
 
 <!-- STEP 4 -->
 <div class="step-container" id="step4">
-<label>Whatsapp Number</label>
-<input id="mobileNumber" type="tel" pattern="[0-9]{10}" required>
+  <label>Whatsapp Number</label>
+  <input id="mobileNumber" type="tel" pattern="[0-9]{10}" required>
 
-<label>Email</label>
-<input id="email" type="email" required>
+  <label>Email</label>
+  <input id="email" type="email" required>
 
-<button type="submit">Submit</button>
+  <button type="submit">Submit</button>
 </div>
 
-<div id="successMessage"></div>
 </form>
 
 <div id="loadingSpinner"></div>
 
-<script>
-const video = document.getElementById("frontCameraStream");
-const canvas = document.getElementById("photoCanvas");
-const cameraBtn = document.getElementById("cameraButton");
-const captureBtn = document.getElementById("captureButton");
-const switchBtn = document.getElementById("switchCameraButton");
+<!-- 🎉 Congratulations Screen -->
+<div id="congratsScreen">
+  <div class="confetti">🎉🎊✨🎉🎊</div>
+  <h1>Congratulations!</h1>
+  <p>Your registration is successful</p>
+  <p>Redirecting to payment page...</p>
+</div>
 
+<script>
 let currentStream;
 let facingMode = "user";
 
-cameraBtn.onclick = startCamera;
-switchBtn.onclick = () => { facingMode = facingMode==="user"?"environment":"user"; startCamera(); };
+cameraButton.onclick = startCamera;
+switchCameraButton.onclick = () => {
+  facingMode = facingMode === "user" ? "environment" : "user";
+  startCamera();
+};
 
 async function startCamera() {
-  if (currentStream) currentStream.getTracks().forEach(t=>t.stop());
+  if (currentStream) currentStream.getTracks().forEach(t => t.stop());
   currentStream = await navigator.mediaDevices.getUserMedia({ video:{ facingMode } });
-  video.srcObject = currentStream;
-  video.style.display="block";
-  captureBtn.style.display="block";
+  frontCameraStream.srcObject = currentStream;
+  frontCameraStream.style.display = "block";
+  captureButton.style.display = "block";
 }
 
-captureBtn.onclick = () => {
-  canvas.getContext("2d").drawImage(video,0,0,canvas.width,canvas.height);
-  capturedPhoto.value = canvas.toDataURL();
-  video.style.display="none";
-  captureBtn.style.display="none";
+captureButton.onclick = () => {
+  photoCanvas.getContext("2d").drawImage(frontCameraStream,0,0,photoCanvas.width,photoCanvas.height);
+  capturedPhoto.value = photoCanvas.toDataURL();
+  frontCameraStream.style.display="none";
+  captureButton.style.display="none";
   photoSuccessMessage.style.display="block";
   nextButtonStep1.style.display="block";
 };
@@ -197,12 +230,15 @@ registrationForm.onsubmit = function(e){
       photo:capturedPhoto.value
     })
   })
-  .then(r=>r.json())
-  .then(()=>{
+  .then(r => r.json())
+  .then(() => {
     loadingSpinner.style.display="none";
-    successMessage.innerText="Registration Successful! Email Sent.";
-    successMessage.style.display="block";
-    registrationForm.reset();
+    congratsScreen.style.display="block";
+
+    setTimeout(() => {
+      window.location.href =
+        `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?fname=${encodeURIComponent(firstName.value)}&email=${encodeURIComponent(email.value)}&mobile=${encodeURIComponent(mobileNumber.value)}`;
+    }, 3000);
   });
 };
 </script>
