@@ -1,69 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Pay Registration Fee</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Competition Registration - ₹49 Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
 
-<style>
-body{
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 30px;
-}
-button{
-  font-size: 18px;
-  padding: 15px 35px;
-  background: #0f9d58;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.note{
-  margin-top: 20px;
-  color: gray;
-  font-size: 14px;
-}
-</style>
+        h1, h2 {
+            color: #4CAF50;
+        }
+
+        .form-container {
+            margin: 20px 0;
+        }
+
+        .form-container label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        .form-container input {
+            width: 300px;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+        }
+
+        .note {
+            font-size: 16px;
+            color: #555;
+        }
+
+        /* Custom style for the UPI Pay Button */
+        #__UPI_BUTTON__ {
+            background: #ff912f;
+            border: 2px solid #8a4100;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            font-size: larger;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        #__UPI_BUTTON__:hover {
+            background: #e07d2d;
+        }
+
+        /* Hide the QR code initially */
+        #qrCodeContainer {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #qrCodeImage {
+            width: 200px; /* Adjust size as needed */
+            height: 200px; /* Adjust size as needed */
+        }
+
+    </style>
 </head>
-
 <body>
 
-<h2>Registration Fee Payment</h2>
-<h3>Amount: ₹79</h3>
+    <h1>Competition Registration</h1>
+    <h2>₹49 Payment</h2>
 
-<p id="studentInfo"></p>
+    <p class="note">Please review your details before proceeding.</p>
 
-<button onclick="payNow()">Pay Now</button>
+    <!-- Form: First Name, Mobile Number, Email (autofilled) -->
+    <div class="form-container">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" readonly>
 
-<p class="note">
-UPI Apps available on your phone will be shown
-</p>
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" id="mobile" name="mobile" readonly>
 
-<script>
-// ===== GET STUDENT NAME FROM URL =====
-const params = new URLSearchParams(window.location.search);
-const studentName = params.get("name") || "Student";
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" readonly>
+    </div>
 
-document.getElementById("studentInfo").innerText =
-  "Student Name: " + studentName;
+    <h3>Amount: ₹49</h3>
 
-// ===== SINGLE BUTTON PAYMENT =====
-function payNow() {
+    <p class="note">Scan the QR code below to pay via UPI.</p>
 
-  const upiUrl =
-    "upi://pay" +
-    "?pa=9350885613-2@ybl" +      // YOUR UPI ID
-    "&pn=Lalit%20Kumar" +         // PAYEE NAME
-    "&am=1" +                    // AMOUNT
-    "&cu=INR" +
-    "&tn=Registration%20Fee%20-%20" + encodeURIComponent(studentName);
+    <!-- QR Code Container (image) -->
+    <div id="qrCodeContainer">
+        <p class="note">Scan this QR code using your UPI app:</p>
+        <img src="vss.png" id="qrCodeImage" alt="UPI QR Code">
+        <!-- Button to download the QR Code Image -->
+        <button id="downloadBtn">Download QR Code</button>
+    </div>
 
-  // Open UPI app (Android decides which one)
-  window.location.href = upiUrl;
-}
-</script>
+    <!-- UPI Payment Link Button -->
+    <a href="#" id="__UPI_BUTTON__" onclick="showQRCodeAndRedirectToUPIApp()">Pay ₹49 Now</a>
+
+    <script>
+        // Function to get the query parameter value from URL
+        function getQueryParam(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        // Fetch details from the URL and set to form fields
+        window.onload = function() {
+            const email = getQueryParam('email');
+            const firstName = getQueryParam('firstName');
+            const mobileNumber = getQueryParam('mobile');
+
+            // Set the values to the respective form fields
+            if (email) {
+                document.getElementById('email').value = email;
+            }
+            if (firstName) {
+                document.getElementById('firstName').value = firstName;
+            }
+            if (mobileNumber) {
+                document.getElementById('mobile').value = mobileNumber;
+            }
+        };
+
+        function showQRCodeAndRedirectToUPIApp() {
+            // Step 1: Show the QR code container with image immediately
+            document.getElementById('qrCodeContainer').style.display = 'block';
+
+            // Step 2: Wait for 3 seconds to let the user see the QR code before redirecting
+            setTimeout(function() {
+                // Step 3: Open UPI app chooser (using intent for UPI apps on Android)
+                var intentLink = "intent://pay#Intent;scheme=upi;package=com.google.android.apps.nbu.paisa.user;end;";
+
+                // Try to open the UPI app with the intent
+                window.location.href = intentLink;
+
+                // If the UPI app does not open, you can fall back to opening UPI URL
+                setTimeout(function() {
+                    var fallbackLink = "upi://"; // Fallback link to open the UPI payment interface
+                    window.location.href = fallbackLink;
+                }, 500);
+
+            }, 3000); // Delay for 3 seconds to show QR code
+
+            // Step 4: Redirect to payment_confirmation.html after 15 seconds with user details in URL
+            setTimeout(function() {
+                const email = document.getElementById('email').value;
+                const firstName = document.getElementById('firstName').value;
+                const mobileNumber = document.getElementById('mobile').value;
+
+                // Redirect to the payment confirmation page with the details passed in the URL
+                window.location.href = `https://lalit35.github.io/vivekananad-sr-sec-school/payment_confirmation.html?email=${email}&firstName=${firstName}&mobile=${mobileNumber}`;
+            }, 15000); // Redirect after 15 seconds
+        }
+
+        // Download QR code when the button is clicked
+        document.getElementById('downloadBtn').addEventListener('click', function () {
+            var qrImage = document.getElementById('qrCodeImage');
+            var link = document.createElement('a');
+            link.href = qrImage.src; // Use the source of the QR code image
+            link.download = 'vss.png'; // Set the download filename
+            link.click(); // Simulate a click to trigger the download
+        });
+    </script>
 
 </body>
 </html>
