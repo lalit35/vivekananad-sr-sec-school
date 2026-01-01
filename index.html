@@ -222,7 +222,7 @@ function nextStep(step){
   document.getElementById("step"+step).classList.add("active");
 }
 
-/* ===== SUBMIT ===== */
+/* ===== SUBMIT (REDIRECT GUARANTEED) ===== */
 registrationForm.onsubmit = function(e){
   e.preventDefault();
   loadingSpinner.style.display = "block";
@@ -242,14 +242,16 @@ registrationForm.onsubmit = function(e){
       photo:capturedPhoto.value
     })
   })
-  .then(r => r.json())
-  .then(() => {
+  .finally(() => {
     loadingSpinner.style.display = "none";
     congratsScreen.style.display = "block";
 
     setTimeout(() => {
       window.location.href =
-        `https://lalit35.github.io/vivekananad-sr-sec-school/payment.html?fname=${encodeURIComponent(firstName.value)}&email=${encodeURIComponent(email.value)}&mobile=${encodeURIComponent(mobileNumber.value)}`;
+        "https://lalit35.github.io/vivekananad-sr-sec-school/payment.html" +
+        "?fname=" + encodeURIComponent(firstName.value) +
+        "&email=" + encodeURIComponent(email.value) +
+        "&mobile=" + encodeURIComponent(mobileNumber.value);
     }, 3000);
   });
 };
