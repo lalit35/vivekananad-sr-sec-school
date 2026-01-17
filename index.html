@@ -9,78 +9,69 @@
 
 <style>
 body {
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    background: linear-gradient(135deg, #6a82fb, #fc5c7d);
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: linear-gradient(135deg, #6a82fb, #fc5c7d);
 }
 .header {
-    text-align: center;
-    padding: 40px;
-    background: #4b79a1;
-    color: #fff;
+  text-align: center;
+  padding: 40px;
+  background: #4b79a1;
+  color: #fff;
 }
 .container {
-    width: 85%;
-    max-width: 950px;
-    margin: 30px auto;
-    padding: 35px;
-    background: #fff;
-    border-radius: 15px;
+  width: 85%;
+  max-width: 950px;
+  margin: 30px auto;
+  padding: 35px;
+  background: #fff;
+  border-radius: 15px;
 }
 .form-title {
-    text-align: center;
-    font-size: 2.2em;
-    margin-bottom: 30px;
+  text-align: center;
+  font-size: 2.2em;
+  margin-bottom: 30px;
 }
 .step-container { display:none; }
 .step-container.active { display:block; }
 
 label { font-weight:600; display:block; margin-bottom:8px; }
 input, select, button {
-    width:100%;
-    padding:12px;
-    margin-bottom:18px;
+  width:100%;
+  padding:12px;
+  margin-bottom:18px;
 }
 button {
-    background:#fc5c7d;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
+  background:#fc5c7d;
+  color:white;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
 }
 
 #frontCameraStream { display:none; width:100%; border-radius:10px; }
 #loadingSpinner {
-    display:none;
-    position:fixed;
-    top:50%; left:50%;
-    width:50px; height:50px;
-    border:6px solid #eee;
-    border-top:6px solid #fc5c7d;
-    border-radius:50%;
-    animation: spin 1s linear infinite;
-    transform: translate(-50%, -50%);
+  display:none;
+  position:fixed;
+  top:50%; left:50%;
+  width:50px; height:50px;
+  border:6px solid #eee;
+  border-top:6px solid #fc5c7d;
+  border-radius:50%;
+  animation: spin 1s linear infinite;
+  transform: translate(-50%, -50%);
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 
-/* 🎉 Congrats */
 #congratsScreen {
-    display:none;
-    position:fixed;
-    inset:0;
-    background:linear-gradient(135deg,#43cea2,#185a9d);
-    color:#fff;
-    text-align:center;
-    padding-top:150px;
-    z-index:9999;
-}
-#congratsScreen h1 {
-    font-size:3em;
-    animation:pulse 1s infinite alternate;
-}
-@keyframes pulse {
-    from { transform:scale(1); }
-    to { transform:scale(1.1); }
+  display:none;
+  position:fixed;
+  inset:0;
+  background:linear-gradient(135deg,#43cea2,#185a9d);
+  color:#fff;
+  text-align:center;
+  padding-top:150px;
+  z-index:9999;
 }
 </style>
 </head>
@@ -162,37 +153,23 @@ button {
 <div id="congratsScreen">
   <h1>🎉 Congratulations!</h1>
   <p>Registration Successful</p>
-  <p>Redirecting to payment...</p>
+  <p>Redirecting to payment…</p>
 </div>
 
 <script>
-/* ===== ELEMENTS ===== */
 const cameraButton = document.getElementById("cameraButton");
 const switchCameraButton = document.getElementById("switchCameraButton");
 const frontCameraStream = document.getElementById("frontCameraStream");
 const captureButton = document.getElementById("captureButton");
-const photoSuccessMessage = document.getElementById("photoSuccessMessage");
 const nextButtonStep1 = document.getElementById("nextButtonStep1");
-const registrationForm = document.getElementById("registrationForm");
+const photoCanvas = document.getElementById("photoCanvas");
+const capturedPhoto = document.getElementById("capturedPhoto");
 const loadingSpinner = document.getElementById("loadingSpinner");
 const congratsScreen = document.getElementById("congratsScreen");
-
-const firstName = document.getElementById("firstName");
-const lastName = document.getElementById("lastName");
-const dob = document.getElementById("dob");
-const studentClass = document.getElementById("studentClass");
-const city = document.getElementById("city");
-const fatherName = document.getElementById("fatherName");
-const motherName = document.getElementById("motherName");
-const mobileNumber = document.getElementById("mobileNumber");
-const email = document.getElementById("email");
-const capturedPhoto = document.getElementById("capturedPhoto");
-const photoCanvas = document.getElementById("photoCanvas");
 
 let currentStream;
 let facingMode = "user";
 
-/* ===== CAMERA ===== */
 cameraButton.onclick = startCamera;
 switchCameraButton.onclick = () => {
   facingMode = facingMode === "user" ? "environment" : "user";
@@ -208,9 +185,8 @@ async function startCamera() {
 }
 
 captureButton.onclick = () => {
-  photoCanvas.getContext("2d").drawImage(frontCameraStream,0,0,photoCanvas.width,photoCanvas.height);
-  capturedPhoto.value = photoCanvas.toDataURL();
-  photoSuccessMessage.style.display = "block";
+  photoCanvas.getContext("2d").drawImage(frontCameraStream,0,0,640,480);
+  capturedPhoto.value = photoCanvas.toDataURL("image/png");
   nextButtonStep1.style.display = "block";
   frontCameraStream.style.display = "none";
 };
@@ -222,37 +198,46 @@ function nextStep(step){
   document.getElementById("step"+step).classList.add("active");
 }
 
-/* ===== SUBMIT (REDIRECT GUARANTEED) ===== */
-registrationForm.onsubmit = function(e){
+document.getElementById("registrationForm").onsubmit = function(e){
   e.preventDefault();
   loadingSpinner.style.display = "block";
 
-  fetch("https://script.google.com/macros/s/AKfycbzumYj8O7SVsuolIpx7-vExQLsw3hBv6o4CgS7zlLIyXcWLegJrmn1uUD05PZzhTU6W/exec",{
-    method:"POST",
-    body:JSON.stringify({
-      firstName:firstName.value,
-      lastName:lastName.value,
-      dob:dob.value,
-      studentClass:studentClass.value,
-      city:city.value,
-      fatherName:fatherName.value,
-      motherName:motherName.value,
-      mobileNumber:mobileNumber.value,
-      email:email.value,
-      photo:capturedPhoto.value
+  fetch("https://script.google.com/macros/s/AKfycbzumYj8O7SVsuolIpx7-vExQLsw3hBv6o4CgS7zlLIyXcWLegJrmn1uUD05PZzhTU6W/exec", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      firstName: firstName.value,
+      lastName: lastName.value,
+      dob: dob.value,
+      studentClass: studentClass.value,
+      city: city.value,
+      fatherName: fatherName.value,
+      motherName: motherName.value,
+      mobileNumber: mobileNumber.value,
+      email: email.value,
+      photo: capturedPhoto.value
     })
   })
-  .finally(() => {
+  .then(res => res.json())
+  .then(data => {
     loadingSpinner.style.display = "none";
+    if (data.status !== "success") {
+      alert(data.message || "Submission failed");
+      return;
+    }
     congratsScreen.style.display = "block";
-
     setTimeout(() => {
       window.location.href =
         "https://lalit35.github.io/vivekananad-sr-sec-school/payment.html" +
         "?fname=" + encodeURIComponent(firstName.value) +
         "&email=" + encodeURIComponent(email.value) +
         "&mobile=" + encodeURIComponent(mobileNumber.value);
-    }, 100);
+    }, 800);
+  })
+  .catch(err => {
+    loadingSpinner.style.display = "none";
+    alert("Network or server error");
+    console.error(err);
   });
 };
 </script>
