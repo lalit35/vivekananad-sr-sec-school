@@ -83,7 +83,6 @@ button {
 </div>
 
 <form class="container" id="registrationForm">
-
 <h2 class="form-title">Competition Exam Registration 2025–26</h2>
 
 <!-- STEP 1 CAMERA -->
@@ -96,7 +95,6 @@ button {
   <input type="hidden" id="capturedPhoto">
 
   <button type="button" id="captureButton" style="display:none;">Capture Photo</button>
-  <div id="photoSuccessMessage" style="display:none;color:green;">Photo captured ✔</div>
   <button type="button" id="nextButtonStep1" style="display:none;">Next</button>
 </div>
 
@@ -121,7 +119,7 @@ button {
     <option>8</option><option>9</option><option>10</option><option>11</option>
   </select>
 
-  <label>City / School</label>
+  <label>Current School / City</label>
   <input id="city" required>
 
   <button type="button" onclick="nextStep(3)">Next</button>
@@ -148,7 +146,6 @@ button {
 
   <button type="submit">Submit</button>
 </div>
-
 </form>
 
 <div id="loadingSpinner"></div>
@@ -201,42 +198,44 @@ function nextStep(step){
   document.getElementById("step"+step).classList.add("active");
 }
 
-document.getElementById("registrationForm").onsubmit = function(e){
+document.getElementById("registrationForm").addEventListener("submit", function(e){
   e.preventDefault();
   loadingSpinner.style.display = "block";
 
-  fetch("https://script.google.com/macros/s/AKfycbw788glzPdsObxOmPSkteL21LAklNws_LIBvK52kydLtnR53GNjJiFzXaPWWJLbIElm/exec", {
+  const formData = new FormData();
+  formData.append("firstName", firstName.value);
+  formData.append("lastName", lastName.value);
+  formData.append("dob", dob.value);
+  formData.append("age", age.value);
+  formData.append("currentSchool", city.value);
+  formData.append("class", studentClass.value);
+  formData.append("fatherName", fatherName.value);
+  formData.append("motherName", motherName.value);
+  formData.append("mobileNumber", mobileNumber.value);
+  formData.append("email", email.value);
+  formData.append("photoUrl", capturedPhoto.value);
+  formData.append("signatureImage", "");
+  formData.append("documentImage", "");
+
+  fetch("https://script.google.com/macros/s/AKfycbyQWWhk5KQRkQgFIWlK8koLkJXd36sBUgwhnBb-dnGrIdepqhoAd1XBAxjwgdDfJqht/exec", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      firstName: firstName.value,
-      lastName: lastName.value,
-      dob: dob.value,
-      age: age.value,
-      studentClass: studentClass.value,
-      city: city.value,
-      fatherName: fatherName.value,
-      motherName: motherName.value,
-      mobileNumber: mobileNumber.value,
-      email: email.value,
-      photo: capturedPhoto.value
-    })
+    body: formData
   })
   .then(res => res.json())
   .then(data => {
     loadingSpinner.style.display = "none";
     if (data.status !== "success") {
-      alert(data.message || "Submission failed");
+      alert(data.message);
       return;
     }
     congratsScreen.style.display = "block";
-    setTimeout(() => window.location.href = data.redirectUrl, 900);
+    setTimeout(() => window.location.href = data.redirectUrl, 1000);
   })
   .catch(() => {
     loadingSpinner.style.display = "none";
     alert("Server error");
   });
-};
+});
 </script>
 
 </body>
