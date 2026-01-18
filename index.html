@@ -86,7 +86,7 @@ button {
 
 <h2 class="form-title">Competition Exam Registration 2025–26</h2>
 
-<!-- STEP 1 -->
+<!-- STEP 1 CAMERA -->
 <div class="step-container active" id="step1">
   <button type="button" id="cameraButton">Start Camera</button>
   <button type="button" id="switchCameraButton">Switch Camera</button>
@@ -100,7 +100,7 @@ button {
   <button type="button" id="nextButtonStep1" style="display:none;">Next</button>
 </div>
 
-<!-- STEP 2 -->
+<!-- STEP 2 BASIC INFO -->
 <div class="step-container" id="step2">
   <label>First Name</label>
   <input id="firstName" required>
@@ -108,8 +108,11 @@ button {
   <label>Last Name</label>
   <input id="lastName" required>
 
-  <label>DOB</label>
+  <label>Date of Birth</label>
   <input type="date" id="dob" required>
+
+  <label>Age</label>
+  <input type="number" id="age" required>
 
   <label>Class</label>
   <select id="studentClass" required>
@@ -118,13 +121,13 @@ button {
     <option>8</option><option>9</option><option>10</option><option>11</option>
   </select>
 
-  <label>City</label>
+  <label>City / School</label>
   <input id="city" required>
 
   <button type="button" onclick="nextStep(3)">Next</button>
 </div>
 
-<!-- STEP 3 -->
+<!-- STEP 3 PARENTS -->
 <div class="step-container" id="step3">
   <label>Father Name</label>
   <input id="fatherName" required>
@@ -135,7 +138,7 @@ button {
   <button type="button" onclick="nextStep(4)">Next</button>
 </div>
 
-<!-- STEP 4 -->
+<!-- STEP 4 CONTACT -->
 <div class="step-container" id="step4">
   <label>Whatsapp Number</label>
   <input id="mobileNumber" pattern="[0-9]{10}" required>
@@ -187,8 +190,8 @@ async function startCamera() {
 captureButton.onclick = () => {
   photoCanvas.getContext("2d").drawImage(frontCameraStream,0,0,640,480);
   capturedPhoto.value = photoCanvas.toDataURL("image/png");
-  nextButtonStep1.style.display = "block";
   frontCameraStream.style.display = "none";
+  nextButtonStep1.style.display = "block";
 };
 
 nextButtonStep1.onclick = () => nextStep(2);
@@ -202,13 +205,14 @@ document.getElementById("registrationForm").onsubmit = function(e){
   e.preventDefault();
   loadingSpinner.style.display = "block";
 
-  fetch("https://script.google.com/macros/s/AKfycbxmYJqumNWxwe-5ncOpi-bQA-CFN2RwMvmgc9H7K2oONsadYdtO-QFnErZ1o4shsxpN/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwiuwwisQN-Tq4Q_zQ9pIIeuFO2yfDHwtLx5CqhE3ALOkyyvuHDFsLU7ENUQgZOhe1h/exec", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       firstName: firstName.value,
       lastName: lastName.value,
       dob: dob.value,
+      age: age.value,
       studentClass: studentClass.value,
       city: city.value,
       fatherName: fatherName.value,
@@ -226,18 +230,11 @@ document.getElementById("registrationForm").onsubmit = function(e){
       return;
     }
     congratsScreen.style.display = "block";
-    setTimeout(() => {
-      window.location.href =
-        "https://lalit35.github.io/vivekananad-sr-sec-school/payment.html" +
-        "?fname=" + encodeURIComponent(firstName.value) +
-        "&email=" + encodeURIComponent(email.value) +
-        "&mobile=" + encodeURIComponent(mobileNumber.value);
-    }, 800);
+    setTimeout(() => window.location.href = data.redirectUrl, 900);
   })
-  .catch(err => {
+  .catch(() => {
     loadingSpinner.style.display = "none";
-    alert("Network or server error");
-    console.error(err);
+    alert("Server error");
   });
 };
 </script>
