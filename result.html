@@ -1,190 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Result</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Result</title>
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+<style>
+body {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: #fff;
+    font-family: Arial;
+}
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+.container {
+    background: rgba(0,0,0,0.7);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
 
-        body {
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: #fff;
-        }
+input {
+    padding: 10px;
+    width: 250px;
+    margin: 10px;
+}
 
-        .header {
-            background-color: #2a5298;
-            width: 100%;
-            padding: 10px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
 
-        .school-name {
-            font-size: 18px;
-            font-weight: bold;
-            color: #FFDC5E;
-        }
-
-        .container {
-            background: rgba(0,0,0,0.7);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            width: 90%;
-            max-width: 500px;
-        }
-
-        h2 {
-            color: #FFDC5E;
-            margin-bottom: 20px;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 12px;
-            margin: 15px 0;
-            border-radius: 8px;
-            border: none;
-            background: #444;
-            color: white;
-            text-transform: uppercase;
-        }
-
-        .btn {
-            padding: 12px;
-            background: #FFDC5E;
-            border: none;
-            width: 100%;
-            cursor: pointer;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        .result-box {
-            display: none;
-            background: rgba(0,0,0,0.7);
-            padding: 30px;
-            margin-top: 20px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            text-align: center;
-        }
-
-        .error {
-            color: red;
-            margin-top: 10px;
-        }
-
-        .call-btn {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: #25D366;
-            color: white;
-            border-radius: 50%;
-            padding: 15px;
-            text-decoration: none;
-        }
-    </style>
+.result-box {
+    display: none;
+    margin-top: 20px;
+}
+</style>
 </head>
 
 <body>
 
-<div class="header">
-    <div class="school-name">Vivekanand Sr. Sec. School, Bhattu Kalan</div>
-    <div>VS-1st Scholarship Test</div>
-</div>
-
 <div class="container" id="searchBox">
-    <h2>Enter Your Roll No.</h2>
-
+    <h2>Enter Roll Number</h2>
     <form id="resultForm">
-        <input 
-            type="text" 
-            id="rollNo" 
-            class="input-field"
-            placeholder="Enter Roll Number (VSS...)"
-            oninput="this.value = this.value.toUpperCase()"
-            required
-        >
-
-        <button type="submit" class="btn">Get Result</button>
+        <input type="text" id="rollNo" placeholder="VSS..." required>
+        <br>
+        <button type="submit">Get Result</button>
     </form>
-
-    <div id="result"></div>
+    <div id="error"></div>
 </div>
 
-<div class="result-box" id="resultBox">
-    <h2>Student Result</h2>
-
+<div class="container result-box" id="resultBox">
+    <h2>Result</h2>
     <p><strong>Roll No:</strong> <span id="studentRoll"></span></p>
     <p><strong>Marks:</strong> <span id="studentMarks"></span></p>
-
-    <a href="tel:+9416848776" class="call-btn">
-        <i class="fas fa-phone"></i>
-    </a>
 </div>
 
 <script>
-    let results = [];
+// ✅ FULL DATA (PASTED)
+const results = [
+  { "Roll No.": "VSS26101", "Marks": 36 },
+  { "Roll No.": "VSS26102", "Marks": null },
+  { "Roll No.": "VSS26103", "Marks": 25 },
+  { "Roll No.": "VSS26104", "Marks": 43 },
+  { "Roll No.": "VSS26105", "Marks": 33 },
+  { "Roll No.": "VSS26106", "Marks": null },
+  { "Roll No.": "VSS26107", "Marks": 33 },
+  { "Roll No.": "VSS26108", "Marks": 30 },
+  { "Roll No.": "VSS26109", "Marks": 32 },
+  { "Roll No.": "VSS26110", "Marks": null },
+  { "Roll No.": "VSS26111", "Marks": null },
+  { "Roll No.": "VSS26112", "Marks": 29 },
+  { "Roll No.": "VSS26113", "Marks": 1 },
+  { "Roll No.": "VSS26114", "Marks": null },
+  { "Roll No.": "VSS26115", "Marks": 18 },
+  { "Roll No.": "VSS26116", "Marks": 27 },
+  { "Roll No.": "VSS26117", "Marks": 26 },
+  { "Roll No.": "VSS26118", "Marks": 37 },
+  { "Roll No.": "VSS26119", "Marks": null },
+  { "Roll No.": "VSS26120", "Marks": 22 },
+  { "Roll No.": "VSS26121", "Marks": 31 },
+  { "Roll No.": "VSS26122", "Marks": 31 },
+  { "Roll No.": "VSS26123", "Marks": 30 },
+  { "Roll No.": "VSS26124", "Marks": 34 },
+  { "Roll No.": "VSS26125", "Marks": 31 },
+  { "Roll No.": "VSS26126", "Marks": 34 },
+  { "Roll No.": "VSS26127", "Marks": 39 },
+  { "Roll No.": "VSS26128", "Marks": 36 },
+  { "Roll No.": "VSS26129", "Marks": null },
+  { "Roll No.": "VSS26130", "Marks": 28 },
+  { "Roll No.": "VSS26131", "Marks": 28 },
+  { "Roll No.": "VSS26132", "Marks": null },
+  { "Roll No.": "VSS26133", "Marks": 34 },
+  { "Roll No.": "VSS26134", "Marks": 30 },
+  { "Roll No.": "VSS26135", "Marks": 28 },
+  { "Roll No.": "VSS26136", "Marks": 49 },
+  { "Roll No.": "VSS26137", "Marks": 28 },
+  { "Roll No.": "VSS26138", "Marks": 41 },
+  { "Roll No.": "VSS26139", "Marks": 26 },
+  { "Roll No.": "VSS26140", "Marks": 31 },
+  { "Roll No.": "VSS26141", "Marks": null },
+  { "Roll No.": "VSS26142", "Marks": null },
+  { "Roll No.": "VSS26143", "Marks": 29 },
+  { "Roll No.": "VSS26144", "Marks": 55 },
+  { "Roll No.": "VSS26145", "Marks": null },
+  { "Roll No.": "VSS26146", "Marks": 26 },
+  { "Roll No.": "VSS26147", "Marks": 39 },
+  { "Roll No.": "VSS26148", "Marks": 32 },
+  { "Roll No.": "VSS26149", "Marks": null },
+  { "Roll No.": "VSS26150", "Marks": null },
+  { "Roll No.": "VSS26151", "Marks": null },
+  { "Roll No.": "VSS26152", "Marks": 46 },
+  { "Roll No.": "VSS26153", "Marks": null },
+  { "Roll No.": "VSS26154", "Marks": null },
+  { "Roll No.": "VSS26155", "Marks": 36 },
+  { "Roll No.": "VSS26156", "Marks": null },
+  { "Roll No.": "VSS26157", "Marks": 27 },
+  { "Roll No.": "VSS26158", "Marks": 29 },
+  { "Roll No.": "VSS26159", "Marks": 27 },
+  { "Roll No.": "VSS26160", "Marks": 27 },
+  { "Roll No.": "VSS26161", "Marks": 28 },
+  { "Roll No.": "VSS26162", "Marks": 32 },
+  { "Roll No.": "VSS26163", "Marks": 40 },
+  { "Roll No.": "VSS26164", "Marks": null },
+  { "Roll No.": "VSS26165", "Marks": null },
+  { "Roll No.": "VSS26166", "Marks": null },
+  { "Roll No.": "VSS26167", "Marks": 36 },
+  { "Roll No.": "VSS26168", "Marks": 27 },
+  { "Roll No.": "VSS26169", "Marks": 47 },
+  { "Roll No.": "VSS26170", "Marks": 26 },
+  { "Roll No.": "VSS26171", "Marks": 38 },
+  { "Roll No.": "VSS26172", "Marks": null },
+  { "Roll No.": "VSS26173", "Marks": 30 },
+  { "Roll No.": "VSS26174", "Marks": 27 },
+  { "Roll No.": "VSS26175", "Marks": 29 },
+  { "Roll No.": "VSS26176", "Marks": 40 },
+  { "Roll No.": "VSS26177", "Marks": 39 },
+  { "Roll No.": "VSS26178", "Marks": 20 },
+  { "Roll No.": "VSS26179", "Marks": 35 },
+  { "Roll No.": "VSS26180", "Marks": null },
+  { "Roll No.": "VSS26181", "Marks": 25 },
+  { "Roll No.": "VSS26182", "Marks": 27 },
+  { "Roll No.": "VSS26183", "Marks": 37 },
+  { "Roll No.": "VSS26184", "Marks": null },
+  { "Roll No.": "VSS26185", "Marks": 28 },
+  { "Roll No.": "VSS26186", "Marks": 34 },
+  { "Roll No.": "VSS26187", "Marks": 25 },
+  { "Roll No.": "VSS26188", "Marks": 34 },
+  { "Roll No.": "VSS26189", "Marks": null },
+  { "Roll No.": "VSS26190", "Marks": 30 },
+  { "Roll No.": "VSS26191", "Marks": null },
+  { "Roll No.": "VSS26192", "Marks": null },
+  { "Roll No.": "VSS26193", "Marks": 28 },
+  { "Roll No.": "VSS26194", "Marks": null },
+  { "Roll No.": "VSS26195", "Marks": 29 },
+  { "Roll No.": "VSS26196", "Marks": null },
+  { "Roll No.": "VSS26197", "Marks": 28 },
+  { "Roll No.": "VSS26198", "Marks": 29 },
+  { "Roll No.": "VSS26199", "Marks": 23 },
+  { "Roll No.": "VSS26200", "Marks": 23 },
+  { "Roll No.": "VSS26201", "Marks": null },
+  { "Roll No.": "VSS26202", "Marks": 31 },
+  { "Roll No.": "VSS26203", "Marks": null },
+  { "Roll No.": "VSS26204", "Marks": 6 },
+  { "Roll No.": "VSS26205", "Marks": 22 },
+  { "Roll No.": "VSS26206", "Marks": null },
+  { "Roll No.": "VSS26207", "Marks": 36 },
+  { "Roll No.": "VSS26208", "Marks": 16 },
+  { "Roll No.": "VSS26209", "Marks": 37 },
+  { "Roll No.": "VSS26210", "Marks": 38 },
+  { "Roll No.": "VSS26211", "Marks": 17 },
+  { "Roll No.": "VSS26212", "Marks": 45 },
+  { "Roll No.": "VSS26213", "Marks": 35 },
+  { "Roll No.": "VSS26214", "Marks": null },
+  { "Roll No.": "VSS26215", "Marks": null },
+  { "Roll No.": "VSS26216", "Marks": 44 },
+  { "Roll No.": "VSS26217", "Marks": 53 },
+  { "Roll No.": "VSS26218", "Marks": 30 },
+  { "Roll No.": "VSS26219", "Marks": 49 },
+  { "Roll No.": "VSS26220", "Marks": 32 },
+  { "Roll No.": "VSS26221", "Marks": 24 },
+  { "Roll No.": "VSS26222", "Marks": 43 },
+  { "Roll No.": "VSS26223", "Marks": 0 },
+  { "Roll No.": "VSS26224", "Marks": 26 },
+  { "Roll No.": "VSS26225", "Marks": 32 },
+  { "Roll No.": "VSS26226", "Marks": null },
+  { "Roll No.": "VSS26227", "Marks": null },
+  { "Roll No.": "VSS26228", "Marks": 33 },
+  { "Roll No.": "VSS26229", "Marks": null },
+  { "Roll No.": "VSS26230", "Marks": null },
+  { "Roll No.": "VSS26231", "Marks": 24 },
+  { "Roll No.": "VSS26232", "Marks": 36 },
+  { "Roll No.": "VSS26233", "Marks": 29 },
+  { "Roll No.": "VSS26234", "Marks": 21 },
+  { "Roll No.": "VSS26235", "Marks": null },
+  { "Roll No.": "VSS26236", "Marks": null },
+  { "Roll No.": "VSS26237", "Marks": 32 },
+  { "Roll No.": "VSS26238", "Marks": null },
+  { "Roll No.": "VSS26239", "Marks": 27 },
+  { "Roll No.": "VSS26240", "Marks": 36 },
+  { "Roll No.": "VSS26241", "Marks": 28 },
+  { "Roll No.": "VSS26242", "Marks": null },
+  { "Roll No.": "VSS26243", "Marks": 21 },
+  { "Roll No.": "VSS26244", "Marks": 12 },
+  { "Roll No.": "VSS26245", "Marks": 16 },
+  { "Roll No.": "VSS26246", "Marks": 51 },
+  { "Roll No.": "VSS26247", "Marks": 43 },
+  { "Roll No.": "VSS26248", "Marks": 49 },
+  { "Roll No.": "VSS26249", "Marks": null },
+  { "Roll No.": "VSS26250", "Marks": 30 },
+  { "Roll No.": "VSS26251", "Marks": 29 },
+  { "Roll No.": "VSS26252", "Marks": null },
+  { "Roll No.": "VSS26253", "Marks": null },
+  { "Roll No.": "VSS26254", "Marks": 29 },
+  { "Roll No.": "VSS26255", "Marks": 35 },
+  { "Roll No.": "VSS26256", "Marks": 39 },
+  { "Roll No.": "VSS26257", "Marks": 30 },
+  { "Roll No.": "VSS26258", "Marks": null },
+  { "Roll No.": "VSS26259", "Marks": 25 },
+  { "Roll No.": "VSS26260", "Marks": null },
+  { "Roll No.": "VSS26261", "Marks": null },
+  { "Roll No.": "VSS26262", "Marks": null },
+  { "Roll No.": "VSS26263", "Marks": 26 },
+  { "Roll No.": "VSS26264", "Marks": null },
+  { "Roll No.": "VSS26265", "Marks": 44 },
+  { "Roll No.": "VSS26266", "Marks": null },
+  { "Roll No.": "VSS26267", "Marks": null },
+  { "Roll No.": "VSS26268", "Marks": 25 },
+  { "Roll No.": "VSS26269", "Marks": 39 },
+  { "Roll No.": "VSS26270", "Marks": 41 },
+  { "Roll No.": "VSS26271", "Marks": 40 },
+  { "Roll No.": "VSS26272", "Marks": null },
+  { "Roll No.": "VSS26273", "Marks": 43 },
+  { "Roll No.": "VSS26274", "Marks": 22 },
+  { "Roll No.": "VSS26275", "Marks": 61 },
+  { "Roll No.": "VSS26276", "Marks": 29 },
+  { "Roll No.": "VSS26401", "Marks": 39 },
+  { "Roll No.": "VSS26402", "Marks": null },
+  { "Roll No.": "VSS26403", "Marks": 24 },
+  { "Roll No.": "VSS26404", "Marks": null },
+  { "Roll No.": "VSS26405", "Marks": null },
+  { "Roll No.": "VSS26406", "Marks": null },
+  { "Roll No.": "VSS26407", "Marks": 38 },
+  { "Roll No.": "VSS26408", "Marks": 61 },
+  { "Roll No.": "VSS26409", "Marks": 28 },
+  { "Roll No.": "VSS26410", "Marks": null },
+  { "Roll No.": "VSS26411", "Marks": null },
+  { "Roll No.": "VSS26412", "Marks": 73 },
+  { "Roll No.": "VSS26413", "Marks": 42 },
+  { "Roll No.": "VSS26414", "Marks": null },
+  { "Roll No.": "VSS26415", "Marks": null },
+  { "Roll No.": "VSS26416", "Marks": 60 },
+  { "Roll No.": "VSS26417", "Marks": null },
+  { "Roll No.": "VSS26418", "Marks": null },
+  { "Roll No.": "VSS26419", "Marks": 27 },
+  { "Roll No.": "VSS26420", "Marks": null },
+  { "Roll No.": "VSS26421", "Marks": null },
+  { "Roll No.": "VSS26422", "Marks": null },
+  { "Roll No.": "VSS26423", "Marks": null },
+  { "Roll No.": "VSS26424", "Marks": null },
+  { "Roll No.": "VSS26425", "Marks": 47 },
+  { "Roll No.": "VSS26426", "Marks": 36 },
+  { "Roll No.": "VSS26427", "Marks": 24 },
+  { "Roll No.": "VSS26428", "Marks": 30 },
+  { "Roll No.": "VSS26429", "Marks": null },
+  { "Roll No.": "VSS26430", "Marks": 27 },
+  { "Roll No.": "VSS26431", "Marks": null },
+  { "Roll No.": "VSS26432", "Marks": 34 },
+  { "Roll No.": "VSS26433", "Marks": 51 },
+  { "Roll No.": "VSS26434", "Marks": null },
+  { "Roll No.": "VSS26435", "Marks": null },
+  { "Roll No.": "VSS26436", "Marks": 45 },
+  { "Roll No.": "VSS26437", "Marks": null },
+  { "Roll No.": "VSS26438", "Marks": 56 },
+  { "Roll No.": "VSS26439", "Marks": 53 },
+  { "Roll No.": "VSS26440", "Marks": 28 },
+  { "Roll No.": "VSS26441", "Marks": null },
+  { "Roll No.": "VSS26442", "Marks": null },
+  { "Roll No.": "VSS26443", "Marks": null },
+  { "Roll No.": "VSS26444", "Marks": 36 },
+  { "Roll No.": "VSS26445", "Marks": null },
+  { "Roll No.": "VSS26446", "Marks": null },
+  { "Roll No.": "VSS26447", "Marks": null },
+  { "Roll No.": "VSS26448", "Marks": null },
+  { "Roll No.": "VSS26449", "Marks": 24 },
+  { "Roll No.": "VSS26450", "Marks": 38 },
+  { "Roll No.": "VSS26451", "Marks": 25 },
+  { "Roll No.": "VSS26452", "Marks": 33 },
+  { "Roll No.": "VSS26453", "Marks": 49 },
+  { "Roll No.": "VSS26454", "Marks": null },
+  { "Roll No.": "VSS26455", "Marks": 29 },
+  { "Roll No.": "VSS26456", "Marks": 47 },
+  { "Roll No.": "VSS26457", "Marks": null },
+  { "Roll No.": "VSS26458", "Marks": 29 },
+  { "Roll No.": "VSS26459", "Marks": null },
+  { "Roll No.": "VSS26460", "Marks": 35 },
+  { "Roll No.": "VSS26461", "Marks": null },
+  { "Roll No.": "VSS26462", "Marks": null },
+  { "Roll No.": "VSS26463", "Marks": 29 },
+  { "Roll No.": "VSS26464", "Marks": 30 },
+  { "Roll No.": "VSS26465", "Marks": null },
+  { "Roll No.": "VSS26466", "Marks": 28 },
+  { "Roll No.": "VSS26467", "Marks": 29 },
+  { "Roll No.": "VSS26468", "Marks": 33 },
+  { "Roll No.": "VSS26469", "Marks": null },
+  { "Roll No.": "VSS26470", "Marks": null },
+  { "Roll No.": "VSS26471", "Marks": null },
+  { "Roll No.": "VSS26472", "Marks": null },
+  { "Roll No.": "VSS26473", "Marks": 28 },
+  { "Roll No.": "VSS26474", "Marks": null },
+  { "Roll No.": "VSS26475", "Marks": null },
+  { "Roll No.": "VSS26476", "Marks": null },
+  { "Roll No.": "VSS26477", "Marks": null },
+  { "Roll No.": "VSS26478", "Marks": 35 },
+  { "Roll No.": "VSS26479", "Marks": null },
+  { "Roll No.": "VSS26480", "Marks": null },
+  { "Roll No.": "VSS26481", "Marks": null },
+  { "Roll No.": "VSS26482", "Marks": null },
+  { "Roll No.": "VSS26483", "Marks": null },
+  { "Roll No.": "VSS26484", "Marks": 35 },
+  { "Roll No.": "VSS26485", "Marks": null },
+  { "Roll No.": "VSS26486", "Marks": 73 },
+  { "Roll No.": "VSS26487", "Marks": 26 },
+  { "Roll No.": "VSS26488", "Marks": null },
+  { "Roll No.": "VSS26489", "Marks": 30 },
+  { "Roll No.": "VSS26490", "Marks": 43 },
+  { "Roll No.": "VSS26491", "Marks": null },
+  { "Roll No.": "VSS26492", "Marks": null },
+  { "Roll No.": "VSS26493", "Marks": null },
+  { "Roll No.": "VSS26494", "Marks": null },
+  { "Roll No.": "VSS26495", "Marks": null },
+  { "Roll No.": "VSS26496", "Marks": 34 },
+  { "Roll No.": "VSS26497", "Marks": null },
+  { "Roll No.": "VSS26498", "Marks": null },
+  { "Roll No.": "VSS26499", "Marks": 32 },
+  { "Roll No.": "VSS26500", "Marks": 46 },
+  { "Roll No.": "VSS26501", "Marks": null },
+  { "Roll No.": "VSS26502", "Marks": null },
+  { "Roll No.": "VSS26503", "Marks": 28 },
+  { "Roll No.": "VSS26504", "Marks": 43 },
+  { "Roll No.": "VSS26505", "Marks": null },
+  { "Roll No.": "VSS26506", "Marks": 25 },
+  { "Roll No.": "VSS26507", "Marks": null },
+  { "Roll No.": "VSS26508", "Marks": 30 },
+  { "Roll No.": "VSS26509", "Marks": 29 },
+  { "Roll No.": "VSS26510", "Marks": null },
+  { "Roll No.": "VSS26511", "Marks": 35 },
+  { "Roll No.": "VSS26512", "Marks": null },
+  { "Roll No.": "VSS26513", "Marks": null },
+  { "Roll No.": "VSS26514", "Marks": 42 },
+  { "Roll No.": "VSS26515", "Marks": null },
+  { "Roll No.": "VSS26516", "Marks": null },
+  { "Roll No.": "VSS26517", "Marks": 45 },
+  { "Roll No.": "VSS26518", "Marks": 39 },
+  { "Roll No.": "VSS26519", "Marks": 35 },
+  { "Roll No.": "VSS26520", "Marks": 67 },
+  { "Roll No.": "VSS26521", "Marks": null },
+  { "Roll No.": "VSS26522", "Marks": 26 },
+  { "Roll No.": "VSS26523", "Marks": 31 },
+  { "Roll No.": "VSS26524", "Marks": null },
+  { "Roll No.": "VSS26525", "Marks": 24 },
+  { "Roll No.": "VSS26526", "Marks": 50 },
+  { "Roll No.": "VSS26527", "Marks": 41 },
+  { "Roll No.": "VSS26528", "Marks": null },
+  { "Roll No.": "VSS26529", "Marks": 53 },
+  { "Roll No.": "VSS26530", "Marks": 40 },
+  { "Roll No.": "VSS26531", "Marks": 36 },
+  { "Roll No.": "VSS26532", "Marks": null },
+  { "Roll No.": "VSS26533", "Marks": null },
+  { "Roll No.": "VSS26534", "Marks": 55 },
+  { "Roll No.": "VSS26535", "Marks": 48 },
+  { "Roll No.": "VSS26536", "Marks": 61 },
+  { "Roll No.": "VSS26537", "Marks": 61 },
+  { "Roll No.": "VSS26538", "Marks": 39 },
+  { "Roll No.": "VSS26539", "Marks": null },
+  { "Roll No.": "VSS26540", "Marks": 32 },
+  { "Roll No.": "VSS26541", "Marks": 49 },
+  { "Roll No.": "VSS26542", "Marks": null },
+  { "Roll No.": "VSS26543", "Marks": 41 },
+  { "Roll No.": "VSS26544", "Marks": 35 },
+  { "Roll No.": "VSS26545", "Marks": 66 },
+  { "Roll No.": "VSS26546", "Marks": null },
+  { "Roll No.": "VSS26547", "Marks": null },
+  { "Roll No.": "VSS26548", "Marks": null },
+  { "Roll No.": "VSS26549", "Marks": 35 },
+  { "Roll No.": "VSS26550", "Marks": 7 },
+  { "Roll No.": "VSS26551", "Marks": null },
+  { "Roll No.": "VSS26552", "Marks": null },
+  { "Roll No.": "VSS26553", "Marks": null },
+  { "Roll No.": "VSS26554", "Marks": 25 },
+  { "Roll No.": "VSS26555", "Marks": null },
+  { "Roll No.": "VSS26556", "Marks": null },
+  { "Roll No.": "VSS26557", "Marks": 52 },
+  { "Roll No.": "VSS26558", "Marks": 27 },
+  { "Roll No.": "VSS26559", "Marks": null },
+  { "Roll No.": "VSS26560", "Marks": null },
+  { "Roll No.": "VSS26561", "Marks": null },
+  { "Roll No.": "VSS26562", "Marks": 29 },
+  { "Roll No.": "VSS26563", "Marks": null },
+  { "Roll No.": "VSS26564", "Marks": null },
+  { "Roll No.": "VSS26565", "Marks": null },
+  { "Roll No.": "VSS26566", "Marks": null },
+  { "Roll No.": "VSS26567", "Marks": null },
+  { "Roll No.": "VSS26568", "Marks": 24 },
+  { "Roll No.": "VSS26569", "Marks": 42 },
+  { "Roll No.": "VSS26570", "Marks": null },
+  { "Roll No.": "VSS26571", "Marks": 60 },
+  { "Roll No.": "VSS26572", "Marks": 44 },
+  { "Roll No.": "VSS26573", "Marks": 34 },
+  { "Roll No.": "VSS26574", "Marks": 26 },
+  { "Roll No.": "VSS26575", "Marks": null },
+  { "Roll No.": "VSS26576", "Marks": null },
+  { "Roll No.": "VSS26577", "Marks": null },
+  { "Roll No.": "VSS26578", "Marks": null },
+  { "Roll No.": "VSS26579", "Marks": 29 },
+  { "Roll No.": "VSS26580", "Marks": null },
+  { "Roll No.": "VSS26581", "Marks": 36 },
+  { "Roll No.": "VSS26582", "Marks": null },
+  { "Roll No.": "VSS26583", "Marks": null },
+  { "Roll No.": "VSS26584", "Marks": null },
+  { "Roll No.": "VSS26585", "Marks": 71 },
+  { "Roll No.": "VSS26586", "Marks": null },
+  { "Roll No.": "VSS26587", "Marks": 25 },
+  { "Roll No.": "VSS26588", "Marks": 46 },
+  { "Roll No.": "VSS26589", "Marks": null },
+  { "Roll No.": "VSS26590", "Marks": null },
+  { "Roll No.": "VSS26591", "Marks": null },
+  { "Roll No.": "VSS26592", "Marks": null },
+  { "Roll No.": "VSS26593", "Marks": null },
+  { "Roll No.": "VSS26594", "Marks": 31 },
+  { "Roll No.": "VSS26595", "Marks": null },
+  { "Roll No.": "VSS26596", "Marks": 43 },
+  { "Roll No.": "VSS26597", "Marks": null },
+  { "Roll No.": "VSS26598", "Marks": null },
+  { "Roll No.": "VSS26599", "Marks": null },
+  { "Roll No.": "VSS26600", "Marks": 32 },
+  { "Roll No.": "VSS26601", "Marks": null },
+  { "Roll No.": "VSS26602", "Marks": null },
+  { "Roll No.": "VSS26603", "Marks": 35 },
+  { "Roll No.": "VSS26604", "Marks": 30 },
+  { "Roll No.": "VSS26605", "Marks": 36 },
+  { "Roll No.": "VSS26606", "Marks": 6 },
+  { "Roll No.": "VSS26607", "Marks": null },
+  { "Roll No.": "VSS26608", "Marks": 45 },
+  { "Roll No.": "VSS26609", "Marks": null },
+  { "Roll No.": "VSS26610", "Marks": null },
+  { "Roll No.": "VSS26611", "Marks": null },
+  { "Roll No.": "VSS26612", "Marks": null },
+  { "Roll No.": "VSS26613", "Marks": 38 },
+  { "Roll No.": "VSS26614", "Marks": null },
+  { "Roll No.": "VSS26615", "Marks": 40 },
+  { "Roll No.": "VSS26616", "Marks": 31 },
+  { "Roll No.": "VSS26617", "Marks": null },
+  { "Roll No.": "VSS26618", "Marks": null },
+  { "Roll No.": "VSS26619", "Marks": null },
+  { "Roll No.": "VSS26620", "Marks": 30 },
+  { "Roll No.": "VSS26621", "Marks": 27 },
+  { "Roll No.": "VSS26622", "Marks": 38 },
+  { "Roll No.": "VSS26623", "Marks": 34 },
+  { "Roll No.": "VSS26624", "Marks": 31 },
+  { "Roll No.": "VSS26625", "Marks": 79 },
+  { "Roll No.": "VSS26626", "Marks": null },
+  { "Roll No.": "VSS26627", "Marks": 31 },
+  { "Roll No.": "VSS26628", "Marks": null },
+  { "Roll No.": "VSS26629", "Marks": null },
+  { "Roll No.": "VSS26630", "Marks": 71 },
+  { "Roll No.": "VSS26631", "Marks": null },
+  { "Roll No.": "VSS26632", "Marks": null },
+  { "Roll No.": "VSS26633", "Marks": 37 },
+  { "Roll No.": "VSS26634", "Marks": 37 },
+  { "Roll No.": "VSS26635", "Marks": 77 },
+  { "Roll No.": "VSS26636", "Marks": null },
+  { "Roll No.": "VSS26637", "Marks": 33 },
+  { "Roll No.": "VSS26638", "Marks": 35 },
+  { "Roll No.": "VSS26639", "Marks": 34 },
+  { "Roll No.": "VSS26640", "Marks": null },
+  { "Roll No.": "VSS26641", "Marks": null },
+  { "Roll No.": "VSS26642", "Marks": null },
+  { "Roll No.": "VSS26643", "Marks": null },
+  { "Roll No.": "VSS26644", "Marks": null },
+  { "Roll No.": "VSS26645", "Marks": null },
+  { "Roll No.": "VSS26646", "Marks": 62 },
+  { "Roll No.": "VSS26647", "Marks": null },
+  { "Roll No.": "VSS26648", "Marks": 47 },
+  { "Roll No.": "VSS26649", "Marks": 50 },
+  { "Roll No.": "VSS26650", "Marks": null },
+  { "Roll No.": "VSS26651", "Marks": 21 },
+  { "Roll No.": "VSS26652", "Marks": null },
+  { "Roll No.": "VSS26653", "Marks": null },
+  { "Roll No.": "VSS26654", "Marks": null },
+  { "Roll No.": "VSS26655", "Marks": null },
+  { "Roll No.": "VSS26656", "Marks": null },
+  { "Roll No.": "VSS26657", "Marks": null },
+  { "Roll No.": "VSS26658", "Marks": 40 },
+  { "Roll No.": "VSS26659", "Marks": 60 },
+  { "Roll No.": "VSS26660", "Marks": 33 },
+  { "Roll No.": "VSS26661", "Marks": 42 }
+];
+</script>
 
-    // Load JSON data
-    fetch('result.json')
-    .then(res => res.json())
-    .then(data => {
-        results = data;
-        console.log("Data loaded:", results); // debug
-    })
-    .catch(() => {
-        document.getElementById('result').innerHTML =
-        '<p class="error">Error loading data</p>';
-    });
+<script>
+// 🔍 SEARCH LOGIC
+document.getElementById('resultForm').addEventListener('submit', function(e) {
+    e.preventDefault();
 
-    // Form submit
-    document.getElementById('resultForm').addEventListener('submit', function(e) {
-        e.preventDefault();
+    let rollNo = document.getElementById('rollNo').value.trim().toUpperCase();
+    let student = results.find(r => r["Roll No."] === rollNo);
 
-        let rollNo = document.getElementById('rollNo').value.trim().toUpperCase();
-        let resultDiv = document.getElementById('result');
+    if (student) {
+        document.getElementById('searchBox').style.display = 'none';
+        document.getElementById('resultBox').style.display = 'block';
 
-        if (!rollNo) {
-            resultDiv.innerHTML = '<p class="error">Please enter roll number.</p>';
-            return;
-        }
+        document.getElementById('studentRoll').innerText = student["Roll No."];
 
-        let student = results.find(r => r["Roll No."] === rollNo);
-
-        if (student) {
-            document.getElementById('searchBox').style.display = 'none';
-            document.getElementById('resultBox').style.display = 'block';
-
-            document.getElementById('studentRoll').innerText = student["Roll No."];
-
-            if (student.Marks === null) {
-                document.getElementById('studentMarks').innerText = "Absent";
-            } else {
-                document.getElementById('studentMarks').innerText = student.Marks + " / 100";
-            }
-
+        if (student.Marks === null) {
+            document.getElementById('studentMarks').innerText = "Absent";
         } else {
-            resultDiv.innerHTML = '<p class="error">No result found for this roll number.</p>';
+            document.getElementById('studentMarks').innerText = student.Marks + " / 100";
         }
-    });
+
+    } else {
+        document.getElementById('error').innerHTML =
+        '<p style="color:red;">No result found</p>';
+    }
+});
 </script>
 
 </body>
