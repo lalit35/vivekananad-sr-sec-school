@@ -61,7 +61,7 @@
             border: none;
             background: #444;
             color: white;
-            text-transform: uppercase; /* Force uppercase visually */
+            text-transform: uppercase;
         }
 
         .btn {
@@ -82,6 +82,7 @@
             border-radius: 15px;
             width: 90%;
             max-width: 500px;
+            text-align: center;
         }
 
         .error {
@@ -119,8 +120,6 @@
             class="input-field"
             placeholder="Enter Roll Number (VSS...)"
             oninput="this.value = this.value.toUpperCase()"
-            pattern="VSS[0-9]+"
-            title="Roll number must start with VSS (e.g., VSS101)"
             required
         >
 
@@ -133,8 +132,8 @@
 <div class="result-box" id="resultBox">
     <h2>Student Result</h2>
 
-    <p><strong>Name:</strong> <span id="studentName"></span></p>
-    <p><strong>Marks:</strong> <span id="studentMarks"></span> / 100</p>
+    <p><strong>Roll No:</strong> <span id="studentRoll"></span></p>
+    <p><strong>Marks:</strong> <span id="studentMarks"></span></p>
 
     <a href="tel:+9416848776" class="call-btn">
         <i class="fas fa-phone"></i>
@@ -149,6 +148,7 @@
     .then(res => res.json())
     .then(data => {
         results = data;
+        console.log("Data loaded:", results); // debug
     })
     .catch(() => {
         document.getElementById('result').innerHTML =
@@ -162,20 +162,25 @@
         let rollNo = document.getElementById('rollNo').value.trim().toUpperCase();
         let resultDiv = document.getElementById('result');
 
-        // Extra validation
-        if (!rollNo.startsWith("VSS")) {
-            resultDiv.innerHTML = '<p class="error">Roll number must start with VSS.</p>';
+        if (!rollNo) {
+            resultDiv.innerHTML = '<p class="error">Please enter roll number.</p>';
             return;
         }
 
-        let student = results.find(r => r["Roll No."] == rollNo);
+        let student = results.find(r => r["Roll No."] === rollNo);
 
         if (student) {
             document.getElementById('searchBox').style.display = 'none';
             document.getElementById('resultBox').style.display = 'block';
 
-            document.getElementById('studentName').innerText = student.Name;
-            document.getElementById('studentMarks').innerText = student.Marks;
+            document.getElementById('studentRoll').innerText = student["Roll No."];
+
+            if (student.Marks === null) {
+                document.getElementById('studentMarks').innerText = "Absent";
+            } else {
+                document.getElementById('studentMarks').innerText = student.Marks + " / 100";
+            }
+
         } else {
             resultDiv.innerHTML = '<p class="error">No result found for this roll number.</p>';
         }
